@@ -1,0 +1,23 @@
+.vp-doc .el-table__header,
+.vp-doc .el-table__body {
+  margin: 0;
+  border-collapse: separate;
+}
+
+.vp-doc .el-table__row,
+.vp-doc .el-table__cell {
+  border: unset;
+}
+
+.vp-doc .el-table__row:nth-child(2n) {
+  background-color: unset;
+}
+
+.el-pagination__rightwrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[class^="el-"] li + li {
+  margin-top: 0;
+}

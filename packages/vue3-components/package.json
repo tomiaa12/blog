@@ -1,0 +1,52 @@
+{
+  "name": "@tomiaa/vue3-components",
+  "version": "0.2.27",
+  "private": false,
+  "description": "这是一个vue3业务组件库",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./src": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [
+    "vue3",
+    "component",
+    "notification",
+    "progress",
+    "selectArea",
+    "selectDate",
+    "selectTime",
+    "trend",
+    "table",
+    "form"
+  ],
+  "author": "tomiaa",
+  "license": "MIT",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
+    "@tomiaa/theme-chalk": "^0.0.4",
+    "@tomiaa/utils": "0.1.6",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "element-plus": "^2.2.22",
+    "qs": "^6.11.0",
+    "vue": "^3.2.45",
+    "vue-i18n": "^9.2.2"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.7"
+  }
+}

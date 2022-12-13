@@ -1,0 +1,62 @@
+{
+  "name": "@tomiaa/monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "play-dev": "pnpm -C play dev",
+    "docs-dev": "pnpm -C vitepress dev",
+    "v3-build": "pnpm -C packages/vue3-components build",
+    "docs-build": "pnpm -C docs build",
+    "utils-build": "pnpm -C packages/utils build",
+    "library-build": "pnpm -C packages/library build",
+    "theme-chalk-build": "pnpm -C packages/theme-chalk build",
+    "proxy": "pnpm -C proxy start",
+    "log": "pnpm -C vitepress log"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomiaa12/kyx.git"
+  },
+  "keywords": [
+    "@tomiaa"
+  ],
+  "author": "tomiaa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomiaa12/kyx/issues"
+  },
+  "homepage": "https://github.com/tomiaa12/kyx#readme",
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
+    "@tomiaa/library": "workspace:*",
+    "@tomiaa/theme-chalk": "workspace:*",
+    "@tomiaa/utils": "workspace:*",
+    "@tomiaa/vue3-components": "workspace:*",
+    "element-plus": "^2.2.20",
+    "unplugin-vue-define-options": "0.6.2",
+    "vue": "^3.2.45",
+    "vuepress": "^1.9.7"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.6",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "@vitejs/plugin-vue-jsx": "^2.0.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.3.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.4",
+    "typescript": "^4.7.4",
+    "unplugin-auto-import": "^0.11.4",
+    "unplugin-vue-components": "^0.22.9",
+    "vite": "^3.2.5",
+    "vite-plugin-dts": "^1.4.1",
+    "vue-tsc": "^0.39.5"
+  }
+}

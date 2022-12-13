@@ -1,0 +1,32 @@
+{
+  "name": "vitepress",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev src",
+    "build": "npm run log && vitepress build src",
+    "serve": "vitepress serve src",
+    "preview": "vitepress preview src --port 8080",
+    "log": "conventional-changelog -p angular -i ./src/docs/关于/更新日志.md -s -r 0 -n ./changelog.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "conventional-changelog-cli": "^2.2.2",
+    "sitemap": "^7.1.1",
+    "vitepress": "1.0.0-alpha.30",
+    "vue": "^3.2.45"
+  },
+  "dependencies": {
+    "@tomiaa/utils": "workspace:0.1.6",
+    "@tomiaa/vue3-components": "workspace:0.2.27",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "axios-jsonp": "^1.0.4",
+    "element-plus": "^2.2.26",
+    "ol": "^7.1.0",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js": "^6.5.8"
+  }
+}

@@ -1,0 +1,6 @@
+singleQuote: false # false 不使用单引号
+semi: false # false 不使用分号
+trailingComma: "es5" # 在多行数组、对象的最后一项添加逗号，单行数组不会添加。
+arrowParens: "avoid" # 箭头函数只有一个参数时省略括号
+endOfLine: "auto" # 结尾自动换行
+singleAttributePerLine: true # true 标签属性使用单行

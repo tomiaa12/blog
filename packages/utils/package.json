@@ -1,0 +1,35 @@
+{
+  "name": "@tomiaa/utils",
+  "version": "0.1.6",
+  "private": false,
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./src": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [
+    "vue3",
+    "utils"
+  ],
+  "files": [
+    "es",
+    "lib"
+  ],
+  "author": "tomiaa",
+  "license": "MIT",
+  "dependencies": {
+    "@vueuse/core": "^9.4.0",
+    "axios": "^0.27.2"
+  }
+}

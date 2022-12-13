@@ -1,0 +1,21 @@
+@use "../mixins/mixins.scss" as *;
+
+@include b(table) {
+  // 单元格编辑
+  @include e(editable) {
+    // 图标
+    .el-icon {
+      vertical-align: middle;
+      padding-left: 0.2em;
+      cursor: pointer;
+    }
+    // 编辑状态
+    @include when(editable) {
+      display: flex;
+      align-items: center;
+      .el-input {
+        flex: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@tomiaa/theme-chalk",
+  "version": "0.0.5",
+  "description": "这里是 @tomiaa/* 的样式库",
+  "main": "lib",
+  "scripts": {
+    "build": "gulp "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/gulp": "^4.0.9",
+    "@types/gulp-sass": "^5.0.0",
+    "esm": "^3.2.25",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.54.4",
+    "ts-node": "^10.9.1"
+  }
+}

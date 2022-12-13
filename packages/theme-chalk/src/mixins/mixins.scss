@@ -1,0 +1,34 @@
+@use "config" as *;
+@forward "config";
+
+// .k-button{}
+@mixin b($block) {
+  .#{$namespace + "-" + $block} {
+    @content;
+  }
+}
+
+// &.is-disabled => .k-button.is-disabled{}
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+// &--primary => .k-button--primary{}
+@mixin m($modifier) {
+  @at-root {
+    #{& + $modifier-sparator + $modifier} {
+      @content;
+    }
+  }
+}
+
+// &__header => .k-button__header
+@mixin e($element) {
+  #{& + $element-separator + $element} {
+    @content;
+  }
+}

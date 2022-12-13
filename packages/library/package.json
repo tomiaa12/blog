@@ -1,0 +1,35 @@
+{
+  "name": "@tomiaa/library",
+  "version": "0.0.6",
+  "private": false,
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./src": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [],
+  "files": [
+    "es",
+    "lib"
+  ],
+  "author": "tomiaa",
+  "license": "MIT",
+  "dependencies": {
+    "@tomiaa/theme-chalk": "*",
+    "@tomiaa/utils": "*",
+    "axios": "^0.27.2",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js": "^7.0.4"
+  }
+}
