@@ -1,6 +1,6 @@
 import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
-import path from "path"
+import { resolve } from "path"
 
 // 生成打包后的 ts 类型文件
 import dts from "vite-plugin-dts"
@@ -17,19 +17,18 @@ export default defineConfig({
   resolve: {
     alias: {
       // 别名
-      "@": path.resolve(__dirname, "src"),
+      "@": resolve(__dirname, "src"),
     },
   },
   // 打包为库
   build: {
     lib: {
-      entry: "src/index",
+      entry: "src",
       name: "index",
     },
     target: "modules",
     outDir: "es",
     rollupOptions: {
-      input: ["src/index"],
       // 确保外部化处理那些你不想打包进库的依赖
       external: [
         "axios",
