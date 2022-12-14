@@ -12,6 +12,7 @@ const live2dContentRef = ref()
 onMounted(() => {
   new Live2d({
     el: live2dContentRef.value,
+    showLoading: false,
   })
 })
 </script>
