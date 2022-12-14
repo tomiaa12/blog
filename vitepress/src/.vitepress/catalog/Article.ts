@@ -1,5 +1,13 @@
 export const Article = [
   {
+    text: "JS 库",
+    collapsible: true,
+    items: [
+      { text: "开箱即用的 Live2d", link: "/docs/文章/JS Lib/Live2d" },
+      { text: "hitokoto 一言", link: "/docs/文章/JS Lib/hitokoto" },
+    ],
+  },
+  {
     text: "vue3 组件",
     collapsible: true,
     items: [

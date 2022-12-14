@@ -34,7 +34,8 @@ export default defineConfig({
   lang: "zh-CN",
   description:
     "包含网址导航、软件分享、HTML、CSS、JavaScript、Vue、React、TypeScript、Node.js...",
-
+  lastUpdated: true,
+  outDir: "../kuangyx",
   head: [
     // 添加百度统计
     [

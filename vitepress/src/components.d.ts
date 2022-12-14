@@ -9,6 +9,9 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
+    ElIconCaretBottom: typeof import('@element-plus/icons-vue')['CaretBottom']
+    ElIconCaretTop: typeof import('@element-plus/icons-vue')['CaretTop']
+    ElIconOperation: typeof import('@element-plus/icons-vue')['Operation']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElPopover: typeof import('element-plus/es')['ElPopover']
     ElSpace: typeof import('element-plus/es')['ElSpace']
