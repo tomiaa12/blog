@@ -13,12 +13,15 @@ export interface HitokotoOptions {
   el: any
   // 流动边框颜色
   movingBorderColor?: string
+  // 刷新间隔毫秒 0 不自动刷新
+  interval?: number
 }
 
 export class Hitokoto {
   public data: any
   options = {
     movingBorderColor: "#42b883",
+    interval: 10000,
   } as HitokotoOptions
   el: any
   constructor(options: HitokotoOptions) {
@@ -36,6 +39,11 @@ export class Hitokoto {
 
     this.init()
     this.getData()
+
+    this.el.addEventListener("mouseover", () => {
+      clearTimeout(this.timer)
+    })
+    this.el.addEventListener("mouseout", this.autoGet)
   }
 
   // 内容
@@ -71,6 +79,11 @@ export class Hitokoto {
 
   timer = 0
 
+  autoGet() {
+    this.options.interval &&
+      setTimeout(this.getData.bind(this), this.options.interval)
+  }
+
   async getData() {
     window.clearTimeout(this.timer)
     this.elLike.style.color = "transparent"
@@ -79,6 +92,7 @@ export class Hitokoto {
     this.word.innerText = data.hitokoto
     this.author.innerText = `——${data.from_who}「${data.from}」`
     this.getLikeNum()
+    this.autoGet()
   }
 
   // 获取喜欢数量
