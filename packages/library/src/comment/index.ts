@@ -169,9 +169,9 @@ export class Comment {
     div.className = bem.e("login")
     this.button.innerHTML = this.userInfo ? "发表评论" : "使用 Gitee 登录"
     // this.button.disabled = !this.userInfo || !this.textarea.value
-    this.button.onclick = this.userInfo
-      ? this.publish.bind(this)
-      : this.login.bind(this)
+    this.button.onclick = () => {
+      this.userInfo ? this.publish.call(this) : this.login.call(this)
+    }
     div.appendChild(this.button)
     this.el.append(div)
   }
