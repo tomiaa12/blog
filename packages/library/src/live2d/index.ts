@@ -28,8 +28,8 @@ const switchClothingSvg = `<svg width="30" height="30" viewBox="0 0 48 48" fill=
 // 配置参数
 export interface Live2dOptions {
   // 容器 querySelector 选择器，默认值 #live2d
-  el: string
-  // js 依赖地址，默认值 "https://cdn.jsdelivr.net/gh/tomiaa12/kyx/packages/library/src/live2d/public"
+  el: any
+  // js 依赖地址，默认值 "https://tomiaa12.github.io/live2d/public"
   jsBaseURL?: string
   // live2d 地址，默认使用 jsBaseURL
   live2d_2_ModelBaseURL?: string
@@ -159,7 +159,7 @@ export class Live2d {
     return (
       this.options.jsBaseURL ||
       // "https://cdn.jsdelivr.net/gh/tomiaa12/kyx/packages/library/src/live2d/public"
-      "https://live2d.kuangyx.cn/public"
+      "https://tomiaa12.github.io/live2d/public"
     )
   }
 
@@ -194,6 +194,9 @@ export class Live2d {
 
     // 控制栏
     this.addControls()
+
+    // 设置当前模型
+    this.setPersonIndex()
 
     // 加载模型
     await this.loadModel()
@@ -248,7 +251,7 @@ export class Live2d {
 
   // 创建模型列表
   async loadModelList() {
-    if (!this.options.loadLive2d_2 || !this.options.loadLive2d_3) {
+    if (!this.options.loadLive2d_2 && !this.options.loadLive2d_3) {
       console.error("loadLive2d_2与loadLive2d_3至少加载一种!")
       return Promise.reject()
     }
@@ -300,23 +303,29 @@ export class Live2d {
     this.el.style.pointerEvents = "none"
     this.elLoading.style.display = "block"
     this.elControl.style.display = "none"
+    if (this.elHitokoto) {
+      this.elHitokoto.style.display = "none"
+      this.hitokoto?.getData()
+    }
     this.model?.destroy?.()
-
-    this.setPersonIndex()
 
     const baseURL =
       this.currentModelOption!.version === 3
         ? this.getLive2d_3_ModelBaseURL
         : this.getLive2d_2_ModelBaseURL
-
-    this.model = await this.Live2DModel!.from(
-      baseURL + this.currentModelOption!.list[this.clothingIndex]
-    )
+    try {
+      this.model = await this.Live2DModel!.from(
+        baseURL + this.currentModelOption!.list[this.clothingIndex]
+      )
+    } catch {
+      this.elLoading.style = "none"
+    }
     this.loading = false
     this.el.style.pointerEvents = "auto"
     this.elLoading.style.display = "none"
     this.elControl.style.display = "block"
-    this.app!.stage.addChild(this.model)
+    this.elHitokoto && (this.elHitokoto.style.display = "block")
+    this.app!.stage.addChild(this.model!)
     this.onresize()
     this.options.playLoadingAnimation && this.animation("login")
   }
