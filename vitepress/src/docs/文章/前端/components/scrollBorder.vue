@@ -37,8 +37,8 @@
   </div>
 </template>
 <script setup lang="ts">
-const src = `url(/img/文章/前端/css实现不规则透明盒子滚动边框/0.png)`
-const src1 = `url(/img/文章/前端/css实现不规则透明盒子滚动边框/1.png)`
+const src = `url(./img/css实现不规则透明盒子滚动边框/0.png)`
+const src1 = `url(./img/css实现不规则透明盒子滚动边框/1.png)`
 </script>
 <style lang="scss" scoped>
 .scroll-border {
