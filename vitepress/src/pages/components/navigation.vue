@@ -357,7 +357,7 @@ const listClick = () => {
   .aside {
     position: fixed;
     right: 0;
-    z-index: 3000;
+    z-index: 10;
     top: var(--vp-nav-height-desktop);
     ul {
       list-style: none;

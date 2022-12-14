@@ -65,7 +65,7 @@ import list from "./software"
     position: fixed;
     right: 0;
     top: var(--vp-nav-height-desktop);
-    z-index: 3000;
+    z-index: 10;
     ul {
       list-style: none;
       margin: 0;

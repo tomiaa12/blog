@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "npm run log && vitepress build src",
+    "build": "vitepress build src",
     "serve": "vitepress serve src",
     "preview": "vitepress preview src --port 8080",
     "log": "conventional-changelog -p angular -i ./src/docs/关于/更新日志.md -s -r 0 -n ./changelog.ts"
