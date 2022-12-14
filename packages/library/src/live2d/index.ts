@@ -301,8 +301,8 @@ export class Live2d {
   async loadModel() {
     this.loading = true
     this.el.style.pointerEvents = "none"
-    this.elLoading.style.display = "block"
-    this.elControl.style.display = "none"
+    this.elLoading && (this.elLoading.style.display = "block")
+    this.elControl && (this.elControl.style.display = "none")
     if (this.elHitokoto) {
       this.elHitokoto.style.display = "none"
       this.hitokoto?.getData()
@@ -318,12 +318,12 @@ export class Live2d {
         baseURL + this.currentModelOption!.list[this.clothingIndex]
       )
     } catch {
-      this.elLoading.style = "none"
+      this.elLoading && (this.elLoading.style.display = "none")
     }
     this.loading = false
     this.el.style.pointerEvents = "auto"
-    this.elLoading.style.display = "none"
-    this.elControl.style.display = "block"
+    this.elLoading && (this.elLoading.style.display = "none")
+    this.elControl && (this.elControl.style.display = "block")
     this.elHitokoto && (this.elHitokoto.style.display = "block")
     this.app!.stage.addChild(this.model!)
     this.onresize()

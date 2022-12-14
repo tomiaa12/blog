@@ -1,6 +1,6 @@
 {
   "name": "@tomiaa/library",
-  "version": "0.0.64",
+  "version": "0.0.65",
   "private": false,
   "description": "",
   "main": "lib/index.js",
