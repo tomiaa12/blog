@@ -29,7 +29,10 @@
                 {{ j.desc }}
               </p>
               <p v-for="k of j.download">
-                <el-button link>
+                <el-button
+                  link
+                  @click.prevent="open(k)"
+                >
                   <span>
                     {{ k.name }}
                   </span>
@@ -46,6 +49,10 @@
 
 <script setup lang="ts">
 import list from "./software"
+
+const open = (item: any) => {
+  window.open(item.url)
+}
 </script>
 <style lang="scss">
 .software {

@@ -128,6 +128,11 @@ export default defineConfig({
     ],
   ],
   themeConfig: {
+    // algolia: {
+    //   appId: "FGZRHFTTSH",
+    //   apiKey: "1995152b867b6ed3a2b75c50bc8e9c81",
+    //   indexName: "kuangyx",
+    // },
     outlineTitle: "此页目录",
     lastUpdatedText: "最后更新时间",
     outline: [2, 6],
