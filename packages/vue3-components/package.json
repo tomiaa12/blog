@@ -1,6 +1,6 @@
 {
   "name": "@tomiaa/vue3-components",
-  "version": "0.2.27",
+  "version": "0.2.29",
   "private": false,
   "description": "这是一个vue3业务组件库",
   "main": "lib/index.js",
@@ -41,7 +41,8 @@
     "@tomiaa/theme-chalk": "^0.0.4",
     "@tomiaa/utils": "0.1.6",
     "@wangeditor/editor-for-vue": "^5.1.12",
-    "element-plus": "^2.2.22",
+    "axios": "^0.27.2",
+    "element-plus": "^2.2.26",
     "qs": "^6.11.0",
     "vue": "^3.2.45",
     "vue-i18n": "^9.2.2"

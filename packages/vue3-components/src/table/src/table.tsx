@@ -309,7 +309,7 @@ export default defineComponent({
           layout="->,sizes,prev,pager,next,jumper,total"
           hide-on-single-page
           {...attrs}
-          onUpdate:currentPage={async (num: number) => {
+          onUpdate:current-page={async (num: number) => {
             currentPage.value = num
             await nextTick()
             getData()

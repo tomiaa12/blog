@@ -9,14 +9,15 @@ import dts from "vite-plugin-dts"
 
 export default defineConfig({
   plugins: [
+    vue(),
+    vueJsx(), // jsx
+    DefineOptions(),
     dts({
       entryRoot: "src", // 入口，不配置会生成嵌套根目录的文件
       outputDir: "es", // 输出
       insertTypesEntry: true,
+      skipDiagnostics: true,
     }),
-    vue(),
-    vueJsx(), // jsx
-    DefineOptions(),
   ],
   resolve: {
     alias: {

@@ -214,7 +214,10 @@ export default defineComponent({
 
         /* 当前项与 el-col, el-form-item 平级 */
         let temp = {
-          ...pickObjByKeys(item, Object.keys(ElCol.props)),
+          ...pickObjByKeys(
+            item,
+            Object.keys(ElCol.props).concat("vIf", "v-if")
+          ),
           class: item.class ? `${item.class}__el-col` : "",
           el: "el-col",
           children: {

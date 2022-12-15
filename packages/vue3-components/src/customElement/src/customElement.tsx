@@ -107,6 +107,7 @@ export default defineComponent({
             /* 对默认插槽与具名插槽处理 */
             let temp: { [prop: string | symbol]: any } = {}
             const child = render(children)
+            if (!child) return
             if (Array.isArray(child)) {
               // 正常渲染
               temp.default = () => child.filter(i => !i[isSlot])
