@@ -90,7 +90,7 @@ export class Hitokoto {
     const { data } = await http.get("https://v1.hitokoto.cn?encode=json")
     this.data = data
     this.word.innerText = data.hitokoto
-    this.author.innerText = `——${data.from_who}「${data.from}」`
+    this.author.innerText = `——${data.from_who || ""}「${data.from || ""}」`
     this.getLikeNum()
     this.autoGet()
   }
