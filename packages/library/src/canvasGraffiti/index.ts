@@ -281,4 +281,24 @@ export class CanvasGraffiti implements ToolOptions {
     this.bufferCtx!.strokeStyle = this.color
     this.bufferCtx!.lineWidth = this.lineWidth
   }
+
+  // 销毁
+  destroy(isRemoveCanvas: boolean) {
+    this.removeEventListener()
+    if (isRemoveCanvas) this.el.remove()
+  }
+
+  // 获取 canvas.toDataURL
+  toDataURL(type = "image/png", encoderOptions = 0.92) {
+    return this.el.toDataURL(type, encoderOptions)
+  }
+
+  // 获取 canvas 的图片文件
+  toPicFile(filename = "0.png"): Promise<File> {
+    return new Promise(res => {
+      this.el.toBlob(blob => {
+        blob && res(new File([blob], filename))
+      })
+    })
+  }
 }
