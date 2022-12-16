@@ -1,6 +1,6 @@
 {
   "name": "@tomiaa/library",
-  "version": "0.0.71",
+  "version": "0.0.72",
   "private": false,
   "description": "一个无框架依赖的JS库",
   "main": "lib/index.js",

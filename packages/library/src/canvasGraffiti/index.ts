@@ -283,7 +283,7 @@ export class CanvasGraffiti implements ToolOptions {
   }
 
   // 销毁
-  destroy(isRemoveCanvas: boolean) {
+  destroy(isRemoveCanvas?: boolean) {
     this.removeEventListener()
     if (isRemoveCanvas) this.el.remove()
   }
