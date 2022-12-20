@@ -1,0 +1,34 @@
+{
+  "name": "@tomiaa/canvas-graffiti",
+  "version": "0.0.1",
+  "private": false,
+  "description": "canvas 涂鸦画板，支持笔写、手写、鼠标绘图",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./src": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [
+    "@tomiaa",
+    "@tomiaa/canvas",
+    "kuangyx.cn",
+    "canvas",
+    "canvas-graffiti"
+  ],
+  "files": [
+    "es",
+    "lib"
+  ],
+  "author": "tomiaa",
+  "license": "MIT"
+}
