@@ -1,0 +1,38 @@
+{
+  "name": "@tomiaa/hitokoto",
+  "version": "0.0.4",
+  "private": false,
+  "description": "hitokoto 一言的无依赖 JS 库",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./src": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [
+    "@tomiaa",
+    "@tomiaa/hitokoto",
+    "kuangyx.cn",
+    "hitokoto",
+    "一言"
+  ],
+  "files": [
+    "es",
+    "lib"
+  ],
+  "author": "tomiaa",
+  "license": "MIT",
+  "dependencies": {
+    "@tomiaa/utils": "*",
+    "axios": "^1.2.1"
+  }
+}
