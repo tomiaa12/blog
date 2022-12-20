@@ -1,0 +1,55 @@
+@use "@tomiaa/theme-chalk/src/mixins/mixins.scss" as *;
+
+@keyframes live2d-loading-rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+}
+
+@include b(live2d) {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 2000;
+  @include b(hitokoto) {
+    top: -80px;
+  }
+  @include e(loading) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 25px;
+    animation: live2d-loading-rotate 2s linear infinite;
+  }
+  @include e(control) {
+    position: absolute;
+    top: 0;
+    right: 0.2em;
+    z-index: 2;
+    svg {
+      margin-bottom: 0.2em;
+    }
+    i {
+      position: relative;
+      &::after {
+        opacity: 0;
+        content: attr(data-tip);
+        position: absolute;
+        right: 120%;
+        top: 0%;
+        white-space: nowrap;
+        line-height: 1;
+        background-color: #303133;
+        color: white;
+        padding: 5px 11px;
+        font-size: 12px;
+        border-radius: 4px;
+      }
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

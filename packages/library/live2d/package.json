@@ -1,0 +1,41 @@
+{
+  "name": "@tomiaa/live2d",
+  "version": "0.0.1",
+  "private": false,
+  "description": "开箱即用的 Live2d",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./src": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [
+    "@tomiaa",
+    "@tomiaa/live2d",
+    "kuangyx.cn",
+    "live2d",
+    "live2d 3",
+    "看板娘"
+  ],
+  "files": [
+    "es",
+    "lib"
+  ],
+  "author": "tomiaa",
+  "license": "MIT",
+  "dependencies": {
+    "@tomiaa/hitokoto": "*",
+    "@tomiaa/utils": "*",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js": "^7.0.5"
+  }
+}
