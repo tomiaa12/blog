@@ -16,15 +16,13 @@
   "devDependencies": {
     "conventional-changelog-cli": "^2.2.2",
     "sitemap": "^7.1.1",
-    "vitepress": "1.0.0-alpha.31",
+    "vitepress": "1.0.0-alpha.32",
     "vue": "^3.2.45"
   },
   "dependencies": {
-    "@tomiaa/utils": "workspace:0.1.6",
-    "@tomiaa/vue3-components": "workspace:0.2.27",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios-jsonp": "^1.0.4",
-    "element-plus": "^2.2.26",
+    "element-plus": "^2.2.27",
     "ol": "^7.1.0",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js": "^6.5.8"

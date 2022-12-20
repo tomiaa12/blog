@@ -19,9 +19,8 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, nextTick } from "vue"
-import { Comment } from "@tomiaa/library/src"
+import { Comment } from "@tomiaa/comment"
 import { useRoute } from "vitepress"
-import "@tomiaa/theme-chalk/lib/library/comment.css"
 
 const route = useRoute()
 const commentRef = ref()
