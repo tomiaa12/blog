@@ -1,6 +1,6 @@
 {
   "name": "@tomiaa/canvas-graffiti",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "canvas 涂鸦画板，支持笔写、手写、鼠标绘图",
   "main": "lib/index.js",

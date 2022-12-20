@@ -1,6 +1,6 @@
 {
   "name": "@tomiaa/comment",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "基于 gitee Issue 评论的 JS 插件库",
   "main": "lib/index.js",
