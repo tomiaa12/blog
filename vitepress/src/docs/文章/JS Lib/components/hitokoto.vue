@@ -8,8 +8,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue"
-import { Hitokoto } from "@tomiaa/library/src"
-import "@tomiaa/theme-chalk/lib/library/hitokoto.css"
+import { Hitokoto } from "@tomiaa/hitokoto"
 
 const hitokotoContentRef = ref()
 
@@ -28,7 +27,6 @@ const like = () => hitokoto.like()
 // ref="hitokotoContentRef" 会 position: absolute;
 .content {
   position: relative;
-  height: 100px;
-  margin-top: 100px;
+  height: 200px;
 }
 </style>
