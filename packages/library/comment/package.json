@@ -1,0 +1,38 @@
+{
+  "name": "@tomiaa/comment",
+  "version": "0.0.1",
+  "private": false,
+  "description": "基于 gitee Issue 评论的 JS 插件库",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./src": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [
+    "@tomiaa",
+    "@tomiaa/comment",
+    "kuangyx.cn",
+    "comment",
+    "gitee 评论"
+  ],
+  "files": [
+    "es",
+    "lib"
+  ],
+  "author": "tomiaa",
+  "license": "MIT",
+  "dependencies": {
+    "@tomiaa/utils": "*",
+    "axios": "^1.2.1"
+  }
+}
