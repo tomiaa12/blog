@@ -8,6 +8,17 @@ export const HTMLAndCSS = [
     ],
   },
   {
+    text: "CSS 技巧",
+    collapsible: true,
+    items: [
+      { text: "水平垂直居中", link: "/docs/CSS/CSS 技巧/水平垂直居中.md" },
+      {
+        text: "flex 中 margin auto 妙用",
+        link: "/docs/CSS/CSS 技巧/flex 中 margin auto 妙用.md",
+      },
+    ],
+  },
+  {
     text: "CSS 基础",
     collapsible: true,
     items: [

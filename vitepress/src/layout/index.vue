@@ -30,4 +30,9 @@ const getCurClass = computed(() => data.frontmatter.value.class)
 .el-backtop {
   z-index: 2001;
 }
+:deep(.VPNavBar) {
+  .content {
+    white-space: nowrap;
+  }
+}
 </style>

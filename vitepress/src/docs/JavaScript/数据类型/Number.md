@@ -33,7 +33,7 @@ var num = 10;
 num.toString() // '10'
 num.toString(2) // 2 进制转换
 
-num.toFixed(2) // 保留几位小数
+num.toFixed(2) // 保留几位小数，最大 20 位小数
 num.toExponential(1) // 1.0e+1 科学计数法
 var num1 = 99;
 num1.toPrecision(1)// 1e+2 向上舍入为 100
