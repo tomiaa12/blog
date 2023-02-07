@@ -32,6 +32,10 @@ export const Article = [
     collapsible: true,
     items: [
       {
+        text: "ElementUi-Dialog弹窗动画origin设置",
+        link: "/docs/文章/前端/ElementUi-Dialog弹窗动画origin设置.md",
+      },
+      {
         text: "eslint使用",
         link: "/docs/文章/前端/eslint与prettierrc使用.md",
       },
