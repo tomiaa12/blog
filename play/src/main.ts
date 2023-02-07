@@ -3,14 +3,15 @@ import App from "./App.vue"
 import element from "element-plus"
 import "element-plus/dist/index.css"
 // import { createRouter, createWebHistory } from "vue-router"
-import KComponents from "@tomiaa/vue3-components/src"
+// import KComponents from "@tomiaa/vue3-components/src"
 import * as icons from "@element-plus/icons-vue"
 import zhCn from "element-plus/es/locale/lang/zh-cn"
 // import A from "./A.vue"
 // import B from "./B.vue"
 // import C from "./C.vue"
 import { createI18n } from "vue-i18n"
-
+import LottieAnimation from "lottie-web-vue"
+import "./index.css"
 // const router = createRouter({
 //   history: createWebHistory(),
 //   routes: [
@@ -69,6 +70,8 @@ Object.keys(icons).forEach(key => {
 app.use(element, {
   locale: zhCn,
 })
+app.use(LottieAnimation as any)
 // app.use(i18n as any)
-app.use(KComponents)
+
+// app.use(KComponents)
 app.mount("#app")
