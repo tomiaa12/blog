@@ -1,3 +1,13 @@
+export const Pixi = {
+  text: "Pixi",
+  items: [
+    { text: "基本图形绘制", link: "/docs/框架/pixi.js/基本图形绘制" },
+    { text: "不规则图形绘制", link: "/docs/框架/pixi.js/不规则图形绘制" },
+    { text: "图像运动", link: "/docs/框架/pixi.js/图像运动" },
+    { text: "交互动画", link: "/docs/框架/pixi.js/交互动画" },
+    { text: "资源管理", link: "/docs/框架/pixi.js/资源管理" },
+  ],
+}
 export const Vue2 = {
   text: "Vue2",
   items: [

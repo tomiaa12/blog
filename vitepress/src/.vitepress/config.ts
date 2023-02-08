@@ -20,6 +20,7 @@ import {
   Advanced,
   Vue2,
   Vue3,
+  Pixi,
   Nuxt3,
   React,
   Openlayers,
@@ -180,8 +181,9 @@ export default defineConfig({
       {
         text: "框架",
         items: [
-          Vue2,
+          Pixi,
           Vue3,
+          Vue2,
           Nuxt3,
           React,
           Openlayers,
@@ -221,14 +223,14 @@ export default defineConfig({
       "/docs/库/": Lib,
 
       "/docs/框架/": [
-        Vue2,
+        Pixi,
         Vue3,
+        Vue2,
         Nuxt3,
         React,
         Openlayers,
         {
           text: "openlayers示例",
-          collapsible: true,
           items: [
             {
               text: "地图控件",

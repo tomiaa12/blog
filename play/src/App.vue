@@ -1,54 +1,15 @@
 <template>
-  <span></span>
+  <RouterView />
 </template>
 
-<script setup lang="ts">
-import * as PIXI from "pixi.js"
-import pic from "./img/a.png"
-// 创建应用
-const app = new PIXI.Application({
-  width: window.innerWidth,
-  height: window.innerHeight,
-  backgroundColor: 0x1099bb,
-  resolution: window.devicePixelRatio || 1, // 像素比
-  antialias: true, // 抗锯齿
-})
-
-document.documentElement.appendChild(app.view as any)
-
-// 创建一个纹理
-const texture = PIXI.Texture.from(pic)
-
-// 创建一个精灵
-const sprite = new PIXI.Sprite(texture)
-// 锚点
-sprite.anchor.set(0.5)
-
-// 设置精灵位置
-sprite.x = app.screen.width / 2
-sprite.y = app.screen.height / 2
-
-// 旋转 45°
-sprite.rotation = Math.PI / 4
-
-// 设置精灵缩放
-sprite.scale.set(2)
-
-// 设置精灵透明度
-sprite.alpha = 0.5
-
-app.stage.addChild(sprite)
-
-//  ticker 实现动画
-app.ticker.add(delta => {
-  // console.log(delta, sprite.rotation) // 每一帧之间的时间
-  // += 增量
-  sprite.rotation += 0.01 * delta
-})
-
-// 给精灵添加交互事件
-sprite.interactive = true // 设为 true 让交互事件生效
-sprite.on("click", () => {
-  console.log("click")
-})
-</script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+}
+</style>
