@@ -6,6 +6,7 @@ export const Pixi = {
     { text: "图像运动", link: "/docs/框架/pixi.js/图像运动" },
     { text: "交互动画", link: "/docs/框架/pixi.js/交互动画" },
     { text: "资源管理", link: "/docs/框架/pixi.js/资源管理" },
+    { text: "文字与遮罩", link: "/docs/框架/pixi.js/文字与遮罩" },
   ],
 }
 export const Vue2 = {
