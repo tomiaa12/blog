@@ -13,6 +13,7 @@
   "dependencies": {
     "element-plus": "^2.2.26",
     "pinia": "^2.0.28",
+    "pixi-filters": "^5.1.1",
     "pixi.js": "^7.0.5",
     "vue": "^3.2.45",
     "vue-i18n": "^9.2.2",

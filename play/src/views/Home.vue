@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as PIXI from "pixi.js";
+// import { OutlineFilter } from "pixi-filters";
 
 const app = new PIXI.Application({
   width: window.innerWidth,
@@ -11,64 +12,22 @@ const app = new PIXI.Application({
 
 document.documentElement.appendChild(app.view as any);
 
-// 添加场景 1 的资源
-PIXI.Assets.addBundle("scene1", {
-  tom: "https://p7.itc.cn/images01/20210825/6dae02ab52594d13805694ab6c4921cb.jpeg",
-  jian: "https://img.zcool.cn/community/01349256546b796ac7251c948550fd.jpg@1280w_1l_2o_100sh.jpg",
-});
+// 创建一个精灵
+const sprite = PIXI.Sprite.from(
+  "https://p7.itc.cn/images01/20210825/6dae02ab52594d13805694ab6c4921cb.jpeg"
+);
+sprite.x = app.screen.width / 2;
+sprite.y = app.screen.height / 2;
+sprite.anchor.set(0.5);
+sprite.scale.set(0.3);
+app.stage.addChild(sprite);
 
-// 异步加载资源 返回 Promise 对象
-const assets = PIXI.Assets.loadBundle("scene1", (progress) => {
-  console.log("加载完成", progress);
-});
+// 创建一个轮廓滤镜
+// const outlineFilter = new PIXI.OutlineFilter(2, 0x000000);
 
-// 所有资源加载完成后
-assets.then((texture) => {
-  // 创建一个容器, 用与分组管理
-  const container = new PIXI.Container();
+// PIXI.Filter.
 
-  // 创建精灵
-  const sprite = new PIXI.Sprite(texture.tom);
-
-  // 锚点
-  sprite.anchor.set(0.5);
-
-  sprite.x = app.screen.width / 2;
-  sprite.y = app.screen.height / 2;
-
-  sprite.scale.set(0.2);
-
-  // 设置精灵的混合模式
-  sprite.blendMode = PIXI.BLEND_MODES.ADD;
-
-  app.stage.addChild(sprite);
-
-  // 添加事件前设置为 true, 开启交互
-  sprite.interactive = true;
-  // 精灵添加点击事件
-  sprite.on("pointerdown", (e) => {
-    console.log("sprite pointerdown!");
-  });
-
-  // 将精灵添加到容器
-  container.addChild(sprite);
-
-  const sprite1 = new PIXI.Sprite(texture.jian);
-
-  sprite1.x = 100;
-  sprite1.y = 100;
-
-  sprite1.scale.set(0.3);
-
-  // 将精灵添加到容器
-  container.addChild(sprite1);
-
-  // 将容器添加到舞台
-  app.stage.addChild(container);
-
-  // 对容器设置透明度即可对容器内对所有精灵生效
-  container.alpha = 0.5;
-});
+console.log(PIXI);
 </script>
 
 <template>
