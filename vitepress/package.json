@@ -24,7 +24,6 @@
     "axios-jsonp": "^1.0.4",
     "element-plus": "^2.2.27",
     "ol": "^7.1.0",
-    "pixi-live2d-display": "^0.4.0",
-    "pixi.js": "^6.5.9"
+    "pixi-live2d-display": "^0.4.0"
   }
 }

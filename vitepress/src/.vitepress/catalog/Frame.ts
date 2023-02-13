@@ -8,6 +8,7 @@ export const Pixi = {
     { text: "资源管理", link: "/docs/框架/pixi.js/资源管理" },
     { text: "文字与遮罩", link: "/docs/框架/pixi.js/文字与遮罩" },
     { text: "滤镜特效", link: "/docs/框架/pixi.js/滤镜特效" },
+    { text: "水面波纹效果", link: "/docs/框架/pixi.js/水面波纹效果" },
   ],
 }
 export const Vue2 = {
