@@ -1,0 +1,7 @@
+# 配置不需要格式化的文件
+node_modules
+dist
+**/es
+**/lib
+docs-public
+public/*.js

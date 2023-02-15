@@ -1,0 +1,70 @@
+<template>
+  <KTable
+    :data="tableData"
+    :options="options"
+    @edit="edit"
+    @delete="delRow"
+  />
+</template>
+
+<script setup lang="ts">
+import { ref } from "vue"
+import type { TableProps } from "@tomiaa/vue3-components"
+import { KTable } from "@tomiaa/vue3-components"
+const tableData = ref<any>([
+  {
+    date: "2016-05-03",
+    name: "Tom",
+    address: "No. 189, Grove St, Los Angeles",
+  },
+  {
+    date: "2016-05-01",
+    name: "Tom",
+    address: "No. 189, Grove St, Los Angeles",
+  },
+])
+const options: TableProps["options"] = [
+  {
+    label: "名称",
+    prop: "name",
+  },
+  {
+    label: "时间",
+    prop: "date",
+  },
+  {
+    label: "控制",
+    width: 300,
+    action: true, // 表示为控制列
+    actionConfig: {
+      // 控制列的配置
+      showEdit: true, // 显示编辑按钮
+      showDelete: true, // 显示删除按钮
+      editText: "详情",
+      deleteText: "撤回",
+      custom(list, scope) {
+        // 自定义方法
+        list[0].icon = "ElIconInfoFilled"
+        list.push({
+          el: "el-button",
+          size: "small",
+          children: "自定义按钮",
+          icon: "ElIconEdit",
+          onClick() {
+            console.log(scope)
+          },
+        })
+        return list
+      },
+    },
+  },
+]
+// 点击编辑按钮
+const edit = (scope: any) => {
+  console.log(scope)
+}
+// 点击删除按钮
+const delRow = (scope: any) => {
+  console.log(scope)
+}
+</script>

@@ -1,0 +1,11 @@
+// 重置 vitepress 覆盖 element-plus 样式
+@import "element-plus/dist/index.css";
+
+// element-plus 样式修改
+@import "./element-plus-reset";
+
+// 基础样式
+@import "./base.scss";
+
+// 变量
+@import "./var.scss";
