@@ -40,4 +40,10 @@ const getCurClass = computed(() => data.frontmatter.value.class)
     max-width: 850px;
   }
 }
+
+:deep(.VPMenuGroup) {
+  .title {
+    white-space: nowrap;
+  }
+}
 </style>
