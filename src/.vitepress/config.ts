@@ -293,6 +293,7 @@ export default defineConfig({
         "@tomiaa/hitokoto",
         "@tomiaa/utils",
         "@tomiaa/canvas-graffiti",
+        "@tomiaa/latex-template",
         "@wangeditor/editor-for-vue",
         "@wangeditor/editor/dist/css/style.css",
       ],

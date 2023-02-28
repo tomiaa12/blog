@@ -3,6 +3,10 @@ export const Article = [
     text: "JS 库",
     collapsible: true,
     items: [
+      {
+        text: "Latex 公式录入模板",
+        link: "/docs/文章/JS Lib/Latex公式录入模板",
+      },
       { text: "开箱即用的 Live2d", link: "/docs/文章/JS Lib/Live2d" },
       { text: "hitokoto 一言", link: "/docs/文章/JS Lib/hitokoto" },
       { text: "canvas 涂鸦画板", link: "/docs/文章/JS Lib/canvas 涂鸦画板" },

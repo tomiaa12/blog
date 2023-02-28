@@ -5,6 +5,7 @@ specifiers:
   '@tomiaa/canvas-graffiti': ^0.0.3
   '@tomiaa/comment': ^0.0.3
   '@tomiaa/hitokoto': ^0.0.5
+  '@tomiaa/latex-template': ^0.0.2
   '@tomiaa/live2d': ^0.0.1
   '@tomiaa/theme-chalk': ^0.0.6
   '@tomiaa/utils': ^0.1.7
@@ -41,6 +42,7 @@ specifiers:
   vue-tsc: ^0.39.5
 
 dependencies:
+  '@tomiaa/latex-template': 0.0.2
   '@types/node': 18.13.0
   '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
   '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
@@ -1643,6 +1645,10 @@ packages:
       - debug
       - vue
     dev: true
+
+  /@tomiaa/latex-template/0.0.2:
+    resolution: {integrity: sha512-he/pr7QoJLdFYcZlQFJUw1ZuAogA9I0uomDdCrwZagFtxQnRbsW98VgcBcRoTBh14crbDnD3pAd5OiAPlO6haw==}
+    dev: false
 
   /@tomiaa/live2d/0.0.1_cvwqbyzdoxxt7cc6p5c3lfbwre:
     resolution: {integrity: sha512-2jtIx9G/yqxn0MOobcpPdWtEB3q5VmY7TuefZy2gT/HPxe95/tMewS2zwYsUjDh+MwviJNi4lQHVXLuWOUJv/g==}
