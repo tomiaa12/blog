@@ -21,6 +21,7 @@ export const Article = [
     collapsible: true,
     items: [
       { text: "快速上手", link: "/docs/文章/vue3组件/快速上手" },
+      { text: "深色模式", link: "/docs/文章/vue3组件/深色模式" },
       { text: "城市选择", link: "/docs/文章/vue3组件/城市选择" },
       { text: "日期选择", link: "/docs/文章/vue3组件/日期选择" },
       { text: "时间选择", link: "/docs/文章/vue3组件/时间选择" },

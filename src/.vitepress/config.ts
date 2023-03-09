@@ -283,6 +283,21 @@ export default defineConfig({
     sitemap.end()
   },
   vite: {
+    optimizeDeps: {
+      include: [
+        "element-plus",
+        "ol",
+        "@tomiaa/vue3-components",
+        "@tomiaa/live2d",
+        "@tomiaa/comment",
+        "@tomiaa/hitokoto",
+        "@tomiaa/utils",
+        "@tomiaa/canvas-graffiti",
+        "@tomiaa/latex-template",
+        "@wangeditor/editor-for-vue",
+        "@wangeditor/editor/dist/css/style.css",
+      ],
+    },
     ssr: {
       noExternal: [
         "element-plus",
