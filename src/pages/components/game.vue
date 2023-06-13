@@ -28,11 +28,16 @@
         </el-check-tag>
       </div>
     </div>
+    <NesVue
+      v-if="src"
+      :url="BASE_URL + 'roms/' + src"
+    />
     <el-space wrap>
       <el-card
         v-for="i of filterRoms"
         class="box-card"
         shadow="hover"
+        @click="src = i.url"
       >
         <div class="img-box">
           <el-image
@@ -73,6 +78,8 @@ const filterRoms = computed(() => {
     ? roms
     : roms.filter(i => i.type === curCategory.value)
 })
+
+const src = ref("")
 </script>
 <style lang="scss">
 .Layout.game {
