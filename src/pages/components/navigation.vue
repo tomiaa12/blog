@@ -436,6 +436,8 @@ const listClick = () => {
     .box-card {
       width: 222px;
       height: 100%;
+      word-break: break-all;
+
       .el-card__header {
         display: flex;
         align-items: center;
@@ -454,6 +456,18 @@ const listClick = () => {
           padding-left: 1em;
           color: var(--vp-c-black-mute);
         }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .websites {
+      padding: 0;
+    }
+    .el-space__item {
+      max-width: calc(50% - 16px);
+      > a,
+      .box-card {
+        max-width: 100%;
       }
     }
   }

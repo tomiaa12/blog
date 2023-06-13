@@ -154,6 +154,7 @@ export default defineConfig({
     nav: [
       { text: "导航", link: "/pages/navigation" },
       { text: "软件", link: "/pages/software" },
+      { text: "游戏", link: "/pages/game" },
       {
         text: "文章",
         items: Article,

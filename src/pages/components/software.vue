@@ -36,7 +36,7 @@
                   <span>
                     {{ k.name }}
                   </span>
-                  <span v-if="k.code">&nbsp;&nbsp; 密码：{{ k.code }} </span>
+                  <span v-if="k.code">密码：{{ k.code }} </span>
                 </el-button>
               </p>
             </div>
@@ -90,6 +90,7 @@ const open = (item: any) => {
     .box-card {
       width: 222px;
       height: 100%;
+      word-break: break-all;
       .el-card__header {
         display: flex;
         align-items: center;
@@ -105,7 +106,29 @@ const open = (item: any) => {
       .info {
         p {
           color: var(--vp-c-black-mute);
+          margin-top: 0;
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
+        button > span {
+          flex-wrap: wrap;
+          span {
+            margin-bottom: 0.5em;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .list-content {
+      padding: 0;
+    }
+    .el-space__item {
+      max-width: calc(50% - 16px);
+      > a,
+      .box-card {
+        max-width: 100%;
       }
     }
   }
