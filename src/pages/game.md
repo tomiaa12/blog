@@ -1,5 +1,6 @@
 ---
 class: game
+aside: false
 ---
 
 <script setup>
