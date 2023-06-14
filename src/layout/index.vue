@@ -9,6 +9,8 @@
     class="home-comment"
   />
   <Live2D />
+
+  <el-backtop :right="300" />
 </template>
 
 <script setup lang="ts">
