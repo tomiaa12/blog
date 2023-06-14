@@ -1,88 +1,176 @@
 <template>
   <div class="game">
-    <div class="fix">
-      <el-input
-        v-model="keyword"
-        class="keyword-input"
-        placeholder="输入搜索游戏名称"
-        clearable
-        size="large"
-        @input="curCategory = ''"
-      />
-
-      <div class="cate">
-        <el-check-tag
-          :checked="!curCategory"
-          size="large"
-          @click="curCategory = ''"
-        >
-          全部游戏
-        </el-check-tag>
-        <el-check-tag
-          v-for="i of categorys"
-          :checked="curCategory === i.id"
-          size="large"
-          @click="curCategory = i.id"
-        >
-          {{ i.name }}
-        </el-check-tag>
-      </div>
-    </div>
-    <NesVue
-      v-if="src"
-      :url="BASE_URL + 'roms/' + src"
-    />
-    <el-space
-      wrap
-      size="large"
-    >
-      <el-card
-        v-for="i of filterRoms"
-        class="box-card"
-        shadow="hover"
-        @click="src = i.url"
+    <template v-if="curRom">
+      <el-button
+        class="back"
+        text
+        icon="el-icon-arrow-left"
+        @click="curRom = null"
       >
-        <div class="img-box">
-          <el-image
-            class="image"
-            alt="i.title"
-            :src="BASE_URL + 'img/' + i.cover"
-          />
-          <el-image
-            class="hover-show"
-            :src="BASE_URL + 'img/' + i.image"
-          />
+        返回游戏列表
+      </el-button>
+      <main>
+        <NesVue
+          class="nes-vue"
+          label="开始游戏"
+          :url="BASE_URL + 'roms/' + curRom.url"
+          :width="screenSize.width"
+          :height="screenSize.height"
+          @error="nesErrorAlert"
+        />
+        <div class="right">
+          <div class="desc">
+            <el-descriptions
+              :title="curRom.title"
+              :column="2"
+              border
+            >
+              <el-descriptions-item label="发行">
+                {{ curRom.publisher }}
+              </el-descriptions-item>
+              <el-descriptions-item label="发布">
+                {{ curRom.source }}
+              </el-descriptions-item>
+              <el-descriptions-item label="容量">
+                {{ (Number(curRom.size ?? 0) / 1024).toFixed(2) }}KB
+              </el-descriptions-item>
+              <el-descriptions-item label="类型">
+                <el-tag size="large">
+                  {{ curRom.type }} - {{ getCategory(curRom.type) }}
+                </el-tag>
+              </el-descriptions-item>
+              <el-descriptions-item label="备注">
+                {{ curRom.comment }}
+              </el-descriptions-item>
+            </el-descriptions>
+          </div>
         </div>
+      </main>
+    </template>
+    <template v-else>
+      <div class="fix">
+        <el-input
+          v-model="keyword"
+          class="keyword-input"
+          placeholder="输入搜索游戏名称"
+          clearable
+          size="large"
+          @input="curCategory = ''"
+        />
 
-        <div>
-          {{ i.title }}
+        <div class="cate">
+          <el-check-tag
+            :checked="!curCategory"
+            size="large"
+            @click="curCategory = ''"
+          >
+            全部游戏
+          </el-check-tag>
+          <el-check-tag
+            v-for="i of categorys"
+            :checked="curCategory === i.id"
+            size="large"
+            @click="curCategory = i.id"
+          >
+            {{ i.name }}
+          </el-check-tag>
         </div>
-      </el-card>
-    </el-space>
+      </div>
+
+      <GameList
+        :base-url="BASE_URL"
+        :keyword="keyword"
+        :cur-category="curCategory"
+        @select="curRom = $event"
+      />
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, computed } from "vue"
+import { PropType, computed, onBeforeUnmount, onMounted } from "vue"
 import { ref } from "vue"
-import { NesVue } from "nes-vue"
-import { categorys, roms } from "./game"
+import { NesVue, EmitErrorObj } from "nes-vue"
+import { categorys } from "./game"
+import { ElNotification } from "element-plus"
+import GameList from "./game/GameList.vue"
 
 const curCategory = ref("")
 
 const BASE_URL = "https://tomiaa12.github.io/nesRoms/"
-console.log(roms)
 
 const keyword = ref("")
 
-const filterRoms = computed(() => {
-  if (keyword.value) return roms.filter(i => i.title.includes(keyword.value))
-  return !curCategory.value
-    ? roms
-    : roms.filter(i => i.type === curCategory.value)
+const curRom = ref()
+
+// 游戏画面大小
+const screenSize = ref({
+  width: "512px",
+  height: "480px",
 })
 
-const src = ref("")
+// 缓存画面大小
+const lastSize = {
+  width: screenSize.value.width,
+  height: screenSize.value.height,
+}
+
+// 全屏切换
+let isFullScreen = false // 全屏状态
+// 初始化游戏画面大小
+function initScreenSize() {
+  const { clientWidth } = document.documentElement
+  const { innerHeight } = window
+  let width = clientWidth * 0.6
+  if (clientWidth < 768) {
+    width = clientWidth - 40
+  }
+  let height = (width * 240) / 256
+  if (height > innerHeight * 0.8) {
+    height = innerHeight * 0.8
+    width = (height * 256) / 240
+  }
+  screenSize.value.width = width + "px"
+  screenSize.value.height = height + "px"
+}
+
+// 调整画面大小
+function fullscreenHandler() {
+  if (document.fullscreenElement) {
+    isFullScreen = true
+    lastSize.width = screenSize.value.width
+    lastSize.height = screenSize.value.height
+    screenSize.value.width = "100vw"
+    screenSize.value.height = "100vh"
+  } else if (isFullScreen) {
+    isFullScreen = false
+    screenSize.value.width = lastSize.width
+    screenSize.value.height = lastSize.height
+  } else {
+    initScreenSize()
+  }
+}
+
+// 错误处理
+function nesErrorAlert(e: EmitErrorObj) {
+  const errCode: any = {
+    404: "无法获取ROM：地址无效或网络错误",
+    0: "不支持的游戏ROM",
+    1: "保存失败",
+    2: "存档不存在或数据错误",
+  }
+  errCode[e.code] && ElNotification.error(errCode[e.code])
+}
+
+onMounted(() => {
+  window.addEventListener("resize", fullscreenHandler)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", fullscreenHandler)
+})
+
+const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
 </script>
 <style lang="scss">
 @font-face {
@@ -97,10 +185,15 @@ const src = ref("")
     max-width: unset !important;
   }
 }
+
 .game {
   font-family: zpix;
   h1 {
     display: none;
+  }
+  h2 {
+    border-top: none;
+    margin-top: 0;
   }
   .el-check-tag {
     margin: 0 1em 1em 0;
@@ -109,36 +202,6 @@ const src = ref("")
   .el-space {
     .el-space__item {
       max-width: calc(50% - 8px);
-    }
-  }
-  .box-card {
-    cursor: pointer;
-    .img-box {
-      position: relative;
-      width: 256px;
-      height: 240px;
-      max-width: 100%;
-      border-radius: var(--el-card-border-radius);
-      overflow: hidden;
-    }
-    .hover-show {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .hover-show {
-      opacity: 0;
-      transition: 0.3s;
-    }
-
-    &:hover {
-      .hover-show {
-        opacity: 1;
-        z-index: 1;
-      }
     }
   }
   .fix {
@@ -175,6 +238,21 @@ const src = ref("")
         background-color: var(--el-button-active-bg-color);
       }
     }
+  }
+
+  .back {
+    margin-bottom: 1em;
+  }
+}
+
+main {
+  display: flex;
+  .nes-vue {
+    // flex: 1;
+    margin: 0 1em 0 0 !important;
+  }
+  .list {
+    flex: 1;
   }
 }
 </style>
