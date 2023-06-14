@@ -11,6 +11,7 @@
       </el-button>
       <main>
         <NesVue
+          ref="nesVueRef"
           class="nes-vue"
           label="开始游戏"
           :url="BASE_URL + 'roms/' + curRom.url"
@@ -18,7 +19,7 @@
           :height="screenSize.height"
           @error="nesErrorAlert"
         />
-        <div class="right">
+        <div class="options">
           <div class="desc">
             <el-descriptions
               :title="curRom.title"
@@ -88,7 +89,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, onBeforeUnmount, onMounted } from "vue"
+import { PropType, computed, onBeforeUnmount, onMounted, watch } from "vue"
 import { ref } from "vue"
 import { NesVue, EmitErrorObj } from "nes-vue"
 import { categorys } from "./game"
@@ -162,13 +163,24 @@ function nesErrorAlert(e: EmitErrorObj) {
   errCode[e.code] && ElNotification.error(errCode[e.code])
 }
 
+const nesVueRef = ref()
+
+const onFocus = () => nesVueRef.value?.play()
+const onBlur = () => nesVueRef.value?.pause()
+
 onMounted(() => {
   window.addEventListener("resize", fullscreenHandler)
+  window.addEventListener("focus", onFocus)
+  window.addEventListener("blur", onBlur)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", fullscreenHandler)
+  window.removeEventListener("focus", onFocus)
+  window.removeEventListener("blur", onBlur)
 })
+
+watch(curRom, fullscreenHandler)
 
 const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
 </script>
@@ -247,12 +259,9 @@ const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
 
 main {
   display: flex;
+  flex-wrap: wrap;
   .nes-vue {
-    // flex: 1;
     margin: 0 1em 0 0 !important;
-  }
-  .list {
-    flex: 1;
   }
 }
 </style>
