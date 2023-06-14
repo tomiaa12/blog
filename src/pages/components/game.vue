@@ -10,14 +10,9 @@
         返回游戏列表
       </el-button>
       <main>
-        <NesVue
-          ref="nesVueRef"
-          class="nes-vue"
-          label="开始游戏"
-          :url="BASE_URL + 'roms/' + curRom.url"
-          :width="screenSize.width"
-          :height="screenSize.height"
-          @error="nesErrorAlert"
+        <PlayGame
+          :cur-rom="curRom"
+          :base-url="BASE_URL"
         />
         <div class="options">
           <div class="desc">
@@ -91,10 +86,9 @@
 <script setup lang="ts">
 import { PropType, computed, onBeforeUnmount, onMounted, watch } from "vue"
 import { ref } from "vue"
-import { NesVue, EmitErrorObj } from "nes-vue"
 import { categorys } from "./game"
-import { ElNotification } from "element-plus"
 import GameList from "./game/GameList.vue"
+import PlayGame from "./game/PlayGame.vue"
 
 const curCategory = ref("")
 
@@ -103,84 +97,6 @@ const BASE_URL = "https://tomiaa12.github.io/nesRoms/"
 const keyword = ref("")
 
 const curRom = ref()
-
-// 游戏画面大小
-const screenSize = ref({
-  width: "512px",
-  height: "480px",
-})
-
-// 缓存画面大小
-const lastSize = {
-  width: screenSize.value.width,
-  height: screenSize.value.height,
-}
-
-// 全屏切换
-let isFullScreen = false // 全屏状态
-// 初始化游戏画面大小
-function initScreenSize() {
-  const { clientWidth } = document.documentElement
-  const { innerHeight } = window
-  let width = clientWidth * 0.6
-  if (clientWidth < 768) {
-    width = clientWidth - 40
-  }
-  let height = (width * 240) / 256
-  if (height > innerHeight * 0.8) {
-    height = innerHeight * 0.8
-    width = (height * 256) / 240
-  }
-  screenSize.value.width = width + "px"
-  screenSize.value.height = height + "px"
-}
-
-// 调整画面大小
-function fullscreenHandler() {
-  if (document.fullscreenElement) {
-    isFullScreen = true
-    lastSize.width = screenSize.value.width
-    lastSize.height = screenSize.value.height
-    screenSize.value.width = "100vw"
-    screenSize.value.height = "100vh"
-  } else if (isFullScreen) {
-    isFullScreen = false
-    screenSize.value.width = lastSize.width
-    screenSize.value.height = lastSize.height
-  } else {
-    initScreenSize()
-  }
-}
-
-// 错误处理
-function nesErrorAlert(e: EmitErrorObj) {
-  const errCode: any = {
-    404: "无法获取ROM：地址无效或网络错误",
-    0: "不支持的游戏ROM",
-    1: "保存失败",
-    2: "存档不存在或数据错误",
-  }
-  errCode[e.code] && ElNotification.error(errCode[e.code])
-}
-
-const nesVueRef = ref()
-
-const onFocus = () => nesVueRef.value?.play()
-const onBlur = () => nesVueRef.value?.pause()
-
-onMounted(() => {
-  window.addEventListener("resize", fullscreenHandler)
-  window.addEventListener("focus", onFocus)
-  window.addEventListener("blur", onBlur)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener("resize", fullscreenHandler)
-  window.removeEventListener("focus", onFocus)
-  window.removeEventListener("blur", onBlur)
-})
-
-watch(curRom, fullscreenHandler)
 
 const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
 </script>
@@ -260,8 +176,5 @@ const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
 main {
   display: flex;
   flex-wrap: wrap;
-  .nes-vue {
-    margin: 0 1em 0 0 !important;
-  }
 }
 </style>
