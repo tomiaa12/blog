@@ -32,7 +32,10 @@
       v-if="src"
       :url="BASE_URL + 'roms/' + src"
     />
-    <el-space wrap>
+    <el-space
+      wrap
+      size="large"
+    >
       <el-card
         v-for="i of filterRoms"
         class="box-card"
@@ -107,7 +110,10 @@ const src = ref("")
     .img-box {
       position: relative;
       width: 256px;
+      height: 240px;
       max-width: 100%;
+      border-radius: var(--el-card-border-radius);
+      overflow: hidden;
     }
     .hover-show {
       position: absolute;
