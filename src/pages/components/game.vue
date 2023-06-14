@@ -85,6 +85,11 @@ const filterRoms = computed(() => {
 const src = ref("")
 </script>
 <style lang="scss">
+@font-face {
+  font-family: zpix;
+  src: url("/fonts/zpix.woff2");
+}
+
 .Layout.game {
   .container,
   .content,
@@ -93,6 +98,7 @@ const src = ref("")
   }
 }
 .game {
+  font-family: zpix;
   h1 {
     display: none;
   }
