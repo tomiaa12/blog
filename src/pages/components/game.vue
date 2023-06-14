@@ -39,6 +39,54 @@
                 {{ curRom.comment }}
               </el-descriptions-item>
             </el-descriptions>
+            <el-descriptions
+              title="键位"
+              :column="4"
+              border
+            >
+              <el-descriptions-item
+                label="开始"
+                :span="2"
+              >
+                1
+              </el-descriptions-item>
+              <el-descriptions-item
+                label="选择"
+                :span="2"
+              >
+                2
+              </el-descriptions-item>
+              <el-descriptions-item
+                label="玩家1"
+                :span="4"
+              >
+                P1
+              </el-descriptions-item>
+              <el-descriptions-item label="上"> W </el-descriptions-item>
+              <el-descriptions-item label="下"> S </el-descriptions-item>
+              <el-descriptions-item label="左"> A </el-descriptions-item>
+              <el-descriptions-item label="右"> D </el-descriptions-item>
+              <el-descriptions-item label="A"> K </el-descriptions-item>
+              <el-descriptions-item label="B"> J </el-descriptions-item>
+              <el-descriptions-item label="C"> I </el-descriptions-item>
+              <el-descriptions-item label="D"> U </el-descriptions-item>
+            </el-descriptions>
+            <el-descriptions :column="4">
+              <el-descriptions-item
+                label="玩家2"
+                :span="4"
+              >
+                P2
+              </el-descriptions-item>
+              <el-descriptions-item label="上"> Up </el-descriptions-item>
+              <el-descriptions-item label="下"> Down </el-descriptions-item>
+              <el-descriptions-item label="左"> Left </el-descriptions-item>
+              <el-descriptions-item label="右"> Right </el-descriptions-item>
+              <el-descriptions-item label="A"> Num2 </el-descriptions-item>
+              <el-descriptions-item label="B"> Num1 </el-descriptions-item>
+              <el-descriptions-item label="C"> Num5 </el-descriptions-item>
+              <el-descriptions-item label="D"> Num4 </el-descriptions-item>
+            </el-descriptions>
           </div>
         </div>
       </main>
@@ -176,5 +224,8 @@ const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
 main {
   display: flex;
   flex-wrap: wrap;
+  .options {
+    flex: 0;
+  }
 }
 </style>
