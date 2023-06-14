@@ -12,6 +12,7 @@ onMounted(() => {
   new Live2d({
     el: live2dContentRef.value,
     showLoading: false,
+    maxWidth: 300,
   })
 })
 </script>
