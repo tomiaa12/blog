@@ -1,15 +1,18 @@
 <template>
   <div class="play">
-    <NesVue
-      ref="nesVueRef"
-      class="nes-vue"
-      label="开始游戏"
-      :auto-start="true"
-      :url="baseUrl + 'roms/' + curRom.url"
-      :width="screenSize.width"
-      :height="screenSize.height"
-      @error="nesErrorAlert"
-    />
+    <div style="width: 50%">
+      <component
+        :is="nesVue"
+        ref="nesVueRef"
+        class="nes-vue"
+        label="开始游戏"
+        :auto-start="true"
+        :url="baseUrl + 'roms/' + curRom.url"
+        :width="screenSize.width"
+        :height="screenSize.height"
+        @error="nesErrorAlert"
+      />
+    </div>
     <div class="control">
       <el-tooltip
         :content="isPlaying ? '暂停' : '继续'"
@@ -46,9 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, onBeforeUnmount, onMounted, watch } from "vue"
-import { ref } from "vue"
-import { EmitErrorObj, NesVue } from "nes-vue"
+import { ref, onBeforeUnmount, onMounted, watch } from "vue"
 import { ElNotification } from "element-plus"
 
 import start from "./svg/start.svg"
@@ -61,6 +62,14 @@ const props = defineProps<{
   baseUrl: string
 }>()
 const emits = defineEmits([])
+
+const nesVue = ref()
+
+onMounted(() => {
+  import("nes-vue").then(({ NesVue }) => {
+    nesVue.value = NesVue
+  })
+})
 
 // 游戏画面大小
 const screenSize = ref({
@@ -118,7 +127,7 @@ function fullscreenHandler() {
 }
 
 // 错误处理
-function nesErrorAlert(e: EmitErrorObj) {
+function nesErrorAlert(e: any) {
   const errCode: any = {
     404: "无法获取ROM：地址无效或网络错误",
     0: "不支持的游戏ROM",

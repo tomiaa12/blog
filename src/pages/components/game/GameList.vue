@@ -76,16 +76,12 @@ const filterRoms = computed(() => {
       padding: 8px;
       box-sizing: content-box;
     }
-    
-    
 
     .title {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    
   }
 
   .empty {
