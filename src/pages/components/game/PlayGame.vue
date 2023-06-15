@@ -4,6 +4,7 @@
       ref="nesVueRef"
       class="nes-vue"
       label="开始游戏"
+      :auto-start="true"
       :url="baseUrl + 'roms/' + curRom.url"
       :width="screenSize.width"
       :height="screenSize.height"
@@ -73,7 +74,12 @@ const lastSize = {
   height: screenSize.value.height,
 }
 
-const isPlaying = ref(false)
+const isPlaying = ref(true)
+
+watch(
+  () => props.curRom,
+  () => (isPlaying.value = true)
+)
 
 // 全屏切换
 let isFullScreen = false // 全屏状态
@@ -124,19 +130,16 @@ function nesErrorAlert(e: EmitErrorObj) {
 
 const nesVueRef = ref()
 
-// 第一次加载
-let isFirst = true
-
 // 是否为手动点击暂停
 let isManualPause = false
 
 const onFocus = () => {
-  if (!nesVueRef.value || isFirst || isManualPause) return
+  if (!nesVueRef.value || isManualPause) return
   nesVueRef.value.play()
   isPlaying.value = true
 }
 const onBlur = () => {
-  if (!nesVueRef.value || isFirst) return
+  if (!nesVueRef.value) return
   nesVueRef.value?.pause()
   isPlaying.value = false
 }
@@ -145,6 +148,7 @@ onMounted(() => {
   window.addEventListener("resize", fullscreenHandler)
   window.addEventListener("focus", onFocus)
   window.addEventListener("blur", onBlur)
+  fullscreenHandler()
 })
 
 onBeforeUnmount(() => {
@@ -154,12 +158,6 @@ onBeforeUnmount(() => {
 })
 
 const play = () => {
-  if (isFirst) {
-    nesVueRef.value.start()
-    isFirst = false
-    isPlaying.value = !isPlaying.value
-    return
-  }
   if (isPlaying.value) {
     nesVueRef.value.pause()
     isManualPause = true
@@ -172,7 +170,6 @@ const play = () => {
 
 const reset = () => {
   nesVueRef.value.reset()
-  isFirst = false
   isPlaying.value = true
   isManualPause = false
 }

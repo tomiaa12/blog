@@ -10,10 +10,6 @@
         返回游戏列表
       </el-button>
       <main>
-        <PlayGame
-          :cur-rom="curRom"
-          :base-url="BASE_URL"
-        />
         <div class="options">
           <div class="desc">
             <el-descriptions
@@ -39,7 +35,7 @@
                 {{ curRom.comment }}
               </el-descriptions-item>
             </el-descriptions>
-            <el-descriptions
+            <!-- <el-descriptions
               title="键位"
               :column="4"
               border
@@ -86,9 +82,76 @@
               <el-descriptions-item label="B"> Num1 </el-descriptions-item>
               <el-descriptions-item label="C"> Num5 </el-descriptions-item>
               <el-descriptions-item label="D"> Num4 </el-descriptions-item>
-            </el-descriptions>
+            </el-descriptions> -->
+
+            <p>玩家1</p>
+            <div class="player-1">
+              <img
+                src="./game/img/fc.png"
+                alt="FC P1 游戏键位"
+              />
+              <span class="up">W</span>
+              <span class="down">S</span>
+              <span class="left">A</span>
+              <span class="right">D</span>
+              <span class="a">K</span>
+              <span class="b">J</span>
+              <span class="c">I</span>
+              <span class="d">U</span>
+              <span class="select">2</span>
+              <span class="start">1</span>
+            </div>
+            <p>玩家2</p>
+            <div class="player-2">
+              <img
+                src="./game/img/fc.png"
+                alt="FC P2 游戏键位"
+              />
+              <span class="up">up</span>
+              <span class="down">down</span>
+              <span class="left">left</span>
+              <span class="right">right</span>
+              <span class="a">Num2</span>
+              <span class="b">Num1</span>
+              <span class="c">Num5</span>
+              <span class="d">Num4</span>
+              <span class="select">2</span>
+              <span class="start">1</span>
+            </div>
           </div>
         </div>
+        <PlayGame
+          :cur-rom="curRom"
+          :base-url="BASE_URL"
+        />
+        <ul>
+          <li
+            v-for="i of recommendList"
+            @click="curRom = i"
+          >
+            <div class="img-box">
+              <el-image
+                class="image"
+                alt="i.title"
+                :src="BASE_URL + 'img/' + i.cover"
+              >
+                <template #placeholder>
+                  <InnerLoading />
+                </template>
+              </el-image>
+              <el-image
+                class="hover-show"
+                :src="BASE_URL + 'img/' + i.image"
+              >
+                <template #placeholder>
+                  <InnerLoading />
+                </template>
+              </el-image>
+            </div>
+            {{ i.title }}
+            <span class="publisher">{{ i.publisher }}</span>
+          </li>
+        </ul>
       </main>
     </template>
     <template v-else>
@@ -134,7 +197,8 @@
 <script setup lang="ts">
 import { PropType, computed, onBeforeUnmount, onMounted, watch } from "vue"
 import { ref } from "vue"
-import { categorys } from "./game"
+import { randomInteger } from "@tomiaa/utils"
+import { categorys, roms } from "./game"
 import GameList from "./game/GameList.vue"
 import PlayGame from "./game/PlayGame.vue"
 
@@ -147,6 +211,19 @@ const keyword = ref("")
 const curRom = ref()
 
 const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
+
+const recommendList = ref<any[]>([])
+// 随机推荐数量
+const recommendListLength = 10
+watch(curRom, () => {
+  if (!curRom.value) {
+    recommendList.value = []
+    return
+  }
+  while (recommendList.value.length <= recommendListLength) {
+    recommendList.value.push(roms[randomInteger(0, roms.length - 1)])
+  }
+})
 </script>
 <style lang="scss">
 @font-face {
@@ -164,6 +241,29 @@ const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
 
 .game {
   font-family: zpix;
+  .img-box {
+    position: relative;
+    min-height: 240px;
+    max-width: 100%;
+    border-radius: var(--el-card-border-radius);
+    overflow: hidden;
+    &:hover {
+      .hover-show {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+    .hover-show {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: 0.3s;
+    }
+  }
+
   h1 {
     display: none;
   }
@@ -176,6 +276,7 @@ const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
     cursor: pointer;
   }
   .el-space {
+    width: 100%;
     .el-space__item {
       max-width: calc(50% - 8px);
     }
@@ -219,13 +320,134 @@ const getCategory = (id: string) => categorys.find(i => i.id === id)?.name
   .back {
     margin-bottom: 1em;
   }
-}
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    .options {
+      width: 25%;
+      max-width: 400px;
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  .options {
-    flex: 0;
+      .player-1,
+      .player-2 {
+        width: 100%;
+        position: relative;
+        img {
+          max-width: 100%;
+        }
+        span {
+          position: absolute;
+          min-width: 1.7em;
+          line-height: 1.7em;
+          padding: 0 0.2em;
+          text-align: center;
+          background-color: var(--vp-c-bg-elv);
+          border: 1px solid var(--vp-c-gray);
+          border-radius: 6px;
+          box-shadow: var(--vp-shadow-5);
+          &.up {
+            left: 15.8%;
+            top: 22%;
+          }
+          &.down {
+            bottom: 10%;
+            left: 15.8%;
+          }
+          &.left {
+            left: 5%;
+            top: 47.8%;
+          }
+          &.right {
+            left: 23%;
+            top: 47.8%;
+          }
+          &.select {
+            left: 39%;
+            bottom: 33%;
+          }
+          &.start {
+            left: 52%;
+            bottom: 33%;
+          }
+          &.a {
+            right: 8.8%;
+            bottom: 0;
+          }
+          &.b {
+            right: 22.4%;
+            bottom: 0;
+          }
+          &.c {
+            right: 9%;
+            top: 16%;
+          }
+          &.d {
+            right: 22.8%;
+            top: 16%;
+          }
+        }
+      }
+    }
+    .play {
+      margin: 0 1em;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      max-width: 350px;
+      li {
+        list-style: none;
+        display: flex;
+        background-color: var(--el-color-info-light-9);
+        line-height: 1.8;
+        cursor: pointer;
+        &:hover {
+          color: var(--el-color-primary);
+        }
+        .img-box {
+          min-height: 64px;
+          max-width: 64px;
+          height: 64px;
+          margin-right: 1em;
+        }
+        .publisher {
+          align-self: end;
+          margin: 0 0.5em 0 auto;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .game main {
+    .options {
+      order: 1;
+    }
+    ul {
+      order: 2;
+    }
+    .options,
+    ul {
+      width: 90%;
+      max-width: 90%;
+    }
+    .play {
+      margin: 0;
+    }
+  }
+}
+@media screen and (max-width: 1600px) {
+  .game main {
+    .options {
+      order: 1;
+    }
+    ul {
+      order: 2;
+      min-width: 250px;
+    }
+    .play {
+      margin: 0;
+    }
   }
 }
 </style>

@@ -48,8 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed } from "vue"
-import { ref } from "vue"
+import { computed } from "vue"
 import { roms } from "../game"
 
 import InnerLoading from "./InnerLoading.vue"
@@ -77,22 +76,8 @@ const filterRoms = computed(() => {
       padding: 8px;
       box-sizing: content-box;
     }
-    .img-box {
-      position: relative;
-      min-height: 240px;
-      max-width: 100%;
-      border-radius: var(--el-card-border-radius);
-      overflow: hidden;
-    }
-    .hover-show {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: 0.3s;
-    }
+    
+    
 
     .title {
       display: flex;
@@ -100,12 +85,7 @@ const filterRoms = computed(() => {
       align-items: center;
     }
 
-    &:hover {
-      .hover-show {
-        opacity: 1;
-        z-index: 1;
-      }
-    }
+    
   }
 
   .empty {
