@@ -418,6 +418,13 @@ watch(curRom, () => {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .el-space__item {
+    max-width: 100% !important;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .game main {
     .options {
