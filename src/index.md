@@ -14,11 +14,14 @@ hero:
     - theme: brand
       text: 软件下载
       link: /pages/software
+    - theme: brand
+      text: 在线游戏
+      link: /pages/game
     - theme: alt
       text: 更新日志
       link: /docs/关于/更新日志
 features:
-  - icon: 🪄
+  - icon: ❤
     title: 循序渐进
     details: 纸上得来终觉浅，绝知此事要躬行。
   - icon: ✨
