@@ -20,6 +20,9 @@ hero:
     - theme: alt
       text: 更新日志
       link: /docs/关于/更新日志
+    - theme: alt
+      text: 支持我
+      link: /docs/关于/支持我
 features:
   - icon: ❤
     title: 循序渐进

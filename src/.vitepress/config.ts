@@ -205,7 +205,10 @@ export default defineConfig({
       },
       {
         text: "关于",
-        items: [{ text: "更新日志", link: "/docs/关于/更新日志" }],
+        items: [
+          { text: "更新日志", link: "/docs/关于/更新日志" },
+          { text: "支持我", link: "/docs/关于/支持我" },
+        ],
       },
     ],
     sidebar: {
