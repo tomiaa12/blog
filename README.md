@@ -6,7 +6,9 @@
 
 - [网址导航](https://kuangyx.cn/pages/navigation.html)
 - [软件分享](https://kuangyx.cn/pages/software.html)
+- [在线游戏](https://kuangyx.cn/pages/game.html)
 - JS 库
+  - [Latex 公式录入模板](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/Latex%E5%85%AC%E5%BC%8F%E5%BD%95%E5%85%A5%E6%A8%A1%E6%9D%BF.html)
   - [开箱即用的 Live2d](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/Live2d.html)
   - [hitokoto 一言](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/hitokoto.html)
   - [canvas 涂鸦画板，支持笔写、手写、鼠标绘图](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/canvas%20%E6%B6%82%E9%B8%A6%E7%94%BB%E6%9D%BF.html)
@@ -23,6 +25,9 @@
   - [通知菜单](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/vue3%E7%BB%84%E4%BB%B6/%E9%80%9A%E7%9F%A5%E8%8F%9C%E5%8D%95.html)
   - ...
 - 文章
+  - [monorepo 仓库搭建](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/%E5%89%8D%E7%AB%AF/monorepo%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA.html)
+  - [javascript 防抖与节流](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/%E5%89%8D%E7%AB%AF/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.html)
+  - [前端 json 转换为 excel 文件保存 xlsx](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/%E5%89%8D%E7%AB%AF/json%E8%BD%AC%E6%8D%A2%E4%B8%BAexcel%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98.html)
   - [vue 预览 word 文件 docx](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/%E5%89%8D%E7%AB%AF/vue%E9%A2%84%E8%A7%88word%E6%96%87%E4%BB%B6docx.html)
   - [vue 前端预览 Excel 表格（导入导出）](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/%E5%89%8D%E7%AB%AF/vue%E9%A2%84%E8%A7%88Excel%E8%A1%A8%E6%A0%BC.html)
   - [css 实现不规则透明盒子滚动边框](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/%E5%89%8D%E7%AB%AF/css%E5%AE%9E%E7%8E%B0%E4%B8%8D%E8%A7%84%E5%88%99%E9%80%8F%E6%98%8E%E7%9B%92%E5%AD%90%E6%BB%9A%E5%8A%A8%E8%BE%B9%E6%A1%86.html)
