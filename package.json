@@ -24,7 +24,7 @@
     "@tomiaa/vue3-components": "^0.2.40",
     "conventional-changelog-cli": "^2.2.2",
     "sitemap": "^7.1.1",
-    "vitepress": "1.0.0-alpha.50",
+    "vitepress": "1.0.0-beta.2",
     "vue": "^3.2.47"
   },
   "dependencies": {
