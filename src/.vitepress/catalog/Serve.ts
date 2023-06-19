@@ -1,7 +1,7 @@
 export const Server = [
   {
     text: "Node.js",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "模块引入", link: "/docs/服务端/Node.js/模块引入" },
       { text: "dos 指令", link: "/docs/服务端/Node.js/dos指令" },
@@ -15,22 +15,22 @@ export const Server = [
   },
   {
     text: "框架",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "express", link: "/docs/服务端/express" }],
   },
   {
     text: "打包工具",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "webpack", link: "/docs/服务端/webpack" }],
   },
   {
     text: "部署",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "服务器部署", link: "/docs/服务端/服务器部署" }],
   },
   {
     text: "数据库",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "MySql", link: "/docs/服务端/MySql" }],
   },
 ]

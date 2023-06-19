@@ -1,7 +1,7 @@
 export const ES6 = [
   {
     text: "ECMAScript 6+",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "变量声明与解构", link: "/docs/ES6/变量声明与解构" },
       { text: "Object", link: "/docs/ES6/Object" },

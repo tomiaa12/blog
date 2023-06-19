@@ -1,7 +1,7 @@
 export const Article = [
   {
     text: "JS 库",
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         text: "Latex 公式录入模板",
@@ -18,7 +18,7 @@ export const Article = [
   },
   {
     text: "vue3 组件",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "快速上手", link: "/docs/文章/vue3组件/快速上手" },
       { text: "深色模式", link: "/docs/文章/vue3组件/深色模式" },
@@ -34,7 +34,7 @@ export const Article = [
   },
   {
     text: "前端",
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         text: "ElementUi-Dialog弹窗动画origin设置",
@@ -131,6 +131,7 @@ export const Article = [
   },
   {
     text: "技术教程",
+    collapsed: true,
     items: [
       {
         text: "v2rarN搭配SwitchyOmega自动代理",

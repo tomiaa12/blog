@@ -1,7 +1,7 @@
 export const JavaScript = [
   {
     text: "基本概念",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "变量", link: "/docs/JavaScript/基本概念/变量" },
       {
@@ -23,7 +23,7 @@ export const JavaScript = [
   },
   {
     text: "数据类型",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "类型分类", link: "/docs/JavaScript/数据类型/类型分类" },
       { text: "String", link: "/docs/JavaScript/数据类型/String" },
@@ -42,7 +42,7 @@ export const JavaScript = [
   },
   {
     text: "面向对象",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "设计模式", link: "/docs/JavaScript/面向对象/设计模式" },
       { text: "原型继承", link: "/docs/JavaScript/面向对象/原型继承" },
@@ -54,7 +54,7 @@ export const JavaScript = [
   },
   {
     text: "BOM",
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         text: "BOM常用方法",
@@ -68,7 +68,7 @@ export const JavaScript = [
   },
   {
     text: "DOM",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "获取元素", link: "/docs/JavaScript/DOM/获取元素" },
       { text: "节点操作", link: "/docs/JavaScript/DOM/节点操作" },
@@ -79,7 +79,7 @@ export const JavaScript = [
   },
   {
     text: "事件",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "事件分类", link: "/docs/JavaScript/事件/事件分类" },
       {
@@ -97,7 +97,7 @@ export const JavaScript = [
   },
   {
     text: "动画",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "拖拽效果", link: "/docs/JavaScript/动画/拖拽效果" },
       { text: "碰撞检测", link: "/docs/JavaScript/动画/碰撞检测" },
@@ -106,7 +106,7 @@ export const JavaScript = [
   },
   {
     text: "ajax",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "ajax 状态", link: "/docs/JavaScript/ajax/ajax状态" },
       { text: "ajax 封装", link: "/docs/JavaScript/ajax/ajax封装" },
@@ -114,7 +114,7 @@ export const JavaScript = [
   },
   {
     text: "表单脚本",
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         text: "属性方法事件",
@@ -128,7 +128,7 @@ export const JavaScript = [
   },
   {
     text: "本地储存技术",
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         text: "localStorage",
@@ -143,7 +143,7 @@ export const JavaScript = [
   },
   {
     text: "多媒体 API",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "video", link: "/docs/JavaScript/多媒体API/video" },
       { text: "audio", link: "/docs/JavaScript/多媒体API/audio" },
@@ -151,7 +151,7 @@ export const JavaScript = [
   },
   {
     text: "touch",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "原生touch", link: "/docs/JavaScript/原生touch" }],
   },
 ]

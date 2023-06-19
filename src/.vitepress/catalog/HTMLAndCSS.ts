@@ -1,7 +1,7 @@
 export const HTMLAndCSS = [
   {
     text: "HTML",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "HTML-基础", link: "/docs/HTML/HTML-基础" },
       { text: "HTML5", link: "/docs/HTML/HTML5" },
@@ -9,7 +9,7 @@ export const HTMLAndCSS = [
   },
   {
     text: "CSS 技巧",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "水平垂直居中", link: "/docs/CSS/CSS 技巧/水平垂直居中.md" },
       {
@@ -20,7 +20,7 @@ export const HTMLAndCSS = [
   },
   {
     text: "CSS 基础",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "基础知识", link: "/docs/CSS/CSS基础/基础知识" },
       { text: "文本溢出隐藏", link: "/docs/CSS/CSS基础/文本溢出隐藏" },
@@ -33,7 +33,7 @@ export const HTMLAndCSS = [
   },
   {
     text: "CSS3",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "选择器", link: "/docs/CSS/CSS3/选择器" },
       { text: "阴影背景", link: "/docs/CSS/CSS3/阴影背景" },
@@ -50,7 +50,7 @@ export const HTMLAndCSS = [
   },
   {
     text: "预处理",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "Less", link: "/docs/CSS/预处理/Less" },
       { text: "Sass", link: "/docs/CSS/预处理/Sass" },

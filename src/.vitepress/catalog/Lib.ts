@@ -1,7 +1,7 @@
 export const Lib = [
   {
     text: "JQuery",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "JQuery 初识", link: "/docs/库/JQuery/jQuery初识" },
       { text: "选择器", link: "/docs/库/JQuery/选择器" },
@@ -17,12 +17,12 @@ export const Lib = [
   },
   {
     text: "数据请求",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "axios", link: "/docs/库/axios" }],
   },
   {
     text: "移动端",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "百度 touch.js", link: "/docs/库/百度touch.js" }],
   },
 ]

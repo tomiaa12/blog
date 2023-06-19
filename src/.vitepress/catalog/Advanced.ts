@@ -1,7 +1,7 @@
 export const Advanced = [
   {
     text: "TypeScript",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "安装配置", link: "/docs/进阶/TypeScript/安装配置" },
       { text: "类型声明", link: "/docs/进阶/TypeScript/类型声明" },
@@ -14,17 +14,17 @@ export const Advanced = [
   },
   {
     text: "版本管理工具",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "git版本管理工具", link: "/docs/进阶/git版本管理工具" }],
   },
   {
     text: "小程序",
-    collapsible: true,
+    collapsed: true,
     items: [{ text: "微信小程序入门", link: "/docs/进阶/微信小程序" }],
   },
   {
     text: "Canvas",
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: "canvas 入门", link: "/docs/进阶/Canvas/canvas入门" },
       { text: "绘制", link: "/docs/进阶/Canvas/绘制" },

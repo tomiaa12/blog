@@ -1,5 +1,6 @@
 export const Pixi = {
   text: "Pixi",
+  collapsed: true,
   items: [
     { text: "基本图形绘制", link: "/docs/框架/pixi.js/基本图形绘制" },
     { text: "不规则图形绘制", link: "/docs/框架/pixi.js/不规则图形绘制" },
@@ -13,6 +14,7 @@ export const Pixi = {
 }
 export const Vue2 = {
   text: "Vue2",
+  collapsed: true,
   items: [
     { text: "指令", link: "/docs/框架/Vue2/指令" },
     { text: "生命周期", link: "/docs/框架/Vue2/生命周期" },
@@ -27,6 +29,7 @@ export const Vue2 = {
 
 export const Vue3 = {
   text: "Vue3",
+  collapsed: true,
   items: [
     {
       text: "创建响应式数据",
@@ -55,6 +58,7 @@ export const Vue3 = {
 
 export const Nuxt3 = {
   text: "nuxt.js",
+  collapsed: true,
   items: [
     { text: "安装", link: "/docs/框架/nuxt.js/安装" },
     { text: "路由", link: "/docs/框架/nuxt.js/路由" },
@@ -79,6 +83,7 @@ export const Nuxt3 = {
 
 export const React = {
   text: "React",
+  collapsed: true,
   items: [
     { text: "组件", link: "/docs/框架/React/组件" },
     { text: "事件", link: "/docs/框架/React/事件" },
@@ -89,6 +94,7 @@ export const React = {
 
 export const Openlayers = {
   text: "openlayers",
+  collapsed: true,
   items: [
     { text: "功能介绍", link: "/docs/框架/openlayers/功能介绍" },
     {

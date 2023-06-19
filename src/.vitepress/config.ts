@@ -277,6 +277,7 @@ export default defineConfig({
         Openlayers,
         {
           text: "openlayers示例",
+          collapsed: true,
           items: [
             {
               text: "地图控件",
