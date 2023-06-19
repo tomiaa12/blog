@@ -23,6 +23,9 @@ hero:
     - theme: alt
       text: 支持我
       link: /docs/关于/支持我
+    - theme: alt
+      text: 交流群
+      link: /docs/关于/交流群
 features:
   - icon: ❤
     title: 循序渐进
