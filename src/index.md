@@ -1,5 +1,6 @@
 ---
 layout: home
+class: home
 hero:
   name: web技术学习
   image:
@@ -37,3 +38,11 @@ features:
     title: 关于我
     details: 是个路人。
 ---
+
+<style>
+@media (min-width: 960px) {
+  .home .VPHero.has-image .main {
+    max-width: 640px;
+  }
+}
+</style>
