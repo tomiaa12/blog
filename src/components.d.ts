@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElDescriptions: typeof import('element-plus/es')['ElDescriptions']
     ElDescriptionsItem: typeof import('element-plus/es')['ElDescriptionsItem']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElIconCamera: typeof import('@element-plus/icons-vue')['Camera']
     ElIconCaretBottom: typeof import('@element-plus/icons-vue')['CaretBottom']
