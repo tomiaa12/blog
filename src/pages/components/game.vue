@@ -352,6 +352,8 @@ watch(curCategory, () => {
       margin: 0 1em;
     }
     ul {
+      display: flex;
+      flex-wrap: wrap;
       margin: 0;
       padding: 0;
       flex: 1;
@@ -362,6 +364,7 @@ watch(curCategory, () => {
         background-color: var(--el-color-info-light-9);
         line-height: 1.8;
         cursor: pointer;
+        width: 350px;
         &:hover {
           color: var(--el-color-primary);
         }
@@ -408,10 +411,16 @@ watch(curCategory, () => {
   .game main {
     .options {
       order: 1;
+      width: unset;
     }
     ul {
       order: 2;
       min-width: 250px;
+      max-width: unset;
+      margin-left: 1em;
+      li {
+        margin: 0 1em 1em 0;
+      }
     }
     .play {
       margin: 0;
