@@ -29,13 +29,13 @@ iframe:not([height]) {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--vp-c-gray-light-2);
+  background-color: var(--el-color-info-light-8);
   border: 0.15em solid transparent;
   border-top-width: 0.1em;
   border-bottom-width: 0.1em;
   background-clip: content-box;
   border-radius: 2em;
   &:hover {
-    background-color: var(--vp-c-gray);
+    background-color: var(--el-color-info-light-5);
   }
 }
