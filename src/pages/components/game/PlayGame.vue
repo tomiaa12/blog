@@ -1,6 +1,7 @@
 <template>
   <div class="play">
-    <div style="width: 50%">
+    <div class="main">
+      <span>{{ fps }}</span>
       <component
         :is="nesVue"
         ref="nesVueRef"
@@ -12,6 +13,7 @@
         :height="screenSize.height"
         @error="nesErrorAlert"
         @success="success"
+        @fps="fpsChange"
       />
     </div>
     <div class="control">
@@ -193,8 +195,25 @@ const success = () => {
     behavior: "smooth",
   })
 }
+
+const fps = ref()
+const fpsChange = (n: number) => {
+  fps.value = n.toFixed(2)
+}
 </script>
 <style lang="scss" scoped>
+.play {
+  .main {
+    position: relative;
+    span {
+      position: absolute;
+      top: 0;
+      right: 1em;
+      color: white;
+      z-index: 1;
+    }
+  }
+}
 .nes-vue {
   margin: 0 1em 0 0 !important;
 }
