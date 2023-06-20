@@ -44,6 +44,7 @@ export default defineConfig({
       {},
       ` var _hmt = _hmt || [];
         (function() {
+          if(location.hostname === 'localhost') return;
           var hm = window.document.createElement("script");
           hm.src = "https://hm.baidu.com/hm.js?bb01df18792391bcc6952b8b90c01d65";
           var s = window.document.getElementsByTagName("script")[0]; 
