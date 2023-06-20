@@ -217,10 +217,6 @@ watch(curCategory, () => {
     border-top: none;
     margin-top: 0;
   }
-  .el-check-tag {
-    margin: 0 1em 1em 0;
-    cursor: pointer;
-  }
   .el-space {
     width: 100%;
     .el-space__item {

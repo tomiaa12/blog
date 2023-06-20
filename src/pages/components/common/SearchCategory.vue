@@ -14,9 +14,9 @@
       <el-check-tag
         :checked="!cate"
         size="large"
-        @click="emits('update:modelValue', '')"
+        @click="emits('update:cate', '')"
       >
-        全部游戏
+        全部
       </el-check-tag>
       <el-check-tag
         v-for="i of data"
@@ -54,6 +54,10 @@ const props = defineProps({
 const emits = defineEmits(["update:modelValue", "update:cate"])
 </script>
 <style lang="scss" scoped>
+.el-check-tag {
+  margin: 0 1em 1em 0;
+  cursor: pointer;
+}
 .fix {
   position: sticky;
   top: var(--vp-nav-height);

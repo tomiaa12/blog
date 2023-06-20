@@ -1,7 +1,18 @@
 <template>
   <div class="list-content">
-    <template v-for="i of list">
-      <h2 :id="i.title">{{ i.title }}</h2>
+    <SearchCategory
+      v-model="keyword"
+      v-model:cate="cate"
+      :data="data"
+      placeholder="输入搜索软件名称"
+    />
+    <template v-for="i of filterList">
+      <h2
+        v-if="i.children.length"
+        :id="i.title"
+      >
+        {{ i.title }}
+      </h2>
       <el-space
         wrap
         size="large"
@@ -44,15 +55,34 @@
         </a>
       </el-space>
     </template>
+    <span v-if="!filterList.length">未搜索到软件</span>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from "vue"
+import SearchCategory from "./common/SearchCategory.vue"
 import list from "./software"
 
-const open = (item: any) => {
-  window.open(item.url)
-}
+const data = list.map(i => ({ label: i.title, value: i.title }))
+
+const open = (item: any) => window.open(item.url)
+
+const keyword = ref()
+const cate = ref()
+
+const filterList = computed(() => {
+  const temp = JSON.parse(JSON.stringify(list))
+  return temp.filter((i: any) => {
+    if (cate.value) return i.title === cate.value
+    if (keyword.value)
+      i.children = i.children.filter((i: any) => {
+        if (i.title.includes(keyword.value) || i.desc?.includes(keyword.value))
+          return i
+      })
+    return i
+  })
+})
 </script>
 <style lang="scss">
 .software {
