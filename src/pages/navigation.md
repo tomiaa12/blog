@@ -1,5 +1,6 @@
 ---
 class: navigation
+outline: false
 ---
 
 <script setup>

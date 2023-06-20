@@ -11,6 +11,7 @@
         :width="screenSize.width"
         :height="screenSize.height"
         @error="nesErrorAlert"
+        @success="success"
       />
     </div>
     <div class="control">
@@ -49,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeUnmount, onMounted, watch } from "vue"
+import { ref, onBeforeUnmount, onMounted, watch, shallowRef } from "vue"
 import { ElNotification } from "element-plus"
 
 import start from "./svg/start.svg"
@@ -63,7 +64,7 @@ const props = defineProps<{
 }>()
 const emits = defineEmits([])
 
-const nesVue = ref()
+const nesVue = shallowRef()
 
 onMounted(() => {
   import("nes-vue").then(({ NesVue }) => {
@@ -184,6 +185,15 @@ const reset = () => {
 }
 
 watch(() => props.curRom, fullscreenHandler)
+
+const success = () => {
+  console.log("success")
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  })
+}
 </script>
 <style lang="scss" scoped>
 .nes-vue {

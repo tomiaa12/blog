@@ -1,6 +1,7 @@
 ---
 class: game
 aside: false
+outline: false
 ---
 
 <script setup>

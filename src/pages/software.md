@@ -1,5 +1,6 @@
 ---
 class: software
+outline: false
 ---
 
 <script setup>
