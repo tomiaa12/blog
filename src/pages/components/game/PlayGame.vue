@@ -47,6 +47,19 @@
           <img :src="save" />
         </el-icon>
       </el-tooltip> -->
+      <div class="right">
+        <el-tooltip
+          content="截图"
+          placement="top"
+        >
+          <el-icon
+            size="36"
+            @click="screenshot"
+          >
+            <el-icon-camera />
+          </el-icon>
+        </el-tooltip>
+      </div>
     </div>
   </div>
 </template>
@@ -200,6 +213,8 @@ const fps = ref()
 const fpsChange = (n: number) => {
   fps.value = n.toFixed(2)
 }
+
+const screenshot = () => nesVueRef.value.screenshot(true)
 </script>
 <style lang="scss" scoped>
 .play {
@@ -226,6 +241,10 @@ const fpsChange = (n: number) => {
       width: 36px;
       height: 36px;
     }
+  }
+
+  .right {
+    float: right;
   }
 }
 </style>
