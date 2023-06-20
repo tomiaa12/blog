@@ -11,6 +11,23 @@
   <Live2D />
 
   <el-backtop :right="300" />
+
+  <el-popover
+    placement="left"
+    title="交流群"
+    :width="250"
+    trigger="hover"
+  >
+    <template #reference>
+      <div class="fixd">
+        <el-icon :size="24">
+          <img :src="wxIcon" />
+        </el-icon>
+        <span>交流群</span>
+      </div>
+    </template>
+    <CommunicationGroup />
+  </el-popover>
 </template>
 
 <script setup lang="ts">
@@ -19,6 +36,8 @@ import { useRoute, useData } from "vitepress"
 import { computed } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
+import CommunicationGroup from "./CommunicationGroup.vue"
+import wxIcon from "./CommunicationGroup/img/wx.svg"
 const route = useRoute()
 
 const data = useData()
@@ -47,5 +66,20 @@ const getCurClass = computed(() => data.frontmatter.value.class)
   .title {
     white-space: nowrap;
   }
+}
+
+.fixd {
+  position: fixed;
+  top: 50%;
+  right: 1px;
+  border-radius: 4px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--el-border-color);
+  color: var(--vp-c-green);
+  cursor: pointer;
 }
 </style>
