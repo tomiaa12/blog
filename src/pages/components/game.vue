@@ -107,34 +107,12 @@
       </main>
     </template>
     <template v-else>
-      <div class="fix">
-        <el-input
-          v-model="keyword"
-          class="keyword-input"
-          placeholder="输入搜索游戏名称"
-          clearable
-          size="large"
-          @input="curCategory = ''"
-        />
-
-        <div class="cate">
-          <el-check-tag
-            :checked="!curCategory"
-            size="large"
-            @click="curCategory = ''"
-          >
-            全部游戏
-          </el-check-tag>
-          <el-check-tag
-            v-for="i of categorys"
-            :checked="curCategory === i.id"
-            size="large"
-            @click="curCategory = i.id"
-          >
-            {{ i.name }}
-          </el-check-tag>
-        </div>
-      </div>
+      <SearchCategory
+        v-model="keyword"
+        v-model:cate="curCategory"
+        :data="categorysData"
+        placeholder="输入搜索游戏名称"
+      />
 
       <GameList
         :base-url="BASE_URL"
@@ -154,8 +132,11 @@ import { categorys, roms } from "./game"
 import GameList from "./game/GameList.vue"
 import PlayGame from "./game/PlayGame.vue"
 import InnerLoading from "./game/InnerLoading.vue"
+import SearchCategory from "./common/SearchCategory.vue"
 
 const curCategory = ref("")
+
+const categorysData = categorys.map(i => ({ label: i.name, value: i.id }))
 
 const BASE_URL = "https://tomiaa12.github.io/nesRoms/"
 
@@ -208,6 +189,10 @@ watch(curCategory, () => {
     max-width: 100%;
     border-radius: var(--el-card-border-radius);
     overflow: hidden;
+    .el-image {
+      width: 100%;
+      min-height: inherit;
+    }
     &:hover {
       .hover-show {
         opacity: 1;
@@ -240,41 +225,6 @@ watch(curCategory, () => {
     width: 100%;
     .el-space__item {
       max-width: calc(50% - 8px);
-    }
-  }
-  .fix {
-    position: sticky;
-    top: var(--vp-nav-height);
-    z-index: 10;
-    background-color: var(--vp-c-bg-elv);
-    box-shadow: 0 2px 4px -3px rgb(0 0 0 / 0.1);
-    border-bottom: 1px solid var(--vp-c-divider);
-    padding-top: 1em;
-    margin-bottom: 1em;
-  }
-  .keyword-input {
-    margin-bottom: 24px;
-    max-width: 768px;
-    .el-input-group__append {
-      --el-input-border-color: var(--el-color-primary);
-      --el-button-hover-text-color: var(--el-color-white);
-      --el-button-hover-bg-color: var(--el-color-primary-light-3);
-      --el-button-active-text-color: var(--el-button-hover-text-color);
-      --el-button-active-border-color: var(--el-color-primary-dark-2);
-      --el-button-active-bg-color: var(--el-color-primary-dark-2);
-      background: var(--el-color-primary);
-      color: white;
-
-      &:hover {
-        --el-input-border-color: var(--el-color-primary-light-3);
-        color: var(--el-button-hover-text-color);
-        background-color: var(--el-button-hover-bg-color);
-      }
-      &:active {
-        --el-input-border-color: var(--el-button-active-border-color);
-        color: var(--el-button-active-text-color);
-        background-color: var(--el-button-active-bg-color);
-      }
     }
   }
 
@@ -371,6 +321,7 @@ watch(curCategory, () => {
         .img-box {
           min-height: 64px;
           max-width: 64px;
+          width: 64px;
           height: 64px;
           margin-right: 1em;
         }
