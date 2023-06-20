@@ -177,6 +177,14 @@ watch(curRom, () => {
     recommendList.value.push(roms[randomInteger(0, roms.length - 1)])
   }
 })
+
+watch(curCategory, () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  })
+})
 </script>
 <style lang="scss">
 @font-face {

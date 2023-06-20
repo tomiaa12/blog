@@ -187,7 +187,6 @@ const reset = () => {
 watch(() => props.curRom, fullscreenHandler)
 
 const success = () => {
-  console.log("success")
   window.scrollTo({
     top: 0,
     left: 0,

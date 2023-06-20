@@ -1,5 +1,9 @@
 <template>
-  <div class="list">
+  <div
+    v-infinite-scroll="loadMore"
+    :infinite-scroll-distance="400"
+    class="list"
+  >
     <h2>游戏列表（{{ filterRoms.length }}）</h2>
     <p
       v-if="!filterRoms.length"
@@ -12,43 +16,45 @@
       size="large"
       alignment="stretch"
     >
-      <el-card
-        v-for="i of filterRoms"
-        class="box-card"
-        shadow="hover"
-        @click="emits('select', i)"
-      >
-        <div class="img-box">
-          <el-image
-            class="image"
-            alt="i.title"
-            :src="baseUrl + 'img/' + i.cover"
-          >
-            <template #placeholder>
-              <InnerLoading />
-            </template>
-          </el-image>
-          <el-image
-            class="hover-show"
-            :src="baseUrl + 'img/' + i.image"
-          >
-            <template #placeholder>
-              <InnerLoading />
-            </template>
-          </el-image>
-        </div>
-        <p class="title">
-          {{ i.title }}
+      <template v-for="(i, index) of filterRoms">
+        <el-card
+          v-if="showMax > index"
+          class="box-card"
+          shadow="hover"
+          @click="emits('select', i)"
+        >
+          <div class="img-box">
+            <el-image
+              class="image"
+              alt="i.title"
+              :src="baseUrl + 'img/' + i.cover"
+            >
+              <template #placeholder>
+                <InnerLoading />
+              </template>
+            </el-image>
+            <el-image
+              class="hover-show"
+              :src="baseUrl + 'img/' + i.image"
+            >
+              <template #placeholder>
+                <InnerLoading />
+              </template>
+            </el-image>
+          </div>
+          <p class="title">
+            {{ i.title }}
 
-          <el-tag>{{ i.type }}</el-tag>
-        </p>
-      </el-card>
+            <el-tag>{{ i.type }}</el-tag>
+          </p>
+        </el-card>
+      </template>
     </el-space>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed, ref, watch } from "vue"
 import { roms } from "../game"
 
 import InnerLoading from "./InnerLoading.vue"
@@ -66,6 +72,15 @@ const filterRoms = computed(() => {
     ? roms
     : roms.filter(i => i.type === props.curCategory)
 })
+
+const showMax = ref(30)
+
+const loadMore = () => (showMax.value += 10)
+
+watch(
+  () => filterRoms.value.length,
+  () => (showMax.value = 30)
+)
 </script>
 <style lang="scss">
 .game {
