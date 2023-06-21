@@ -192,6 +192,7 @@ watch(curCategory, () => {
     .el-image {
       width: 100%;
       min-height: inherit;
+      height: 0;
     }
     &:hover {
       .hover-show {
