@@ -37,6 +37,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "js调用openai实现chatgpt微信机器人",
+        link: "/docs/文章/前端/js调用openai实现chatgpt微信机器人.md",
+      },
+      {
         text: "ElementUi-Dialog弹窗动画origin设置",
         link: "/docs/文章/前端/ElementUi-Dialog弹窗动画origin设置.md",
       },
