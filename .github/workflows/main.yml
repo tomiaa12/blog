@@ -1,6 +1,10 @@
+# 当前自动化的名称
 name: deploy-website
+
 on:
+  # 当 git push 时
   push:
+    # 要编译的分支
     branches:
       - main
 
@@ -9,22 +13,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 从当前分支拷贝出来
       - uses: actions/checkout@v2
+      # 安装 nodejs
       - name: install nodejs
+        # 指定 node 版本
         uses: actions/setup-node@v2.5.1
         with:
           node-version: "19.x"
+      # 安装 npm 依赖包
       - name: install deps
         run: npm install
+      # 编译
       - name: build app
         run: npm run build
+      # 将编译出来的文件拷贝发送到你的服务器
       - name: copy dist file with scp
         uses: appleboy/scp-action@master
         with:
+          # 因为当前仓库是开源的，直接写服务器地址会被看到，所以这里使用的是 github 的变量，可以再仓库的 setting --> Secrets and variables --> Actions 中点击 New repository secret 创建变量名，名为 SERVER_HOST 时参考如下使用
+          # 你的服务器地址
           host: ${{ secrets.SERVER_HOST }}
+          # 服务器登录名称
           username: ${{ secrets.SERVER_USERNAME }}
+          # 服务器登录密码
           password: ${{ secrets.SERVER_PASSWORD }},
+          # 端口，一般是 22
           port: ${{ secrets.SERVER_PORT }}
+          # 编译出来的文件夹名称，默认是 dist 文件
           source: "kuangyx/"
+          # 需要拷贝到服务器的哪个路径下
           target: ${{ secrets.SERVER_TARGET }}
+          # 服务器的 ssh
           key: ${{ secrets.SERVER_PRIVATE_KEY }}

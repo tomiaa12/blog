@@ -37,6 +37,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "githubAction自动化发布到服务器",
+        link: "/docs/文章/前端/githubAction自动化发布到服务器.md",
+      },
+      {
         text: "js调用openai实现chatgpt微信机器人",
         link: "/docs/文章/前端/js调用openai实现chatgpt微信机器人.md",
       },
