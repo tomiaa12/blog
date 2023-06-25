@@ -17,6 +17,7 @@
     title="交流群"
     :width="250"
     trigger="hover"
+    popper-class="qun-contianer"
   >
     <template #reference>
       <div class="fixd">
@@ -70,16 +71,25 @@ const getCurClass = computed(() => data.frontmatter.value.class)
 
 .fixd {
   position: fixed;
-  top: 50%;
+  top: 30%;
   right: 1px;
   border-radius: 4px;
   padding: 4px;
   display: flex;
+  z-index: 2000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--el-border-color);
   color: var(--vp-c-green);
   cursor: pointer;
+}
+</style>
+
+<style lang="scss">
+.qun-contianer {
+  max-height: 95vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 </style>
