@@ -39,6 +39,10 @@ features:
     details: 是个路人。
 ---
 
+<el-divider content-position="center">
+  <p>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次，访客数 <span id="busuanzi_value_site_uv"></span> 人次</p>
+</el-divider>
+
 <style>
 @media (min-width: 960px) {
   .home .VPHero.has-image .main {

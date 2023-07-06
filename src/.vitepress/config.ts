@@ -38,6 +38,14 @@ export default defineConfig({
   lastUpdated: true,
   outDir: "../kuangyx",
   head: [
+    // 添加访问量统计
+    [
+      "script",
+      {
+        async: "true",
+        src: "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",
+      },
+    ],
     // 添加百度统计
     [
       "script",

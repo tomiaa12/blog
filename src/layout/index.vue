@@ -1,5 +1,10 @@
 <template>
   <defaultLayout :class="getCurClass">
+    <template #doc-footer-before>
+      <div class="page_pv">
+        本文总阅读量 <span id="busuanzi_value_page_pv" /> 次
+      </div>
+    </template>
     <template #doc-after>
       <Comment v-if="route.path !== '/'" />
     </template>
@@ -49,14 +54,17 @@ const getCurClass = computed(() => data.frontmatter.value.class)
 .home-comment {
   padding: 2em;
 }
+
 .el-backtop {
   z-index: 2001;
 }
+
 :deep(.VPNavBar) {
   .content {
     white-space: nowrap;
   }
 }
+
 :deep(.VPDoc.has-aside) {
   .content-container {
     max-width: 850px;
@@ -83,6 +91,15 @@ const getCurClass = computed(() => data.frontmatter.value.class)
   border: 1px solid var(--el-border-color);
   color: var(--vp-c-green);
   cursor: pointer;
+}
+
+.page_pv {
+  line-height: 32px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  font-family: var(--vp-font-family-base);
+  color: var(--vp-c-text-1);
 }
 </style>
 
