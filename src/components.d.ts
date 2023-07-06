@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     ElIconCamera: typeof import('@element-plus/icons-vue')['Camera']
     ElIconCaretBottom: typeof import('@element-plus/icons-vue')['CaretBottom']
     ElIconCaretTop: typeof import('@element-plus/icons-vue')['CaretTop']
+    ElIconLoading: typeof import('@element-plus/icons-vue')['Loading']
     ElIconOperation: typeof import('@element-plus/icons-vue')['Operation']
     ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
@@ -33,5 +34,6 @@ declare module '@vue/runtime-core' {
   }
   export interface ComponentCustomProperties {
     vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

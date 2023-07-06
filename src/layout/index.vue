@@ -1,8 +1,28 @@
 <template>
   <defaultLayout :class="getCurClass">
-    <template #doc-footer-before>
+    <template #home-features-after>
+      <div
+        v-loading
+        class="site_pv"
+      >
+        本站总访问量
+        <span id="busuanzi_value_site_pv">
+          <el-icon-loading class="loading-icon" />
+        </span>
+        次，访客数
+        <span id="busuanzi_value_site_uv">
+          <el-icon-loading class="loading-icon" />
+        </span>
+        人次
+      </div>
+    </template>
+    <template #doc-before>
       <div class="page_pv">
-        本文总阅读量 <span id="busuanzi_value_page_pv" /> 次
+        本文总阅读量
+        <span id="busuanzi_value_page_pv">
+          <el-icon-loading class="loading-icon" />
+        </span>
+        次
       </div>
     </template>
     <template #doc-after>
@@ -108,5 +128,11 @@ const getCurClass = computed(() => data.frontmatter.value.class)
   max-height: 95vh;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.loading-icon {
+  display: inline;
+  vertical-align: middle;
+  animation: loading-rotate 2s linear infinite;
 }
 </style>
