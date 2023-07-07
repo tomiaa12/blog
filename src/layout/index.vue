@@ -59,13 +59,11 @@
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import { useRoute, useData } from "vitepress"
-import { computed, watch } from "vue"
+import { computed, nextTick, onMounted, watch } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import CommunicationGroup from "./CommunicationGroup.vue"
 import wxIcon from "./CommunicationGroup/img/wx.svg"
-
-import script from "busuanzi.pure.js"
 
 const route = useRoute()
 
@@ -73,10 +71,15 @@ const data = useData()
 
 const getCurClass = computed(() => data.frontmatter.value.class)
 
+let script: any
+onMounted(async () => {
+  // eslint-disable-next-line no-import-assign
+  script = await import("busuanzi.pure.js")
+})
 watch(
   () => route.path,
   () => {
-    script.fetch()
+    script?.fetch()
   },
   {
     immediate: true,
