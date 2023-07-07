@@ -48,7 +48,7 @@ features:
 }
 
 .VPFeatures + .VPFeatures,
-.site_pv + .site_pv {
+.site_pv ~ .site_pv {
   display: none;
 }
 
