@@ -37,6 +37,7 @@
     "@vue/eslint-config-typescript": "^11.0.2",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios-jsonp": "^1.0.4",
+    "busuanzi.pure.js": "^1.0.3",
     "element-plus": "^2.3.6",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",

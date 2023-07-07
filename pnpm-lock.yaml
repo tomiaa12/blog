@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -32,6 +32,9 @@ dependencies:
   axios-jsonp:
     specifier: ^1.0.4
     version: 1.0.4
+  busuanzi.pure.js:
+    specifier: ^1.0.3
+    version: 1.0.3
   element-plus:
     specifier: ^2.3.6
     version: 2.3.6(vue@3.2.47)
@@ -3054,6 +3057,10 @@ packages:
       electron-to-chromium: 1.4.325
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10(browserslist@4.21.5)
+    dev: false
+
+  /busuanzi.pure.js@1.0.3:
+    resolution: {integrity: sha512-tPULdyx+8NNb9geZYDpktKmHAYx9f2LEOBaHyWCaM7iPEMIa/43KgYAUluuU7YG9UFSOFpj4dO7Nj2Vlu3V9Rg==}
     dev: false
 
   /call-bind@1.0.2:

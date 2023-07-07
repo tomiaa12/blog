@@ -38,14 +38,9 @@ export default defineConfig({
   lastUpdated: true,
   outDir: "../kuangyx",
   head: [
-    // 添加访问量统计
-    [
-      "script",
-      {
-        async: "true",
-        src: "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",
-      },
-    ],
+    // 在 Chrome 85 版本中，为了保护用户的隐私，默认的 Referrer Policy 则变成了 strict-origin-when-cross-origin
+    // 所以必须加入此部分代码，否则文章统计访问量的数据则不正确
+    ['meta', {name: 'referrer', content: 'no-referrer-when-downgrade'}],
     // 添加百度统计
     [
       "script",
