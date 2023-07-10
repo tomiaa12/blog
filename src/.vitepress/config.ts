@@ -8,7 +8,6 @@ import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 
-import DefineOptions from "unplugin-vue-define-options/vite"
 import vueJsx from "@vitejs/plugin-vue-jsx"
 
 import {
@@ -355,7 +354,7 @@ export default defineConfig({
         "@tomiaa/canvas-graffiti",
         "@tomiaa/latex-template",
         "@wangeditor/editor-for-vue",
-        "@wangeditor/editor/dist/css/style.css",
+        // "@wangeditor/editor/dist/css/style.css",
       ],
     },
     ssr: {
@@ -380,7 +379,7 @@ export default defineConfig({
       Components({
         resolvers: [ElementPlusResolver()],
       }),
-      DefineOptions(),
+      // DefineOptions(),
       vueJsx(),
     ],
     server: {

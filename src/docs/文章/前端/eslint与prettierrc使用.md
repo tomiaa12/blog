@@ -48,9 +48,6 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off", // 允许使用 ts 语法 obj!.a
     "vue/valid-v-for": "off", // 禁用 v-for 语法校验， vue3 v-for 不需要绑定 :key，不禁用会报没有绑定 key 的警告
   },
-  globals: {
-    defineOptions: "readonly", // unplugin-vue-define-options vite 插件的全局变量
-  },
 };
 ```
 
