@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v3
       # 安装 pnpm
       - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       # 安装 nodejs
       - name: 安装 nodejs
         # 指定 node 版本
