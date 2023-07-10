@@ -14,16 +14,18 @@ jobs:
 
     steps:
       # 从当前分支拷贝出来
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      # 安装 pnpm
+      - uses: pnpm/action-setup@v2
       # 安装 nodejs
-      - name: install nodejs
+      - name: 安装 nodejs
         # 指定 node 版本
         uses: actions/setup-node@v2.5.1
         with:
           node-version: "19.x"
       # 安装 npm 依赖包
       - name: install deps
-        run: npm install
+        run: pnpm install
       # 编译
       - name: build app
         run: npm run build
