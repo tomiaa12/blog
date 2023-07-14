@@ -1,5 +1,5 @@
 <template>
-  <div class="search">
+  <div class="search-container">
     <div class="main">
       <div class="control">
         <el-button
@@ -366,7 +366,7 @@ const listClick = () => {
     }
   }
 
-  .search {
+  .search-container {
     height: 100vh;
     position: relative;
     .main {
