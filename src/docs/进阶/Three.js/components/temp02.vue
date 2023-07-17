@@ -13,6 +13,8 @@ import {
   WebGLRenderer,
 } from "three"
 
+import { OrbitControls } from "three/addons/controls/OrbitControls"
+
 const canvas = ref()
 
 onMounted(() => {
@@ -62,7 +64,21 @@ onMounted(() => {
   )
 
   // 使用渲染器，通过场景，相机来渲染
-  renderer.render(scene, camera)
+  // 这里只能渲染一次，后面相机在移动时每一帧都需要渲染一次
+  // renderer.render(scene, camera)
+
+  // 创建轨道控制器
+  // 要控制的相机，canvas元素
+  const controls = new OrbitControls(camera, renderer.domElement)
+
+  const render = () => {
+    renderer.render(scene, camera)
+    // 浏览器自带方法，请求下一帧调用 render 方法，渲染
+    requestAnimationFrame(render)
+  }
+
+  // 开始时调用一次渲染，鼠标左键可以拖动查看立方体
+  render()
 })
 </script>
 <style lang="scss" scoped>
