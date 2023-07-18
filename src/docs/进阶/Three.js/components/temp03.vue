@@ -14,7 +14,7 @@ import {
   AxesHelper,
 } from "three"
 
-import { OrbitControls } from "three/addons/controls/OrbitControls"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 const canvas = ref()
 
