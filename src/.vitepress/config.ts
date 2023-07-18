@@ -355,6 +355,7 @@ export default defineConfig({
         "@tomiaa/latex-template",
         "@wangeditor/editor-for-vue",
         // "@wangeditor/editor/dist/css/style.css",
+        "three",
       ],
     },
     ssr: {
@@ -370,6 +371,7 @@ export default defineConfig({
         "@tomiaa/latex-template",
         "@wangeditor/editor-for-vue",
         "@wangeditor/editor/dist/css/style.css",
+        "three",
       ],
     },
     plugins: [
