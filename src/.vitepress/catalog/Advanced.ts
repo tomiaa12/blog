@@ -5,6 +5,7 @@ export const Advanced = [
     items: [
       { text: "渲染一个场景和物体", link: "/docs/进阶/Three.js/01渲染一个场景和物体" },
       { text: "轨道控制器", link: "/docs/进阶/Three.js/02轨道控制器" },
+      { text: "坐标辅助器", link: "/docs/进阶/Three.js/03坐标辅助器" },
     ],
   },
   {

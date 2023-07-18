@@ -39,7 +39,7 @@ onMounted(() => {
   // 创建几何体
   const cubeGeometry = new BoxGeometry(1, 1, 1)
   // 创建材质
-  const cubeMaterial = new MeshBasicMaterial({ color: 0xff0000 })
+  const cubeMaterial = new MeshBasicMaterial({ color: 0xffc0cb })
   // 根据几何体和材质创建物体
   const cube = new Mesh(cubeGeometry, cubeMaterial)
 
@@ -67,6 +67,7 @@ onMounted(() => {
   // 这里只能渲染一次，后面相机在移动时每一帧都需要渲染一次
   // renderer.render(scene, camera)
 
+  // #region snippet
   // 创建轨道控制器
   // 要控制的相机，canvas元素
   const controls = new OrbitControls(camera, renderer.domElement)
@@ -79,6 +80,7 @@ onMounted(() => {
 
   // 开始时调用一次渲染，鼠标左键可以拖动查看立方体
   render()
+  // #endregion snippet
 })
 </script>
 <style lang="scss" scoped>
