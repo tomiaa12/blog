@@ -90,6 +90,17 @@ wechaty
 wechaty.start();
 ```
 
+## 私信自动回复
+
+```ts
+if (message.text()) {
+  // 文字消息
+  const msg = message.text();
+  const res = await getMsg(msg);
+  await message.say(res.data.choices[0].message.content);
+}
+```
+
 <script setup lang="ts">
 import CommunicationGroup from "../../../layout/CommunicationGroup.vue"
 </script>
