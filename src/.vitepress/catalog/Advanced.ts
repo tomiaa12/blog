@@ -7,6 +7,7 @@ export const Advanced = [
       { text: "轨道控制器", link: "/docs/进阶/Three.js/02轨道控制器" },
       { text: "坐标辅助器", link: "/docs/进阶/Three.js/03坐标辅助器" },
       { text: "设置物体移动、缩放、旋转", link: "/docs/进阶/Three.js/04设置物体移动、缩放、旋转" },
+      { text: "requstAnimationFrame 应用", link: "/docs/进阶/Three.js/05requstAnimationFrame应用" },
     ],
   },
   {
