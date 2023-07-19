@@ -351,7 +351,7 @@ const listClick = () => {
     background: transparent !important;
   }
   .VPContent {
-    padding-top: 0;
+    padding-top: 2em;
   }
 
   .aside {
