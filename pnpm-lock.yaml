@@ -47,6 +47,9 @@ dependencies:
   eslint-plugin-vue:
     specifier: ^9.15.1
     version: 9.15.1(eslint@8.44.0)
+  gsap:
+    specifier: ^3.12.2
+    version: 3.12.2
   nes-vue:
     specifier: ^1.6.10
     version: 1.6.10
@@ -3950,6 +3953,10 @@ packages:
 
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
+    dev: false
+
+  /gsap@3.12.2:
+    resolution: {integrity: sha512-EkYnpG8qHgYBFAwsgsGEqvT1WUidX0tt/ijepx7z8EUJHElykg91RvW1XbkT59T0gZzzszOpjQv7SE41XuIXyQ==}
     dev: false
 
   /handlebars@4.7.7:
