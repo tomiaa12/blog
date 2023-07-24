@@ -176,7 +176,7 @@ const google = async () => {
 
 const bilibili = async () => {
   const { data: res } = await axios({
-    url: "/proxy/s.search.bilibili.com/main/suggest",
+    url: "https://proxy.kuangyx.cn/proxy/s.search.bilibili.com/main/suggest",
     params: {
       term: keyword.value,
       func: "suggest",
