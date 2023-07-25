@@ -10,6 +10,7 @@ export const Advanced = [
       { text: "requstAnimationFrame 应用", link: "/docs/进阶/Three.js/05requstAnimationFrame应用" },
       { text: "clock 跟踪时间处理动画", link: "/docs/进阶/Three.js/06clock跟踪时间处理动画" },
       { text: "gsap 处理动画", link: "/docs/进阶/Three.js/07gsap处理动画" },
+      { text: "画布自适应宽度", link: "/docs/进阶/Three.js/08画布自适应宽度" },
     ],
   },
   {
