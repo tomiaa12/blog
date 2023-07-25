@@ -76,15 +76,31 @@ onMounted(() => {
 
   // #region snippet
   // 使 position 对象的 x 值过渡到 5
-  gsap.to(cube.position, {
+  const animate = gsap.to(cube.position, {
     y: 5,
     duration: 5,
     ease: "elastic.out(1, 0.3)",
+    repeat: -1, // 重复次数，无限次循环是 -1
+    yoyo: true, // 往返运动
+    delay: 1, // 延迟 1 秒后运动
     onComplete() {
       console.log("动画完成")
     },
   })
+  // 旋转过渡
   gsap.to(cube.rotation, { x: 2 * Math.PI, duration: 5 })
+
+  console.log(canvas.value)
+  canvas.value.addEventListener("click", () => {
+    // 是否在运动
+    if (animate.isActive()) {
+      // 当点击时停止动画
+      animate.pause()
+    } else {
+      // 恢复
+      animate.play()
+    }
+  })
 
   const render = () => {
     renderer.render(scene, camera)

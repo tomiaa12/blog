@@ -19,6 +19,6 @@ import temp from './components/temp07.vue'
 
 <<< ./components/temp07.vue#snippet{js}[示例]
 
-<<< ./components/temp07.vue{78-92 vue:line-numbers}[此页源码]
+<<< ./components/temp07.vue{78-109 vue:line-numbers}[此页源码]
 
 :::
