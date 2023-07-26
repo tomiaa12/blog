@@ -17,6 +17,7 @@ import {
 } from "three"
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+import { gsap } from "gsap"
 
 const canvas = ref()
 
@@ -42,7 +43,7 @@ onMounted(async () => {
   // 创建几何体
   const cubeGeometry = new BoxGeometry(1, 1, 1)
   // 创建材质
-  const cubeMaterial = new MeshBasicMaterial({ color: 0xffc0cb })
+  const cubeMaterial = new MeshBasicMaterial({ color: 0x963143 })
   // 根据几何体和材质创建物体
   const cube = new Mesh(cubeGeometry, cubeMaterial)
 
@@ -97,11 +98,37 @@ onMounted(async () => {
 
   gui.add(cube.position, "y").min(0).max(5).step(0.01)
 
+  // 添加一个物体颜色修改
+  gui.addColor({ color: 0x963143 }, "color").onChange(val => {
+    // 设置物体的颜色材质
+    cube.material.color.set(val)
+  })
+
+  // 添加显示隐藏
+  gui.add(cube, "visible").name("是否显示")
+
+  // 创建文件夹
+  const folder = gui.addFolder("设置立方体")
+
+  // 设置镂空线
+  folder.add(cube.material, "wireframe").name("显示镂空线框")
+
+  // 添加点击后触发函数
+  const fun = {
+    run() {
+      gsap.to(cube.position, {
+        y: 5,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+      })
+    },
+  }
+  folder.add(fun, "run").name("运动立方体")
+
   // autoPlace: false 手动添加到界面
   document.getElementById("canvas-gui-container")?.appendChild(gui.domElement)
-
   // #endregion snippet
-
   const render = () => {
     renderer.render(scene, camera)
 
@@ -129,5 +156,14 @@ canvas {
   position: absolute;
   top: 0;
   right: 0;
+
+  li {
+    margin-top: 0;
+  }
+
+  .c input[type="text"] {
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>
