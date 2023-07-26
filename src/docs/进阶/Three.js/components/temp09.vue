@@ -1,5 +1,7 @@
 <template>
-  <canvas ref="canvas" />
+  <div id="canvas-gui-container">
+    <canvas ref="canvas" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -15,6 +17,7 @@ import {
 } from "three"
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+import * as dat from "dat.gui"
 
 const canvas = ref()
 
@@ -73,9 +76,30 @@ onMounted(() => {
   // 在场景中添加辅助器
   scene.add(axesHelper)
 
-  // #region snippet
   // 开启控制器的阻尼效果，在拖动的画面时有阻尼感
   controls.enableDamping = true
+  // #region snippet
+  // 创建 GUI
+  const gui = new dat.GUI({
+    autoPlace: false, // 是否自动添加到界面上
+  })
+
+  // 添加一个修改，修改物体坐标
+  gui
+    .add(cube.position, "x")
+    .min(0)
+    .max(5)
+    .step(0.01)
+    .name("X 轴")
+    .onChange(console.log)
+    .onFinishChange(() => console.log("完全停下来了，当鼠标抬起时触发"))
+
+  gui.add(cube.position, "y").min(0).max(5).step(0.01)
+
+  // autoPlace: false 手动添加到界面
+  document.getElementById("canvas-gui-container")?.appendChild(gui.domElement)
+
+  // #endregion snippet
 
   const render = () => {
     renderer.render(scene, camera)
@@ -87,31 +111,6 @@ onMounted(() => {
     requestAnimationFrame(render)
   }
 
-  // 在屏幕变化时重新计算宽高比
-  const resize = () => {
-    // 更新摄像头的宽高比
-    camera.aspect =
-      parseInt(getComputedStyle(canvas.value).width) / window.innerHeight
-
-    // 更新摄像机的投影矩阵，三维是通过矩阵的算法映射在二维的屏幕里面
-    camera.updateProjectionMatrix()
-
-    // 更新渲染器
-    renderer.setSize(
-      parseInt(getComputedStyle(canvas.value).width),
-      window.innerHeight
-    )
-
-    // 设置渲染器的像素比
-    renderer.setPixelRatio(window.devicePixelRatio)
-  }
-  window.addEventListener("resize", resize)
-
-  onUnmounted(() => {
-    window.removeEventListener("resize", resize)
-  })
-  // #endregion snippet
-
   // 开始时调用一次渲染，鼠标左键可以拖动查看立方体
   render()
 })
@@ -119,5 +118,15 @@ onMounted(() => {
 <style lang="scss" scoped>
 canvas {
   width: 100%;
+}
+
+#canvas-gui-container {
+  position: relative;
+}
+
+:deep().dg.main {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 </style>
