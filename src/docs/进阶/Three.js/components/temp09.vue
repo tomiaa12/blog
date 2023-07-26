@@ -17,11 +17,10 @@ import {
 } from "three"
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
-import * as dat from "dat.gui"
 
 const canvas = ref()
 
-onMounted(() => {
+onMounted(async () => {
   // 创建一个场景
   const scene = new Scene()
 
@@ -79,6 +78,8 @@ onMounted(() => {
   // 开启控制器的阻尼效果，在拖动的画面时有阻尼感
   controls.enableDamping = true
   // #region snippet
+  // 导入 dat.gui 库
+  const dat = await import("dat.gui")
   // 创建 GUI
   const gui = new dat.GUI({
     autoPlace: false, // 是否自动添加到界面上
