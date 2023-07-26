@@ -356,6 +356,7 @@ export default defineConfig({
         "@wangeditor/editor-for-vue",
         // "@wangeditor/editor/dist/css/style.css",
         "three",
+        "dat.gui",
       ],
     },
     ssr: {
@@ -372,6 +373,7 @@ export default defineConfig({
         "@wangeditor/editor-for-vue",
         "@wangeditor/editor/dist/css/style.css",
         "three",
+        "dat.gui",
       ],
     },
     plugins: [
