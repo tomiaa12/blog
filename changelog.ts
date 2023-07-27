@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
+const flag = true
 const options = {
   writerOpts: {
     transform: (commit, context) => {
@@ -82,18 +83,21 @@ const options = {
       })
 
       // 提交时间
-      commit.sortTime = Date.now() - new Date(commit.committerDate)
+      commit.sortTime = context.sortTime =
+        Date.now() - new Date(commit.committerDate)
 
       // 把版本设为 markdown 二级标题
       commit.gitTags && (commit.isPatch = true)
 
       context.version = "更新日志"
+      context.date = ""
+
       return commit
     },
     groupBy: "type",
-    commitGroupsSort: "title",
+    commitGroupsSort: "sortTime",
     commitsSort: ["sortTime", "scope", "subject"],
-    noteGroupsSort: "title",
+    noteGroupsSort: "sortTime",
   },
 }
 
