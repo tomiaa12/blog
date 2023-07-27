@@ -37,33 +37,16 @@
 
   <el-backtop :right="300" />
 
-  <el-popover
-    placement="left"
-    title="交流群"
-    :width="250"
-    trigger="hover"
-    popper-class="qun-contianer"
-  >
-    <template #reference>
-      <div class="fixd">
-        <el-icon :size="24">
-          <img :src="wxIcon" />
-        </el-icon>
-        <span>交流群</span>
-      </div>
-    </template>
-    <CommunicationGroup />
-  </el-popover>
+  <SideTool />
 </template>
 
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import { useRoute, useData } from "vitepress"
-import { computed, nextTick, onMounted, watch } from "vue"
+import { computed, onMounted, watch } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
-import CommunicationGroup from "./CommunicationGroup.vue"
-import wxIcon from "./CommunicationGroup/img/wx.svg"
+import SideTool from "./SideTool.vue"
 
 const route = useRoute()
 
@@ -113,22 +96,6 @@ watch(
   }
 }
 
-.fixd {
-  position: fixed;
-  top: 30%;
-  right: 1px;
-  border-radius: 4px;
-  padding: 4px;
-  display: flex;
-  z-index: 2000;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--el-border-color);
-  color: var(--vp-c-green);
-  cursor: pointer;
-}
-
 .page_pv {
   line-height: 32px;
   font-size: 14px;
@@ -140,12 +107,6 @@ watch(
 </style>
 
 <style lang="scss">
-.qun-contianer {
-  max-height: 95vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
 .loading-icon {
   display: inline;
   vertical-align: middle;

@@ -108,7 +108,7 @@ if (message.text()) {
 ```
 
 <script setup lang="ts">
-import CommunicationGroup from "../../../layout/CommunicationGroup.vue"
+import CommunicationGroup from "../../../layout/CommunicationGroup/index.vue"
 </script>
 
 ## demo
