@@ -1,6 +1,6 @@
 <template>
   <ul class="site-tool">
-    <li>
+    <li @click="toGrounp">
       <el-popover
         placement="left"
         title="交流群"
@@ -9,10 +9,7 @@
         popper-class="qun-contianer"
       >
         <template #reference>
-          <div
-            class="grounp"
-            @click="toGrounp"
-          >
+          <div class="grounp">
             <el-icon :size="24">
               <img :src="wxIcon" />
             </el-icon>
@@ -22,6 +19,14 @@
         <CommunicationGroup />
       </el-popover>
     </li>
+    <!-- <li>
+      <div class="grounp">
+        <el-icon :size="24">
+          <img :src="wxIcon" />
+        </el-icon>
+        <span>放大看</span>
+      </div>
+    </li> -->
   </ul>
 </template>
 
@@ -48,27 +53,25 @@ const toGrounp = () => {
   top: calc(var(--vp-nav-height) + 0.5em);
   right: 0;
   z-index: 2000;
-
-  span {
-    font-size: 12px;
-  }
+  box-shadow: var(--el-box-shadow-light);
 
   li {
     transition: 0.3s;
+    font-size: 12px;
+    padding: 4px;
+    color: var(--vp-c-green);
+    cursor: pointer;
+
     &:hover {
       background-color: var(--el-fill-color-light);
     }
   }
 }
 .grounp {
-  border-radius: 4px;
-  padding: 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--vp-c-green);
-  cursor: pointer;
 }
 </style>
 
