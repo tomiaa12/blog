@@ -1,6 +1,6 @@
 # JavaScript BOM 常用方法
 
-![BOM](./img/BOM.png)
+![BOM](./img/BOM.png){data-zoomable}
 
 ## 系统对话框
 

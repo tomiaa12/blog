@@ -2,7 +2,7 @@
 
 当看到 [Greasy Fork](https://greasyfork.org/zh-CN/scripts) 上面这么多大佬写的脚本，为何不自己写一个呢
 
-![tampermonkey插件列表](./img/如何编写一个Tampermonkey油候脚本/01.png)
+![tampermonkey插件列表](./img/如何编写一个Tampermonkey油候脚本/01.png){data-zoomable}
 
 [tampermonkey 安装地址](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh)
 
@@ -10,23 +10,23 @@
 
 在开始之前我们先添加一个 Tampermonkey 脚本
 
-![添加tampermonkey脚本](./img/如何编写一个Tampermonkey油候脚本/02.png)
+![添加tampermonkey脚本](./img/如何编写一个Tampermonkey油候脚本/02.png){data-zoomable}
 
 function 闭包里面则是我们要写 js 的地方
 
-![tampermonkey初始代码](./img/如何编写一个Tampermonkey油候脚本/03.png)
+![tampermonkey初始代码](./img/如何编写一个Tampermonkey油候脚本/03.png){data-zoomable}
 
 当然，我们是要在编辑器上写，在这里写的话并没有代码提示，这需要从最上面的注释中引入本地的 js 文件
 
 在引入之前需要允许 Tampermonkey 插件访问本地文件，在插件管理找到允许访问本地 url 即可。这里以 edge 为例，chrome 也是一样设置
 
-![允许访问本地文件url](./img/如何编写一个Tampermonkey油候脚本/04.png)
+![允许访问本地文件url](./img/如何编写一个Tampermonkey油候脚本/04.png){data-zoomable}
 
-![允许访问本地文件url](./img/如何编写一个Tampermonkey油候脚本/05.png)
+![允许访问本地文件url](./img/如何编写一个Tampermonkey油候脚本/05.png){data-zoomable}
 
 接下来在 vscode 中新建一个 js 文件，并把插件编辑的内容复制到 vscode 中。
 
-![在vscode上写tampermonkey](./img/如何编写一个Tampermonkey油候脚本/06.png)
+![在vscode上写tampermonkey](./img/如何编写一个Tampermonkey油候脚本/06.png){data-zoomable}
 
 修改一些注释上的东西
 
@@ -44,25 +44,25 @@ function 闭包里面则是我们要写 js 的地方
 // @require file:绝对路径
 ```
 
-![引入外部文件](./img/如何编写一个Tampermonkey油候脚本/07.png)
+![引入外部文件](./img/如何编写一个Tampermonkey油候脚本/07.png){data-zoomable}
 
 此时文件已经引入进来了，测试之前在 Tampermonkey 上面添加一行 match 来表示在哪个网站上运行这个脚本，这里以百度为例。添加好之后 Ctrl + s 保存一下，再在 vscode 中写一段代码用来后续测试
 
-![添加路径引入外部文件](./img/如何编写一个Tampermonkey油候脚本/08.png)
+![添加路径引入外部文件](./img/如何编写一个Tampermonkey油候脚本/08.png){data-zoomable}
 
 接下来打开百度
 
-![测试脚本](./img/如何编写一个Tampermonkey油候脚本/09.png)
+![测试脚本](./img/如何编写一个Tampermonkey油候脚本/09.png){data-zoomable}
 
 成功！可以看到 Tampermonkey 显示这个插件加载了。想做什么样的操作就跟写原生 js 一样的
 
 <!-- 像做到与[导航页](../../../pages/navigation.md)一样的百度也可以 -->
 
 本站的：
-![预览](./img/如何编写一个Tampermonkey油候脚本/10.png)
+![预览](./img/如何编写一个Tampermonkey油候脚本/10.png){data-zoomable}
 
 百度 Tampermonkey 脚本写的：
-![百度tampermonkey脚本](./img/如何编写一个Tampermonkey油候脚本/11.png)
+![百度tampermonkey脚本](./img/如何编写一个Tampermonkey油候脚本/11.png){data-zoomable}
 
 ## 引入 jQuery
 
@@ -74,13 +74,13 @@ function 闭包里面则是我们要写 js 的地方
 // @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js
 ```
 
-![引入jQuery](./img/如何编写一个Tampermonkey油候脚本/12.png)
+![引入jQuery](./img/如何编写一个Tampermonkey油候脚本/12.png){data-zoomable}
 
 ## 发布脚本
 
 在[greasyfork](https://greasyfork.org/zh-CN) 上登录账户发布自己写的脚本
 
-![发布脚本](./img/如何编写一个Tampermonkey油候脚本/13.png)
+![发布脚本](./img/如何编写一个Tampermonkey油候脚本/13.png){data-zoomable}
 
 ## 配置 git 仓库自动同步脚本
 
@@ -88,11 +88,11 @@ function 闭包里面则是我们要写 js 的地方
 
 在 gitee 上找到 js 文件点开原始数据的链接复制到 greasyfork 上即可。
 
-![gitee原始数据同步至tampermonkey](./img/如何编写一个Tampermonkey油候脚本/14.png)
+![gitee原始数据同步至tampermonkey](./img/如何编写一个Tampermonkey油候脚本/14.png){data-zoomable}
 
-![gitee原始数据同步至tampermonkey](./img/如何编写一个Tampermonkey油候脚本/15.png)
+![gitee原始数据同步至tampermonkey](./img/如何编写一个Tampermonkey油候脚本/15.png){data-zoomable}
 
-![gitee原始数据同步至tampermonkey](./img/如何编写一个Tampermonkey油候脚本/16.png)
+![gitee原始数据同步至tampermonkey](./img/如何编写一个Tampermonkey油候脚本/16.png){data-zoomable}
 
 默认附加信息也可以选择填写，这里主要是脚本的说明文件。
 
@@ -100,4 +100,4 @@ function 闭包里面则是我们要写 js 的地方
 
 这里我写的一些脚本，欢迎关注，[点击跳转](https://greasyfork.org/zh-CN/users/794260-tomiaa)
 
-![我的tampermonkey脚本](./img/如何编写一个Tampermonkey油候脚本/17.jpg)
+![我的tampermonkey脚本](./img/如何编写一个Tampermonkey油候脚本/17.jpg){data-zoomable}

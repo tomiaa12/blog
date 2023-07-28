@@ -47,7 +47,7 @@ grid-template-columns: repeat(3 , 1fr);/* repeat表示3列都是1fr */
 </div>
 ```
 
-![grid](./img/grid.png)
+![grid](./img/grid.png){data-zoomable}
 
 ## 间距
 

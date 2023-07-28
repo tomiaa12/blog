@@ -47,6 +47,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.15.1",
     "gsap": "^3.12.2",
+    "medium-zoom": "^1.0.8",
     "nes-vue": "^1.6.10",
     "ol": "^7.4.0",
     "pixi-live2d-display": "^0.4.0",
