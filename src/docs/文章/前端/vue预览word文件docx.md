@@ -101,8 +101,8 @@ export default {
 
 ## demo 地址
 
-[gitee仓库地址](https://gitee.com/tomiaa/vue-preview-word-file-docx)
+[github仓库地址](https://github.com/tomiaa12/wordPreview)
 
-[新标签打开demo](https://tomiaa.gitee.io/vue-preview-word-file-docx/#/)
+[新标签打开demo](https://word-preview.kuangyx.cn/#/)
 
-<iframe src="https://tomiaa.gitee.io/vue-preview-word-file-docx/#/" ></iframe>
+<iframe src="https://word-preview.kuangyx.cn/#/" ></iframe>
