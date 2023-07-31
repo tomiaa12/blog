@@ -491,11 +491,11 @@ function createCellPos(n) {
 ### demo
 
 
-[gitee仓库地址](https://gitee.com/tomiaa/ExcelPreview)
+[github仓库地址](https://github.com/tomiaa12/ExcelPreviewImportExport)
 
-[新标签打开demo](https://tomiaa.gitee.io/excelpreview/)
+[新标签打开demo](https://excel-preview-import-export.kuangyx.cn/)
 
-<iframe src="https://tomiaa.gitee.io/excelpreview/" ></iframe>
+<iframe src="https://excel-preview-import-export.kuangyx.cn/" ></iframe>
 
 ## 第二种方法（简单预览）
 
