@@ -38,7 +38,7 @@
         <SupportMe />
       </el-popover>
     </li>
-    <li>
+    <li @click="toggleFullScreen">
       <div class="grounp">
         <el-icon :size="24">
           <fullScreen />
@@ -66,7 +66,15 @@ const emits = defineEmits([])
 
 const router = useRouter()
 
-const to = path => router.go(path)
+const to = (path: string) => router.go(path)
+
+const toggleFullScreen = () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+  } else {
+    document.exitFullscreen?.()
+  }
+}
 </script>
 <style lang="scss" scoped>
 .site-tool {
