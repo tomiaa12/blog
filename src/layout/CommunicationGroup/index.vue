@@ -1,18 +1,22 @@
 <template>
-  <h2>微信群</h2>
+  <h2>微信1群↓</h2>
   <img
-    src="./img/wxq.jpg"
-    alt="微信群"
+    src="./img/wxq1.jpg"
+    alt="微信群1"
+  />
+  <h2>微信2群↓</h2>
+  <img
+    src="./img/wxq2.jpg"
+    alt="微信群2"
   />
 
-  <h3>一群人多只能通过好友邀请加入</h3>
+  <h2>邀请码失效时添加好友拉群↓</h2>
   <img
     src="./img/wx.jpg"
     alt="微信好友"
   />
-  <p>微信添加好友加群，添加时请备注前端</p>
 
-  <h2>QQ</h2>
+  <h2>QQ↓</h2>
   <img
     src="./img/qq.png"
     alt="QQ群"
@@ -24,3 +28,9 @@
     点我一键加群
   </a>
 </template>
+
+<style scoped>
+h2 {
+  margin-top: 1em;
+}
+</style>
