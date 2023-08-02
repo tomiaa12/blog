@@ -25,7 +25,7 @@
           size="36"
           @click="play"
         >
-          <img :src="isPlaying ? pause : start" />
+          <component :is="isPlaying ? pause : start" />
         </el-icon>
       </el-tooltip>
       <el-tooltip
@@ -36,7 +36,7 @@
           size="36"
           @click="reset"
         >
-          <img :src="restart" />
+          <restart />
         </el-icon>
       </el-tooltip>
       <el-tooltip
@@ -47,7 +47,7 @@
           size="36"
           @click="showDialog"
         >
-          <img :src="saveSvg" />
+          <saveSvg />
         </el-icon>
       </el-tooltip>
       <div class="right">
