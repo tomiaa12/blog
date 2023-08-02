@@ -12,6 +12,7 @@ export const Advanced = [
       { text: "gsap 处理动画", link: "/docs/进阶/Three.js/07gsap处理动画" },
       { text: "画布自适应宽度", link: "/docs/进阶/Three.js/08画布自适应宽度" },
       { text: "可视化界面更改变量", link: "/docs/进阶/Three.js/09可视化界面更改变量" },
+      { text: "几何体顶点法向属性", link: "/docs/进阶/Three.js/10几何体顶点法向属性" },
     ],
   },
   {
