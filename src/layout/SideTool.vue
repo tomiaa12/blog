@@ -1,6 +1,6 @@
 <template>
   <ul class="site-tool">
-    <li @click="toGrounp">
+    <li @click="to('/docs/关于/交流群.html')">
       <el-popover
         placement="left"
         title="交流群"
@@ -11,7 +11,7 @@
         <template #reference>
           <div class="grounp">
             <el-icon :size="24">
-              <img :src="wxIcon" />
+              <wechat />
             </el-icon>
             <span>交流群</span>
           </div>
@@ -19,14 +19,33 @@
         <CommunicationGroup />
       </el-popover>
     </li>
-    <!-- <li>
+    <li @click="to('/docs/关于/支持我.html')">
+      <el-popover
+        placement="left"
+        title="支持我"
+        :width="250"
+        trigger="hover"
+        popper-class="qun-contianer"
+      >
+        <template #reference>
+          <div class="grounp">
+            <el-icon :size="24">
+              <love />
+            </el-icon>
+            <span>支持我</span>
+          </div>
+        </template>
+        <SupportMe />
+      </el-popover>
+    </li>
+    <li @click="toggleFullScreen">
       <div class="grounp">
         <el-icon :size="24">
-          <img :src="wxIcon" />
+          <fullScreen />
         </el-icon>
         <span>放大看</span>
       </div>
-    </li> -->
+    </li>
   </ul>
 </template>
 
@@ -36,15 +55,25 @@ import { ref } from "vue"
 import { useRouter } from "vitepress"
 
 import CommunicationGroup from "./CommunicationGroup/index.vue"
-import wxIcon from "./CommunicationGroup/img/wx.svg"
+import SupportMe from "./SupportMe/index.vue"
+
+import wechat from "@/assets/svg/wechat.svg"
+import fullScreen from "@/assets/svg/fullScreen.svg"
+import love from "@/assets/svg/love.svg"
 
 // const props = defineProps({})
 const emits = defineEmits([])
 
 const router = useRouter()
 
-const toGrounp = () => {
-  router.go("/docs/关于/交流群.html")
+const to = (path: string) => router.go(path)
+
+const toggleFullScreen = () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+  } else {
+    document.exitFullscreen?.()
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -58,12 +87,17 @@ const toGrounp = () => {
   li {
     transition: 0.3s;
     font-size: 12px;
-    padding: 4px;
-    color: var(--vp-c-green);
+    color: var(--el-color-info-light);
+    padding: 8px;
     cursor: pointer;
 
     &:hover {
       background-color: var(--el-fill-color-light);
+      color: var(--vp-c-green);
+    }
+
+    & + li {
+      border-top: 1px solid var(--el-border-color-light);
     }
   }
 }

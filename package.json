@@ -27,6 +27,7 @@
     "@types/three": "^0.154.0",
     "conventional-changelog-cli": "^2.2.2",
     "sitemap": "^7.1.1",
+    "vite-svg-loader": "^4.0.0",
     "vitepress": "^1.0.0-beta.5",
     "vue": "^3.3.4"
   },
