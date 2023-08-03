@@ -12,7 +12,7 @@ onMounted(() => {
   new Live2d({
     el: live2dContentRef.value,
     showLoading: false,
-    maxWidth: 350,
+    maxWidth: 300,
     jsBaseURL: "https://live2d.kuangyx.cn/public",
   })
 })

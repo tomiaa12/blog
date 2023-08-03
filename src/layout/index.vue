@@ -33,9 +33,12 @@
     v-if="route.path === '/'"
     class="home-comment"
   />
-  <Live2D />
+  <Live2D v-if="showLive2d" />
 
-  <el-backtop :right="300" />
+  <el-backtop
+    v-if="showLive2d"
+    :right="300"
+  />
 
   <SideTool />
 </template>
@@ -43,7 +46,7 @@
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import { useRoute, useData } from "vitepress"
-import { computed, onMounted, watch } from "vue"
+import { computed, onMounted, watch, ref } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
@@ -59,15 +62,23 @@ onMounted(async () => {
   // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
 })
+
+// 访问量统计
 watch(
   () => route.path,
-  () => {
-    script?.fetch()
-  },
+  () => script?.fetch(),
   {
     immediate: true,
   }
 )
+
+const showLive2d = ref(false)
+const onResize = () => {
+  showLive2d.value = document.documentElement.clientWidth >= 768
+}
+window.addEventListener("resize", onResize)
+
+onResize()
 </script>
 <style lang="scss" scoped>
 .home-comment {
