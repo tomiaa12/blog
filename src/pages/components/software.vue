@@ -61,6 +61,8 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue"
+import Fuse from "fuse.js"
+
 import SearchCategory from "./common/SearchCategory.vue"
 import list from "./software"
 
@@ -73,13 +75,18 @@ const cate = ref()
 
 const filterList = computed(() => {
   const temp = JSON.parse(JSON.stringify(list))
+
   return temp.filter((i: any) => {
     if (cate.value) return i.title === cate.value
-    if (keyword.value)
-      i.children = i.children.filter((i: any) => {
-        if (i.title.includes(keyword.value) || i.desc?.includes(keyword.value))
-          return i
+    if (keyword.value) {
+      const listFuse = new Fuse(i.children, {
+        includeScore: true,
+        shouldSort: false,
+        keys: ["title", '"desc'],
       })
+
+      i.children = listFuse.search(keyword.value).map(i => i.item)
+    }
     return i
   })
 })

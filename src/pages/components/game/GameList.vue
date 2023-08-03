@@ -55,6 +55,8 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue"
+import Fuse from "fuse.js"
+
 import { roms } from "../game"
 
 import InnerLoading from "./InnerLoading.vue"
@@ -66,8 +68,12 @@ const props = defineProps<{
 }>()
 const emits = defineEmits(["select"])
 
+const romsFuse = new Fuse(roms, {
+  keys: ["title"],
+})
+
 const filterRoms = computed(() => {
-  if (props.keyword) return roms.filter(i => i.title.includes(props.keyword))
+  if (props.keyword) return romsFuse.search(props.keyword).map(i => i.item)
   return !props.curCategory
     ? roms
     : roms.filter(i => i.type === props.curCategory)

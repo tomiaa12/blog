@@ -47,6 +47,7 @@
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.16.1",
+    "fuse.js": "^6.6.2",
     "gsap": "^3.12.2",
     "medium-zoom": "^1.0.8",
     "nes-vue": "^1.6.10",
