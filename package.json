@@ -55,6 +55,7 @@
     "pixi-live2d-display": "^0.4.0",
     "pixi.js": "^6.5.10",
     "prettier": "^2.8.8",
+    "qrcode": "^1.5.3",
     "sass": "^1.64.2",
     "three": "^0.154.0",
     "typescript": "^5.1.6",

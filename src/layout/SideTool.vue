@@ -46,12 +46,30 @@
         <span>放大看</span>
       </div>
     </li>
+    <li>
+      <el-popover
+        placement="left"
+        title="扫码手机看"
+        :width="250"
+        trigger="hover"
+        popper-class="qun-contianer"
+      >
+        <template #reference>
+          <div class="grounp">
+            <el-icon :size="24">
+              <el-icon-iphone />
+            </el-icon>
+            <span>手机看</span>
+          </div>
+        </template>
+        <canvas ref="qrcodeRef"></canvas>
+      </el-popover>
+    </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import type { PropType } from "vue"
-import { ref } from "vue"
+import { onMounted, ref, watch } from "vue"
 import { useRouter } from "vitepress"
 
 import CommunicationGroup from "./CommunicationGroup/index.vue"
@@ -60,6 +78,7 @@ import SupportMe from "./SupportMe/index.vue"
 import wechat from "@/assets/svg/wechat.svg"
 import fullScreen from "@/assets/svg/fullScreen.svg"
 import love from "@/assets/svg/love.svg"
+import QRCode from "qrcode"
 
 // const props = defineProps({})
 const emits = defineEmits([])
@@ -75,6 +94,23 @@ const toggleFullScreen = () => {
     document.exitFullscreen?.()
   }
 }
+
+const qrcodeRef = ref()
+
+onMounted(() => {
+  watch(
+    () => router.route.path,
+    () => {
+      console.log(router.route)
+      QRCode.toCanvas(qrcodeRef.value, location.href, {
+        width: 224,
+      })
+    },
+    {
+      immediate: true,
+    }
+  )
+})
 </script>
 <style lang="scss" scoped>
 .site-tool {
