@@ -149,6 +149,10 @@ export const Article = [
         text: "如何编写一个Tampermonkey油候脚本",
         link: "/docs/文章/技术教程/如何编写一个Tampermonkey油候脚本.md",
       },
+      {
+        text: "一台电脑实现双人分屏本地联机游戏",
+        link: "/docs/文章/技术教程/一台电脑实现双人分屏本地联机游戏.md",
+      },
     ],
   },
 ]
