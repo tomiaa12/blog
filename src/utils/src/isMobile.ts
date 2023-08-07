@@ -7,5 +7,7 @@ const onResize = () => {
   isMobile.value = document.documentElement.clientWidth < 768
   console.log(isMobile.value)
 }
-window.addEventListener("resize", onResize)
-inBrowser && onResize()
+if (inBrowser) {
+  window.addEventListener("resize", onResize)
+  onResize()
+}
