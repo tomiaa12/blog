@@ -22,11 +22,15 @@
     "strict": true, // 是否启动严格模式
     "skipLibCheck": true, // 跳过类库检测
     "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "types": ["element-plus/global", "vite/client"] // Volar 支持
   },
   "exclude": [
     // 排除掉哪些类库
     "node_modules",
     "dist/**"
-  ]
+  ],
+  "include": ["src/**/*", "src/**/*.vue", "src/**/*.d.ts"]
 }

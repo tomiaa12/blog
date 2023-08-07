@@ -33,10 +33,10 @@
     v-if="route.path === '/'"
     class="home-comment"
   />
-  <Live2D v-if="showLive2d" />
+  <Live2D v-if="!isMobile" />
 
   <el-backtop
-    v-if="showLive2d"
+    v-if="!isMobile"
     :right="300"
   />
 
@@ -46,10 +46,12 @@
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import { useRoute, useData } from "vitepress"
-import { computed, onMounted, watch, ref } from "vue"
+import { computed, onMounted, watch } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
+
+import { isMobile } from "@/utils"
 
 const route = useRoute()
 
@@ -71,14 +73,6 @@ watch(
     immediate: true,
   }
 )
-
-const showLive2d = ref(false)
-const onResize = () => {
-  showLive2d.value = document.documentElement.clientWidth >= 768
-}
-window.addEventListener("resize", onResize)
-
-onResize()
 </script>
 <style lang="scss" scoped>
 .home-comment {

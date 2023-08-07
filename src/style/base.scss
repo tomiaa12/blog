@@ -39,3 +39,10 @@ iframe:not([height]) {
     background-color: var(--el-color-info-light-5);
   }
 }
+
+.backdrop-filter,
+.VPLocalNav.reached-top {
+  background: var(--el-mask-color);
+  backdrop-filter: blur(4px);
+}
+

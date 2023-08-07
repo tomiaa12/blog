@@ -17,3 +17,7 @@ declare module "axios" {
     callbackParamName?: string
   }
 }
+declare module "busuanzi.pure.js" {
+  function fetch(): any
+  export = fetch
+}

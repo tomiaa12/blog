@@ -1,5 +1,5 @@
 <template>
-  <ul class="site-tool">
+  <ul class="site-tool backdrop-filter">
     <li @click="to('/docs/关于/交流群.html')">
       <el-popover
         placement="left"
@@ -38,7 +38,10 @@
         <SupportMe />
       </el-popover>
     </li>
-    <li @click="toggleFullScreen">
+    <li
+      v-if="!isMobile"
+      @click="toggleFullScreen"
+    >
       <div class="grounp">
         <el-icon :size="24">
           <fullScreen />
@@ -46,7 +49,7 @@
         <span>放大看</span>
       </div>
     </li>
-    <li>
+    <li v-if="!isMobile">
       <el-popover
         placement="left"
         title="扫码手机看"
@@ -80,6 +83,8 @@ import fullScreen from "@/assets/svg/fullScreen.svg"
 import love from "@/assets/svg/love.svg"
 import QRCode from "qrcode"
 
+import { isMobile } from "@/utils"
+
 // const props = defineProps({})
 const emits = defineEmits([])
 
@@ -101,7 +106,6 @@ onMounted(() => {
   watch(
     () => router.route.path,
     () => {
-      console.log(router.route)
       QRCode.toCanvas(qrcodeRef.value, location.href, {
         width: 224,
       })
