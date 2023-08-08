@@ -218,6 +218,7 @@ export default defineConfig({
       { text: "导航", link: "/pages/navigation" },
       { text: "软件", link: "/pages/software" },
       { text: "游戏", link: "/pages/game" },
+      // { text: "ChatGPT", link: "/pages/chatGPT" },
       {
         text: "文章",
         items: Article,
@@ -337,6 +338,13 @@ export default defineConfig({
       "/docs/进阶/": Advanced,
     },
   },
+  // sitemap: {
+  //   hostname: 'https://kuangyx.cn/',
+  //   transformItems(items) {
+  //       console.log(items)
+  //       return items
+  //   },
+  // },
   transformHtml(code, id, { pageData }) {
     if (!/[\\/]404\.html$/.test(id))
       links.push({
@@ -394,7 +402,6 @@ export default defineConfig({
       Components({
         resolvers: [ElementPlusResolver()],
       }),
-      // DefineOptions(),
       vueJsx(),
     ],
     server: {
