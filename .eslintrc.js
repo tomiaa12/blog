@@ -26,5 +26,6 @@ module.exports = {
     "vue/valid-v-for": "off", // 禁用 v-for 语法校验， vue3 v-for 不需要绑定 :key，不禁用会报没有绑定 key 的警告
     "vue/require-v-for-key": "off", // 禁用 v-for 语法校验， vue3 v-for 不需要绑定 :key，不禁用会报没有绑定 key 的警告
     "@typescript-eslint/no-explicit-any": "off", // 允许使用 any
+    "vue/no-mutating-props": "off", // 允许子组件直接修改父组件的值
   },
 }

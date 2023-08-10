@@ -4,54 +4,128 @@
       <el-button
         text
         icon="el-icon-plus"
-        @click="add"
+        @click="emits('update:modelValue')"
       >
         新对话
       </el-button>
     </div>
-    <time>今天</time>
-    <ol>
-      <li class="active">
-        <el-icon><el-icon-chatSquare /></el-icon>
-        <!-- <p class="ellipsis">ChatGpt 接收ChatGpt 接收ChatGpt 接收ChatGpt 接收</p> -->
-        <el-input size="small"></el-input>
+    <div class="list">
+      <template v-for="(item, index) of chats">
+        <time
+          v-if="showTime(item.time, chats[index - 1]?.time) || index == 0"
+          >{{ formatYmd(item.time) }}</time
+        >
+        <ol>
+          <li
+            :class="item === modelValue ? 'active' : ''"
+            @click="emits('update:modelValue', item)"
+          >
+            <el-icon><el-icon-chatSquare /></el-icon>
+            <el-input
+              v-if="item.isEditing"
+              v-model="item.cacheTitle"
+              size="small"
+              autofocus
+              @keydown.enter="enter(item)"
+            />
+            <p
+              v-else
+              class="ellipsis"
+            >
+              {{ item.title }}
+            </p>
 
-        <div class="control">
-          <!-- <el-icon><el-icon-edit-pen /></el-icon>
-          <el-icon><el-icon-delete /></el-icon> -->
-          <el-icon><el-icon-select /></el-icon>
-          <el-icon><el-icon-close-bold /></el-icon>
-        </div>
-      </li>
-      <li>
-        <el-icon><el-icon-chatSquare /></el-icon>
-        <p>ChatGpt 接收</p>
-      </li>
-    </ol>
+            <div
+              class="control"
+              @click.stop
+            >
+              <template v-if="item.isEditing">
+                <el-icon><el-icon-select @click="enter(item)" /></el-icon>
+                <el-icon
+                  ><el-icon-close-bold @click="item.isEditing = false"
+                /></el-icon>
+              </template>
+              <template v-else>
+                <el-icon>
+                  <el-icon-edit-pen @click="edit(item)" />
+                </el-icon>
+                <el-icon><el-icon-delete @click="del(index)" /></el-icon>
+              </template>
+            </div>
+          </li>
+        </ol>
+      </template>
+    </div>
   </aside>
 </template>
 
 <script setup lang="ts">
 import type { PropType } from "vue"
 import { ref } from "vue"
-// const props = defineProps({})
-const emits = defineEmits([])
+import { Chat } from "./type"
 
-const add = () => {}
+const props = defineProps({
+  chats: {
+    type: Array as PropType<Chat[]>,
+    required: true,
+  },
+  modelValue: {
+    type: Object as PropType<Chat | undefined>,
+    required: true,
+  },
+})
+const emits = defineEmits(["update:modelValue"])
+
+const del = (index: number) => {
+  if (props.modelValue === props.chats[index]) emits("update:modelValue")
+  props.chats.splice(index, 1)
+}
+
+const edit = (chat: Chat) => {
+  chat.cacheTitle = chat.title
+  chat.isEditing = true
+}
+
+const enter = (chat: Chat) => {
+  chat.title = chat.cacheTitle
+  chat.isEditing = false
+  delete chat.cacheTitle
+}
+
+const showTime = (cur: number, prev: number) =>
+  new Date(cur).getDate() - new Date(prev).getDate()
+
+const formatYmd = (time: number) => {
+  const y = new Date(time).getFullYear()
+  const m = String(new Date(time).getMonth() + 1).padStart(2, "0")
+  const d = String(new Date(time).getDate()).padStart(2, "0")
+  return `${y}-${m}-${d}`
+}
 </script>
 <style lang="scss" scoped>
 aside {
+  display: flex;
+  flex-direction: column;
   width: 240px;
   height: 100%;
   background-color: #202123;
-  padding: 8px;
+  padding: 8px 0;
   color: white;
+  .list {
+    flex: 1;
+    overflow: auto;
+    padding: 0 8px;
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--el-color-info);
+    }
+  }
   .el-button {
     --el-button-text-color: inherit;
     width: 192px;
     height: 44px;
     border: 1px solid #555659;
     justify-content: start;
+
     &.is-text:not(.is-disabled):hover,
     &.is-text:not(.is-disabled):focus,
     &.is-text:not(.is-disabled):active {
@@ -74,15 +148,19 @@ aside {
     cursor: pointer;
     transition: var(--el-transition-all);
     border-radius: var(--el-border-radius-base);
+
     &:hover {
       background-color: rgba(42, 43, 50);
     }
+
     &.active {
       background-color: rgba(52, 53, 65);
     }
+
     p {
       flex: 1;
     }
+
     .control {
       margin-left: 0.5em;
       display: flex;
@@ -91,16 +169,20 @@ aside {
 
     .el-input {
       --el-input-bg-color: transparent;
+      --el-input-text-color: var(--el-color-white);
     }
   }
+
   .el-icon {
     margin-right: 0.5em;
   }
+
   p {
     margin: 0;
     font-size: 14px;
   }
 }
+
 ol,
 li {
   list-style: none;

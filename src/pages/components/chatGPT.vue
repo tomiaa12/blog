@@ -1,14 +1,163 @@
 <template>
   <div class="chatGPT-container">
-    <Aside />
-    <Main />
+    <Aside
+      v-model="currentChat"
+      :chats="chats"
+    />
+    <Main
+      v-model="currentChat"
+      :chats="chats"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue"
+import { provide, ref } from "vue"
 import Aside from "./ChatGPT/Aside.vue"
 import Main from "./ChatGPT/Main.vue"
+import { Chat } from "./ChatGPT/type"
+
+const chats = ref<Chat[]>([
+  {
+    title: "1",
+    time: Date.now(),
+    model: "gpt-4",
+    message: [
+      {
+        role: "user",
+        content: "你是谁",
+      },
+      {
+        role: "assistant",
+        content: "gggpptt",
+      },
+    ],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-9 01:01:00").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-9 01:01:00").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+  {
+    title: "1",
+    time: new Date("2022-8-1").getTime(),
+    model: "gpt-4",
+    message: [],
+  },
+])
+
+provide("chats", chats)
+
+const currentChat = ref<Chat>()
 </script>
 <style lang="scss">
 .chatGPT-container {
