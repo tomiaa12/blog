@@ -3,10 +3,12 @@
     <Aside
       v-model="currentChat"
       :chats="chats"
+      :current-model="currentModel"
     />
     <Main
       v-model="currentChat"
       :chats="chats"
+      :current-model="currentModel"
     />
   </div>
 </template>
@@ -158,6 +160,7 @@ const chats = ref<Chat[]>([
 provide("chats", chats)
 
 const currentChat = ref<Chat>()
+const currentModel = ref("gpt-4")
 </script>
 <style lang="scss">
 .chatGPT-container {

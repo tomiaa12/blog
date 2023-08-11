@@ -1,4 +1,4 @@
-interface Message {
+export interface Message {
   role: "system" | "user" | "assistant" | "function"
   content: string
   name?: string

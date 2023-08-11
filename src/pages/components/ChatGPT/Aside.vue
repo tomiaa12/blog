@@ -26,11 +26,13 @@
               v-model="item.cacheTitle"
               size="small"
               autofocus
+              @click.stop
               @keydown.enter="enter(item)"
             />
             <p
               v-else
               class="ellipsis"
+              :title="item.title"
             >
               {{ item.title }}
             </p>

@@ -4,21 +4,23 @@
       v-if="modelValue"
       class="answers"
     >
-      <li
-        v-for="item of modelValue.message"
-        :class="item.role"
-      >
-        <div>
-          <el-avatar
-            :src="item.role === 'assistant' ? chatGPT : avatar"
-            shape="square"
-            :size="24"
-          />
-          <div class="content">
-            {{ item.content }}
+      <template v-for="item of modelValue.message">
+        <li
+          v-if="item.role !== 'system'"
+          :class="item.role"
+        >
+          <div>
+            <el-avatar
+              :src="item.role === 'assistant' ? chatGPT : avatar"
+              shape="square"
+              :size="24"
+            />
+            <div class="content">
+              {{ item.content }}
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </template>
     </ol>
     <div
       v-else
@@ -62,10 +64,10 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue"
-import { ref } from "vue"
+import { ref, nextTick } from "vue"
 import sendSvg from "@/assets/svg/send.svg"
 import chatGPT from "@/assets/svg/chatGPT.svg?url"
-import { Chat } from "./type"
+import { Chat, Message } from "./type"
 import avatar from "@/assets/img/avatar.png"
 
 const props = defineProps({
@@ -77,13 +79,46 @@ const props = defineProps({
     type: Object as PropType<Chat | undefined>,
     required: true,
   },
+  currentModel: {
+    type: String,
+    required: true,
+  },
 })
 const emits = defineEmits(["update:modelValue"])
 
-const text = ref()
+const text = ref<string>("")
 
-const send = () => {
+const send = async () => {
   console.log(text)
+  const system: Message = {
+    role: "system",
+    content: `用中文回答的精简一些，现在时间:${Date.now()}`,
+  }
+  if (!props.modelValue) {
+    const temp: Chat = {
+      model: props.currentModel,
+      time: Date.now(),
+      title: text.value.slice(0, 15),
+      message: [
+        system,
+        {
+          role: "user",
+          content: text.value,
+        },
+      ],
+    }
+    props.chats.unshift(temp)
+    emits("update:modelValue", temp)
+    await nextTick()
+  }
+  const message = props.modelValue!.message.slice(-3)
+  message[0] !== props.modelValue!.message[0] &&
+    message.unshift(props.modelValue!.message[0])
+
+  const params = {
+    model: props.modelValue!.model,
+    message,
+  }
 }
 
 const tempSend = [
@@ -149,6 +184,7 @@ main {
   position: relative;
   flex: 1;
 }
+
 .input-container {
   width: 100%;
   position: absolute;
@@ -156,11 +192,14 @@ main {
   max-width: 720px;
   left: 50%;
   transform: translateX(-50%);
+
   .el-textarea {
     --el-input-border-radius: 12px;
     --el-input-bg-color: transparent;
+    --el-input-text-color: var(--el-color-black);
     box-shadow: var(--el-box-shadow-light);
     border-radius: var(--el-input-border-radius);
+
     :deep().el-textarea__inner {
       min-height: 60px !important;
       padding: 16px 48px 16px 16px;
@@ -175,20 +214,25 @@ main {
     right: 12px;
     bottom: 12px;
     padding: 8px;
+
     :deep()svg:hover {
       color: inherit;
     }
+
     &.is-disabled {
       color: var(--el-color-info-light-5);
     }
   }
 }
+
 .welcome {
   margin: 70px auto 0;
   max-width: 720px;
+
   h1 {
     text-align: center;
   }
+
   .el-button {
     --el-button-text-color: var(--el-text-color-primary);
     font-size: 20px;
@@ -207,15 +251,19 @@ li {
 .list {
   display: flex;
   justify-content: center;
+
   h2 {
     border: none;
     font-size: 18px;
     text-align: center;
   }
+
   ul {
     margin-right: 1em;
+
     li {
       margin-bottom: 1em;
+
       .el-button {
         word-break: break-all;
         white-space: wrap;
@@ -235,19 +283,23 @@ li {
   li {
     border-bottom: 1px solid var(--el-border-color-light);
     margin: 0;
+
     &.assistant {
       background-color: var(--el-color-info-light-9);
     }
+
     > div {
       display: flex;
       max-width: 768px;
       margin: 0 auto;
       padding: 24px 0;
+
       .el-avatar {
         background-color: var(--el-color-white);
         position: relative;
         top: 3px;
       }
+
       .content {
         margin: 0 1em;
       }
