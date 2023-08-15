@@ -1,5 +1,14 @@
 export const Server = [
   {
+    text: "部署",
+    collapsed: true,
+    items: [
+      { text: "Linux命令", link: "/docs/服务端/部署/Linux命令" },
+      { text: "生成公钥私钥连接服务器", link: "/docs/服务端/部署/生成公钥私钥连接服务器" },
+      { text: "宝塔面板服务器部署", link: "/docs/服务端/部署/宝塔面板服务器部署" },
+    ],
+  },
+  {
     text: "Node.js",
     collapsed: true,
     items: [
@@ -22,11 +31,6 @@ export const Server = [
     text: "打包工具",
     collapsed: true,
     items: [{ text: "webpack", link: "/docs/服务端/webpack" }],
-  },
-  {
-    text: "部署",
-    collapsed: true,
-    items: [{ text: "服务器部署", link: "/docs/服务端/服务器部署" }],
   },
   {
     text: "数据库",
