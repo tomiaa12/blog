@@ -6,6 +6,7 @@ export const Server = [
       { text: "Linux命令", link: "/docs/服务端/部署/Linux命令" },
       { text: "生成公钥私钥连接服务器", link: "/docs/服务端/部署/生成公钥私钥连接服务器" },
       { text: "宝塔面板服务器部署", link: "/docs/服务端/部署/宝塔面板服务器部署" },
+      { text: "nginx部署前端项目", link: "/docs/服务端/部署/nginx部署前端项目" },
     ],
   },
   {

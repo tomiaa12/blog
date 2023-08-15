@@ -11,7 +11,7 @@
 - mkdir：创建新目录。
 - touch：创建空文件或更新文件的时间戳。
 - cat：显示文件内容。
-- nano 或 vim：文本编辑器，用于编辑文件。
+- nano 或 vim：文本编辑器，用于编辑文件。(可以使用`shift + inset`，`ctrl + v`,`ctrl + shift + v`粘贴)
 
 ## vim 编辑时保存或退出
 
@@ -67,6 +67,7 @@
 - ifconfig 或 ip：显示网络接口信息。
 - ping：测试与主机的连通性。
 - netstat：显示网络连接和统计信息。
+- ss -tuln | grep \<port\>，将 \<port\> 替换为要检查的端口号，查看端口占用情况
 - ssh：通过 SSH 连接到远程主机。
 - scp：通过 SSH 进行安全文件传输。
 - curl 或 wget：下载文件或内容。
