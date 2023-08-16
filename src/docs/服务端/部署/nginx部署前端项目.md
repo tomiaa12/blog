@@ -4,23 +4,25 @@
 
 - 安装`nginx`(linux 系统区分命令的不通):
 
-1. `Ubuntu / Debian`
-   在 Ubuntu 和 Debian 等基于 Debian 的系统上，您可以使用 apt 包管理器来安装 Nginx。
+1. `Ubuntu / Debian`在 Ubuntu 和 Debian 等基于 Debian 的系统上，您可以使用 apt 包管理器来安装 Nginx。
+2. `CentOS / RHEL：`在 CentOS 和 Red Hat 等基于 RHEL 的系统上，您可以使用 yum 包管理器来安装 Nginx。
 
-```sh
+安装完成后，Nginx 会自动启动并运行。您可以通过浏览器访问服务器的 IP 地址来确认 Nginx 是否已成功安装。
+
+:::code-group
+
+```sh[Ubuntu / Debian]
 sudo apt update
 sudo apt install nginx
 ```
 
-安装完成后，Nginx 会自动启动并运行。您可以通过浏览器访问服务器的 IP 地址来确认 Nginx 是否已成功安装。
-
-2.`CentOS / RHEL：`
-在 CentOS 和 Red Hat 等基于 RHEL 的系统上，您可以使用 yum 包管理器来安装 Nginx。
-
-```sh
+```sh[CentOS / RHEL]
 sudo yum install epel-release   # 安装 EPEL 存储库（如果尚未安装）
 sudo yum install nginx
 ```
+
+:::
+
 
 ## 开机自动启动
 
@@ -103,7 +105,7 @@ server {
 最后按下 ecs，:wq 保存并退出 4. 添加完成后启用配置文件，添加链接
 
 ```sh
-sudo ln -s /etc/nginx/sites-available/项目文件夹 /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/项目配置文件 /etc/nginx/sites-enabled/
 ```
 
 5. 测试 nginx 配置是否正确
@@ -133,6 +135,7 @@ sudo fuser 80/tcp
 ```
 
 有被占用可以使用 kill 关闭占用的程序的 pid
+
 ```sh
 kill <pid>
 ```
