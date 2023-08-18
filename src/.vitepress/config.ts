@@ -73,6 +73,23 @@ export default defineConfig({
         src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
       },
     ],
+    /* 文章内嵌广告 */
+    [
+      'ins',
+      {
+        class: "adsbygoogle",
+        style: "display:block; text-align:center;",
+        'data-ad-layout': "in-article",
+        'data-ad-format': "fluid",
+        'data-ad-client': "ca-pub-6209757986574246",
+        'data-ad-slot': "8325337955",
+      }
+    ],
+    [
+      'script',
+      {},
+      '(adsbygoogle = window.adsbygoogle || []).push({});'
+    ],
     ["meta", { name: "author", content: "tomiaa" }],
     // 百度
     ["meta", { name: "baidu-site-verification", content: "code-ElgEHVfH7I" }],
