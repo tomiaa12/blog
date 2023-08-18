@@ -28,7 +28,7 @@
     <template #doc-after>
       <ins
         class="adsbygoogle"
-        style="display: block; text-align: center"
+        style="display: block; text-align: center; margin-top: 1em"
         data-ad-layout="in-article"
         data-ad-format="fluid"
         data-ad-client="ca-pub-6209757986574246"
@@ -37,6 +37,7 @@
       <Comment v-if="route.path !== '/'" />
     </template>
   </defaultLayout>
+  <ClientOnly> <SideTool /> </ClientOnly>>
   <Comment
     v-if="route.path === '/'"
     class="home-comment"
@@ -47,8 +48,6 @@
     v-if="!isMobile"
     :right="300"
   />
-
-  <SideTool />
 </template>
 
 <script setup lang="ts">
@@ -71,6 +70,8 @@ let script: any
 onMounted(async () => {
   // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
+
+  // google 文章内嵌广告
   ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 })
 
