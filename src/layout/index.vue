@@ -26,14 +26,12 @@
       </div>
     </template>
     <template #doc-after>
-      <ins
-        class="adsbygoogle"
-        style="display: block; text-align: center; margin-top: 1em"
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-        data-ad-client="ca-pub-6209757986574246"
-        data-ad-slot="8325337955"
-      ></ins>
+      <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-6209757986574246"
+      data-ad-slot="9323844417"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
       <Comment v-if="route.path !== '/'" />
     </template>
   </defaultLayout>
