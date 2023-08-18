@@ -41,7 +41,7 @@
   display: block;
   width: 18px;
   height: 18px;
-  color: var(--vp-c-green);
+  color: var(--vp-c-brand);
   font-size: 0;
 }
 

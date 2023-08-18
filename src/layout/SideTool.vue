@@ -161,7 +161,7 @@ onMounted(() => {
 
     &:hover {
       background-color: var(--el-fill-color-light);
-      color: var(--vp-c-green);
+      color: var(--vp-c-brand);
     }
 
     & + li {
