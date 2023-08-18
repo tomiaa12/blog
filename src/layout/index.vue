@@ -26,6 +26,14 @@
       </div>
     </template>
     <template #doc-after>
+      <ins
+        class="adsbygoogle"
+        style="display: block; text-align: center"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-6209757986574246"
+        data-ad-slot="8325337955"
+      ></ins>
       <Comment v-if="route.path !== '/'" />
     </template>
   </defaultLayout>
@@ -63,6 +71,7 @@ let script: any
 onMounted(async () => {
   // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
+  ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 })
 
 // 访问量统计
