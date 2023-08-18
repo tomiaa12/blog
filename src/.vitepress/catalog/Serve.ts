@@ -3,10 +3,11 @@ export const Server = [
     text: "部署",
     collapsed: true,
     items: [
-      { text: "Linux命令", link: "/docs/服务端/部署/Linux命令" },
+      { text: "Linux 命令", link: "/docs/服务端/部署/Linux命令" },
       { text: "生成公钥私钥连接服务器", link: "/docs/服务端/部署/生成公钥私钥连接服务器" },
       { text: "宝塔面板服务器部署", link: "/docs/服务端/部署/宝塔面板服务器部署" },
-      { text: "nginx部署前端项目", link: "/docs/服务端/部署/nginx部署前端项目" },
+      { text: "nginx 部署前端项目", link: "/docs/服务端/部署/nginx部署前端项目" },
+      { text: "部署 nodejs 项目", link: "/docs/服务端/部署/部署nodejs项目" },
     ],
   },
   {
