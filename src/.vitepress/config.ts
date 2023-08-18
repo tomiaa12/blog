@@ -1,8 +1,5 @@
 import { defineConfig } from "vitepress"
 import { resolve } from "path"
-import { createWriteStream } from "fs"
-
-import { SitemapStream } from "sitemap"
 
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
@@ -26,9 +23,6 @@ import {
   Openlayers,
   Article,
 } from "./catalog"
-
-// sitemap 列表
-const links: any[] = []
 
 export default defineConfig({
   title: "web技术学习",
@@ -338,26 +332,8 @@ export default defineConfig({
       "/docs/进阶/": Advanced,
     },
   },
-  // sitemap: {
-  //   hostname: 'https://kuangyx.cn/',
-  //   transformItems(items) {
-  //       console.log(items)
-  //       return items
-  //   },
-  // },
-  transformHtml(code, id, { pageData }) {
-    if (!/[\\/]404\.html$/.test(id))
-      links.push({
-        url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2.html"),
-        lastmod: pageData.lastUpdated,
-      })
-  },
-  buildEnd: ({ outDir }) => {
-    const sitemap = new SitemapStream({ hostname: "https://kuangyx.cn/" })
-    const writeStream = createWriteStream(resolve(outDir, "sitemap.xml"))
-    sitemap.pipe(writeStream)
-    links.forEach(link => sitemap.write(link))
-    sitemap.end()
+  sitemap: {
+    hostname: 'https://kuangyx.cn/',
   },
   vite: {
     optimizeDeps: {

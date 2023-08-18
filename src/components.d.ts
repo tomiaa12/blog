@@ -23,7 +23,6 @@ declare module '@vue/runtime-core' {
     ElIconChatSquare: typeof import('@element-plus/icons-vue')['ChatSquare']
     ElIconCloseBold: typeof import('@element-plus/icons-vue')['CloseBold']
     ElIconDelete: typeof import('@element-plus/icons-vue')['Delete']
-    ElIconEdit: typeof import('@element-plus/icons-vue')['Edit']
     ElIconEditPen: typeof import('@element-plus/icons-vue')['EditPen']
     ElIconIphone: typeof import('@element-plus/icons-vue')['Iphone']
     ElIconLoading: typeof import('@element-plus/icons-vue')['Loading']
