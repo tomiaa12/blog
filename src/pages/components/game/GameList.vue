@@ -97,6 +97,10 @@ watch(
 </script>
 <style lang="scss">
 .game {
+  .adsbygoogle{
+    min-width: 274px;
+    padding: 8px;
+  }
   .box-card {
     cursor: pointer;
     .el-card__body {
