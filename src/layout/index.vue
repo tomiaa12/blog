@@ -71,14 +71,17 @@ onMounted(async () => {
   // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
 
-  // google 文章内嵌广告
-  ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 })
 
-// 访问量统计
 watch(
   () => route.path,
-  () => script?.fetch(),
+  () => {
+    // 访问量统计
+    script?.fetch()
+    
+    // google 文章内嵌广告
+    ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
+  },
   {
     immediate: true,
   }

@@ -17,11 +17,9 @@
       alignment="stretch"
     >
       <ins class="adsbygoogle"
-      style="display:block"
+      style="display:inline-block;width:274px;height:353px"
       data-ad-client="ca-pub-6209757986574246"
-      data-ad-slot="8308493259"
-      data-ad-format="auto"
-      data-full-width-responsive="true">
+      data-ad-slot="8308493259">
       </ins>
       <template v-for="(i, index) of filterRoms">
         <el-card
