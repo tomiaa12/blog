@@ -16,6 +16,13 @@
       size="large"
       alignment="stretch"
     >
+      <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-6209757986574246"
+      data-ad-slot="8308493259"
+      data-ad-format="auto"
+      data-full-width-responsive="true">
+      </ins>
       <template v-for="(i, index) of filterRoms">
         <el-card
           v-if="showMax > index"
