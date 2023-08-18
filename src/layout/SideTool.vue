@@ -68,6 +68,30 @@
         <canvas ref="qrcodeRef"></canvas>
       </el-popover>
     </li>
+    <li @click="to('/pages/navigation.html')">
+      <div class="grounp">
+        <el-icon :size="24">
+          <docSearch />
+        </el-icon>
+        <span>导航</span>
+      </div>
+    </li>
+    <li @click="to('/pages/software.html')">
+      <div class="grounp">
+        <el-icon :size="24">
+          <app />
+        </el-icon>
+        <span>软件</span>
+      </div>
+    </li>
+    <li @click="to('/pages/game.html')">
+      <div class="grounp">
+        <el-icon :size="24">
+          <gamepad />
+        </el-icon>
+        <span>游戏</span>
+      </div>
+    </li>
   </ul>
 </template>
 
@@ -81,6 +105,10 @@ import SupportMe from "./SupportMe/index.vue"
 import wechat from "@/assets/svg/wechat.svg"
 import fullScreen from "@/assets/svg/fullScreen.svg"
 import love from "@/assets/svg/love.svg"
+import docSearch from "@/assets/svg/docSearch.svg"
+import app from "@/assets/svg/app.svg"
+import gamepad from "@/assets/svg/gamepad.svg"
+
 import QRCode from "qrcode"
 
 import { isMobile } from "@/utils"
