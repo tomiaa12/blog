@@ -17,7 +17,7 @@
       alignment="stretch"
     >
       <ins class="adsbygoogle"
-      style="display:inline-block;width:274px;height:353px"
+      style="display:inline-block;width:258px;height:337px"
       data-ad-client="ca-pub-6209757986574246"
       data-ad-slot="8308493259">
       </ins>

@@ -27,7 +27,7 @@
     </template>
     <template #doc-after>
       <ins class="adsbygoogle"
-      style="display:block"
+      style="display:block; margin: 1em auto;"
       data-ad-client="ca-pub-6209757986574246"
       data-ad-slot="9323844417"
       data-ad-format="auto"
@@ -69,6 +69,9 @@ onMounted(async () => {
   // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
 
+  
+  // google 文章内嵌广告
+  ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 })
 
 watch(
@@ -76,9 +79,6 @@ watch(
   () => {
     // 访问量统计
     script?.fetch()
-    
-    // google 文章内嵌广告
-    ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
   },
   {
     immediate: true,
