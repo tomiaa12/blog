@@ -1,5 +1,14 @@
 <template>
   <defaultLayout :class="getCurClass">
+    <template #aside-outline-after>
+      <ins class="adsbygoogle"
+        style="display:block;height: 230px;"
+        data-ad-client="ca-pub-6209757986574246"
+        data-ad-slot="6047648655"
+        data-ad-format="auto"
+        data-full-width-responsive="true">
+      </ins>
+    </template>
     <template #home-features-after>
       <div
         v-loading
@@ -27,15 +36,16 @@
     </template>
     <template #doc-after>
       <ins class="adsbygoogle"
-      style="display:block; margin: 1em auto;"
-      data-ad-client="ca-pub-6209757986574246"
-      data-ad-slot="9323844417"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
+        style="display:block; margin: 1em auto;"
+        data-ad-client="ca-pub-6209757986574246"
+        data-ad-slot="9323844417"
+        data-ad-format="auto"
+        data-full-width-responsive="true">
+      </ins>
       <Comment v-if="route.path !== '/'" />
     </template>
   </defaultLayout>
-  <ClientOnly> <SideTool /> </ClientOnly>>
+  <ClientOnly> <SideTool /> </ClientOnly>
   <Comment
     v-if="route.path === '/'"
     class="home-comment"
