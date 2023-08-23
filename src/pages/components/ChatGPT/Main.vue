@@ -10,12 +10,20 @@
           :class="item.role"
         >
           <div>
+            {{ item.role }}
             <el-avatar
               :src="item.role === 'assistant' ? chatGPT : avatar"
               shape="square"
               :size="24"
             />
-            <div class="content">
+            <Text
+              v-if="item.role === 'assistant'"
+              :text="item.content"
+            />
+            <div
+              class="content"
+              v-else
+            >
               {{ item.content }}
             </div>
           </div>
@@ -65,10 +73,14 @@
 <script setup lang="ts">
 import type { PropType } from "vue"
 import { ref, nextTick } from "vue"
+import { OpenAIStream } from "./Main/openAIStream"
+
 import sendSvg from "@/assets/svg/send.svg"
 import chatGPT from "@/assets/svg/chatGPT.svg?url"
 import { Chat, Message } from "./type"
 import avatar from "@/assets/img/avatar.png"
+
+import Text from "./Main/Text.vue"
 
 const props = defineProps({
   chats: {
@@ -94,31 +106,54 @@ const send = async () => {
     role: "system",
     content: `用中文回答的精简一些，现在时间:${Date.now()}`,
   }
+
+  // 开启新对话
   if (!props.modelValue) {
     const temp: Chat = {
       model: props.currentModel,
       time: Date.now(),
       title: text.value.slice(0, 15),
-      message: [
-        system,
-        {
-          role: "user",
-          content: text.value,
-        },
-      ],
+      message: [system],
     }
     props.chats.unshift(temp)
     emits("update:modelValue", temp)
     await nextTick()
   }
+
+  props.modelValue?.message.push({
+    role: "user",
+    content: text.value,
+  })
+
+  text.value = ""
   const message = props.modelValue!.message.slice(-3)
+  // 添加 system
   message[0] !== props.modelValue!.message[0] &&
     message.unshift(props.modelValue!.message[0])
 
-  const params = {
-    model: props.modelValue!.model,
-    message,
+  const msg: Message = {
+    role: "assistant",
+    content: "1",
   }
+  props.modelValue!.message.push(msg)
+
+  // const msg = message[message.length - 1]
+  console.log(msg, props.modelValue)
+  /* 数据流 */
+  // const stream = await OpenAIStream(
+  //   "https://www.ai-yuxin.space/fastapi/api/chat/chatgpt_free",
+  //   message,
+  //   "",
+  //   props.modelValue!.model
+  // )
+
+  // const reader = stream.getReader()
+  // while (true) {
+  //   const { done, value } = await reader.read()
+  //   if (done) break
+  //   msg.content += value
+  // }
+  /* 数据流 --- end */
 }
 
 const tempSend = [
