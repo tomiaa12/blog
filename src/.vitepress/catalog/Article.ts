@@ -153,6 +153,10 @@ export const Article = [
         text: "一台电脑实现双人分屏本地联机游戏",
         link: "/docs/文章/技术教程/一台电脑实现双人分屏本地联机游戏.md",
       },
+      {
+        text: "wem格式音频转换mp3、amr、ogg、wav、flac",
+        link: "/docs/文章/技术教程/wem格式音频转换mp3、amr、ogg、wav、flac.md",
+      },
     ],
   },
 ]
