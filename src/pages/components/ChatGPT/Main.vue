@@ -10,7 +10,6 @@
           :class="item.role"
         >
           <div>
-            {{ item.role }}
             <el-avatar
               :src="item.role === 'assistant' ? chatGPT : avatar"
               shape="square"
@@ -19,6 +18,7 @@
             <Text
               v-if="item.role === 'assistant'"
               :text="item.content"
+              loading
             />
             <div
               class="content"
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="input-container">
+    <div class="input-container backdrop-filter">
       <el-input
         v-model="text"
         type="textarea"
@@ -71,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from "vue"
+import { PropType } from "vue"
 import { ref, nextTick } from "vue"
 import { OpenAIStream } from "./Main/openAIStream"
 
@@ -101,7 +101,7 @@ const emits = defineEmits(["update:modelValue"])
 const text = ref<string>("")
 
 const send = async () => {
-  console.log(text)
+
   const system: Message = {
     role: "system",
     content: `用中文回答的精简一些，现在时间:${Date.now()}`,
@@ -131,28 +131,26 @@ const send = async () => {
   message[0] !== props.modelValue!.message[0] &&
     message.unshift(props.modelValue!.message[0])
 
-  const msg: Message = {
+  const msg  = ref<Message>({
     role: "assistant",
-    content: "1",
-  }
-  props.modelValue!.message.push(msg)
+    content: "",
+  })
+  props.modelValue!.message.push(msg.value)
 
-  // const msg = message[message.length - 1]
-  console.log(msg, props.modelValue)
   /* 数据流 */
-  // const stream = await OpenAIStream(
-  //   "https://www.ai-yuxin.space/fastapi/api/chat/chatgpt_free",
-  //   message,
-  //   "",
-  //   props.modelValue!.model
-  // )
+  const stream = await OpenAIStream(
+    "https://www.ai-yuxin.space/fastapi/api/chat/chatgpt_free",
+    message,
+    "",
+    props.modelValue!.model
+  )
 
-  // const reader = stream.getReader()
-  // while (true) {
-  //   const { done, value } = await reader.read()
-  //   if (done) break
-  //   msg.content += value
-  // }
+  const reader = stream.getReader()
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+    msg.value.content += value
+  }
   /* 数据流 --- end */
 }
 
@@ -224,9 +222,10 @@ main {
   width: 100%;
   position: absolute;
   bottom: 50px;
-  max-width: 720px;
-  left: 50%;
+  max-width: 760px;
+  left: 50.5%;
   transform: translateX(-50%);
+  z-index: 1;
 
   .el-textarea {
     --el-input-border-radius: 12px;
@@ -239,6 +238,7 @@ main {
       min-height: 60px !important;
       padding: 16px 48px 16px 16px;
       line-height: 28px;
+      background: var(--el-bg-color);
     }
   }
 
@@ -315,6 +315,9 @@ li {
 }
 
 .answers {
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: 150px;
   li {
     border-bottom: 1px solid var(--el-border-color-light);
     margin: 0;
@@ -331,8 +334,7 @@ li {
 
       .el-avatar {
         background-color: var(--el-color-white);
-        position: relative;
-        top: 3px;
+        flex-shrink: 0;
       }
 
       .content {
