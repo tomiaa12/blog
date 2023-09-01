@@ -2,6 +2,7 @@ export interface Message {
   role: "system" | "user" | "assistant" | "function"
   content: string
   name?: string
+  error?: boolean
 }
 export interface Chat {
   model: string

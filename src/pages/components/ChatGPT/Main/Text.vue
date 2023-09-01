@@ -6,7 +6,6 @@ import mdKatex from "@traptitech/markdown-it-katex"
 import "highlight.js/scss/atom-one-dark-reasonable.scss"
 
 interface Props {
-  inversion?: boolean
   error?: boolean
   text?: string
   loading?: boolean
@@ -43,10 +42,8 @@ mdi.renderer.rules.fence = (tokens, idx, options, env, slf) => {
 
 const text = computed(() => {
   const value = props.text ?? ""
-  if (!props.inversion) return mdi.render(value)
-  return value
+  return mdi.render(value)
 })
-
 
 function highlightBlock(str: string, lang: string, code: string) {
   return `<div class="language-${lang}">
@@ -67,17 +64,12 @@ defineExpose({ textRef })
 <template>
   <div
     class="gpt-text"
+    :class="error ? 'error' : ''"
     ref="textRef"
   >
     <div
-      v-if="!inversion"
       :class="['markdown-body']"
-      v-html="text"
-    />
-    <div
-      v-else
-      class="whitespace-pre-wrap"
-      v-text="text"
+      v-html="text || (error && !text ? '出错啦！' : '')"
     />
   </div>
 </template>
@@ -104,6 +96,9 @@ defineExpose({ textRef })
 .gpt-text {
   margin-left: 1em;
   overflow-wrap: break-word;
+  &.error{
+    color: var(--el-color-danger);
+  }
 }
 
 :deep() {

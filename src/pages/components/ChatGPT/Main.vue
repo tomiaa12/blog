@@ -18,6 +18,7 @@
             <Text
               v-if="item.role === 'assistant'"
               :text="item.content"
+              :error="item.error"
               loading
             />
             <div
@@ -96,12 +97,11 @@ const props = defineProps({
     required: true,
   },
 })
-const emits = defineEmits(["update:modelValue"])
+const emits = defineEmits(["update:modelValue", "saveChats"])
 
 const text = ref<string>("")
 
 const send = async () => {
-
   const system: Message = {
     role: "system",
     content: `用中文回答的精简一些，现在时间:${Date.now()}`,
@@ -131,25 +131,35 @@ const send = async () => {
   message[0] !== props.modelValue!.message[0] &&
     message.unshift(props.modelValue!.message[0])
 
-  const msg  = ref<Message>({
+  const msg = ref<Message>({
     role: "assistant",
     content: "",
   })
   props.modelValue!.message.push(msg.value)
 
-  /* 数据流 */
-  const stream = await OpenAIStream(
-    "https://www.ai-yuxin.space/fastapi/api/chat/chatgpt_free",
-    message,
-    "",
-    props.modelValue!.model
-  )
+  emits("saveChats")
 
-  const reader = stream.getReader()
-  while (true) {
-    const { done, value } = await reader.read()
-    if (done) break
-    msg.value.content += value
+  /* 数据流 */
+  try{
+    const stream = await OpenAIStream(
+      "https://kuangyx.cn/api/openai",
+      message,
+      "",
+      props.modelValue!.model
+    )
+  
+    const reader = stream.getReader()
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) {
+        emits("saveChats")
+        break
+      }
+      msg.value.content += value
+    }
+  }catch{
+    msg.value.error = true
+    emits("saveChats")
   }
   /* 数据流 --- end */
 }
