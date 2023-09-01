@@ -4,7 +4,7 @@ import MarkdownIt from "markdown-it"
 import hljs from "highlight.js"
 import mdKatex from "@traptitech/markdown-it-katex"
 import "highlight.js/scss/atom-one-dark-reasonable.scss"
-import { copyToClipboard } from "@/utils"
+
 interface Props {
   inversion?: boolean
   error?: boolean
@@ -20,7 +20,6 @@ const mdi = new MarkdownIt({
   linkify: true,
   highlight(code: string, language = "sh") {
     const validLang = !!(language && hljs.getLanguage(language))
-    console.log(code, "code")
     if (validLang) {
       const lang = language ?? ""
       return highlightBlock(hljs.highlight(lang, code, true).value, lang, code)
@@ -48,11 +47,14 @@ const text = computed(() => {
   return value
 })
 
-function highlightBlock(str: string, lang?: string, code: string) {
+
+function highlightBlock(str: string, lang: string, code: string) {
   return `<div class="language-${lang}">
     <button
       title="Copy Code"
       class="copy"
+      data-code="${code}"
+      onclick="copyToClipboard(event)"
     ></button>
     <span class="lang">${lang}</span>
     <pre class="shiki material-theme-palenight"><code>${str}</code></pre>
