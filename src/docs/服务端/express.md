@@ -96,6 +96,47 @@ app.post('/app', (req, res) => {
 })
 ```
 
+## 给所有接口添加405状态
+
+```js
+function add405ResponseToRouter(router) {
+  const routes = router.stack.map((layer) => layer.route).filter((i) => i);
+
+  for (const route of routes) {
+    const { path, methods } = route;
+
+    router.route(path).all(function methodNotAllowed(req, res, next) {
+      res.set(
+        "Allow",
+        Object.keys(methods)
+          .filter((method) => method !== "_all")
+          .map((method) => method.toUpperCase())
+          .join(", ")
+      );
+      res.status(405).send("请求方法不允许");
+    });
+  }
+
+  return router;
+}
+```
+## 代理接口
+
+```js
+import { createProxyMiddleware } from "http-proxy-middleware";
+
+app.post(
+  "/gpt",
+  createProxyMiddleware({
+    target: 'http://xxxx.com',
+    changeOrigin: true,
+    pathRewrite: {
+      '/gpt': ""
+    }
+  })
+);
+```
+
 ## 第三方中间件
 
 ### cookie-parser
