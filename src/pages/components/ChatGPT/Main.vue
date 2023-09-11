@@ -2,7 +2,9 @@
   <main>
     <ol
       v-if="modelValue"
+      :key="modelValue.time"
       class="answers"
+      ref="olRef"
     >
       <template v-for="item of modelValue.message">
         <li
@@ -19,14 +21,13 @@
               v-if="item.role === 'assistant'"
               :text="item.content"
               :error="item.error"
-              loading
+              :loading="item.loading"
             />
             <div
               class="content"
+              v-html="item.content"
               v-else
-            >
-              {{ item.content }}
-            </div>
+            ></div>
           </div>
         </li>
       </template>
@@ -43,7 +44,7 @@
             <el-button
               text
               bg
-              @click="text = i.value"
+              @click="selectText(i.value)"
             >
               {{ i.label }}
             </el-button>
@@ -55,6 +56,7 @@
     <div class="input-container backdrop-filter">
       <el-input
         v-model="text"
+        ref="inputRef"
         type="textarea"
         resize="none"
         :autosize="{ minRows: 1, maxRows: 8 }"
@@ -68,40 +70,70 @@
         @click="send"
       ></el-button>
     </div>
+
+    <el-button
+      v-if="modelValue"
+      class="scroll-to-end"
+      circle
+      icon="el-icon-bottom"
+      @click="scrollToEnd"
+    ></el-button>
+
+    <el-tooltip
+      effect="dark"
+      :content="drawer ? '关闭侧边栏' : '打开侧边栏'"
+      placement="right"
+    >
+      <el-button
+        bg
+        text
+        class="close-aside"
+        @click="emits('update:drawer', !drawer)"
+      >
+        <asideIcon />
+      </el-button>
+    </el-tooltip>
   </main>
 </template>
 
 <script setup lang="ts">
-import { PropType } from "vue"
-import { ref, nextTick } from "vue"
-import { OpenAIStream } from "./Main/openAIStream"
+import { ref, nextTick, watch } from "vue"
+import { Chat, Message } from "./type"
+import { Props, Emits } from "./Main/props"
+import { runing } from "./Main/guessit"
 
 import sendSvg from "@/assets/svg/send.svg"
 import chatGPT from "@/assets/svg/chatGPT.svg?url"
-import { Chat, Message } from "./type"
+import asideIcon from "@/assets/svg/aside.svg"
 import avatar from "@/assets/img/avatar.png"
 
 import Text from "./Main/Text.vue"
+import getMsg from "./Main/getMsg"
 
-const props = defineProps({
-  chats: {
-    type: Array as PropType<Chat[]>,
-    required: true,
-  },
-  modelValue: {
-    type: Object as PropType<Chat | undefined>,
-    required: true,
-  },
-  currentModel: {
-    type: String,
-    required: true,
-  },
-})
-const emits = defineEmits(["update:modelValue", "saveChats"])
+const props = defineProps<Props>()
+const emits = defineEmits<Emits>()
 
 const text = ref<string>("")
 
-const send = async () => {
+const send = async (event: any) => {
+  if (event.ctrlKey || event.altKey || event.shiftKey) {
+    const inputElement = inputRef.value.$el.querySelector("textarea")
+    // 获取光标位置
+    const startPos = inputElement.selectionStart
+    const endPos = inputElement.selectionEnd
+
+    // 在光标位置插入换行符
+    text.value =
+      text.value.substring(0, startPos) + "\n" + text.value.substring(endPos)
+
+    // 更新光标位置
+    const newCursorPos = startPos + 1
+    await nextTick(() => {
+      inputElement.setSelectionRange(newCursorPos, newCursorPos)
+    })
+    return
+  }
+  if (!text.value.trim().length) return
   const system: Message = {
     role: "system",
     content: `用中文回答的精简一些，现在时间:${Date.now()}`,
@@ -120,12 +152,21 @@ const send = async () => {
     await nextTick()
   }
 
+  // 游戏进行中
+  if (runing[props.modelValue!.time]) {
+    props.modelValue?.message.push({
+      role: "user",
+      content: text.value.replace(/(\n)(?![^`]*```)/g, "\n\n"),
+    })
+    text.value = ""
+    return
+  }
+
   props.modelValue?.message.push({
     role: "user",
-    content: text.value,
+    content: text.value.replace(/(\n)(?![^`]*```)/g, "\n\n"),
   })
 
-  text.value = ""
   const message = props.modelValue!.message.slice(-3)
   // 添加 system
   message[0] !== props.modelValue!.message[0] &&
@@ -134,35 +175,50 @@ const send = async () => {
   const msg = ref<Message>({
     role: "assistant",
     content: "",
+    loading: true,
   })
   props.modelValue!.message.push(msg.value)
 
   emits("saveChats")
 
-  /* 数据流 */
-  try{
-    const stream = await OpenAIStream(
-      "https://kuangyx.cn/api/openai",
+  const inputVal = text.value.trim()
+  text.value = ""
+  try {
+    await getMsg({
+      inputVal,
+      msg,
+      props,
+      emits,
       message,
-      "",
-      props.modelValue!.model
-    )
-  
-    const reader = stream.getReader()
-    while (true) {
-      const { done, value } = await reader.read()
-      if (done) {
-        emits("saveChats")
-        break
-      }
-      msg.value.content += value
-    }
-  }catch{
+    })
+  } catch {
     msg.value.error = true
+  } finally {
+    delete msg.value.loading
     emits("saveChats")
   }
-  /* 数据流 --- end */
 }
+
+const inputRef = ref()
+
+const selectText = (value: string) => {
+  text.value = value
+  inputRef.value.focus()
+}
+
+const olRef = ref()
+
+const scrollToEnd = async () => {
+  await nextTick()
+  olRef.value?.scrollTo({
+    top: olRef.value.scrollHeight,
+    behavior: "smooth",
+  })
+}
+watch(
+  [() => props.modelValue?.time, () => props.modelValue?.message.length],
+  scrollToEnd
+)
 
 const tempSend = [
   {
@@ -192,6 +248,10 @@ const tempSend = [
         label: '"一言" →',
         value: "一言",
       },
+      {
+        label: '"早报" →',
+        value: "早报",
+      },
     ],
   },
   {
@@ -212,11 +272,19 @@ const tempSend = [
     ],
   },
   {
-    title: "猜一猜（游戏）",
+    title: "小游戏",
     children: [
       {
         label: '"猜奥特曼" →',
         value: "猜奥特曼",
+      },
+      {
+        label: '"JS问题测验" →',
+        value: "JS问题测验",
+      },
+      {
+        label: '"猜英雄联盟" →',
+        value: "猜LOL",
       },
     ],
   },
@@ -226,6 +294,21 @@ const tempSend = [
 main {
   position: relative;
   flex: 1;
+}
+
+.close-aside {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 46px;
+  height: 44px;
+  font-size: 18px;
+}
+
+.scroll-to-end {
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
 }
 
 .input-container {
@@ -243,7 +326,7 @@ main {
     --el-input-text-color: var(--el-color-black);
     box-shadow: var(--el-box-shadow-light);
     border-radius: var(--el-input-border-radius);
-
+    width: 99%;
     :deep().el-textarea__inner {
       min-height: 60px !important;
       padding: 16px 48px 16px 16px;
@@ -308,7 +391,6 @@ li {
 
     li {
       margin-bottom: 1em;
-
       .el-button {
         word-break: break-all;
         white-space: wrap;

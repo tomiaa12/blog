@@ -1,5 +1,4 @@
 export const copyToClipboard = async (text: string) => {
-  console.log('text'  , text);
   try {
     return navigator.clipboard.writeText(text)
   } catch {

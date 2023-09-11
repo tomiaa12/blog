@@ -8,13 +8,21 @@
       >
         新对话
       </el-button>
+      <el-popconfirm title="删除全部对话?" @confirm="emits('delAll')">
+        <template #reference>
+          <el-button
+            class="del-all"
+            icon="el-icon-delete"
+            text
+          ></el-button>
+        </template>
+      </el-popconfirm>
     </div>
     <div class="list">
       <template v-for="(item, index) of chats">
-        <time
-          v-if="showTime(item.time, chats[index - 1]?.time) || index == 0"
-          >{{ formatYmd(item.time) }}</time
-        >
+        <time v-if="showTime(item.time, chats[index - 1]?.time) || index == 0">
+          {{ formatYmd(item.time) }}
+        </time>
         <ol>
           <li
             :class="item === modelValue ? 'active' : ''"
@@ -63,7 +71,6 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue"
-import { ref } from "vue"
 import { Chat } from "./type"
 
 const props = defineProps({
@@ -76,11 +83,12 @@ const props = defineProps({
     required: true,
   },
 })
-const emits = defineEmits(["update:modelValue"])
+const emits = defineEmits(["update:modelValue", "saveChats", 'delAll'])
 
 const del = (index: number) => {
   if (props.modelValue === props.chats[index]) emits("update:modelValue")
   props.chats.splice(index, 1)
+  emits("saveChats")
 }
 
 const edit = (chat: Chat) => {
@@ -92,6 +100,7 @@ const enter = (chat: Chat) => {
   chat.title = chat.cacheTitle
   chat.isEditing = false
   delete chat.cacheTitle
+  emits("saveChats")
 }
 
 const showTime = (cur: number, prev: number) =>
@@ -119,6 +128,14 @@ aside {
     padding: 0 8px;
     &::-webkit-scrollbar-thumb {
       background-color: var(--el-color-info);
+    }
+  }
+
+  .new-chat {
+    display: flex;
+    padding: 0 0.4em;
+    .del-all {
+      flex: 0;
     }
   }
   .el-button {
@@ -153,6 +170,10 @@ aside {
 
     &:hover {
       background-color: rgba(42, 43, 50);
+      .control {
+        opacity: 1;
+        width: auto;
+      }
     }
 
     &.active {
@@ -167,6 +188,10 @@ aside {
       margin-left: 0.5em;
       display: flex;
       justify-content: center;
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+      transition: var(--el-transition-all);
     }
 
     .el-input {

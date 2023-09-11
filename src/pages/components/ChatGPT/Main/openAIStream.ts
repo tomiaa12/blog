@@ -7,7 +7,7 @@ export const OpenAIStream = async (openAiUrl: string, msg: any[], apiKey: string
   const res = await fetch(openAiUrl, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      // Authorization: `Bearer ${apiKey}`,
     },
     method: "POST",
     body: JSON.stringify({

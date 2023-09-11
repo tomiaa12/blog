@@ -1,8 +1,10 @@
 export interface Message {
   role: "system" | "user" | "assistant" | "function"
   content: string
-  name?: string
   error?: boolean
+  loading?: boolean
+  isEnd?: boolean
+  isChatGPT?: boolean
 }
 export interface Chat {
   model: string
@@ -11,4 +13,11 @@ export interface Chat {
   isEditing?: boolean
   title?: string
   cacheTitle?: string
+}
+
+export interface List {
+  path: string | string[]
+  answer: string
+  topic: string
+  desc: string
 }

@@ -1,13 +1,39 @@
 <template>
   <div class="chatGPT-container">
-    <Aside
-      v-model="currentChat"
-      :chats="chats"
-      :current-model="currentModel"
-      @saveChats="saveChats"
-    />
+    <el-drawer
+      v-model="drawer"
+      v-if="isMobile"
+      direction="ltr"
+      :show-close="false"
+      :with-header="false"
+      custom-class="drawer-chatgpt"
+      size="auto"
+    >
+      <Aside
+        v-show="drawer"
+        v-model="currentChat"
+        :chats="chats"
+        :current-model="currentModel"
+        @saveChats="saveChats"
+        @del-all="delAll"
+      />
+    </el-drawer>
+    <Transition
+      name="slideInOut"
+      v-else
+    >
+      <Aside
+        v-show="drawer"
+        v-model="currentChat"
+        :chats="chats"
+        :current-model="currentModel"
+        @saveChats="saveChats"
+        @del-all="delAll"
+      />
+    </Transition>
     <Main
       v-model="currentChat"
+      v-model:drawer="drawer"
       :chats="chats"
       :current-model="currentModel"
       @saveChats="saveChats"
@@ -21,7 +47,7 @@ import Aside from "./ChatGPT/Aside.vue"
 import Main from "./ChatGPT/Main.vue"
 import { Chat } from "./ChatGPT/type"
 import { inBrowser } from "vitepress"
-import { copyToClipboard } from "@/utils"
+import { copyToClipboard, isMobile } from "@/utils"
 
 const chats = ref<Chat[]>(
   JSON.parse(localStorage.getItem("chatGPT-chats") as string) || []
@@ -31,28 +57,26 @@ const saveChats = () => {
   localStorage.setItem("chatGPT-chats", JSON.stringify(chats.value))
 }
 
-if (inBrowser) (window as any).copyToClipboard = function (event: Event) {
-  copyToClipboard((event.target as any).dataset.code)
-}
+if (inBrowser)
+  (window as any).copyToClipboard = function (event: Event) {
+    copyToClipboard((event.target as any).children[0].innerHTML)
+  }
 
 onUnmounted(() => {
   if (inBrowser) delete (window as any).copyToClipboard
 })
 
-watch(
-  chats,
-  () => {
-    console.log(chats.value)
-  },
-  {
-    deep: true,
-  }
-)
-
 provide("chats", chats)
 
 const currentChat = ref<Chat>()
 const currentModel = ref("gpt-4")
+
+const delAll = () => (chats.value = [])
+
+const drawer = ref(true)
+watch(isMobile, () => {
+  drawer.value = true
+})
 </script>
 <style lang="scss">
 .chatGPT-container {
@@ -83,5 +107,20 @@ const currentModel = ref("gpt-4")
     right: 64px;
     z-index: 1;
   }
+}
+
+.slideInOut-enter-active,
+.slideInOut-leave-active {
+  transition: var(--el-transition-all);
+  overflow: hidden;
+}
+
+.slideInOut-enter-from,
+.slideInOut-leave-to {
+  width: 0 !important;
+}
+
+.drawer-chatgpt{
+  --el-drawer-padding-primary: 0;
 }
 </style>
