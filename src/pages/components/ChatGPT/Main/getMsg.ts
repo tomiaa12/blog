@@ -14,8 +14,8 @@ type Params = {
   message: Message[]
   inputVal: string
 }
-export const orginHost =  "http://13.231.220.10:3000"
-// export const orginHost = import.meta.env.DEV ? "http://localhost:3000" : "http://13.231.220.10:3000"
+export const orginHost =  "https://api.kuangyx.cn"
+// export const orginHost = import.meta.env.DEV ? "http://localhost:3000" : "https://api.kuangyx.cn"
 
 const baseUrl = orginHost + "/api"
 
