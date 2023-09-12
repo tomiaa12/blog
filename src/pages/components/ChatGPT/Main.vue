@@ -138,7 +138,7 @@ const send = async (event: any) => {
   if (!text.value.trim().length) return
   const system: Message = {
     role: "system",
-    content: `用中文回答的精简一些，现在时间:${Date.now()}`,
+    content: `现在时间:${Date.now()}`,
   }
 
   // 开启新对话
