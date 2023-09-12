@@ -212,8 +212,10 @@ const imgRef = ref()
       margin-bottom: 0;
     }
     div[class*="language-"] {
-      min-width: 380px;
+      min-width: 300px;
       min-height: 52px;
+      max-width: 100%;
+      border-radius: 8px;
     }
   }
   .loading {

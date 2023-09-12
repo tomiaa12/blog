@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="input-container backdrop-filter">
+    <div class="input-container">
       <el-input
         v-model="text"
         ref="inputRef"
@@ -79,7 +79,8 @@
       @click="scrollToEnd"
     ></el-button>
 
-    <el-tooltip
+    <component
+      :is="!isMobile ? 'el-tooltip' : 'span'"
       effect="dark"
       :content="drawer ? '关闭侧边栏' : '打开侧边栏'"
       placement="right"
@@ -92,7 +93,7 @@
       >
         <asideIcon />
       </el-button>
-    </el-tooltip>
+    </component>
   </main>
 </template>
 
@@ -109,6 +110,7 @@ import avatar from "@/assets/img/avatar.png"
 
 import Text from "./Main/Text.vue"
 import getMsg from "./Main/getMsg"
+import { isMobile } from "@/utils"
 
 const props = defineProps<Props>()
 const emits = defineEmits<Emits>()
@@ -303,12 +305,14 @@ main {
   width: 46px;
   height: 44px;
   font-size: 18px;
+  z-index: 1;
+  box-shadow: var(--el-box-shadow-light);
 }
 
 .scroll-to-end {
   position: absolute;
   left: 1em;
-  bottom: 1em;
+  bottom: 9em;
 }
 
 .input-container {
@@ -319,14 +323,13 @@ main {
   left: 50.5%;
   transform: translateX(-50%);
   z-index: 1;
-
+  padding: 0 1em;
   .el-textarea {
     --el-input-border-radius: 12px;
     --el-input-bg-color: transparent;
     --el-input-text-color: var(--el-color-black);
     box-shadow: var(--el-box-shadow-light);
     border-radius: var(--el-input-border-radius);
-    width: 99%;
     :deep().el-textarea__inner {
       min-height: 60px !important;
       padding: 16px 48px 16px 16px;
@@ -339,7 +342,7 @@ main {
     --el-button-disabled-bg-color: transparent;
     --el-button-disabled-border-color: transparent;
     position: absolute;
-    right: 12px;
+    right: 2em;
     bottom: 12px;
     padding: 8px;
 
@@ -355,8 +358,10 @@ main {
 
 .welcome {
   margin: 70px auto 0;
-  max-width: 720px;
-
+  max-width: 100vw;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 200px;
   h1 {
     text-align: center;
   }
@@ -379,23 +384,27 @@ li {
 .list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  width: 99%;
 
   h2 {
     border: none;
     font-size: 18px;
     text-align: center;
+    margin-top: 0;
   }
 
   ul {
     margin-right: 1em;
-
+    max-width: 50%;
     li {
       margin-bottom: 1em;
       .el-button {
         word-break: break-all;
-        white-space: wrap;
-        width: 100%;
+        white-space: normal;
+        width: auto;
         max-width: 230px;
+        min-width: 100%;
         margin-left: 0;
         line-height: 1.2;
         height: auto;
@@ -407,26 +416,28 @@ li {
 }
 
 .answers {
-  overflow-y: auto;
+  overflow: auto;
   height: 100%;
   padding-bottom: 150px;
+  overflow: auto;
+
   li {
     border-bottom: 1px solid var(--el-border-color-light);
     margin: 0;
-
+    max-width: 100vw;
     &.assistant {
       background-color: var(--el-color-info-light-9);
     }
 
     > div {
-      display: flex;
       max-width: 768px;
       margin: 0 auto;
       padding: 24px 0;
 
       .el-avatar {
         background-color: var(--el-color-white);
-        flex-shrink: 0;
+        float: left;
+        margin: 0 1em;
       }
 
       .content {

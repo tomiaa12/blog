@@ -8,12 +8,14 @@
       :with-header="false"
       custom-class="drawer-chatgpt"
       size="auto"
+      lock-scroll
     >
       <Aside
         v-show="drawer"
         v-model="currentChat"
         :chats="chats"
         :current-model="currentModel"
+        @update:model-value="drawer = false"
         @saveChats="saveChats"
         @del-all="delAll"
       />
@@ -73,14 +75,14 @@ const currentModel = ref("gpt-4")
 
 const delAll = () => (chats.value = [])
 
-const drawer = ref(true)
+const drawer = ref(!isMobile.value)
 watch(isMobile, () => {
   drawer.value = true
 })
 </script>
 <style lang="scss">
 .chatGPT-container {
-  height: calc(100vh - var(--vp-nav-height));
+  height: calc(var(--vh) - var(--vp-nav-height));
   display: flex;
 }
 

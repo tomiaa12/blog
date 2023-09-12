@@ -350,9 +350,6 @@ const listClick = () => {
   .VPNav {
     background: transparent !important;
   }
-  .VPContent {
-    padding-top: 2em;
-  }
 
   .aside {
     position: fixed;

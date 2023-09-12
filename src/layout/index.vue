@@ -60,7 +60,7 @@
 
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
-import { useRoute, useData } from "vitepress"
+import { useRoute, useData, inBrowser } from "vitepress"
 import { computed, onMounted, watch } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
@@ -94,6 +94,14 @@ watch(
     immediate: true,
   }
 )
+if(inBrowser) {
+  const resize = () => {
+    let vh = window.innerHeight
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+  }
+  window.addEventListener('resize', resize)
+  resize()
+}
 </script>
 <style lang="scss" scoped>
 .home-comment {

@@ -1,5 +1,5 @@
 <template>
-  <ul class="site-tool backdrop-filter">
+  <ul class="site-tool backdrop-filter" :class="isMobile && 'mini'">
     <li @click="to('/docs/关于/交流群.html')">
       <el-popover
         placement="left"
@@ -151,6 +151,14 @@ onMounted(() => {
   right: 0;
   z-index: 2000;
   box-shadow: var(--el-box-shadow-light);
+
+  &.mini{
+    li {
+      padding: 2px;
+      font-size: 10px;
+      line-height: 1.2;
+    }
+  }
 
   li {
     transition: 0.3s;
