@@ -123,6 +123,8 @@ watch(isMobile, () => {
 }
 
 .drawer-chatgpt{
-  --el-drawer-padding-primary: 0;
+  .el-drawer__body{
+    --el-drawer-padding-primary: 0;
+  }
 }
 </style>
