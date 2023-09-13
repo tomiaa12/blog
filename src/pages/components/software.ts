@@ -660,6 +660,17 @@ export default [
     title: "影音图",
     children: [
       {
+        icon: "/img/software/AdvancedRenamer.ico",
+        title: "批量重命名工具",
+        desc: "",
+        download: [
+          {
+            name: "蓝奏云",
+            url: "https://tomiaa.lanzoue.com/itG5R189x7dc",
+          },
+        ],
+      },
+      {
         icon: "/img/software/Database4数据库管理工具.ico",
         title: "Database4数据库管理工具",
         desc: "",
