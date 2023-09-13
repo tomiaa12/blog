@@ -73,11 +73,9 @@ const render = computed(() => {
 function highlightBlock(str: string, lang: string, code: string) {
   return `<div class="language-${lang}">
     <button
-      title="Copy Code"
       class="copy"
-      onclick="copyToClipboard(event)"
+      onclick="copyToClip(this)"
     >
-      <span style="display: none">${code}</span>
     </button>
     <span class="lang">${lang}</span>
     <pre class="shiki material-theme-palenight"><code>${str}</code></pre>

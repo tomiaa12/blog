@@ -60,12 +60,15 @@ const saveChats = () => {
 }
 
 if (inBrowser)
-  (window as any).copyToClipboard = function (event: Event) {
-    copyToClipboard((event.target as any).children[0].innerHTML)
+  (window as any).copyToClip = function (button: any) {
+    setTimeout(() => {
+      const codeText = button.nextElementSibling.nextElementSibling.textContent
+      copyToClipboard(codeText)
+    }, 200)
   }
 
 onUnmounted(() => {
-  if (inBrowser) delete (window as any).copyToClipboard
+  if (inBrowser) delete (window as any).copyToClip
 })
 
 provide("chats", chats)
@@ -122,8 +125,8 @@ watch(isMobile, () => {
   width: 0 !important;
 }
 
-.drawer-chatgpt{
-  .el-drawer__body{
+.drawer-chatgpt {
+  .el-drawer__body {
     --el-drawer-padding-primary: 0;
   }
 }
