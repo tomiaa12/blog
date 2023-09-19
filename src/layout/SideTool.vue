@@ -92,6 +92,14 @@
         <span>游戏</span>
       </div>
     </li>
+    <li @click="to('/pages/chatGPT.html')">
+      <div class="grounp">
+        <el-icon :size="24">
+          <chatGPT />
+        </el-icon>
+        <span>ChatGPT</span>
+      </div>
+    </li>
   </ul>
 </template>
 
@@ -108,6 +116,7 @@ import love from "@/assets/svg/love.svg"
 import docSearch from "@/assets/svg/docSearch.svg"
 import app from "@/assets/svg/app.svg"
 import gamepad from "@/assets/svg/gamepad.svg"
+import chatGPT from "@/assets/svg/chatGPT.svg"
 
 import QRCode from "qrcode"
 
