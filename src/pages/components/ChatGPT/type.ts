@@ -17,6 +17,8 @@ export interface Chat {
 
 export interface List {
   path: string | string[]
+  options: string[]
+  optionsAnswer: string
   answer: string
   topic: string
   desc: string

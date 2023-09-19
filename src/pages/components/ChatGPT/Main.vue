@@ -37,6 +37,7 @@
       class="welcome"
     >
       <h1>ChatGPT</h1>
+      <h4>如果你觉得还不错，可加微信群有相同功能的机器人</h4>
       <div class="list">
         <ul v-for="item of tempSend">
           <h2>{{ item.title }}</h2>
@@ -224,7 +225,7 @@ watch(
 
 const tempSend = [
   {
-    title: "场景",
+    title: "关键字",
     children: [
       {
         label: '"舔狗日记" →',
@@ -257,23 +258,6 @@ const tempSend = [
     ],
   },
   {
-    title: "提问",
-    children: [
-      {
-        label: '"用简单的术语解释一下量子计算" →',
-        value: "用简单的术语解释一下量子计算",
-      },
-      {
-        label: '"使用axios发送http请求" →',
-        value: "使用axios发送http请求",
-      },
-      {
-        label: '"鲁迅与周树人是什么关系？" →',
-        value: "鲁迅与周树人是什么关系？",
-      },
-    ],
-  },
-  {
     title: "小游戏",
     children: [
       {
@@ -287,6 +271,31 @@ const tempSend = [
       {
         label: '"猜英雄联盟" →',
         value: "猜LOL",
+      },
+      {
+        label: '"猜电影" →',
+        value: "猜电影",
+      },
+      {
+        label: '"二次元浓度测试" →',
+        value: "二次元浓度测试",
+      },
+    ],
+  },
+  {
+    title: "提问",
+    children: [
+      {
+        label: '"用简单的术语解释一下量子计算" →',
+        value: "用简单的术语解释一下量子计算",
+      },
+      {
+        label: '"使用axios发送http请求" →',
+        value: "使用axios发送http请求",
+      },
+      {
+        label: '"鲁迅与周树人是什么关系？" →',
+        value: "鲁迅与周树人是什么关系？",
       },
     ],
   },
@@ -364,6 +373,10 @@ main {
   padding-bottom: 200px;
   h1 {
     text-align: center;
+  }
+  h4{
+    text-align: center;
+    color: var(--vp-c-text-3);
   }
 
   .el-button {

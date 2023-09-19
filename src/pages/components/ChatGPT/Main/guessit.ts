@@ -27,6 +27,8 @@ const contextAll: { [prop: string]: { [prop: string]: Context } } = {}
 
 const randomInteger = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min
+const numberToLetter = (num: number) =>
+  String.fromCharCode("A".charCodeAt(0) + num)
 
 export const guessit = async ({
   name, // 游戏名称，唯一值
@@ -65,7 +67,7 @@ export const guessit = async ({
   const sendFileBox = async () => {
     temp.step++
 
-    const send = async() => {
+    const send = async () => {
       if (temp.step > total) {
         message.push({
           content: `游戏结束，猜对${temp.score}个`,
@@ -80,15 +82,15 @@ export const guessit = async ({
       temp.index = random()
 
       const data = list[temp.index]
-      
+
       const t = ref<Message>({
         role: "assistant",
-        content: `第${temp.step}题 ${data.topic || ""}↓↓↓`,
+        content: `第${temp.step}题 ${data.topic || ""}`,
         loading: true,
       })
       message.push(t.value)
       await nextTick()
-      delete t.value.loading 
+      delete t.value.loading
 
       emits("saveChats")
 
@@ -103,10 +105,32 @@ export const guessit = async ({
             content: path,
           })
         } else {
-          message.push({
-            role: "assistant",
-            content: data.desc,
-          })
+          if (data.options?.length) {
+            const randomList = data.options.sort(() => Math.random() - 0.5)
+            const addLetter = randomList.map(
+              (item, i) => `${numberToLetter(i)}. ${item}`
+            )
+            data.optionsAnswer = numberToLetter(
+              randomList.findIndex(i => i === data.answer)
+            )
+            const t = ref<Message>({
+              role: "assistant",
+              content: addLetter.join("\t"),
+              loading: true,
+            })
+            message.push(t.value)
+            await nextTick()
+            delete t.value.loading
+          } else {
+            const t = ref<Message>({
+              role: "assistant",
+              content: data.desc,
+              loading: true,
+            })
+            message.push(t.value)
+            await nextTick()
+            delete t.value.loading
+          }
         }
         emits("saveChats")
       } catch {
@@ -114,22 +138,31 @@ export const guessit = async ({
         return
       }
 
-      timer1 = window.setTimeout(() => {
+      timer1 = window.setTimeout(async () => {
         const i = randomInteger(0, data.answer.length - 1)
-        isPrompt &&
-          message.push({
+        if (isPrompt) {
+          const t = ref<Message>({
             role: "assistant",
             content: `⏳还剩 30 秒！提示：${data.answer
               .split("")
               .map((str: string, index: number) => (i === index ? str : "◼"))
               .join("")}`,
+            loading: true,
           })
+          message.push(t.value)
+          await nextTick()
+          delete t.value.loading
+        }
         emits("saveChats")
         timer2 = window.setTimeout(async () => {
-          message.push({
+          const t = ref<Message>({
             role: "assistant",
             content: `😜时间到！没猜对。答案是「${data.answer}」。`,
+            loading: true,
           })
+          message.push(t.value)
+          await nextTick()
+          delete t.value.loading
           emits("saveChats")
           sendFileBox()
         }, 30000)
@@ -151,22 +184,27 @@ export const guessit = async ({
       if (last.role !== "user") return
 
       let answer = list[temp.index].answer
+      let optionsAnswer = list[temp.index].optionsAnswer
       let content = last.content
 
       if (!caseSensitive) {
         content = content.toLowerCase().trim()
         answer = answer.toLowerCase()
+        optionsAnswer = optionsAnswer.toLowerCase()
       }
-      if (content === answer) {
+      if (content === answer || content === optionsAnswer) {
         clearTimeout(timer1)
         clearTimeout(timer2)
-        message.push({
-          role: 'assistant',
-          content: `🎉恭喜猜对了！答案是「${
-            list[temp.index].answer
-          }」。`,
+        const t = ref<Message>({
+          role: "assistant",
+          content: `🎉恭喜猜对了！答案是「${list[temp.index].answer}」。`,
+          loading: true,
         })
-        temp.score ++
+        message.push(t.value)
+        await nextTick()
+        delete t.value.loading
+
+        temp.score++
         await sendFileBox()
       }
     }

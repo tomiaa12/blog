@@ -37,6 +37,22 @@ const getList = async (type: string) => {
   return data
 }
 
+const Functions = [
+  '一句',
+  '一言',
+  '彩虹屁',
+  '毒鸡汤',
+  '入群测验',
+  '舔狗日记',
+  '网易云热评',
+  '猜奥特曼',
+  '猜电影',
+  '猜LOL/猜英雄联盟',
+  "二次元浓度测试",
+  '画图 + 空格 + 内容',
+  '翻译 + 空格 + 文字',
+]
+
 export default async ({ msg, props, emits, message, inputVal }: Params) => {
   const guessitLOL = async () => {
     const list = await getList("lol")
@@ -102,6 +118,31 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
         msg,
         emits,
         isPrompt: false,
+        caseSensitive: false,
+      })
+    },
+    async '猜电影'(){
+      const list = await getList("movie")
+      await guessit({
+        name: '看图猜电影',
+        list,
+        id: props.modelValue!.time,
+        message: props.modelValue!.message,
+        msg,
+        emits,
+      })
+    },
+    async '二次元浓度测试'(){
+      const list = await getList("twoDimension")
+      await guessit({
+        name: '二次元浓度测试',
+        list,
+        id: props.modelValue!.time,
+        message: props.modelValue!.message,
+        msg,
+        emits,
+        isPrompt: false,
+        caseSensitive: false,
       })
     },
     async default() {
@@ -178,12 +219,12 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
     //     await draw()
     //   }
     // },
-    // async 猜() {
-    //   const temp = Object.keys(switchFun)
-    //   if (!temp.includes(msg)) {
-    //     text = `没有找到${msg}，你可以@我+下列关键词：\n${Functions.join("\n")}`
-    //   }
-    // },
+    async 猜() {
+      const temp = Object.keys(switchFun)
+      if (!temp.includes(inputVal)) {
+        msg.value.content = `没有找到${inputVal}，你可以@我+下列关键词：\n${Functions.join("\n")}`
+      }
+    },
     // async 翻译() {
     //   text = ""
     //   const query = msg.replace(/^画图/, "")

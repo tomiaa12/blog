@@ -93,7 +93,7 @@ const isAudio = computed(
 const isImg = computed(
   () =>
     (/^\//.test(props.text!) || isHttpUrl.value) &&
-    /(\.png|\.jpg|\.gif)$/.test(props.text!)
+    /(\.png|\.jpg|\.gif|\.webp)$/.test(props.text!)
 )
 
 const baseURL = computed(() => (isHttpUrl.value ? "" : orginHost))
@@ -161,6 +161,7 @@ const imgRef = ref()
       style="max-width: 200px"
       :src="baseURL + props.text"
       fit="contain"
+      :referrerpolicy="isHttpUrl ? 'never' : undefined"
       @load="setZoom"
     />
     <audio
