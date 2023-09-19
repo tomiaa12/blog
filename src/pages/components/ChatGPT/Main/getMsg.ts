@@ -14,8 +14,10 @@ type Params = {
   message: Message[]
   inputVal: string
 }
-export const orginHost =  "https://api.kuangyx.cn"
-// export const orginHost = import.meta.env.DEV ? "http://localhost:3000" : "https://api.kuangyx.cn"
+// export const orginHost =  "https://api.kuangyx.cn"
+export const orginHost = import.meta.env.DEV
+  ? "http://localhost:3000"
+  : "https://api.kuangyx.cn"
 
 const baseUrl = orginHost + "/api"
 
@@ -25,7 +27,7 @@ const getList = async (type: string) => {
 
   const { data } = await axios.post(`${baseUrl}/getGuessit`, { type })
   data.forEach((i: List) => {
-    if(!i.path) return
+    if (!i.path) return
     const reg = /^(\.\.\/|\.\/src\/)/
     if (Array.isArray(i.path)) {
       i.path = i.path.map(i => i.replace(reg, "/"))
@@ -38,19 +40,19 @@ const getList = async (type: string) => {
 }
 
 const Functions = [
-  '一句',
-  '一言',
-  '彩虹屁',
-  '毒鸡汤',
-  '入群测验',
-  '舔狗日记',
-  '网易云热评',
-  '猜奥特曼',
-  '猜电影',
-  '猜LOL/猜英雄联盟',
+  "一句",
+  "一言",
+  "彩虹屁",
+  "毒鸡汤",
+  "入群测验",
+  "舔狗日记",
+  "网易云热评",
+  "猜奥特曼",
+  "猜电影",
+  "猜LOL/猜英雄联盟",
   "二次元浓度测试",
-  '画图 + 空格 + 内容',
-  '翻译 + 空格 + 文字',
+  "画图 + 空格 + 内容",
+  "翻译 + 空格 + 文字",
 ]
 
 export default async ({ msg, props, emits, message, inputVal }: Params) => {
@@ -121,10 +123,10 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
         caseSensitive: false,
       })
     },
-    async '猜电影'(){
+    async 猜电影() {
       const list = await getList("movie")
       await guessit({
-        name: '看图猜电影',
+        name: "看图猜电影",
         list,
         id: props.modelValue!.time,
         message: props.modelValue!.message,
@@ -132,10 +134,10 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
         emits,
       })
     },
-    async '二次元浓度测试'(){
+    async 二次元浓度测试() {
       const list = await getList("twoDimension")
       await guessit({
-        name: '二次元浓度测试',
+        name: "二次元浓度测试",
         list,
         id: props.modelValue!.time,
         message: props.modelValue!.message,
@@ -169,68 +171,24 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
   }
 
   const baseStrTrigger: Fun = {
-    // async 画图() {
-    //   text = ""
-    //   const query = msg.replace(/^画图/, "")
-    //   const { data } = await translate(query, "en")
-    //   // 刷新 token
-    //   const getToken = async () => {
-    //     console.log("画图getoken")
-    //     const { data } = await axios.post(
-    //       "https://www.ai-yuxin.space/fastapi/api/user/login",
-    //       {
-    //         account: "tomiaa",
-    //         password: "5d86ed1730a40de164175de5c01b85dc",
-    //       }
-    //     )
-    //     drawToken = data.token
-    //     drawUserId = data.user_id
-    //   }
-    //   const draw = async () => {
-    //     const d = await axios.post(
-    //       "https://www.ai-yuxin.space/fastapi/api/painting/stable_diffusion",
-    //       {
-    //         user_id: drawUserId,
-    //         token: drawToken,
-    //         prompt: data,
-    //         negative_prompt: "",
-    //         width: 512,
-    //         height: 512,
-    //         number: 1,
-    //         cfg: 7,
-    //         mode: "toonyou_beta6",
-    //         method: "Euler a",
-    //         steps: 25,
-    //         seed: -1,
-    //         facial_restoration: false,
-    //         image: "0",
-    //         denoising_strength: 0,
-    //       }
-    //     )
-    //     const url = `https://www.ai-yuxin.space/${d.data[0]}`
-    //     const imageFileBox = FileBox.fromUrl(url)
-    //     await message.say(imageFileBox)
-    //   }
-    //   try {
-    //     if (!drawToken) await getToken()
-    //     await draw()
-    //   } catch {
-    //     await getToken()
-    //     await draw()
-    //   }
-    // },
+    async 画图() {
+      const query = inputVal.replace(/^画图/, "")
+      const { data } = await axios.post(`${baseUrl}/draw`, { query })
+      msg.value.content = data
+    },
     async 猜() {
       const temp = Object.keys(switchFun)
       if (!temp.includes(inputVal)) {
-        msg.value.content = `没有找到${inputVal}，你可以@我+下列关键词：\n${Functions.join("\n")}`
+        msg.value.content = `没有找到${inputVal}，你可以@我+下列关键词：\n${Functions.join(
+          "\n"
+        )}`
       }
     },
-    // async 翻译() {
-    //   text = ""
-    //   const query = msg.replace(/^画图/, "")
-    //   const { data } = await translate(query, "zh")
-    //   text = data
-    // },
+    async 翻译() {
+      const query = inputVal.replace(/^翻译/, "")
+      const { data } = await axios.post(`${baseUrl}/translate`, { query })
+      msg.value.content = data.data
+    },
   }
 
   const triggerFun =

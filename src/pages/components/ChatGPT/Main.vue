@@ -299,6 +299,19 @@ const tempSend = [
       },
     ],
   },
+  {
+    title: "场景",
+    children: [
+      {
+        label: '"画图 + 空格 + 关键字" →',
+        value: "画图 一只鸡在打篮球",
+      },
+      {
+        label: '"翻译 + 空格 + 关键字" →',
+        value: "翻译 hello",
+      },
+    ],
+  },
 ]
 </script>
 <style lang="scss" scoped>
