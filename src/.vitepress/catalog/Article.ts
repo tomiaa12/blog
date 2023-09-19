@@ -37,6 +37,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "API访问第三方图片403的解决方案",
+        link: "/docs/文章/前端/API访问第三方图片403的解决方案.md",
+      },
+      {
         text: "githubAction自动化发布到服务器",
         link: "/docs/文章/前端/githubAction自动化发布到服务器.md",
       },
