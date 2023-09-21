@@ -36,7 +36,7 @@
       v-else
       class="welcome"
     >
-      <h1>ChatGPT</h1>
+      <h1>GPT</h1>
       <h4>如果你觉得还不错，可加微信群有相同功能的机器人</h4>
       <div class="list">
         <ul v-for="item of tempSend">

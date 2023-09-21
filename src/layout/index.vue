@@ -61,7 +61,7 @@
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import { useRoute, useData, inBrowser } from "vitepress"
-import { computed, onMounted, watch } from "vue"
+import { computed, onMounted, watch, nextTick } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
@@ -78,15 +78,16 @@ let script: any
 onMounted(async () => {
   // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
-
+  script?.fetch()
   
   // google 文章内嵌广告
   ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 })
 
 watch(
-  () => route.path,
-  () => {
+  async () => route.path,
+  async () => {
+    await nextTick()
     // 访问量统计
     script?.fetch()
   },
