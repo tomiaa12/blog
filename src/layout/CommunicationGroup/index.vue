@@ -4,11 +4,6 @@
     src="./img/wxq1.jpg"
     alt="微信群1"
   />
-  <h2>微信2群↓</h2>
-  <img
-    src="./img/wxq2.jpg"
-    alt="微信群2"
-  />
 
   <h2>邀请码失效时添加好友拉群↓</h2>
   <img
