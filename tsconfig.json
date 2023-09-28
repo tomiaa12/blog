@@ -23,7 +23,8 @@
     "skipLibCheck": true, // 跳过类库检测
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "/*": ["./src/public/*"]
     },
     "types": ["element-plus/global", "vite/client"] // Volar 支持
   },

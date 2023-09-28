@@ -25,7 +25,7 @@
         人次
       </div>
     </template>
-    <template #doc-before>
+    <template #doc-before v-if="!isMobile">
       <div class="page_pv">
         本文总阅读量
         <span id="busuanzi_value_page_pv">
@@ -65,7 +65,6 @@ import { computed, onMounted, watch, nextTick } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
-
 import { isMobile } from "@/utils"
 
 const route = useRoute()
