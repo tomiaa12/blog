@@ -76,7 +76,10 @@ provide("chats", chats)
 const currentChat = ref<Chat>()
 const currentModel = ref("gpt-3.5-turbo")
 
-const delAll = () => (chats.value = [])
+const delAll = () => {
+  chats.value = []
+  currentChat.value = undefined
+}
 
 const drawer = ref(!isMobile.value)
 watch(isMobile, () => {
