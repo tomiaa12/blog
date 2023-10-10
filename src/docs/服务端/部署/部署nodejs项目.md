@@ -130,7 +130,14 @@ root:/node-chatgpt-wechat# pm2 start index.js --name node-chatgpt-wechat
 - `pm2 delete all`删除所有进程
 - `pm2 update <app-id-or-name> --name <new-name>`修改应用程序的名称 name，app-id-or-name 是程序的 name 或 pid 值
 - 删除日志文件：
+
 ```sh
 cd ~/.pm2/logs # 进入 PM2 的日志文件目录
 rm <log-file-name> # 删除日志文件
+```
+
+## 重启服务器后恢复之前的项目
+
+```sh
+pm2 resurrect
 ```
