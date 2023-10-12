@@ -93,29 +93,6 @@ const filterList = computed(() => {
 </script>
 <style lang="scss">
 .software {
-  h1 {
-    display: none;
-  }
-  .container {
-    max-width: unset !important;
-    .content {
-      max-width: unset !important;
-      .content-container {
-        max-width: unset !important;
-      }
-    }
-  }
-  .aside {
-    position: fixed;
-    right: 0;
-    top: var(--vp-nav-height-desktop);
-    z-index: 10;
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-  }
   .list-content {
     display: flex;
     flex-direction: column;
@@ -168,6 +145,18 @@ const filterList = computed(() => {
         max-width: 100%;
       }
     }
+  }
+  h2 {
+    margin: 48px 0 16px;
+    border-top: 1px solid var(--vp-c-divider);
+    padding-top: 24px;
+    letter-spacing: -0.02em;
+    line-height: 32px;
+    font-size: 24px;
+    position: relative;
+    font-weight: 600;
+    outline: none;
+    overflow-wrap: break-word;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 ---
 class: chatGPT
-aside: false
-outline: false
+layout: page
+footer: false
 ---
 
 <script setup>

@@ -1,13 +1,14 @@
 ---
 class: navigation
-outline: false
+layout: page
+footer: false
 ---
 
 <script setup>
 import navigation from './components/navigation.vue'
 </script>
 
-# 导航
+# 导航{style="display: none"}
 
 <ClientOnly>
 <navigation/>

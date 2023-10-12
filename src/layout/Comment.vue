@@ -10,7 +10,6 @@
         href="#评论"
         aria-hidden="true"
       >
-        #
       </a>
     </h2>
     <div ref="commentRef"></div>

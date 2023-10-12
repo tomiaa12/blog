@@ -332,37 +332,6 @@ const listClick = () => {
 </script>
 <style lang="scss">
 .navigation {
-  .container {
-    max-width: unset !important;
-    .content {
-      max-width: unset !important;
-      .content-container {
-        max-width: unset !important;
-      }
-    }
-    .aside {
-      transition: all 0.3s;
-    }
-  }
-  h1 {
-    display: none;
-  }
-  .VPNav {
-    background: transparent !important;
-  }
-
-  .aside {
-    position: fixed;
-    right: 0;
-    z-index: 10;
-    top: var(--vp-nav-height-desktop);
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-  }
-
   .search-container {
     height: 100vh;
     position: relative;
@@ -467,6 +436,19 @@ const listClick = () => {
         max-width: 100%;
       }
     }
+  }
+
+  h2 {
+    margin: 48px 0 16px;
+    border-top: 1px solid var(--vp-c-divider);
+    padding-top: 24px;
+    letter-spacing: -0.02em;
+    line-height: 32px;
+    font-size: 24px;
+    position: relative;
+    font-weight: 600;
+    outline: none;
+    overflow-wrap: break-word;
   }
 }
 </style>

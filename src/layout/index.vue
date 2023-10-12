@@ -1,12 +1,14 @@
 <template>
   <defaultLayout :class="getCurClass">
     <template #aside-outline-after>
-      <ins class="adsbygoogle"
-        style="display:block;height: 230px;"
+      <ins
+        class="adsbygoogle"
+        style="display: block; height: 230px"
         data-ad-client="ca-pub-6209757986574246"
         data-ad-slot="6047648655"
         data-ad-format="auto"
-        data-full-width-responsive="true">
+        data-full-width-responsive="true"
+      >
       </ins>
     </template>
     <template #home-features-after>
@@ -25,7 +27,10 @@
         人次
       </div>
     </template>
-    <template #doc-before v-if="!isMobile">
+    <template
+      #doc-before
+      v-if="!isMobile"
+    >
       <div class="page_pv">
         本文总阅读量
         <span id="busuanzi_value_page_pv">
@@ -35,19 +40,21 @@
       </div>
     </template>
     <template #doc-after>
-      <ins class="adsbygoogle"
-        style="display:block; margin: 1em auto;"
+      <ins
+        class="adsbygoogle"
+        style="display: block; margin: 1em auto"
         data-ad-client="ca-pub-6209757986574246"
         data-ad-slot="9323844417"
         data-ad-format="auto"
-        data-full-width-responsive="true">
+        data-full-width-responsive="true"
+      >
       </ins>
-      <Comment v-if="route.path !== '/'" />
+      <Comment v-if="!showGlobalComment" />
     </template>
   </defaultLayout>
   <ClientOnly> <SideTool /> </ClientOnly>
   <Comment
-    v-if="route.path === '/'"
+    v-if="showGlobalComment"
     class="home-comment"
   />
   <Live2D v-if="!isMobile" />
@@ -73,12 +80,14 @@ const data = useData()
 
 const getCurClass = computed(() => data.frontmatter.value.class)
 
+const showGlobalComment = computed(() => data.frontmatter.value.layout)
+
 let script: any
 onMounted(async () => {
   // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
   script?.fetch()
-  
+
   // google 文章内嵌广告
   ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 })
@@ -94,12 +103,12 @@ watch(
     immediate: true,
   }
 )
-if(inBrowser) {
+if (inBrowser) {
   const resize = () => {
     let vh = window.innerHeight
-    document.documentElement.style.setProperty('--vh', `${vh}px`)
+    document.documentElement.style.setProperty("--vh", `${vh}px`)
   }
-  window.addEventListener('resize', resize)
+  window.addEventListener("resize", resize)
   resize()
 }
 </script>
