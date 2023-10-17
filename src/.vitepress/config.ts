@@ -136,6 +136,10 @@ export default defineConfig({
     ],
   ],
   themeConfig: {
+    returnToTopLabel: "返回顶部",
+    sidebarMenuLabel: "目录",
+    darkModeSwitchLabel: "切换模式",
+    externalLinkIcon: true,
     search: {
       provider: "algolia",
       options: {

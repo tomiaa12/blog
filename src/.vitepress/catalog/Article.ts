@@ -163,4 +163,26 @@ export const Article = [
       },
     ],
   },
+  {
+    text: "系统软件相关",
+    collapsed: true,
+    items: [
+      {
+        text: "vscode 更新功能会被禁用",
+        link: "/docs/文章/系统软件相关/vscode更新功能会被禁用.md",
+      },
+      {
+        text: "永久激活 win11、win10",
+        link: "/docs/文章/系统软件相关/永久激活win11、win10.md",
+      },
+      {
+        text: "Win11 打开方式选择其他应用没反应",
+        link: "/docs/文章/系统软件相关/Win11打开方式选择其他应用没反应.md",
+      },
+      {
+        text: "VMware所有版本激活密钥",
+        link: "/docs/文章/系统软件相关/VMware所有版本激活密钥.md",
+      },
+    ]
+  },
 ]
