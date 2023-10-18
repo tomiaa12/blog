@@ -80,7 +80,6 @@ const props = defineProps({
   },
   modelValue: {
     type: Object as PropType<Chat | undefined>,
-    required: true,
   },
 })
 const emits = defineEmits(["update:modelValue", "saveChats", 'delAll'])

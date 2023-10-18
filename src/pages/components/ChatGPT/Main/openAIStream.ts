@@ -1,8 +1,13 @@
-import { createParser } from "eventsource-parser";
+import { createParser } from "eventsource-parser"
 
-export const OpenAIStream = async (openAiUrl: string, msg: any[], apiKey: string, model: string) => {
-  const encoder = new TextEncoder();
-  const decoder = new TextDecoder();
+export const OpenAIStream = async (
+  openAiUrl: string,
+  msg: any[],
+  apiKey: string,
+  model: string
+) => {
+  // const encoder = new TextEncoder()
+  const decoder = new TextDecoder()
 
   const res = await fetch(openAiUrl, {
     headers: {
@@ -16,49 +21,46 @@ export const OpenAIStream = async (openAiUrl: string, msg: any[], apiKey: string
       user_id: 0,
       msg,
     }),
-  });
+  })
   if (res.status !== 200) {
-    throw new Error("OpenAI API returned an error");
+    throw new Error("OpenAI API returned an error")
   }
 
   return new ReadableStream({
     async start(controller) {
-      const reader = (res as any).body.getReader(); // 获取可读流的读取器
-
+      const reader = (res as any).body.getReader() // 获取可读流的读取器
       const onParse = (event: any) => {
-        if (event.type === "event") {
-          const data = event.data;
-
-          try {
-            const json = JSON.parse(data);
+        try{
+          if (event.type === "event") {
+            const data = event.data
+            const json = JSON.parse(data)
+            if(!json.choices[0]) return
             if (json.choices[0].finish_reason === "stop") {
-              controller.close();
-              return;
+              controller.close()
+              return
             }
-            const text = json.choices[0].delta.content;
-            const queue = encoder.encode(text);
-            controller.enqueue(text);
+            const text = json.choices[0].delta.content || ''
+            // const queue = encoder.encode(text)
+            controller.enqueue(text)
             // controller.enqueue(queue);
-          } catch (e) {
-            controller.error(e);
           }
+        }catch(e){
+          console.log(e,'error')
         }
-      };
+      }
 
-      const parser = createParser(onParse);
-      
+      const parser = createParser(onParse)
+
       while (true) {
-        const { done, value } = await reader.read();
+        const { done, value } = await reader.read()
         if (done) {
-          break;
+          break
         }
-        parser.feed(decoder.decode(value));
+        value && parser.feed(decoder.decode(value))
       }
     },
-  });
-};
-
-
+  })
+}
 
 /* ------ test ---- */
 // const prompt = [
