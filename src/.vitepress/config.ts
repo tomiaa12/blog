@@ -22,6 +22,7 @@ import {
   React,
   Openlayers,
   Article,
+  OnLineApp,
 } from "./catalog"
 
 export default defineConfig({
@@ -217,6 +218,7 @@ export default defineConfig({
       { text: "软件", link: "/pages/software" },
       { text: "游戏", link: "/pages/game" },
       // { text: "ChatGPT", link: "/pages/chatGPT" },
+      // { text: "在线应用", items: OnLineApp },
       {
         text: "文章",
         items: Article,
@@ -276,6 +278,8 @@ export default defineConfig({
       },
     ],
     sidebar: {
+      "/docs/在线应用/": OnLineApp,
+
       "/docs/文章/": Article,
 
       "/docs/HTML/": HTMLAndCSS,

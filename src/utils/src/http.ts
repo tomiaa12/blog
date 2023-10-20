@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios"
+import axios from "axios"
 
 export const orginHost = import.meta.env.DEV
   ? "http://localhost:3000"
