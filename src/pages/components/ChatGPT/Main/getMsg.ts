@@ -4,6 +4,19 @@ import { OpenAIStream } from "./openAIStream"
 import { guessit } from "./guessit"
 import { List, Message } from "../type"
 import { Emits, Props } from "./props"
+import {
+  cloudmusicComment,
+  draw,
+  getGuessit,
+  hitokoto,
+  morningPaper,
+  poison,
+  rainbow,
+  sentence,
+  tiangou,
+  translate,
+} from "@/api"
+import { baseUrl } from "@/utils"
 
 type Fun = { [props: string]: () => Promise<any> }
 
@@ -19,13 +32,11 @@ export const orginHost = import.meta.env.DEV
   ? "http://localhost:3000"
   : "https://api.kuangyx.cn"
 
-const baseUrl = orginHost + "/api"
-
 const guessitCache: { [prop: string]: List[] } = {}
 const getList = async (type: string) => {
   if (guessitCache[type]) return guessitCache[type]
 
-  const { data } = await axios.post(`${baseUrl}/getGuessit`, { type })
+  const { data } = await getGuessit(type)
   data.forEach((i: List) => {
     if (!i.path) return
     const reg = /^(\.\.\/|\.\/src\/)/
@@ -44,7 +55,7 @@ const Functions = [
   "一言",
   "彩虹屁",
   "毒鸡汤",
-  "入群测验",
+  "JS问题测验",
   "舔狗日记",
   "网易云热评",
   "猜奥特曼",
@@ -69,31 +80,31 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
   }
   const switchFun: Fun = {
     async 网易云热评() {
-      const { data } = await axios.get(`${baseUrl}/cloudmusicComment`)
+      const { data } = await cloudmusicComment()
       msg.value.content = data
     },
     async 一句() {
-      const { data } = await axios.get(`${baseUrl}/hitokoto`)
+      const { data } = await sentence()
       msg.value.content = data
     },
     async 早报() {
-      const { data } = await axios.get(`${baseUrl}/morningPaper`)
+      const { data } = await morningPaper()
       msg.value.content = data
     },
     async 彩虹屁() {
-      const { data } = await axios.get(`${baseUrl}/rainbow`)
+      const { data } = await rainbow()
       msg.value.content = data
     },
     async 毒鸡汤() {
-      const { data } = await axios.get(`${baseUrl}/poison`)
+      const { data } = await poison()
       msg.value.content = data
     },
     async 舔狗日记() {
-      const { data } = await axios.get(`${baseUrl}/tiangou`)
+      const { data } = await tiangou()
       msg.value.content = data
     },
     async 一言() {
-      const { data } = await axios.get(`${baseUrl}/hitokoto`)
+      const { data } = await hitokoto()
       msg.value.content = data
     },
     async 猜奥特曼() {
@@ -173,7 +184,7 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
   const baseStrTrigger: Fun = {
     async 画图() {
       const query = inputVal.replace(/^画图/, "")
-      const { data } = await axios.post(`${baseUrl}/draw`, { query })
+      const { data } = await draw(query)
       msg.value.content = data
     },
     async 猜() {
@@ -186,7 +197,7 @@ export default async ({ msg, props, emits, message, inputVal }: Params) => {
     },
     async 翻译() {
       const query = inputVal.replace(/^翻译/, "")
-      const { data } = await axios.post(`${baseUrl}/translate`, { query })
+      const { data } = await translate(query)
       msg.value.content = data.data
     },
   }

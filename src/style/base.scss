@@ -41,17 +41,9 @@ iframe:not([height]) {
   }
 }
 
-// 毛玻璃
-.backdrop-filter,
-.VPLocalNav.reached-top {
-  background: var(--el-mask-color);
-  backdrop-filter: blur(4px);
-}
-
-// 文字溢出隐藏
-.ellipsis {
-  width: 400px; 
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis;
+html,
+body,
+#app,
+.Layout {
+  height: 100%;
 }

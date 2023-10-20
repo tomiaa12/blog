@@ -330,7 +330,7 @@ const listClick = () => {
   setTimeout(savaSearchHistory)
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .navigation {
   .search-container {
     height: 100vh;

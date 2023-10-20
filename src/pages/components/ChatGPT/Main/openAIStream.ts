@@ -61,28 +61,3 @@ export const OpenAIStream = async (
     },
   })
 }
-
-/* ------ test ---- */
-// const prompt = [
-//   {
-//     role: "system",
-//     content: `用中文回答,回答的精简一些,当前时间${Date.now()}`
-//   },
-//   {
-//     role: 'user',
-//     content: '在'
-//   }
-// ]
-// const openAiUrl = 'https://www.ai-yuxin.space/fastapi/api/chat/chatgpt_free'
-// const apiKey = "";
-// const model = "gpt-4-0613";
-
-// const stream = await OpenAIStream(openAiUrl, prompt, apiKey, model)
-// const reader = stream.getReader();
-// console.log('start')
-// while (true) {
-//   const { done, value } = await reader.read();
-//   if (done) break;
-//   console.log(value)
-//   content += value
-// }
