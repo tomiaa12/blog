@@ -140,7 +140,7 @@ if (inBrowser) {
 }
 
 .page_pv {
-  line-height: 32px;
+  line-height: var(--page-pv-height);
   font-size: 14px;
   font-weight: 500;
   text-align: right;

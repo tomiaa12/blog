@@ -12,32 +12,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-// doc 页面高度最低满屏高度
-.doc-h-100{
-  .VPContent{
-    height: inherit;
-    .VPDoc {
-      height: inherit;
-      .container{
-        height: inherit;
-        .content{
-          height: inherit;
-        }
-        .content-container{
-          height: inherit;
-          main{
-            height: inherit;
-            .vp-doc{
-              height: inherit;
-              >div{
-                height: inherit;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-}
