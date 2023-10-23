@@ -7,6 +7,7 @@ import Text from "./text.vue"
 import { cloudmusicComment } from "@/api"
 
 const format = (txt: string) => {
+  if(!txt) return ''
  const temp = txt.split("——")
  temp[1] = `<p style="text-align: right;">——${temp[1]}</p>`
  return  temp.join('')

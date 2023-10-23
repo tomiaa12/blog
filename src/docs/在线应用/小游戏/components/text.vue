@@ -32,7 +32,7 @@
       />
       <div
         class="btn"
-        v-if="showBtn"
+        v-if="showBtn && word"
       >
         <el-button
           type="primary"
@@ -64,7 +64,7 @@ const props = withDefaults(
   {
     showBtn: true,
     position: true,
-    size: "30px",
+    size: "1.5rem",
     btnText: '换一句'
   }
 )
@@ -86,20 +86,15 @@ getData()
 </script>
 <style lang="scss" scoped>
 .min-h100 {
-  position: relative;
   min-height: calc(
-    var(--vh) - var(--vp-nav-height) - var(--page-pv-height) - 32px
+    var(--vh) - var(--vp-nav-height) - var(--page-pv-height) - 32px - 7rem
   );
+  display: flex;
+  align-items: center;
 }
 .text {
   line-height: 1.5;
   width: 100%;
-  &.position {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
   :deep() p {
     line-height: inherit;
   }
