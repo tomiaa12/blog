@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-import { computed, nextTick, onUnmounted, ref, watch } from "vue"
+import { computed, onUnmounted, ref, watch } from "vue"
 import MarkdownIt from "markdown-it"
 import hljs from "highlight.js"
 import mdKatex from "@traptitech/markdown-it-katex"
 import "highlight.js/scss/atom-one-dark-reasonable.scss"
-import { orginHost } from "./getMsg"
-import mediumZoom from "medium-zoom"
 
 interface Props {
   error?: boolean
@@ -83,21 +81,6 @@ function highlightBlock(str: string, lang: string, code: string) {
   `
 }
 
-const isHttpUrl = computed(() => /^http/.test(props.text!))
-
-const isAudio = computed(
-  () =>
-    (/^\//.test(props.text!) || isHttpUrl.value) && /\.mp3$/.test(props.text!)
-)
-
-const isImg = computed(
-  () =>
-    (/^\//.test(props.text!) || isHttpUrl.value) &&
-    /(\.png|\.jpg|\.gif|\.webp)$/.test(props.text!)
-)
-
-const baseURL = computed(() => (isHttpUrl.value ? "" : orginHost))
-
 let currentIndex = 0
 let timer: number, timer2: number
 const bgc = ref("currentColor")
@@ -141,13 +124,6 @@ watch(
   }
 )
 
-const setZoom = async () => {
-  await nextTick()
-  const zoom = mediumZoom(imgRef.value.$el.children[0])
-  zoom.update({ background: "var(--el-color-info-light-9)" })
-}
-
-const imgRef = ref()
 </script>
 
 <template>
@@ -155,22 +131,7 @@ const imgRef = ref()
     class="gpt-text"
     :class="error ? 'error' : ''"
   >
-    <el-image
-      v-if="isImg"
-      ref="imgRef"
-      style="max-width: 200px"
-      :src="baseURL + props.text"
-      fit="contain"
-      :referrerpolicy="isHttpUrl ? 'never' : undefined"
-      @load="setZoom"
-    />
-    <audio
-      v-else-if="isAudio"
-      controls
-      :src="baseURL + props.text"
-    ></audio>
     <div
-      v-else
       class="markdown-body"
       ref="textRef"
       v-html="render"
@@ -230,9 +191,5 @@ const imgRef = ref()
 
 .whitespace-pre-wrap {
   white-space: pre-wrap;
-}
-
-audio {
-  height: 24px;
 }
 </style>

@@ -37,7 +37,6 @@
       class="welcome"
     >
       <h1>GPT</h1>
-      <h4>如果你觉得还不错，可加微信群有相同功能的机器人</h4>
       <div class="list">
         <ul v-for="item of tempSend">
           <h2>{{ item.title }}</h2>
@@ -102,7 +101,6 @@
 import { ref, nextTick, watch } from "vue"
 import { Chat, Message } from "./type"
 import { Props, Emits } from "./Main/props"
-import { runing } from "./Main/guessit"
 
 import sendSvg from "@/assets/svg/send.svg"
 import chatGPT from "@/assets/svg/chatGPT.svg?url"
@@ -153,16 +151,6 @@ const send = async (event: any) => {
     props.chats.unshift(temp)
     emits("update:modelValue", temp)
     await nextTick()
-  }
-
-  // 游戏进行中
-  if (runing[props.modelValue!.time]) {
-    props.modelValue?.message.push({
-      role: "user",
-      content: text.value.replace(/(\n)(?![^`]*```)/g, "\n\n"),
-    })
-    text.value = ""
-    return
   }
 
   props.modelValue?.message.push({
@@ -225,65 +213,7 @@ watch(
 
 const tempSend = [
   {
-    title: "关键字",
-    children: [
-      {
-        label: '"舔狗日记" →',
-        value: "舔狗日记",
-      },
-      {
-        label: '"网易云热评" →',
-        value: "网易云热评",
-      },
-      {
-        label: '"彩虹屁" →',
-        value: "彩虹屁",
-      },
-      {
-        label: '"毒鸡汤" →',
-        value: "毒鸡汤",
-      },
-      {
-        label: '"一句" →',
-        value: "一句",
-      },
-      {
-        label: '"一言" →',
-        value: "一言",
-      },
-      {
-        label: '"早报" →',
-        value: "早报",
-      },
-    ],
-  },
-  {
-    title: "小游戏",
-    children: [
-      {
-        label: '"猜奥特曼" →',
-        value: "猜奥特曼",
-      },
-      {
-        label: '"JS问题测验" →',
-        value: "JS问题测验",
-      },
-      {
-        label: '"猜英雄联盟" →',
-        value: "猜LOL",
-      },
-      {
-        label: '"猜电影" →',
-        value: "猜电影",
-      },
-      {
-        label: '"二次元浓度测试" →',
-        value: "二次元浓度测试",
-      },
-    ],
-  },
-  {
-    title: "提问",
+    title: "",
     children: [
       {
         label: '"用简单的术语解释一下量子计算" →',
@@ -296,19 +226,6 @@ const tempSend = [
       {
         label: '"鲁迅与周树人是什么关系？" →',
         value: "鲁迅与周树人是什么关系？",
-      },
-    ],
-  },
-  {
-    title: "场景",
-    children: [
-      {
-        label: '"画图 + 空格 + 关键字" →',
-        value: "画图 一只鸡在打篮球",
-      },
-      {
-        label: '"翻译 + 空格 + 关键字" →',
-        value: "翻译 hello",
       },
     ],
   },
@@ -408,6 +325,7 @@ li {
 }
 
 .list {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
