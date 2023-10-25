@@ -370,7 +370,7 @@ li {
     margin: 0;
     max-width: 100vw;
     &.assistant {
-      background-color: var(--el-color-info-light-9);
+      background-color: var(--el-color-info-light-8);
     }
 
     > div {

@@ -16,14 +16,18 @@
         :data="word"
       />
       <div class="content">
-        <slot :data="word">
-          <div
+        <slot :data="word" :key="word">
+          <Text
             class="word"
             :style="{
               textAlign,
             }"
-            v-html="format ? format(word) : word"
-          ></div>
+            :text="word"
+            loading
+            once
+            :interval="50"
+            @end="isTypeItEnd = true"
+          />
         </slot>
       </div>
       <slot
@@ -40,6 +44,7 @@
           @click="getData"
           round
           :loading="loading"
+          :disabled="!isTypeItEnd"
         >
           {{ btnText }}
         </el-button>
@@ -49,7 +54,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, withDefaults } from "vue"
+import { ref, withDefaults,computed } from "vue"
+import Text from "@/components/Text.vue"
 
 const props = withDefaults(
   defineProps<{
@@ -65,18 +71,20 @@ const props = withDefaults(
     showBtn: true,
     position: true,
     size: "1.5rem",
-    btnText: '换一句'
+    btnText: "换一句",
   }
 )
 
 const loading = ref(false)
-const word = ref("")
+const word = computed(() => props.format ? props.format(txt.value) : txt.value)
+const isTypeItEnd = ref(false)
 
+const txt = ref('')
 const getData = async () => {
   loading.value = true
   try {
     const { data } = await props.api()
-    word.value = data
+    txt.value = data
   } finally {
     loading.value = false
   }

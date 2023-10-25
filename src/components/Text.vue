@@ -11,8 +11,9 @@ interface Props {
   loading?: boolean
   once?: boolean
   html?: boolean
+  interval?: number
 }
-const props = withDefaults(defineProps<Props>(), { html: true })
+const props = withDefaults(defineProps<Props>(), { html: true, interval: 30 })
 
 const emits = defineEmits(["end"])
 
@@ -60,7 +61,7 @@ const render = computed(() => {
     value += `${t}`
   }
   const loadingHTML = `${value[value.length - 1] === "`" ? "\n" : ""}${
-    props.html ? '<span class="loading"></span>' : ""
+    props.html ? '<span class="loading">▎</span>' : ""
   }`
   const temp =
     mdi.render(
@@ -71,14 +72,16 @@ const render = computed(() => {
 })
 
 function highlightBlock(str: string, lang: string, code: string) {
-  return `<div class="language-${lang}">
+  return `<div class="language-${lang} vp-adaptive-theme">
     <button
       class="copy"
+      title="Copy Code"
       onclick="copyToClip(this)"
     >
     </button>
     <span class="lang">${lang}</span>
-    <pre class="shiki material-theme-palenight"><code>${str}</code></pre>
+    <pre class="shiki github-dark vp-code-dark"><code>${str}</code></pre>
+    <pre class="shiki github-light vp-code-light"><code>${str}</code></pre>
   </div>
   `
 }
@@ -126,7 +129,7 @@ watch(
       return
     }
     clearInterval(timer)
-    timer = window.setInterval(typeText, 30)
+    timer = window.setInterval(typeText, props.interval)
     return
   },
   {
@@ -144,7 +147,7 @@ watch(
       class="markdown-body"
       v-html="render"
     />
-    <span v-if="!props.html" class="loading"></span>
+    <span v-if="!props.html" class="loading">▎</span>
   </div>
 </template>
 
@@ -164,6 +167,7 @@ watch(
   margin-left: 1em;
   overflow-wrap: break-word;
   max-width: 100%;
+  display: flex;
   &.error {
     color: var(--el-color-danger);
   }
@@ -188,13 +192,10 @@ watch(
     }
   }
   .loading {
-    width: 4px;
-    height: 22px;
     display: inline-block;
-    vertical-align: text-bottom;
-    background-color: v-bind(bgc);
+    color: v-bind(bgc);
     transition: var(--el-transition-all);
-    margin-left: 0.5em;
+    vertical-align: middle;
   }
 }
 

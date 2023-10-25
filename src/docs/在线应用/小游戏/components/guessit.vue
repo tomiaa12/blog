@@ -53,6 +53,7 @@
             :text="i.value"
             loading
             once
+            :html="i.html"
             @end="i.isTypeItEnd = true"
           />
           <template v-if="i.isTypeItEnd">
@@ -140,6 +141,7 @@ type Msg = {
   pushMsgKey?: Symbol
   notTypeIt?: boolean
   lineThrough?: boolean
+  html?: boolean
 }
 
 type SaveData = {
@@ -379,7 +381,7 @@ const enter = async () => {
     clearInterval(timer2)
     await getData()
   } else {
-    await pushMsg({ value: content, answers })
+    await pushMsg({ value: content, answers, html: false })
     score.value--
     disabled.value = false
   }
