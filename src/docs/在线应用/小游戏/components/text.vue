@@ -86,9 +86,7 @@ getData()
 </script>
 <style lang="scss" scoped>
 .min-h100 {
-  min-height: calc(
-    var(--vh) - var(--vp-nav-height) - var(--page-pv-height) - 32px - 7rem
-  );
+  min-height: var(--min-h100);
   display: flex;
   align-items: center;
 }

@@ -9,14 +9,16 @@ interface Props {
   error?: boolean
   text?: string
   loading?: boolean
+  once?: boolean
+  html?: boolean
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), { html: true })
 
-const textRef = ref<HTMLElement>()
+const emits = defineEmits(["end"])
 
 const mdi = new MarkdownIt({
   linkify: true,
-  html: true,
+  html: props.html,
   highlight(code: string, language = "sh") {
     const validLang = !!(language && hljs.getLanguage(language))
     if (validLang) {
@@ -57,9 +59,9 @@ const render = computed(() => {
 
     value += `${t}`
   }
-  const loadingHTML = `${
-    value[value.length - 1] === "`" ? "\n" : ""
-  }<span class="loading"></span>`
+  const loadingHTML = `${value[value.length - 1] === "`" ? "\n" : ""}${
+    props.html ? '<span class="loading"></span>' : ""
+  }`
   const temp =
     mdi.render(
       value.replace(/(\n)(?![^`]*```)/g, "\n\n") +
@@ -88,7 +90,10 @@ const bgc = ref("currentColor")
 timer2 = window.setInterval(() => {
   if (props.loading || typeing)
     bgc.value = bgc.value === "currentColor" ? "transparent" : "currentColor"
-  else clearInterval(timer2)
+  else {
+    clearInterval(timer2)
+    emits("end")
+  }
 }, 1200)
 
 onUnmounted(() => {
@@ -103,6 +108,11 @@ const typeText = () => {
     currentIndex++
   } else {
     clearInterval(timer)
+    if (props.once) {
+      emits("end")
+      clearInterval(timer2)
+      bgc.value = "transparent"
+    }
   }
   typeing = currentIndex <= props.text!.length - 1
 }
@@ -123,7 +133,6 @@ watch(
     immediate: true,
   }
 )
-
 </script>
 
 <template>
@@ -133,9 +142,9 @@ watch(
   >
     <div
       class="markdown-body"
-      ref="textRef"
       v-html="render"
     />
+    <span v-if="!props.html" class="loading"></span>
   </div>
 </template>
 
@@ -185,7 +194,7 @@ watch(
     vertical-align: text-bottom;
     background-color: v-bind(bgc);
     transition: var(--el-transition-all);
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
 }
 

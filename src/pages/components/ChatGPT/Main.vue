@@ -107,7 +107,7 @@ import chatGPT from "@/assets/svg/chatGPT.svg?url"
 import asideIcon from "@/assets/svg/aside.svg"
 import avatar from "@/assets/img/avatar.png"
 
-import Text from "./Main/Text.vue"
+import Text from "@/components/Text.vue"
 import getMsg from "./Main/getMsg"
 import { isMobile } from "@/utils"
 

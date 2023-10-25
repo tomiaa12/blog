@@ -14,6 +14,9 @@ onMounted(() => {
     showLoading: false,
     maxWidth: 300,
     jsBaseURL: "https://live2d.kuangyx.cn/public",
+    hitokotoOptions: {
+      interval: 60000,
+    }
   })
 })
 </script>

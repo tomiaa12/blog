@@ -60,7 +60,7 @@ import type { Live2dOptions } from "@tomiaa/live2d"
 | randomPeople          | 人物随机                                                       | boolean                                                                                                                                                                                | true                               |
 | allowDrag             | 允许拖动                                                       | boolean                                                                                                                                                                                | true                               |
 | hitokoto              | 是否开启 hitokoto 一言                                         | boolean                                                                                                                                                                                | true                               |
-| hitokotoOptions       | 一言配置                                                       | HitokotoOptions                                                                                                                                                                        |                                    |
+| hitokotoOptions       | 一言配置                                                       | [HitokotoOptions](/docs/文章/JS%20Lib/hitokoto.html)                                                                                                                                                                        |                                    |
 
 ## 成员属性
 

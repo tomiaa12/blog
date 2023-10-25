@@ -8,4 +8,8 @@
   --vp-layout-max-width: 1640px;
 
   --page-pv-height: 32px;
+
+  --min-h100: calc(
+    var(--vh) - var(--vp-nav-height) - var(--page-pv-height) - 32px - 7rem
+  );
 }
