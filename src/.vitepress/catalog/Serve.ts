@@ -11,6 +11,7 @@ export const Server = [
       { text: "nginx 配置代理至后台服务", link: "/docs/服务端/部署/nginx配置代理至后台服务" },
       { text: "部署 nodejs 项目", link: "/docs/服务端/部署/部署nodejs项目" },
       { text: "服务器迁移", link: "/docs/服务端/部署/服务器迁移" },
+      { text: "服务器文件压缩备份下载", link: "/docs/服务端/部署/服务器文件压缩备份下载" },
       { text: "npm命令一键部署至服务器", link: "/docs/服务端/部署/npm命令一键部署至服务器" },
     ],
   },
