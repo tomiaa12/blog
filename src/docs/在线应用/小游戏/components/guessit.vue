@@ -170,7 +170,6 @@
         </el-button>
       </div>
     </div>
-    {{ info?.answer }}
   </div>
 </template>
 

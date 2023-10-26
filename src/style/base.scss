@@ -40,10 +40,3 @@ iframe:not([height]) {
     background-color: var(--el-color-info-light-5);
   }
 }
-
-html,
-body,
-#app,
-.Layout {
-  height: 100%;
-}
