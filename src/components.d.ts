@@ -7,7 +7,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    ElAffix: typeof import('element-plus/es')['ElAffix']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -23,8 +22,6 @@ declare module '@vue/runtime-core' {
     ElIconCaretBottom: typeof import('@element-plus/icons-vue')['CaretBottom']
     ElIconCaretTop: typeof import('@element-plus/icons-vue')['CaretTop']
     ElIconChatSquare: typeof import('@element-plus/icons-vue')['ChatSquare']
-    ElIconCheck: typeof import('@element-plus/icons-vue')['Check']
-    ElIconCloseBlod: typeof import('@element-plus/icons-vue')['CloseBlod']
     ElIconCloseBold: typeof import('@element-plus/icons-vue')['CloseBold']
     ElIconDelete: typeof import('@element-plus/icons-vue')['Delete']
     ElIconEditPen: typeof import('@element-plus/icons-vue')['EditPen']
@@ -33,7 +30,6 @@ declare module '@vue/runtime-core' {
     ElIconOperation: typeof import('@element-plus/icons-vue')['Operation']
     ElIconSelect: typeof import('@element-plus/icons-vue')['Select']
     ElImage: typeof import('element-plus/es')['ElImage']
-    ElImage22: typeof import('element-plus/es')['ElImage22']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']

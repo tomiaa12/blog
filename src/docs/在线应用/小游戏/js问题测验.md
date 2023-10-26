@@ -3,4 +3,6 @@ import jsQuestion from "./components/jsQuestion.vue"
 </script>
 
 
-<jsQuestion />
+<clientOnly>
+  <jsQuestion />
+</clientOnly>
