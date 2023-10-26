@@ -404,7 +404,7 @@ const baseURL = computed(() => (isHttpUrl.value ? "" : orginHost))
 
 const historiScore = ref<{
   [prop: string]: { highestScore: number; list: SaveData[] }
-}>(JSON.parse(localStorage.getItem("games")!) || {})
+}>(JSON.parse(window.localStorage.getItem("games")!) || {})
 
 const historiScoreInit = () => {
   historiScore.value[props.name] ??= {
@@ -429,7 +429,7 @@ const highestScore = computed(
 watch(
   historiScore,
   () => {
-    localStorage.setItem("games", JSON.stringify(historiScore.value))
+    window.localStorage.setItem("games", JSON.stringify(historiScore.value))
   },
   {
     deep: true,
