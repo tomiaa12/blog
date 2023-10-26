@@ -1,5 +1,5 @@
 <template>
-  <guessit :api="getGuessit" type="ultraman" name="看图猜奥特曼" />
+  <guessit :api="getGuessit" type="lol" name="看图、听音猜LOL英雄" />
 </template>
 
 <script setup lang="ts">

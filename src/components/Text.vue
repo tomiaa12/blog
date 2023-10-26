@@ -89,6 +89,7 @@ function highlightBlock(str: string, lang: string, code: string) {
 let currentIndex = 0
 let timer: number, timer2: number
 const bgc = ref("currentColor")
+const display = ref("inline-block")
 
 timer2 = window.setInterval(() => {
   if (props.loading || typeing)
@@ -96,6 +97,7 @@ timer2 = window.setInterval(() => {
   else {
     clearInterval(timer2)
     emits("end")
+    display.value = "none"
   }
 }, 1200)
 
@@ -113,6 +115,7 @@ const typeText = () => {
     clearInterval(timer)
     if (props.once) {
       emits("end")
+      display.value = "none"
       clearInterval(timer2)
       bgc.value = "transparent"
     }
@@ -147,7 +150,11 @@ watch(
       class="markdown-body"
       v-html="render"
     />
-    <span v-if="!props.html" class="loading">▎</span>
+    <span
+      v-if="!props.html"
+      class="loading"
+      >▎</span
+    >
   </div>
 </template>
 
@@ -192,7 +199,7 @@ watch(
     }
   }
   .loading {
-    display: inline-block;
+    display: v-bind(display);
     color: v-bind(bgc);
     transition: var(--el-transition-all);
     vertical-align: middle;

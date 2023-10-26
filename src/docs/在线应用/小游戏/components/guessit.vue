@@ -1,36 +1,86 @@
 <template>
+  <Title
+    :title="name"
+    style="margin-top: 0"
+  ></Title>
   <div
     class="min-h100"
     v-loading="loading"
     element-loading-background="rgba(0, 0, 0, 0)"
   >
-    <el-image
-      v-if="isImg"
-      ref="imgRef"
-      :src="baseURL + path"
-      fit="contain"
-      :referrerpolicy="isHttpUrl ? 'never' : undefined"
-      @load="setZoom"
-      @error="error"
-    >
-      <template #placeholder>
-        <div class="image-slot">
-          <p>图片加载中...</p>
-        </div>
-      </template>
-      <template #error>
-        <div class="image-slot">
-          <p>图片加载失败...</p>
-          <el-button
-            text
-            bg
-            @click="getData"
-          >
-            换一题
-          </el-button>
-        </div>
-      </template>
-    </el-image>
+    <div class="topic-content">
+      <Text
+        v-if="info?.topic"
+        :key="info.topic"
+        :text="info.topic"
+        style="font-size: 20px; margin: 0 0 16px 0"
+        loading
+        once
+        :interval="40"
+        html
+        @end="topicEnd"
+      />
+      <Text
+        v-if="info?.desc"
+        :key="info.desc"
+        :text="info.desc"
+        style="font-size: 18px; margin: 0 0 16px 0"
+        loading
+        once
+        :interval="50"
+        html
+        @end="descEnd"
+      />
+
+      <div class="options" v-if="info?.topic && info!.isTopicTypeItEnd">
+        <el-button
+          v-for="i in info?.options"
+          text
+          bg
+          size="large"
+          :disabled="disabled || loading"
+          @click="clickOption(i)"
+        >
+          {{ i }}
+        </el-button>
+      </div>
+
+      <el-image
+        v-if="isImg"
+        ref="imgRef"
+        :src="baseURL + path"
+        :key="baseURL + path"
+        :referrerpolicy="isHttpUrl ? 'never' : undefined"
+        @load="setZoom"
+        @error="error"
+      >
+        <template #placeholder>
+          <div class="image-slot">
+            <p>图片加载中...</p>
+          </div>
+        </template>
+        <template #error>
+          <div class="image-slot">
+            <p>图片加载失败...</p>
+            <el-button
+              text
+              bg
+              @click="getData"
+            >
+              换一题
+            </el-button>
+          </div>
+        </template>
+      </el-image>
+      <audio
+        v-if="isAudio"
+        :src="baseURL + path"
+        controls
+        @canplay="start"
+        @error="error"
+      ></audio>
+      <div class="placeholder-box"></div>
+    </div>
     <div class="answer-container">
       <ol
         class="msg"
@@ -53,6 +103,7 @@
             :text="i.value"
             loading
             once
+            :interval="60"
             :html="i.html"
             @end="i.isTypeItEnd = true"
           />
@@ -88,7 +139,11 @@
               text
               bg
             >
-              {{ i.btnText }}
+              <Text
+                :text="i.btnText"
+                loading
+                once
+              />
             </el-button>
           </template>
         </li>
@@ -96,8 +151,9 @@
       <div class="input-box">
         <el-input
           v-model="val"
+          ref="inputRef"
           class="keyword-input"
-          placeholder="输入答案"
+          :placeholder="loading ? '正在加载...' : '请输入答案'"
           clearable
           size="large"
           maxlength="50"
@@ -114,7 +170,7 @@
         </el-button>
       </div>
     </div>
-    {{ info }}
+    {{ info?.answer }}
   </div>
 </template>
 
@@ -124,12 +180,16 @@ import { randomInteger } from "@tomiaa/utils"
 import { orginHost } from "@/api"
 import mediumZoom from "medium-zoom"
 import Text from "@/components/Text.vue"
+import Title from "@/components/Title.vue"
 
 type Info = {
   path?: string | string[]
   answer?: string
   optionsAnswer?: string
   options?: string[]
+  desc?: string
+  topic?: string
+  isTopicTypeItEnd?: boolean
 }
 
 type Msg = {
@@ -147,7 +207,7 @@ type Msg = {
 type SaveData = {
   score: number
   key: number
-  count: number
+  correctCount: number
 }
 
 const props = withDefaults(
@@ -155,8 +215,9 @@ const props = withDefaults(
     api: Function
     type: string
     name: string
+    isPrompt?: boolean
   }>(),
-  {}
+  { isPrompt: true }
 )
 
 const loading = ref(false)
@@ -169,8 +230,14 @@ const msgRef = ref()
 const score = ref(3)
 const disabled = ref(true)
 
+const inputRef = ref()
+
+watch(disabled, () => {
+  if (!disabled.value) inputRef.value.focus()
+})
+
 let key = Date.now(),
-  count = 0
+  correctCount = 0
 
 const pushMsg = (data: Msg): Promise<Msg> => {
   return new Promise(resolve => {
@@ -187,10 +254,10 @@ const pushMsg = (data: Msg): Promise<Msg> => {
     })
   })
 }
-
+const second = 60
 const init = async () => {
   await pushMsg({
-    value: `开始${props.name}，每题限时一分钟，低于0分游戏结束！`,
+    value: `开始${props.name}，每题限时 ${second} 秒，低于 0 分游戏结束！`,
   })
   await getData()
   key = Date.now()
@@ -208,7 +275,7 @@ watch(
 )
 const error = async () => {
   const temp = await pushMsg({
-    value: "图片加载失败...",
+    value: "数据加载失败...",
     btnText: "重新获取",
     btnFun: () => {
       delete temp.btnFun
@@ -217,18 +284,19 @@ const error = async () => {
     },
   })
 }
+
 const getData = async () => {
   loading.value = true
   await pushMsg({
-    value: "正在获取题目...",
+    value: "正在加载数据...",
   })
   try {
     const { data } = await props.api(props.type)
     info.value = data
   } catch {
     const temp = await pushMsg({
-      value: "获取题目失败...",
-      btnText: "重新获取",
+      value: "加载数据失败...",
+      btnText: "重新加载",
       btnFun: () => {
         delete temp.btnFun
         delete temp.btnText
@@ -245,7 +313,7 @@ init()
 const path = computed(() => {
   const path = info.value?.path
     ? Array.isArray(info.value.path)
-      ? info.value.path[randomInteger(0, info.value.path.length)]
+      ? info.value.path[randomInteger(0, info.value.path.length - 1)]
       : info.value.path
     : ""
   return path?.replace(/^(\.\/src)|(\.\.)/, "")
@@ -258,10 +326,25 @@ const setZoom = async () => {
   await nextTick()
   const zoom = mediumZoom(imgRef.value.$el.children[0])
   zoom.update({ background: "var(--el-color-info-light-9)" })
+  start()
+}
 
+const topicEnd = () => {
+  if (path.value || info.value?.desc) return
+  info.value && (info.value.isTopicTypeItEnd = true)
+  start()
+}
+const descEnd = () => {
+  if (path.value) return
+  start()
+}
+
+const start = async () => {
   disabled.value = false
+  clearInterval(timer1)
+  clearInterval(timer2)
 
-  let n = 30
+  let n = second
   let countdown: Msg = {
     value: `⏳还剩 ${n} 秒！`,
     notTypeIt: true,
@@ -280,21 +363,22 @@ const setZoom = async () => {
       score.value && getData()
     }
   }, 1000)
-  timer2 = setTimeout(async () => {
-    const answer = info.value?.answer || ""
-    if (!answer) return
-    const i = randomInteger(0, answer.length - 1)
-    await pushMsg({
-      value:
-        "提示：" +
-        (answer.length === 1
-          ? "一个字"
-          : answer
-              .split("")
-              .map((str: string, index: number) => (i === index ? str : "◼"))
-              .join("")),
-    })
-  }, parseInt((n * 1000) / 2 + ""))
+  if (props.isPrompt)
+    timer2 = setTimeout(async () => {
+      const answer = info.value?.answer || ""
+      if (!answer) return
+      const i = randomInteger(0, answer.length - 1)
+      await pushMsg({
+        value:
+          "提示：" +
+          (answer.length === 1
+            ? "一个字"
+            : answer
+                .split("")
+                .map((str: string, index: number) => (i === index ? str : "◼"))
+                .join("")),
+      })
+    }, parseInt((n * 1000) / 2 + ""))
 }
 
 const imgRef = ref()
@@ -313,19 +397,34 @@ const isAudio = computed(
 
 const baseURL = computed(() => (isHttpUrl.value ? "" : orginHost))
 
-const randomList = computed(
-  () => info.value?.options?.sort(() => Math.random() - 0.5) || []
-)
-const numberToLetter = (num: number) =>
-  String.fromCharCode("A".charCodeAt(0) + num)
+// const randomList = computed(
+//   () => info.value?.options?.sort(() => Math.random() - 0.5) || []
+// )
+// const numberToLetter = (num: number) =>
+//   String.fromCharCode("A".charCodeAt(0) + num)
 
-const historiScore = ref<{ [prop: string]: SaveData[] }>(
-  JSON.parse(localStorage.getItem("games") || "")
-)
+const historiScore = ref<{
+  [prop: string]: { highestScore: number; list: SaveData[] }
+}>(JSON.parse(localStorage.getItem("games")!) || {})
+
+const historiScoreInit = () => {
+  historiScore.value[props.name] ??= {
+    highestScore: 3,
+    list: [{ key, score: score.value, correctCount }],
+  }
+  if (!historiScore.value[props.name].list.find(i => i.key === key))
+    historiScore.value[props.name].list.push({
+      key,
+      score: score.value,
+      correctCount,
+    })
+}
+historiScoreInit()
 
 const highestScore = computed(
   () =>
-    historiScore.value[props.name].sort((a, b) => b.score - a.score)[0].score
+    historiScore.value[props.name].list.sort((a, b) => b.score - a.score)[0]
+      .score
 )
 
 watch(
@@ -339,31 +438,34 @@ watch(
 )
 
 watch(score, async () => {
-  historiScore.value[props.name] ??= [{ key, score: score.value, count }]
-  if (!historiScore.value[props.name].find(i => i.key === key))
-    historiScore.value[props.name].push({ key, score: score.value, count })
+  historiScoreInit()
+  const temp = historiScore.value[props.name].list.find(i => i.key === key)!
+  temp.correctCount = correctCount
 
-  const temp = historiScore.value[props.name].find(i => i.key === key)!
-  temp.count = count
-  if (score.value > temp.score) {
-    temp.score = score.value
-  }
-  if (score.value > highestScore.value) {
-    await pushMsg({ value: "🎉超过了最高分，当前得分" + score.value })
-  }
+  if (score.value > temp.score) temp.score = score.value
 
   if (score.value <= 0) {
     curCountdown.lineThrough = true
-    await pushMsg({
-      value: `😜游戏结束，累计答对${count}个。`,
+    disabled.value = true
+    const temp = await pushMsg({
+      value: `😜游戏结束，累计答对${correctCount}个。[加群](/docs/关于/交流群.html)有相同功能机器人！`,
       btnText: "再玩一次",
-      btnFun: init,
+      btnFun: () => {
+        delete temp.btnFun
+        delete temp.btnText
+        init()
+      },
     })
     score.value = 0
     clearInterval(timer1)
     clearInterval(timer2)
   }
 })
+
+const clickOption = (i: string) => {
+  val.value = i
+  enter()
+}
 
 const enter = async () => {
   const content = val.value.toLowerCase().trim()
@@ -373,12 +475,16 @@ const enter = async () => {
   val.value = ""
   const answers = answer === content
   if (answers) {
-    count++
-    await pushMsg({ value: answer, answers })
+    correctCount++
     score.value++
     curCountdown.lineThrough = true
     clearInterval(timer1)
     clearInterval(timer2)
+    await pushMsg({ value: answer, answers })
+    if (score.value > historiScore.value[props.name].highestScore) {
+      historiScore.value[props.name].highestScore = score.value
+      await pushMsg({ value: "🎉超过了最高分，当前得分" + score.value })
+    }
     await getData()
   } else {
     await pushMsg({ value: content, answers, html: false })
@@ -400,13 +506,28 @@ const enter = async () => {
     height: 50px;
   }
 }
-
+.topic-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  .placeholder-box {
+    flex: 1;
+    transition: var(--el-transition-all);
+  }
+}
 .el-image {
   display: block;
-  margin: 0 auto 20px;
-  height: 350px;
+  margin: 0 auto 10px auto;
+  max-height: 300px;
+  :deep() .el-image__inner {
+    width: unset;
+    margin: auto;
+    max-height: inherit;
+  }
 }
-
+.options {
+  display: flex;
+}
 .image-slot {
   display: flex;
   flex-direction: column;
@@ -420,7 +541,6 @@ const enter = async () => {
 }
 
 .answer-container {
-  width: 80%;
   margin: auto;
   .input-box {
     position: relative;
@@ -475,9 +595,13 @@ const enter = async () => {
   }
 }
 
+audio {
+  margin: 20px auto;
+}
+
 ol {
   margin: 0;
-  padding: 0;
+  padding: 0 0 10px 0;
 }
 li {
   list-style: none;
