@@ -1,5 +1,5 @@
 <template>
-  <Text :api="poison" text-align="center" />
+  <Text :api="poison" justifyContent="center" />
 </template>
 
 <script setup lang="ts">

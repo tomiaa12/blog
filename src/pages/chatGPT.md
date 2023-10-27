@@ -10,6 +10,8 @@ sidebar: false
 import chatGPT from './components/chatGPT.vue'
 </script>
 
-<chatGPT/>
+<ClientOnly>
+  <chatGPT/>
+</ClientOnly>
 
 # chatGPT{style="display: none"}

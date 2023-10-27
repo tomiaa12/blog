@@ -13,7 +13,12 @@ interface Props {
   html?: boolean
   interval?: number
 }
-const props = withDefaults(defineProps<Props>(), { html: true, interval: 30 })
+const props = withDefaults(defineProps<Props>(), {
+  html: true,
+  interval: 30,
+  loading: true,
+  text: "",
+})
 
 const emits = defineEmits(["end"])
 
@@ -171,7 +176,6 @@ watch(
 }
 
 .gpt-text {
-  margin-left: 1em;
   overflow-wrap: break-word;
   max-width: 100%;
   display: flex;
@@ -203,6 +207,7 @@ watch(
     color: v-bind(bgc);
     transition: var(--el-transition-all);
     vertical-align: middle;
+    margin-left: .2em;
   }
 }
 

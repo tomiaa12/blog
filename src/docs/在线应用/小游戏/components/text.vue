@@ -14,16 +14,16 @@
       <slot
         name="content-before"
         :data="word"
+        :key="word"
       />
       <div class="content">
         <slot :data="word" :key="word">
           <Text
             class="word"
             :style="{
-              textAlign,
+              justifyContent,
             }"
             :text="word"
-            loading
             once
             :interval="50"
             @end="isTypeItEnd = true"
@@ -33,6 +33,7 @@
       <slot
         name="content-after"
         :data="word"
+        :key="word"
       />
       <div
         class="btn"
@@ -44,7 +45,7 @@
           @click="getData"
           round
           :loading="loading"
-          :disabled="!isTypeItEnd"
+          :disabled="!slots.default && !isTypeItEnd"
         >
           {{ btnText }}
         </el-button>
@@ -54,13 +55,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, withDefaults,computed } from "vue"
+import { ref, withDefaults,computed, useSlots } from "vue"
 import Text from "@/components/Text.vue"
 
 const props = withDefaults(
   defineProps<{
     api: Function
-    textAlign?: "left" | "center" | "right" | "justify" | "start" | "end"
+    justifyContent?: "left" | "center" | "right" | "flex-start" | "flex-end"
     showBtn?: boolean
     position?: boolean
     size?: string
@@ -74,6 +75,9 @@ const props = withDefaults(
     btnText: "换一句",
   }
 )
+const emits = defineEmits(['getData'])
+const slots = useSlots()
+
 
 const loading = ref(false)
 const word = computed(() => props.format ? props.format(txt.value) : txt.value)
@@ -81,6 +85,7 @@ const isTypeItEnd = ref(false)
 
 const txt = ref('')
 const getData = async () => {
+  emits('getData')
   loading.value = true
   try {
     const { data } = await props.api()

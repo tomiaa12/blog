@@ -22,6 +22,7 @@
               :text="item.content"
               :error="item.error"
               :loading="item.loading"
+              @end="item.loading = false"
             />
             <div
               class="content"
@@ -185,7 +186,7 @@ const send = async (event: any) => {
   } catch {
     msg.value.error = true
   } finally {
-    delete msg.value.loading
+    msg.value.loading = false
     emits("saveChats")
   }
 }
@@ -235,6 +236,10 @@ const tempSend = [
 main {
   position: relative;
   flex: 1;
+}
+
+.gpt-text{
+  margin-left: 1em;
 }
 
 .close-aside {

@@ -1,5 +1,5 @@
 <template>
-  <Text :api="sentence" text-align="center" />
+  <Text :api="sentence" justifyContent="center" />
 </template>
 
 <script setup lang="ts">

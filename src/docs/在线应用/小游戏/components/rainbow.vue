@@ -1,5 +1,5 @@
 <template>
-  <Text :api="rainbow" text-align="center" />
+  <Text :api="rainbow" justifyContent="center" />
 </template>
 
 <script setup lang="ts">
