@@ -177,8 +177,7 @@ import { orginHost } from "@/utils"
 import mediumZoom from "medium-zoom"
 import Text from "@/components/Text.vue"
 import Title from "@/components/Title.vue"
-import v from "vconsole"
-new v()
+
 type Info = {
   path?: string | string[]
   answer?: string

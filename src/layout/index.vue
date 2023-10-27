@@ -90,6 +90,11 @@ onMounted(async () => {
 
   // google 文章内嵌广告
   ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
+
+  if (import.meta.env.DEV) {
+    const v = await import("vconsole") as any
+    new v()
+  }
 })
 
 watch(
