@@ -93,7 +93,7 @@ onMounted(async () => {
 
   if (import.meta.env.DEV) {
     const v = await import("vconsole") as any
-    new v()
+    new v.default()
   }
 })
 

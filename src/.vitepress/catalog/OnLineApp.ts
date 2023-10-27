@@ -6,6 +6,7 @@ export const OnLineApp = [
       { text: "猜英雄联盟", link: "/docs/在线应用/小游戏/猜英雄联盟" },
       { text: "猜电影", link: "/docs/在线应用/小游戏/猜电影" },
       { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
+      { text: "猜音乐", link: "/docs/在线应用/小游戏/猜音乐" },
       { text: "js问题测验", link: "/docs/在线应用/小游戏/js问题测验" },
       { text: "二次元浓度测试", link: "/docs/在线应用/小游戏/二次元浓度测试" },
       { text: "一言", link: "/docs/在线应用/小游戏/一言" },

@@ -1,6 +1,5 @@
 import { http } from "@/utils"
 
-
 export const getGuessit = (type: string) => http.post(`/getGuessit`, { type })
 
 export const cloudmusicComment = () => http.get(`/cloudmusicComment`)

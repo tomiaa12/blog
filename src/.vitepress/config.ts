@@ -107,14 +107,6 @@ export default defineConfig({
         content: "700e42cfb66469435b9439ad1550b66b_1632495428",
       },
     ],
-    // [
-    //   "meta",
-    //   {
-    //     name: "referrer",
-    //     content: "never",
-    //   },
-    // ],
-
     [
       "meta",
       {

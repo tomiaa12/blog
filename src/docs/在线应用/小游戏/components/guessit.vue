@@ -70,7 +70,7 @@
         </template>
       </el-image>
       <audio
-        v-if="isAudio"
+        v-if="isAudio || info?.audioBase64"
         :src="baseURL + path"
         controls
         @canplay="!info?.audioCanplay && start()"
@@ -177,6 +177,7 @@ import { orginHost } from "@/utils"
 import mediumZoom from "medium-zoom"
 import Text from "@/components/Text.vue"
 import Title from "@/components/Title.vue"
+import { base64ToURL } from "@/utils"
 
 type Info = {
   path?: string | string[]
@@ -187,6 +188,8 @@ type Info = {
   topic?: string
   isTopicTypeItEnd?: boolean
   audioCanplay?: boolean
+  audioBase64?: string
+  singer?: string
 }
 
 type Msg = {
@@ -307,6 +310,7 @@ const getData = async () => {
 init()
 
 const path = computed(() => {
+  if(info.value?.audioBase64) return base64ToURL(info.value.audioBase64)
   const path = info.value?.path
     ? Array.isArray(info.value.path)
       ? info.value.path[randomInteger(0, info.value.path.length - 1)]
@@ -354,7 +358,7 @@ const start = async () => {
       curCountdown.lineThrough = true
       clearInterval(timer1)
       await pushMsg({
-        value: `😜时间到！没猜对。答案是「${info.value!.answer}」。`,
+        value: `😜时间到！没猜对。答案是「${info.value!.answer}」${info.value?.singer ? ' -- ' + info.value.singer : ''}。`,
       })
       score.value--
       score.value && getData()
@@ -392,7 +396,7 @@ const isAudio = computed(
   () => (/^\//.test(path.value) || isHttpUrl.value) && /\.mp3$/.test(path.value)
 )
 
-const baseURL = computed(() => (isHttpUrl.value ? "" : orginHost))
+const baseURL = computed(() => (isHttpUrl.value || info.value?.audioBase64 ? "" : orginHost))
 
 // const randomList = computed(
 //   () => info.value?.options?.sort(() => Math.random() - 0.5) || []
