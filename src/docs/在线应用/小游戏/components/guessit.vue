@@ -62,13 +62,6 @@
         <template #error>
           <div class="image-slot">
             <p>图片加载失败...</p>
-            <el-button
-              text
-              bg
-              @click="getData"
-            >
-              换一题
-            </el-button>
           </div>
         </template>
       </el-image>
