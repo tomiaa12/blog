@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const orginHost = import.meta.env.DEV
-  ? "http://localhost:3000"
+  ? `http://${location.hostname}:3000`
   : "https://api.kuangyx.cn"
 
 export const baseUrl = orginHost + "/api"

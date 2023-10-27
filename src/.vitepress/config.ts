@@ -107,6 +107,13 @@ export default defineConfig({
         content: "700e42cfb66469435b9439ad1550b66b_1632495428",
       },
     ],
+    // [
+    //   "meta",
+    //   {
+    //     name: "referrer",
+    //     content: "never",
+    //   },
+    // ],
 
     [
       "meta",
@@ -342,7 +349,7 @@ export default defineConfig({
     },
   },
   sitemap: {
-    hostname: 'https://kuangyx.cn/',
+    hostname: "https://kuangyx.cn/",
   },
   vite: {
     optimizeDeps: {

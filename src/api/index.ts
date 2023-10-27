@@ -1,8 +1,5 @@
 import { http } from "@/utils"
 
-export const orginHost = import.meta.env.DEV
-  ? "http://localhost:3000"
-  : "https://api.kuangyx.cn"
 
 export const getGuessit = (type: string) => http.post(`/getGuessit`, { type })
 

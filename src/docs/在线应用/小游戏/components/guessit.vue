@@ -32,7 +32,10 @@
         @end="descEnd"
       />
 
-      <div class="options" v-if="info?.topic && info!.isTopicTypeItEnd">
+      <div
+        class="options"
+        v-if="info?.topic && info!.isTopicTypeItEnd"
+      >
         <el-button
           v-for="i in info?.options"
           text
@@ -50,7 +53,8 @@
         ref="imgRef"
         :src="baseURL + path"
         :key="baseURL + path"
-        :referrerpolicy="isHttpUrl ? 'never' : undefined"
+        :referrerpolicy="isHttpUrl ? 'no-referrer' : undefined"
+        fit="cover"
         @load="setZoom"
         @error="error"
       >
@@ -69,7 +73,7 @@
         v-if="isAudio"
         :src="baseURL + path"
         controls
-        @canplay="!info?.audioCanplay  && start()"
+        @canplay="!info?.audioCanplay && start()"
         @error="error"
       ></audio>
       <div class="placeholder-box"></div>
@@ -169,11 +173,12 @@
 <script setup lang="ts">
 import { ref, withDefaults, nextTick, computed, watch } from "vue"
 import { randomInteger } from "@tomiaa/utils"
-import { orginHost } from "@/api"
+import { orginHost } from "@/utils"
 import mediumZoom from "medium-zoom"
 import Text from "@/components/Text.vue"
 import Title from "@/components/Title.vue"
-
+import v from "vconsole"
+new v()
 type Info = {
   path?: string | string[]
   answer?: string
@@ -212,7 +217,6 @@ const props = withDefaults(
   }>(),
   { isPrompt: true }
 )
-
 const loading = ref(false)
 const info = ref<Info>()
 const val = ref("")
@@ -515,8 +519,10 @@ const enter = async () => {
   max-height: 300px;
   :deep() .el-image__inner {
     width: unset;
+    height: unset;
     margin: auto;
     max-height: inherit;
+    max-width: 100%;
   }
 }
 .options {
