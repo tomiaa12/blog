@@ -76,7 +76,7 @@
         v-if="isAudio"
         :src="baseURL + path"
         controls
-        @canplay="start"
+        @canplay="!info?.audioCanplay  && start()"
         @error="error"
       ></audio>
       <div class="placeholder-box"></div>
@@ -189,6 +189,7 @@ type Info = {
   desc?: string
   topic?: string
   isTopicTypeItEnd?: boolean
+  audioCanplay?: boolean
 }
 
 type Msg = {
@@ -339,6 +340,7 @@ const descEnd = () => {
 }
 
 const start = async () => {
+  info.value!.audioCanplay = true
   disabled.value = false
   clearInterval(timer1)
   clearInterval(timer2)
