@@ -1,7 +1,7 @@
 <template>
   <Title title="微信群↓" />
   <img
-    src="./img/wxq1.png"
+    src="/img/wxq1.png"
     alt="微信群1"
   />
   <Title title="邀请码失效时添加好友拉群↓" />
