@@ -95,16 +95,8 @@ export const Article = [
         link: "/docs/文章/前端/vue3中axios封装.md",
       },
       {
-        text: "Vue融云音视频会议屏幕共享-准备",
-        link: "/docs/文章/前端/Vue融云音视频会议+屏幕共享/实现流程及准备.md",
-      },
-      {
-        text: "Vue融云音视频会议屏幕共享-im客户端",
-        link: "/docs/文章/前端/Vue融云音视频会议+屏幕共享/im客户端.md",
-      },
-      {
-        text: "Vue融云音视频会议屏幕共享-rtc客户端",
-        link: "/docs/文章/前端/Vue融云音视频会议+屏幕共享/rtc客户端.md",
+        text: "Vue融云音视频会议屏幕共享",
+        link: "/docs/文章/前端/Vue融云音视频会议.md",
       },
       { text: "rem 自适应", link: "/docs/文章/前端/rem自适应.md" },
       {
