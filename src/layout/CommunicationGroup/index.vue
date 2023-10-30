@@ -4,11 +4,6 @@
     src="./img/wxq1.png"
     alt="微信群1"
   />
-  <Title title="微信备用群↓" />
-  <img
-    src="./img/wxq2.png"
-    alt="微信群2"
-  />
   <Title title="邀请码失效时添加好友拉群↓" />
   <img
     src="./img/wx.jpg"
