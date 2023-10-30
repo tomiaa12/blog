@@ -23,10 +23,10 @@
   </a>
 
   <Title title="群机器人功能一览" />
-  <Title title="GPT回答" level="3" />
+  <Title title="回答" level="3" />
   <img
     src="./img/01.png"
-    alt="GPT回答"
+    alt="回答"
   />
   <Title title="猜电影" level="3" />
   <img
