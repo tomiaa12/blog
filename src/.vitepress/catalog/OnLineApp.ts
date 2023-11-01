@@ -3,6 +3,7 @@ export const OnLineApp = [
     text: "小游戏",
     collapsed: true,
     items: [
+      { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
       { text: "猜英雄联盟", link: "/docs/在线应用/小游戏/猜英雄联盟" },
       { text: "猜电影", link: "/docs/在线应用/小游戏/猜电影" },
       { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
