@@ -56,17 +56,19 @@
       </el-button>
     </li>
   </ul>
+
+  <ikunDance />
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue"
+import { ref } from "vue"
 import img from "./ikunMusic/ji.png"
+import ikunDance from './ikunDance.vue'
+
+
 const musics = import.meta.glob("./ikunMusic/*.mp3")
 
-console.log(musics)
-
 const audioRef = ref()
-const ulRef = ref()
 const src = ref("")
 
 const list1 = [
