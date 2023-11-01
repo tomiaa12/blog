@@ -78,7 +78,7 @@ class IKun {
   }
 
   height = 550
-  width = 500
+  width = 500 > document.documentElement.clientWidth ? document.documentElement.clientWidth : 500
 
   imageHeight = 200
   imageWidth = 97

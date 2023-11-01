@@ -6,6 +6,7 @@
     ontrolslist="nodownload"
     oncontextmenu="return false"
     preload="auto"
+    @canplay="canplay"
   ></audio>
 
   <el-image
@@ -38,9 +39,10 @@
         bg
         text
         size="large"
+        :loading="curPlay === i.m && loading"
         @click="play(i.m)"
       >
-        {{ i.text }}
+        {{  i.text }}
       </el-button>
     </li>
     <div class="gongneng"><span>音乐区域</span></div>
@@ -50,6 +52,7 @@
         bg
         text
         size="large"
+        :loading="curPlay === i.m && loading"
         @click="play(i.m)"
       >
         {{ i.text }}
@@ -63,8 +66,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import img from "./ikunMusic/ji.png"
-import ikunDance from './ikunDance.vue'
-
+import ikunDance from "./ikunDance.vue"
 
 const musics = import.meta.glob("./ikunMusic/*.mp3")
 
@@ -135,10 +137,19 @@ const list2 = [
   { m: "圣诞鸡", text: "圣诞鸡" },
 ]
 
+const curPlay = ref("")
+const loading = ref(false)
+
 const play = async (m: string) => {
+  curPlay.value = m
+  loading.value = true
   const module = await musics["./ikunMusic/" + m + ".mp3"]()
   audioRef.value.src = (module as any).default
   audioRef.value.play()
+}
+
+const canplay = () => {
+  loading.value = false
 }
 
 const restart = () => {
