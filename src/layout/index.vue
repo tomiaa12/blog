@@ -1,4 +1,7 @@
 <template>
+  <ClientOnly>
+    <FirstLoading />
+  </ClientOnly>
   <defaultLayout :class="getCurClass">
     <template #aside-outline-after>
       <ins
@@ -67,14 +70,16 @@
 
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
-import { useRoute, useData, inBrowser } from "vitepress"
+import { useRoute,useRouter, useData, inBrowser } from "vitepress"
 import { computed, onMounted, watch, nextTick } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
 import { isMobile } from "@/utils"
+import FirstLoading from "./FirstLoading.vue"
 
 const route = useRoute()
+const router = useRouter()
 
 const data = useData()
 

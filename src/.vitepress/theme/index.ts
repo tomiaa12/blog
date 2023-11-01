@@ -4,6 +4,7 @@ import Layout from "@/layout/index.vue"
 import useElIcon from "@element-plus/icons-vue/global"
 import elementPlus from "element-plus"
 import "@/style/index.scss"
+import NProgress from "nprogress"
 
 import mediumZoom from "medium-zoom"
 import { nextTick, watch } from "vue"
@@ -25,6 +26,16 @@ const theme: Theme = {
     // 全局注册 Element-plus
     useElIcon(ctx.app as any)
     ctx.app.use(elementPlus)
+
+    if (!import.meta.env.SSR) {
+      ctx.router.onBeforeRouteChange = () => {
+        NProgress.start()
+      }
+
+      ctx.router.onAfterRouteChanged = () => {
+        NProgress.done()
+      }
+    }
   },
   setup() {
     const route = useRoute()

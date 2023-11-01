@@ -80,6 +80,9 @@ dependencies:
   nes-vue:
     specifier: ^1.7.4
     version: 1.7.4
+  nprogress:
+    specifier: ^0.2.0
+    version: 0.2.0
   ol:
     specifier: ^7.5.2
     version: 7.5.2
@@ -160,6 +163,9 @@ devDependencies:
   '@types/node':
     specifier: ^18.18.5
     version: 18.18.5
+  '@types/nprogress':
+    specifier: ^0.2.2
+    version: 0.2.2
   '@types/three':
     specifier: ^0.154.0
     version: 0.154.0
@@ -171,7 +177,7 @@ devDependencies:
     version: 4.0.0
   vitepress:
     specifier: 1.0.0-rc.22
-    version: 1.0.0-rc.22(@algolia/client-search@4.20.0)(@types/node@18.18.5)(fuse.js@6.6.2)(qrcode@1.5.3)(sass@1.69.3)(search-insights@2.9.0)
+    version: 1.0.0-rc.22(@algolia/client-search@4.20.0)(@types/node@18.18.5)(fuse.js@6.6.2)(nprogress@0.2.0)(qrcode@1.5.3)(sass@1.69.3)(search-insights@2.9.0)
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -2199,6 +2205,10 @@ packages:
     resolution: {integrity: sha512-lqa4UEhhv/2sjjIQgjX8B+RBjj47eo0mzGasklVJ78UKGQY1r0VpB9XHDaZZO9qzEFDdy4MrXLuEaSmPrPSe/A==}
     dev: true
 
+  /@types/nprogress@0.2.2:
+    resolution: {integrity: sha512-2wLrSJXLztGmr7wXwM0hA/wuIOY9DznVdd+ZFofHOiXcj9JnVt+2ZeLRJ7v5ZVlmheSkUOSg3Q3O4Ce7yji79A==}
+    dev: true
+
   /@types/offscreencanvas@2019.7.1:
     resolution: {integrity: sha512-+HSrJgjBW77ALieQdMJvXhRZUIRN1597L+BKvsyeiIlHHERnqjcuOLyodK3auJ3Y3zRezNKtKAhuQWYJfEgFHQ==}
 
@@ -2681,7 +2691,7 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  /@vueuse/integrations@10.5.0(focus-trap@7.5.4)(fuse.js@6.6.2)(qrcode@1.5.3)(vue@3.3.4):
+  /@vueuse/integrations@10.5.0(focus-trap@7.5.4)(fuse.js@6.6.2)(nprogress@0.2.0)(qrcode@1.5.3)(vue@3.3.4):
     resolution: {integrity: sha512-fm5sXLCK0Ww3rRnzqnCQRmfjDURaI4xMsx+T+cec0ngQqHx/JgUtm8G0vRjwtonIeTBsH1Q8L3SucE+7K7upJQ==}
     peerDependencies:
       async-validator: '*'
@@ -2726,6 +2736,7 @@ packages:
       '@vueuse/shared': 10.5.0(vue@3.3.4)
       focus-trap: 7.5.4
       fuse.js: 6.6.2
+      nprogress: 0.2.0
       qrcode: 1.5.3
       vue-demi: 0.14.6(vue@3.3.4)
     transitivePeerDependencies:
@@ -5377,6 +5388,9 @@ packages:
       set-blocking: 2.0.0
     dev: false
 
+  /nprogress@0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+
   /nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
     dependencies:
@@ -6688,7 +6702,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vitepress@1.0.0-rc.22(@algolia/client-search@4.20.0)(@types/node@18.18.5)(fuse.js@6.6.2)(qrcode@1.5.3)(sass@1.69.3)(search-insights@2.9.0):
+  /vitepress@1.0.0-rc.22(@algolia/client-search@4.20.0)(@types/node@18.18.5)(fuse.js@6.6.2)(nprogress@0.2.0)(qrcode@1.5.3)(sass@1.69.3)(search-insights@2.9.0):
     resolution: {integrity: sha512-n7le5iikCFgWMuX7sKfzDGJGlrsYQ5trG3S97BghNz2alOTr4Xp+GrB6ShwogUTX9gNgeNmrACjokhW55LNeBA==}
     hasBin: true
     peerDependencies:
@@ -6705,7 +6719,7 @@ packages:
       '@types/markdown-it': 13.0.2
       '@vue/devtools-api': 6.5.1
       '@vueuse/core': 10.5.0(vue@3.3.4)
-      '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(fuse.js@6.6.2)(qrcode@1.5.3)(vue@3.3.4)
+      '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(fuse.js@6.6.2)(nprogress@0.2.0)(qrcode@1.5.3)(vue@3.3.4)
       focus-trap: 7.5.4
       mark.js: 8.11.1
       minisearch: 6.1.0
