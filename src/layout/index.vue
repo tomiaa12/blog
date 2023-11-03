@@ -14,22 +14,6 @@
       >
       </ins>
     </template>
-    <template #home-features-after>
-      <div
-        v-loading
-        class="site_pv"
-      >
-        本站总访问量
-        <span id="busuanzi_value_site_pv">
-          <el-icon-loading class="loading-icon" />
-        </span>
-        次，访客数
-        <span id="busuanzi_value_site_uv">
-          <el-icon-loading class="loading-icon" />
-        </span>
-        人次
-      </div>
-    </template>
     <template
       #doc-before
       v-if="!isMobile"

@@ -39,21 +39,12 @@ features:
     details: 是个路人。
 ---
 
+<script setup>
+import GithubChart from './components/GithubChart.vue'
+import SitePv from './components/SitePv.vue'
+</script>
 
-<style>
-@media (min-width: 960px) {
-  .home .VPHero.has-image .main {
-    max-width: 640px;
-  }
-}
+<GithubChart />
 
-.VPFeatures + .VPFeatures,
-.site_pv ~ .site_pv {
-  display: none;
-}
+<SitePv />
 
-.site_pv{
-  text-align: center;
-  padding: 2em;
-}
-</style>
