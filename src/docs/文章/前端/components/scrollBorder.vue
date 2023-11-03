@@ -3,22 +3,18 @@
     <h2>不规则图像</h2>
     <div class="row">
       <div
-        class="box"
-        :style="{ 'background-image': src }"
+        class="box src"
       >
         <div
-          class="border-img"
-          :style="{ 'background-image': src1 }"
+          class="border-img src1"
           :alt="src"
         ></div>
       </div>
       <div
-        class="box"
-        :style="{ 'background-image': src }"
+        class="box src"
       >
         <div
-          class="border-img fff"
-          :style="{ 'background-image': src1 }"
+          class="border-img fff src1"
           :alt="src1"
         ></div>
       </div>
@@ -41,6 +37,13 @@ const src = `url(./img/css实现不规则透明盒子滚动边框/0.png)`
 const src1 = `url(./img/css实现不规则透明盒子滚动边框/1.png)`
 </script>
 <style lang="scss" scoped>
+
+.src{
+  background-image: v-bind(src);
+}
+.src1{
+  background-image: v-bind(src1);
+}
 .scroll-border {
   background: linear-gradient(90deg, #355c7d, #6c5b7b, #c06c84);
   padding: 1em;
