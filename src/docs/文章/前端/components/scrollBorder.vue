@@ -33,16 +33,21 @@
   </div>
 </template>
 <script setup lang="ts">
-const src = `url(./img/css实现不规则透明盒子滚动边框/0.png)`
-const src1 = `url(./img/css实现不规则透明盒子滚动边框/1.png)`
+import { ref } from "vue";
+import src from "../img/css实现不规则透明盒子滚动边框/0.png"
+import src1 from "../img/css实现不规则透明盒子滚动边框/1.png"
+
+
+const s = ref(`url(${src})`)
+const s1 = ref(`url(${src1})`)
 </script>
 <style lang="scss" scoped>
 
 .src{
-  background-image: v-bind(src);
+  background-image: v-bind(s);
 }
 .src1{
-  background-image: v-bind(src1);
+  background-image: v-bind(s1);
 }
 .scroll-border {
   background: linear-gradient(90deg, #355c7d, #6c5b7b, #c06c84);
