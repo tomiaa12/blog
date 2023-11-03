@@ -30,7 +30,7 @@ declare module '@vue/runtime-core' {
     ElIconOperation: typeof import('@element-plus/icons-vue')['Operation']
     ElIconSelect: typeof import('@element-plus/icons-vue')['Select']
     ElImage: typeof import('element-plus/es')['ElImage']
-    'ElImage;': typeof import('element-plus/es')['ElImage;']
+    'ElImage;': typeof import('element-plus/es')['ElImage
     ElInput: typeof import('element-plus/es')['ElInput']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']

@@ -326,20 +326,41 @@ chcp 65001
 
 1.磁盘操作，
 　　 fdisk 隐含 参数 /mbr 重建主引导记录 fdisk /mbr 重建主引导记录
+
 　　 fdisk 在 DOS7.0 以后增加了/cmbr 参数，可在挂接多个物理硬盘时，重建排序在后面的硬盘的主引导记录，例如：fdisk /cmbr 2，可重写第二个硬盘的主引导记录。（在使用时要十分小心，避免把好的硬盘引导记录损坏）
-　　 format 参数： /q 快速格式化 /u 不可恢复 /autotest 不提示 /s 创建 MS-DOS 引导盘 format c: /q /u /autotest 2.目录操作
+
+　　 format 参数： /q 快速格式化 /u 不可恢复 /autotest 不提示 /s 创建 MS-DOS 引导盘 format c: /q /u /autotest 
+
+2.目录操作
+
 　　 DIR [目录名或文件名] [/S][/W][/P][/A] 列出目录 参数: /s 查找子目录/w 只显示文件名 /p 分页/a 显示隐藏文件 DIR format.exe /s 查找该盘的 format.exe 文件并报告位置
+
 　　 MD (MKDIR) [目录名] 创建目录 MKDIR HELLOWORLD 创建 HELLOWORLD 目录
+
 　　 CD (CHDIR) [目录名] PS:可以使用相对目录或绝对目录 进入目录 CD AA 进入当前文件夹下的 AA 目录,cd .. 进入上一个文件夹 cd \返回根目录;cd c:\windows 进入 c:\windows 文件夹
-　　 RD ( RMDIR) [目录名] 删除目录 RD HELLOWORLD 删除 HELLOWORLD 目录 3.文件操作
+
+　　 RD ( RMDIR) [目录名] 删除目录 RD HELLOWORLD 删除 HELLOWORLD 目录 
+
+3.文件操作
+
 　　删除目录及其文件： rmdir [目录名或文件名] [/S][/W][/P][/A] 。例 rmdir c:\qqdownload/s 删除 C 盘的 qqdownload 目录。
+
 　　 del [目录名或文件名] [/f][/s][/q] 删除 参数:/f 删除只读文件/s 删除该目录及其下的所有内容 /q 删除前不确认
+
 　　 del c:\del /s /q 自动删除 c 盘的 del 目录。
+
 　　 copy [源文件或目录] [目标目录] 复制文件 copy d:\pwin98\*.\* c:\presetup 将 d 盘的 pwin98 的所有文件复制到 c 盘的 presetup 下。
-　　 attrib [参数][源文件或目录] 文件属性操作命令，attrib 命令可以列出或修改磁盘上文件的属性，文件属性包括文档（A）、只读(R)、隐藏(H)、系统(S)，例如：attrib -h -r -s io.sys 执行这一命令后，将把 DOS 系统文件 io.sys 文件的只读、隐藏、系统属性去掉，这时将可以直接通过 dir 命令看到 io.sys 文件。attrib +h +r +s autoexec.bat 将为自动批处理文件增加以上属性。 4.内存操作
+
+　　 attrib [参数][源文件或目录] 文件属性操作命令，attrib 命令可以列出或修改磁盘上文件的属性，文件属性包括文档（A）、只读(R)、隐藏(H)、系统(S)，例如：attrib -h -r -s io.sys 执行这一命令后，将把 DOS 系统文件 io.sys 文件的只读、隐藏、系统属性去掉，这时将可以直接通过 dir 命令看到 io.sys 文件。attrib +h +r +s autoexec.bat 将为自动批处理文件增加以上属性。 
+
+4.内存操作
+
 　　 debug 调试内存 参数 -w [文件名] 写入二进制文件 -o [地址 1] [地址 2] 输出内存 -q 退出 exp:o 70 10[return] o 71 01
+
 　　[return] 01[return] q[return] DOS 下通过写 70h/71h PORT 改变 BIOS 密码在 CMOS 中存放的对应位置的值,用以清除 AWARD BIOS 密码.debug 还可以破解硬盘保护卡等,但只可以在纯 DOS 下用。 5.分区操作
+
 　　给磁盘分区，一般都会分成四个区，磁盘分区由主分区、扩展分区、逻辑分区组成。
+
 　　 PQ 和 Acronis Disk Director 这两个工具都可以在不丢失数据的情况下对分区进行调整大小，以及合并等操作，XP 系统的话你用 PQ，WIN7 系统的话用 Acronis Disk Director 操作基本一样，可以去网上找教程来看看，再不重装系统的情况下都能调整分区大小，但是建议你还是先备份下数据再调整，毕竟对硬盘直接进行的操作有一定的危险性。
 
 net use ipipc$ " " /user:" " 建立 IPC 空链接

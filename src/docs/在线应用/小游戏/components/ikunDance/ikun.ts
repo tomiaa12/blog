@@ -41,10 +41,12 @@ const EVENT_TYPE: Record<string, number> = {
 interface IKunOptions {
   container: HTMLElement
   muted?: boolean
+  volume?: number
 }
 
 class IKun {
   muted: boolean
+  _volume = 50
 
   count = 0
 
@@ -83,8 +85,9 @@ class IKun {
   imageHeight = 200
   imageWidth = 97
 
-  constructor({ container, muted = false }: IKunOptions) {
+  constructor({ container, muted = false, volume = 50 }: IKunOptions) {
     this.muted = muted
+    this._volume = volume
     this.audio = {
       transient: new Audio(transient),
       dancing: new Audio(dancing),
@@ -119,6 +122,18 @@ class IKun {
     context.scale(dpr, dpr)
 
     this.mount()
+  }
+
+  get volume(){
+    return this._volume
+  }
+
+  set volume(volume){
+    this._volume = volume
+    const { transient, dancing, crazy } = this.audio
+    transient.volume = volume / 100
+    dancing.volume = volume / 100
+    crazy.volume = volume / 100
   }
 
   setMuted = (muted: boolean): void => {

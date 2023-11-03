@@ -32,6 +32,13 @@
       >
         停止
       </el-button>
+
+      <el-slider
+        v-model="volume"
+        :step="1"
+        label="音量"
+        @change="volumeChange"
+      />
     </div>
     <li>
       <el-button
@@ -40,9 +47,11 @@
         text
         size="large"
         :loading="curPlay === i.m && loading"
+        :type="curPlay === i.m ? 'primary' : ''"
         @click="play(i.m)"
       >
-        {{  i.text }}
+        <waveLeft v-if="curPlay === i.m" />
+        {{ i.text }}
       </el-button>
     </li>
     <div class="gongneng"><span>音乐区域</span></div>
@@ -54,19 +63,22 @@
         size="large"
         :loading="curPlay === i.m && loading"
         @click="play(i.m)"
+        :type="curPlay === i.m ? 'primary' : ''"
       >
+        <waveLeft v-if="curPlay === i.m" />
         {{ i.text }}
       </el-button>
     </li>
   </ul>
 
-  <ikunDance />
+  <ikunDance :volume="volume" />
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 import img from "./ikunMusic/ji.png"
 import ikunDance from "./ikunDance.vue"
+import waveLeft from "@/assets/svg/waveLeft.svg"
 
 const musics = import.meta.glob("./ikunMusic/*.mp3")
 
@@ -159,11 +171,22 @@ const restart = () => {
 const stop = () => {
   audioRef.value.pause()
 }
+
+const volume = ref(50)
+
+onMounted(() => {
+  volume.value = audioRef.value.volume * 100
+})
+
+const volumeChange = () => {
+  audioRef.value.volume = volume.value / 100
+}
 </script>
 <style lang="scss" scoped>
 .gongneng {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin: 15px 0;
   span {
     margin-right: 24px;
@@ -182,5 +205,14 @@ li .el-button {
   &:first-child {
     margin-left: 12px;
   }
+}
+
+.el-slider {
+  max-width: 300px;
+  margin-left: 14px;
+}
+
+.el-button svg {
+  margin-right: 0.2em;
 }
 </style>
