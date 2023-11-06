@@ -197,7 +197,7 @@ export default defineConfig({
     footer: {
       message: '© <a href="https://kuangyx.cn">kuangyx.cn</a> @2021',
       copyright:
-        '<a href="https://beian.miit.gov.cn/#/Integrated/index">湘ICP备2021013371号</a>',
+        '<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">湘ICP备2021013371号</a>',
     },
     socialLinks: [
       { icon: "github", link: "https://github.com/tomiaa12" },
