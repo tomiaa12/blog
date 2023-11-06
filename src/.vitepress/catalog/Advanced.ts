@@ -50,4 +50,19 @@ export const Advanced = [
       { text: "状态", link: "/docs/进阶/Canvas/状态" },
     ],
   },
+  {
+    text: "C 语言",
+    collapsed: true,
+    items: [
+      { text: "概述", link: "/docs/进阶/C语言/概述" },
+      { text: "CPU内部结构与寄存器", link: "/docs/进阶/C语言/CPU内部结构与寄存器" },
+      {
+        text: "数据类型",
+        collapsed: true,
+        items: [
+          { text: "常量与变量", link: "/docs/进阶/C语言/数据类型/常量与变量" },
+        ],
+      },
+    ],
+  },
 ]

@@ -1,4 +1,4 @@
-import { defineConfig } from "vitepress"
+import { defineConfig, type DefaultTheme } from "vitepress"
 import { resolve } from "path"
 
 import AutoImport from "unplugin-auto-import/vite"
@@ -15,15 +15,19 @@ import {
   Server,
   Lib,
   Advanced,
-  Vue2,
-  Vue3,
-  Pixi,
-  Nuxt3,
-  React,
-  Openlayers,
+  Frame,
   Article,
   OnLineApp,
 } from "./catalog"
+
+const generateNav = (arr: DefaultTheme.SidebarItem[]) => 
+  arr.map(i => ({
+    ...i,
+    items: i.items?.map(i => ({
+      ...i,
+      link: Array.isArray(i.items) ? i.items[0].link : i.link
+    }))
+  })) as (DefaultTheme.NavItemChildren | DefaultTheme.NavItemWithLink)[]
 
 export default defineConfig({
   title: "web技术学习",
@@ -244,27 +248,11 @@ export default defineConfig({
       },
       {
         text: "框架",
-        items: [
-          Pixi,
-          Vue3,
-          Vue2,
-          Nuxt3,
-          React,
-          Openlayers,
-          {
-            text: "openlayers 示例",
-            items: [
-              {
-                text: "地图控件",
-                link: "/docs/框架/openlayers示例/地图控件/导航控件",
-              },
-            ],
-          },
-        ],
+        items: generateNav(Frame),
       },
       {
         text: "进阶",
-        items: Advanced,
+        items: generateNav(Advanced),
       },
       {
         text: "关于",
@@ -293,49 +281,7 @@ export default defineConfig({
 
       "/docs/库/": Lib,
 
-      "/docs/框架/": [
-        Pixi,
-        Vue3,
-        Vue2,
-        Nuxt3,
-        React,
-        Openlayers,
-        {
-          text: "openlayers示例",
-          collapsed: true,
-          items: [
-            {
-              text: "地图控件",
-              items: [
-                {
-                  text: "导航控件",
-                  link: "/docs/框架/openlayers示例/地图控件/导航控件",
-                },
-                {
-                  text: "鼠标位置",
-                  link: "/docs/框架/openlayers示例/地图控件/鼠标位置",
-                },
-                {
-                  text: "比例尺",
-                  link: "/docs/框架/openlayers示例/地图控件/比例尺",
-                },
-                {
-                  text: "缩略图",
-                  link: "/docs/框架/openlayers示例/地图控件/缩略图",
-                },
-                {
-                  text: "图层切换",
-                  link: "/docs/框架/openlayers示例/地图控件/图层切换",
-                },
-                {
-                  text: "地图联动",
-                  link: "/docs/框架/openlayers示例/地图控件/地图联动",
-                },
-              ],
-            },
-          ],
-        },
-      ],
+      "/docs/框架/": Frame,
 
       "/docs/进阶/": Advanced,
     },

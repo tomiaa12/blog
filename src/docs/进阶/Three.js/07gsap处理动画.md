@@ -4,7 +4,7 @@ import temp from './components/temp07.vue'
 
 # three.js `gsap`处理动画
 
-使用`three.js``gsap`处理动画
+使用`three.js` `gsap`处理动画
 
 
 ## 示例
