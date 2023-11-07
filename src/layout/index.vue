@@ -18,15 +18,6 @@
       #doc-before
       v-if="!isMobile"
     >
-      <div class="page_pv">
-        本文总阅读量
-        <span id="busuanzi_value_page_pv">
-          <el-icon-loading class="loading-icon" />
-        </span>
-        次
-      </div>
-    </template>
-    <template #doc-after>
       <ins
         class="adsbygoogle"
         style="display: block; margin: 1em auto"
@@ -36,6 +27,15 @@
         data-full-width-responsive="true"
       >
       </ins>
+      <div class="page_pv">
+        本文总阅读量
+        <span id="busuanzi_value_page_pv">
+          <el-icon-loading class="loading-icon" />
+        </span>
+        次
+      </div>
+    </template>
+    <template #doc-after>
       <Comment v-if="!showGlobalComment" />
     </template>
   </defaultLayout>
@@ -54,7 +54,7 @@
 
 <script setup lang="ts">
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
-import { useRoute,useRouter, useData, inBrowser } from "vitepress"
+import { useRoute, useRouter, useData, inBrowser } from "vitepress"
 import { computed, onMounted, watch, nextTick } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
@@ -81,7 +81,7 @@ onMounted(async () => {
   ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 
   if (import.meta.env.DEV) {
-    const v = await import("vconsole") as any
+    const v = (await import("vconsole")) as any
     new v.default()
   }
 })
