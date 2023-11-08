@@ -37,6 +37,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "ASCII码表",
+        link: "/docs/文章/前端/ASCII码表.md",
+      },
+      {
         text: "API访问第三方图片403的解决方案",
         link: "/docs/文章/前端/API访问第三方图片403的解决方案.md",
       },
