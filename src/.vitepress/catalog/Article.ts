@@ -175,6 +175,10 @@ export const Article = [
             text: "二进制",
             link: "/docs/文章/计算机相关/二进制.md",
           },
+          {
+            text: "八进制",
+            link: "/docs/文章/计算机相关/八进制.md",
+          },
         ],
       },
     ],
