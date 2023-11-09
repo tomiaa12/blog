@@ -63,6 +63,7 @@ export const Advanced = [
           { text: "常量与变量", link: "/docs/进阶/C语言/数据类型/常量与变量" },
           { text: "整型", link: "/docs/进阶/C语言/数据类型/整型" },
           { text: "字符型", link: "/docs/进阶/C语言/数据类型/字符型" },
+          { text: "浮点型", link: "/docs/进阶/C语言/数据类型/浮点型" },
         ],
       },
     ],
