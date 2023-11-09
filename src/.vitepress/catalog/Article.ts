@@ -160,6 +160,26 @@ export const Article = [
     ],
   },
   {
+    text: "计算机相关",
+    collapsed: true,
+    items: [
+      {
+        text: "ASCII码表",
+        link: "/docs/文章/计算机相关/ASCII码表.md",
+      },
+      {
+        text: "进制",
+        collapsed: true,
+        items: [
+          {
+            text: "二进制",
+            link: "/docs/文章/计算机相关/二进制.md",
+          },
+        ],
+      },
+    ],
+  },
+  {
     text: "系统软件相关",
     collapsed: true,
     items: [
@@ -197,18 +217,33 @@ export const Article = [
       { text: "偏移复制", link: "/docs/文章/AutoLisp/偏移复制.md" },
       { text: "图元名组码", link: "/docs/文章/AutoLisp/图元名组码.md" },
       { text: "圆形转多边形", link: "/docs/文章/AutoLisp/圆形转多边形.md" },
-      { text: "根据圆绘制坐标轴", link: "/docs/文章/AutoLisp/根据圆绘制坐标轴.md" },
-      { text: "循环顶点绘制图形", link: "/docs/文章/AutoLisp/循环顶点绘制图形.md" },
-      { text: "获取图形顶点坐标", link: "/docs/文章/AutoLisp/获取图形顶点坐标.md" },
+      {
+        text: "根据圆绘制坐标轴",
+        link: "/docs/文章/AutoLisp/根据圆绘制坐标轴.md",
+      },
+      {
+        text: "循环顶点绘制图形",
+        link: "/docs/文章/AutoLisp/循环顶点绘制图形.md",
+      },
+      {
+        text: "获取图形顶点坐标",
+        link: "/docs/文章/AutoLisp/获取图形顶点坐标.md",
+      },
       { text: "两点创建同心圆", link: "/docs/文章/AutoLisp/两点创建同心圆.md" },
       { text: "选取相同图层", link: "/docs/文章/AutoLisp/选取相同图层.md" },
-      { text: "输入边数绘制多边形", link: "/docs/文章/AutoLisp/输入边数绘制多边形.md" },
+      {
+        text: "输入边数绘制多边形",
+        link: "/docs/文章/AutoLisp/输入边数绘制多边形.md",
+      },
       { text: "端点调整", link: "/docs/文章/AutoLisp/端点调整.md" },
       { text: "动态五边形", link: "/docs/文章/AutoLisp/动态五边形.md" },
       { text: "插入时间", link: "/docs/文章/AutoLisp/插入时间.md" },
       { text: "绘制网格", link: "/docs/文章/AutoLisp/绘制网格.md" },
       { text: "SSget 过滤技巧", link: "/docs/文章/AutoLisp/SSget过滤技巧.md" },
-      { text: "entmake 创建图元必要条件", link: "/docs/文章/AutoLisp/entmake创建图元必要条件.md" },
+      {
+        text: "entmake 创建图元必要条件",
+        link: "/docs/文章/AutoLisp/entmake创建图元必要条件.md",
+      },
     ],
   },
 ]

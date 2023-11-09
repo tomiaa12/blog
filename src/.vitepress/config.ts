@@ -224,7 +224,7 @@ export default defineConfig({
       { text: "在线应用", items: OnLineApp },
       {
         text: "文章",
-        items: Article,
+        items: generateNav(Article),
       },
       {
         text: "基础",
