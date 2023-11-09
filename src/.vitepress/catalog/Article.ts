@@ -173,15 +173,15 @@ export const Article = [
         items: [
           {
             text: "二进制",
-            link: "/docs/文章/计算机相关/二进制.md",
+            link: "/docs/文章/计算机相关/进制/二进制.md",
           },
           {
             text: "八进制",
-            link: "/docs/文章/计算机相关/八进制.md",
+            link: "/docs/文章/计算机相关/进制/八进制.md",
           },
           {
             text: "十六进制",
-            link: "/docs/文章/计算机相关/十六进制.md",
+            link: "/docs/文章/计算机相关/进制/十六进制.md",
           },
         ],
       },
