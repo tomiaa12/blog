@@ -11,7 +11,6 @@
             :key="data"
             :text="data.split('——')[0]"
             once
-            :interval="50"
             @end="isEnd = true"
           />
         </div>
@@ -23,7 +22,7 @@
       <TextIt
         v-if="isEnd"
         class="author"
-        :text="data.split('——')[1]"
+        :text="data[0].split('——')[1]"
         once
       ></TextIt>
     </template>

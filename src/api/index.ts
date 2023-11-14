@@ -19,3 +19,5 @@ export const hitokoto = () => http.get(`/hitokoto`)
 export const draw = (query: string) => http.post(`/draw`, { query })
 
 export const translate = (query: string) => http.post(`/translate`, { query })
+
+export const rsdjs = (query: string) => http.post(`/rsdjs`, { query })

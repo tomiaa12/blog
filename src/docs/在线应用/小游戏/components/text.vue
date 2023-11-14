@@ -17,16 +17,16 @@
         :key="word"
       />
       <div class="content">
-        <slot :data="word" :key="word">
+        <slot :data="item" :key="item" v-for="(item, i) of word">
           <Text
+            v-if="!i || isTypeItEnd[i - 1]"
             class="word"
             :style="{
               justifyContent,
             }"
-            :text="word"
+            :text="item"
             once
-            :interval="50"
-            @end="isTypeItEnd = true"
+            @end="isTypeItEnd[i] = true"
           />
         </slot>
       </div>
@@ -45,7 +45,7 @@
           @click="getData"
           round
           :loading="loading"
-          :disabled="!slots.default && !isTypeItEnd"
+          :disabled="!slots.default && !isTypeItEnd[word.length - 1]"
         >
           {{ btnText }}
         </el-button>
@@ -80,8 +80,12 @@ const slots = useSlots()
 
 
 const loading = ref(false)
-const word = computed(() => props.format ? props.format(txt.value) : txt.value)
-const isTypeItEnd = ref(false)
+const word = computed(() => {
+  const temp = props.format ? props.format(txt.value) : txt.value
+  return Array.isArray(temp) ? temp : [temp]
+}
+)
+const isTypeItEnd = ref<boolean[]>([])
 
 const txt = ref('')
 const getData = async () => {
@@ -124,5 +128,9 @@ getData()
 .el-button {
   margin-top: 80px;
   transform: scale(1.4);
+}
+
+.word{
+  margin-bottom: 15px;
 }
 </style>

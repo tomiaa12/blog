@@ -23,7 +23,7 @@
       <TextIt
         v-if="isEnd"
         class="author"
-        :text="data.split('\n')[1]"
+        :text="data[0].split('\n')[1]"
         once
       ></TextIt>
     </template>

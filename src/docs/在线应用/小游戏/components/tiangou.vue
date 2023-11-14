@@ -6,5 +6,5 @@
 import Text from "./text.vue"
 import { tiangou } from "@/api"
 
-const format = (txt: string) => txt.split("\n").map(i => `<p>${i}</p>`).join("")
+const format = (txt: string) => txt.split("\n")
 </script>
