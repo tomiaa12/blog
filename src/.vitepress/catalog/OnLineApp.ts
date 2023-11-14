@@ -24,7 +24,8 @@ export const OnLineApp = [
     text: "工具",
     collapsed: true,
     items: [
-      { text: "IP归属地", link: "/docs/在线应用/工具/IP归属地" },
+      { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
+      { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
     ]
   }
 ]
