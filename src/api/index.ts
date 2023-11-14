@@ -20,4 +20,6 @@ export const draw = (query: string) => http.post(`/draw`, { query })
 
 export const translate = (query: string) => http.post(`/translate`, { query })
 
-export const rsdjs = (query: string) => http.post(`/rsdjs`, { query })
+export const rsdjs = (query: string) => http.get(`/rsdjs`)
+
+export const ipInfo = (ip: string) => http.get(`/ipInfo`, { params: { ip } })

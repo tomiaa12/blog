@@ -35,6 +35,7 @@
               <template #append>
                 <el-button
                   type="primary"
+                  :disabled="!keyword"
                   @click="openSearch"
                 >
                   搜 索
@@ -404,7 +405,7 @@ const listClick = () => {
       height: 100%;
       word-break: break-all;
 
-      .el-card__header {
+      :deep().el-card__header {
         display: flex;
         align-items: center;
         span {

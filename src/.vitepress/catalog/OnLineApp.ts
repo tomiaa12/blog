@@ -20,4 +20,11 @@ export const OnLineApp = [
       { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
     ],
   },
+  {
+    text: "工具",
+    collapsed: true,
+    items: [
+      { text: "IP归属地", link: "/docs/在线应用/工具/IP归属地" },
+    ]
+  }
 ]
