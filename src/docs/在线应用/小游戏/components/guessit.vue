@@ -310,7 +310,7 @@ const getData = async () => {
 init()
 
 const path = computed(() => {
-  if(info.value?.audioBase64) return base64ToURL(info.value.audioBase64)
+  if(info.value?.audioBase64) return base64ToURL(info.value.audioBase64, "audio/mpeg")
   const path = info.value?.path
     ? Array.isArray(info.value.path)
       ? info.value.path[randomInteger(0, info.value.path.length - 1)]
