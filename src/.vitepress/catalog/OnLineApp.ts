@@ -18,6 +18,7 @@ export const OnLineApp = [
       { text: "舔狗日记", link: "/docs/在线应用/小游戏/舔狗日记" },
       { text: "网易云热评", link: "/docs/在线应用/小游戏/网易云热评" },
       { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
+      { text: "历史上的今天", link: "/docs/在线应用/小游戏/历史上的今天" },
     ],
   },
   {
