@@ -25,6 +25,7 @@ declare module '@vue/runtime-core' {
     ElIconLoading: typeof import('@element-plus/icons-vue')['Loading']
     ElIconOperation: typeof import('@element-plus/icons-vue')['Operation']
     ElIconSelect: typeof import('@element-plus/icons-vue')['Select']
+    ElIconUploadFilled: typeof import('@element-plus/icons-vue')['UploadFilled']
     ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElOption: typeof import('element-plus/es')['ElOption']
@@ -33,6 +34,7 @@ declare module '@vue/runtime-core' {
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSlider: typeof import('element-plus/es')['ElSlider']
     ElSpace: typeof import('element-plus/es')['ElSpace']
+    ElUpload: typeof import('element-plus/es')['ElUpload']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

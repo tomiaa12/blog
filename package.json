@@ -21,7 +21,7 @@
     "@tomiaa/hitokoto": "^0.0.5",
     "@tomiaa/live2d": "^0.0.1",
     "@tomiaa/theme-chalk": "^0.0.6",
-    "@tomiaa/utils": "^0.1.8",
+    "@tomiaa/utils": "^0.1.9",
     "@tomiaa/vue3-components": "^0.2.40",
     "@types/dat.gui": "^0.7.11",
     "@types/markdown-it": "^13.0.5",
