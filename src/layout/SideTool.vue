@@ -92,14 +92,14 @@
         <span>游戏</span>
       </div>
     </li>
-    <!-- <li @click="to('/pages/chatGPT.html')">
+    <li @click="to('/pages/chatGPT.html')">
       <div class="grounp">
         <el-icon :size="24">
           <chatGPT />
         </el-icon>
         <span>GPT</span>
       </div>
-    </li> -->
+    </li>
   </ul>
 </template>
 

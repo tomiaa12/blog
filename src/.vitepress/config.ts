@@ -220,7 +220,7 @@ export default defineConfig({
       { text: "导航", link: "/pages/navigation" },
       { text: "软件", link: "/pages/software" },
       { text: "游戏", link: "/pages/game" },
-      // { text: "ChatGPT", link: "/pages/chatGPT" },
+      { text: "GPT", link: "/pages/chatGPT" },
       { text: "在线应用", items: OnLineApp },
       {
         text: "文章",
