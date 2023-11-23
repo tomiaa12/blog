@@ -15,8 +15,12 @@ declare module '@vue/runtime-core' {
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElDescriptions: typeof import('element-plus/es')['ElDescriptions']
     ElDescriptionsItem: typeof import('element-plus/es')['ElDescriptionsItem']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElIconCamera: typeof import('@element-plus/icons-vue')['Camera']
+    ElIconCaretBottom: typeof import('@element-plus/icons-vue')['CaretBottom']
+    ElIconCaretTop: typeof import('@element-plus/icons-vue')['CaretTop']
     ElIconChatSquare: typeof import('@element-plus/icons-vue')['ChatSquare']
     ElIconCloseBold: typeof import('@element-plus/icons-vue')['CloseBold']
     ElIconDelete: typeof import('@element-plus/icons-vue')['Delete']
@@ -34,9 +38,11 @@ declare module '@vue/runtime-core' {
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSlider: typeof import('element-plus/es')['ElSlider']
     ElSpace: typeof import('element-plus/es')['ElSpace']
-    ElUpload: typeof import('element-plus/es')['ElUpload']
+    ElTag: typeof import('element-plus/es')['ElTag']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
   }
   export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

@@ -29,16 +29,6 @@ export const Advanced = [
     ],
   },
   {
-    text: "版本管理工具",
-    collapsed: true,
-    items: [{ text: "git版本管理工具", link: "/docs/进阶/git版本管理工具" }],
-  },
-  {
-    text: "小程序",
-    collapsed: true,
-    items: [{ text: "微信小程序入门", link: "/docs/进阶/微信小程序" }],
-  },
-  {
     text: "Canvas",
     collapsed: true,
     items: [
@@ -67,5 +57,15 @@ export const Advanced = [
         ],
       },
     ],
+  },
+  {
+    text: "版本管理工具",
+    collapsed: true,
+    items: [{ text: "git版本管理工具", link: "/docs/进阶/git版本管理工具" }],
+  },
+  {
+    text: "小程序",
+    collapsed: true,
+    items: [{ text: "微信小程序入门", link: "/docs/进阶/微信小程序" }],
   },
 ]
