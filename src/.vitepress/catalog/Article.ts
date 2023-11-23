@@ -183,6 +183,10 @@ export const Article = [
             text: "十六进制",
             link: "/docs/文章/计算机相关/进制/十六进制.md",
           },
+          {
+            text: "快速转换",
+            link: "/docs/文章/计算机相关/进制/快速转换.md",
+          },
         ],
       },
     ],
