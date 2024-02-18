@@ -69,7 +69,33 @@
         {{ i.text }}
       </el-button>
     </li>
+    <div class="gongneng"><span>视频区域</span></div>
+    <li>
+      <el-button
+        v-for="i of list3"
+        bg
+        text
+        size="large"
+        :loading="iframeSrc === i.url && loading"
+        @click="playVideo(i.url)"
+        :type="iframeSrc === i.url ? 'primary' : ''"
+      >
+        <waveLeft v-if="iframeSrc === i.url" />
+        {{ i.name }}
+      </el-button>
+    </li>
   </ul>
+
+  <iframe
+    v-if="iframeSrc"
+    :src="'//player.bilibili.com/player.html?' + iframeSrc"
+    scrolling="no"
+    border="0"
+    frameborder="no"
+    framespacing="0"
+    allowfullscreen="true"
+  >
+  </iframe>
 
   <ikunDance :volume="volume" />
 </template>
@@ -149,15 +175,102 @@ const list2 = [
   { m: "圣诞鸡", text: "圣诞鸡" },
 ]
 
+const list3 = [
+  {
+    name: "幻昼DJ",
+    url: "aid=689055884&bvid=BV1Sm4y1A7G6&cid=863014700&p=1",
+  },
+  {
+    name: "科目鸡",
+    url: "aid=321465073&bvid=BV1Yw411Y7CK&cid=1280938071&p=1",
+  },
+  {
+    name: "坐杀博徒",
+    url: "aid=833342106&bvid=BV1rg4y1973A&cid=1329256263&p=1",
+  },
+  {
+    name: "鸡克逊",
+    url: "aid=470813223&bvid=BV1oT411E76C&cid=769507949&p=1",
+  },
+  {
+    name: "鸡 元 甲",
+    url: "aid=216071808&bvid=BV1ja411M7PA&cid=777251343&p=1",
+  },
+  {
+    name: "奇只因再现",
+    url: "aid=519370246&bvid=BV1bg41147ao&cid=940527979&p=1",
+  },
+  {
+    name: "少萝の小曲",
+    url: "aid=451317326&bvid=BV1yj41177hH&cid=1343762623&p=1",
+  },
+  {
+    name: "电鸡之王",
+    url: "aid=770817891&bvid=BV1tr4y1E7dF&cid=770743081&p=1",
+  },
+  {
+    name: "超级马里坤",
+    url: "aid=58437416&bvid=BV1P4411c7Bf&cid=102144804&p=1",
+  },
+  {
+    name: "江南鸡太美",
+    url: "aid=339556400&bvid=BV16R4y1G7G6&cid=544657773&p=1",
+  },
+  {
+    name: "仙剑鸡侠传",
+    url: "aid=86208216&bvid=BV1k7411x7gA&cid=147347434&p=1",
+  },
+  {
+    name: "鸡大侠",
+    url: "aid=415867007&bvid=BV19V411b7u4&cid=270163008&p=1",
+  },
+  {
+    name: "西游鸡",
+    url: "aid=282485055&bvid=BV1mc411y78E&cid=1372074436&p=1",
+  },
+  {
+    name: "天 鸡 预 报",
+    url: "aid=525380383&bvid=BV1zM411x7pM&cid=1037429011&p=1",
+  },
+  {
+    name: "坤 坤 演 唱 会",
+    url: "aid=310559190&bvid=BV1HN411c7nx&cid=1041717857&p=1",
+  },
+  {
+    name: "坤夸",
+    url: "aid=783764244&bvid=BV1o24y1K768&cid=1134940286&p=1",
+  },
+  {
+    name: "挪威的坤坤",
+    url: "aid=403600781&bvid=BV1uV411K75z&cid=1200301342&p=1",
+  },
+  {
+    name: "本草鸡目",
+    url: "aid=983574668&bvid=BV13t4y157KU&cid=775766085&p=1",
+  },
+  {
+    name: "鸡真可爱",
+    url: "aid=571993812&bvid=BV1Zz4y1q7Ae&cid=1153511642&p=1",
+  },
+]
+
 const curPlay = ref("")
+const iframeSrc = ref("")
 const loading = ref(false)
 
 const play = async (m: string) => {
+  iframeSrc.value = ''
   curPlay.value = m
   loading.value = true
   const module = await musics["./ikunMusic/" + m + ".mp3"]()
   audioRef.value.src = (module as any).default
   audioRef.value.play()
+}
+
+const playVideo = (url:string) => {
+  curPlay.value = ''
+  audioRef.value.src = ''
+  iframeSrc.value = url
 }
 
 const canplay = () => {
@@ -214,5 +327,9 @@ li .el-button {
 
 .el-button svg {
   margin-right: 0.2em;
+}
+
+iframe {
+  height: 500px;
 }
 </style>

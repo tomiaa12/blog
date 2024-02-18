@@ -144,6 +144,8 @@ export default defineConfig({
     sidebarMenuLabel: "目录",
     darkModeSwitchLabel: "切换模式",
     externalLinkIcon: true,
+    lightModeSwitchTitle: '切换到浅色',
+    darkModeSwitchTitle: '切换到深色',
     search: {
       provider: "algolia",
       options: {
@@ -288,6 +290,11 @@ export default defineConfig({
   },
   sitemap: {
     hostname: "https://kuangyx.cn/",
+  },
+  markdown: {
+    image: {
+      lazyLoading: true
+    }
   },
   vite: {
     optimizeDeps: {

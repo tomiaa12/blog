@@ -30,7 +30,7 @@
     "@types/three": "^0.154.0",
     "conventional-changelog-cli": "^2.2.2",
     "vite-svg-loader": "^4.0.0",
-    "vitepress": "1.0.0-rc.40",
+    "vitepress": "1.0.0-rc.41",
     "vue": "^3.4.15"
   },
   "dependencies": {
