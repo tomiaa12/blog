@@ -37,6 +37,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "音频频谱",
+        link: "/docs/文章/前端/音频频谱.md",
+      },
+      {
         text: "API访问第三方图片403的解决方案",
         link: "/docs/文章/前端/API访问第三方图片403的解决方案.md",
       },
@@ -184,6 +188,10 @@ export const Article = [
             link: "/docs/文章/计算机相关/进制/快速转换.md",
           },
         ],
+      },
+      {
+        text: "数值存储方式",
+        link: "/docs/文章/计算机相关/数值存储方式.md",
       },
     ],
   },

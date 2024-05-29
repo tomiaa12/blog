@@ -44,6 +44,7 @@
     "@vue/eslint-config-typescript": "^11.0.3",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "animate.css": "^4.1.1",
+    "audiomotion-analyzer": "^4.5.0",
     "axios-jsonp": "^1.0.4",
     "busuanzi.pure.js": "^1.0.3",
     "dat.gui": "^0.7.9",

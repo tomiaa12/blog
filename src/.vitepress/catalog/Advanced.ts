@@ -54,8 +54,19 @@ export const Advanced = [
           { text: "整型", link: "/docs/进阶/C语言/数据类型/整型" },
           { text: "字符型", link: "/docs/进阶/C语言/数据类型/字符型" },
           { text: "浮点型", link: "/docs/进阶/C语言/数据类型/浮点型" },
+          { text: "输入输出函数", link: "/docs/进阶/C语言/数据类型/输入输出函数" },
         ],
       },
+      {
+        text: "运算符与表达式",
+        collapsed: true,
+        items: [
+          { text: "算术运算符", link: "/docs/进阶/C语言/运算符与表达式/算术运算符" },
+          { text: "语句", link: "/docs/进阶/C语言/运算符与表达式/语句" },
+        ],
+      },
+      { text: "数组", link: "/docs/进阶/C语言/数组" },
+
     ],
   },
   {

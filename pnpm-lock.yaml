@@ -38,6 +38,9 @@ importers:
       animate.css:
         specifier: ^4.1.1
         version: 4.1.1
+      audiomotion-analyzer:
+        specifier: ^4.5.0
+        version: 4.5.0
       axios-jsonp:
         specifier: ^1.0.4
         version: 1.0.4
@@ -2056,6 +2059,9 @@ packages:
 
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+
+  audiomotion-analyzer@4.5.0:
+    resolution: {integrity: sha512-qnmB8TSbrxYkTbFgsQeeym0Z/suQx4c0jFg9Yh5+gaPw6J4AFLdfFpagdnDbtNEsj6K7BntgsC3bkdut5rxozg==}
 
   axios-jsonp@1.0.4:
     resolution: {integrity: sha512-KI5Fc4ery6DR+oneXG09hPZfGuNUW8Lblhe750h53Z0Eh5MRsrHn49YitDU4RsMk0HV+12zcvL2Q51QkOLGdIQ==}
@@ -6394,6 +6400,8 @@ snapshots:
       lodash: 4.17.21
 
   asynckit@0.4.0: {}
+
+  audiomotion-analyzer@4.5.0: {}
 
   axios-jsonp@1.0.4: {}
 
