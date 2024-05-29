@@ -134,7 +134,7 @@ const mic = async () => {
   )
 
   // 将输出静音，以防止来自扬声器的反馈回路
-  audioMotion.volume = 0
+  // audioMotion.volume = 0
 }
 
 
