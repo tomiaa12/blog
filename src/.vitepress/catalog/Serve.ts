@@ -29,6 +29,7 @@ export const Server = [
       { text: "http 服务器", link: "/docs/服务端/Node.js/http" },
       { text: "events 事件", link: "/docs/服务端/Node.js/events" },
       { text: "npm", link: "/docs/服务端/Node.js/npm" },
+      { text: "node运行npm脚本", link: "/docs/服务端/Node.js/node运行npm脚本" },
     ],
   },
   {
