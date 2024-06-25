@@ -37,6 +37,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "husky 禁止 git 某个分支合并到另一个分支",
+        link: "/docs/文章/前端/husky禁止git某个分支合并到另一个分支.md",
+      },
+      {
         text: "音频频谱",
         link: "/docs/文章/前端/音频频谱.md",
       },
