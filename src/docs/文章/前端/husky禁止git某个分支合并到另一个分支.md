@@ -3,7 +3,7 @@
 ## 安装 Husky
 
 ```sh
-pnpm add husky --dev
+pnpm i husky
 # or
 npm install -D husky
 ```
