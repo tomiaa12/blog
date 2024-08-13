@@ -139,6 +139,10 @@ export const Frame = [
             text: "地图联动",
             link: "/docs/框架/openlayers示例/地图控件/地图联动",
           },
+          {
+            text: "加载百度地图",
+            link: "/docs/框架/openlayers示例/地图控件/加载百度地图",
+          },
         ],
       },
     ],
