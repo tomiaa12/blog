@@ -21,9 +21,8 @@ import TileGrid from "ol/tilegrid/TileGrid"
 import { Style, Fill, Stroke, Circle } from "ol/style"
 import { Point } from "ol/geom"
 import { createStringXY } from "ol/coordinate"
-import { openlayersProjDefs } from "@/utils"
+import '@/utils/src/openlayersProjDefs'
 
-openlayersProjDefs()
 const map = ref()
 const position = ref()
 

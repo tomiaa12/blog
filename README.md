@@ -8,6 +8,7 @@
 - [软件分享](https://kuangyx.cn/pages/software.html)
 - [在线游戏](https://kuangyx.cn/pages/game.html)
 - JS 库
+  - [百度，高德，腾讯，天地图等坐标互转](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%EF%BC%8C%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE%EF%BC%8C%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BE%EF%BC%8C%E5%A4%A9%E5%9C%B0%E5%9B%BE%E7%AD%89%E5%9D%90%E6%A0%87%E4%BA%92%E8%BD%AC.html)
   - [Latex 公式录入模板](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/Latex%E5%85%AC%E5%BC%8F%E5%BD%95%E5%85%A5%E6%A8%A1%E6%9D%BF.html)
   - [开箱即用的 Live2d](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/Live2d.html)
   - [hitokoto 一言](https://kuangyx.cn/docs/%E6%96%87%E7%AB%A0/JS%20Lib/hitokoto.html)

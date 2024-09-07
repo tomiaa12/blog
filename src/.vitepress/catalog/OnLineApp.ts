@@ -26,6 +26,7 @@ export const OnLineApp = [
     text: "工具",
     collapsed: true,
     items: [
+      { text: "坐标转换", link: "/docs/在线应用/工具/坐标转换" },
       { text: "Base64 编解码", link: "/docs/在线应用/工具/Base64编解码" },
       { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
       { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },

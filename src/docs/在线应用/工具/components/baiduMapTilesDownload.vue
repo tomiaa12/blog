@@ -106,14 +106,12 @@ import { Style, Fill, Stroke, Circle } from "ol/style"
 import { Point, Polygon } from "ol/geom"
 import { createStringXY } from "ol/coordinate"
 import { Draw, Modify } from "ol/interaction"
-import { openlayersProjDefs } from "@/utils"
+import '@/utils/src/openlayersProjDefs'
 import { computed } from "vue"
 import { toLonLat, transform } from "ol/proj"
 import JSZip from "jszip"
-import projzh from "projzh"
 
 import { ElMessage, ElMessageBox } from "element-plus"
-openlayersProjDefs()
 
 const elMap = ref()
 const position = ref()
@@ -173,8 +171,8 @@ const initMap = () => {
     ],
     view: new View({
       // projection: "EPSG:4326",
-      // projection: "BD:09",
-      projection: "EPSG:4490",
+      projection: "BD:09",
+      // projection: "EPSG:4490",
       center,
       zoom: 8,
       // constrainResolution: true,

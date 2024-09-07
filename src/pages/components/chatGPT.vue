@@ -6,7 +6,7 @@
       direction="ltr"
       :show-close="false"
       :with-header="false"
-      custom-class="drawer-chatgpt"
+      class="drawer-chatgpt"
       size="auto"
       lock-scroll
     >
@@ -131,6 +131,7 @@ watch(isMobile, () => {
 .drawer-chatgpt {
   .el-drawer__body {
     --el-drawer-padding-primary: 0;
+    padding: 0;
   }
 }
 </style>
