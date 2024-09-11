@@ -139,6 +139,9 @@ watch(
     display: v-bind(display);
     margin-left: 0.5em;
   }
+  .markdown-body > pre:last-child code::after {
+    color: var(--el-color-black);
+  }
   .markdown-body {
     &::before {
       display: none;
