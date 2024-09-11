@@ -25,6 +25,7 @@ const emits = defineEmits(["end"])
 const mdi = new MarkdownIt({
   linkify: true,
   html: props.html,
+  breaks: true,
   highlight(code: string, language = "sh") {
     const validLang = !!(language && hljs.getLanguage(language))
     if (validLang) {
@@ -49,31 +50,8 @@ mdi.renderer.rules.fence = (tokens, idx, options, env, slf) => {
 }
 
 const render = computed(() => {
-  let value = outputText.value
-  let count = value.split("```").length - 1
-
-  // 闭合代码块，兼容 loading
-  if (count % 2 === 1) {
-    let t = "\n```"
-    if (value[value.length - 1] === "`") {
-      t = "``"
-      if (value[value.length - 2] === "`") {
-        t = "`"
-        if (value[value.length - 3] === "`") t = "\n```"
-      }
-    }
-
-    value += `${t}`
-  }
-  const loadingHTML = `${value[value.length - 1] === "`" ? "\n" : ""}${
-    props.html ? '<span class="loading">▎</span>' : ""
-  }`
-  const temp =
-    mdi.render(
-      value.replace(/(\n)(?![^`]*```)/g, "\n\n") +
-        (props.loading || typeing ? loadingHTML : "")
-    ) || (props.error ? "出错啦！" : "")
-  return temp
+  const temp = mdi.render(outputText.value) || (props.error ? "出错啦！" : "")
+  return temp || '<span></span>'
 })
 
 function highlightBlock(str: string, lang: string, code: string) {
@@ -92,25 +70,12 @@ function highlightBlock(str: string, lang: string, code: string) {
 }
 
 let currentIndex = 0
-let timer: number, timer2: number
-const bgc = ref("currentColor")
-const display = ref("inline-block")
-
-timer2 = window.setInterval(() => {
-  if (props.loading || typeing)
-    bgc.value = bgc.value === "currentColor" ? "transparent" : "currentColor"
-  else {
-    clearInterval(timer2)
-    emits("end")
-    display.value = "none"
-  }
-}, 1200)
-
+let timer: number
+const display = computed(() => props.loading || typeing.value ? 'inline-block' : 'none')
 onUnmounted(() => {
   clearInterval(timer)
-  clearInterval(timer2)
 })
-let typeing = true
+const typeing = ref(true)
 const outputText = ref("")
 const typeText = () => {
   if (currentIndex < props.text!.length) {
@@ -120,12 +85,9 @@ const typeText = () => {
     clearInterval(timer)
     if (props.once) {
       emits("end")
-      display.value = "none"
-      clearInterval(timer2)
-      bgc.value = "transparent"
     }
   }
-  typeing = currentIndex <= props.text!.length - 1
+  typeing.value = currentIndex <= props.text!.length - 1
 }
 
 watch(
@@ -133,7 +95,7 @@ watch(
   async (newVal = "") => {
     if (!props.loading) {
       outputText.value = newVal
-      typeing = false
+      typeing.value = false
       return
     }
     clearInterval(timer)
@@ -155,26 +117,10 @@ watch(
       class="markdown-body"
       v-html="render"
     />
-    <span
-      v-if="!props.html"
-      class="loading"
-      >▎</span
-    >
   </div>
 </template>
 
 <style lang="scss" scoped>
-@keyframes blink {
-  0%,
-  100% {
-    background-color: currentColor;
-  }
-
-  50% {
-    background-color: transparent;
-  }
-}
-
 .gpt-text {
   overflow-wrap: break-word;
   max-width: 100%;
@@ -185,6 +131,14 @@ watch(
 }
 
 :deep() {
+  .markdown-body > :not(ol):not(ul):not(pre):last-child::after, .markdown-body > pre:last-child code::after {
+    content: "●";
+    font-family: Circle, system-ui, sans-serif;
+    line-height: 32px;
+    transform: scale(2);
+    display: v-bind(display);
+    margin-left: 0.5em;
+  }
   .markdown-body {
     &::before {
       display: none;
@@ -202,16 +156,18 @@ watch(
       border-radius: 8px;
     }
   }
-  .loading {
-    display: v-bind(display);
-    color: v-bind(bgc);
-    transition: var(--el-transition-all);
-    vertical-align: middle;
-    margin-left: .2em;
+}
+</style>
+
+<style lang="scss">
+html:not(.dark) {
+  .markdown-body .github-dark {
+    display: none;
   }
 }
-
-.whitespace-pre-wrap {
-  white-space: pre-wrap;
+html.dark {
+  .markdown-body .github-light {
+    display: none;
+  }
 }
 </style>

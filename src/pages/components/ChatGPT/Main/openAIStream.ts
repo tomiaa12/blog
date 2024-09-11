@@ -17,9 +17,8 @@ export const OpenAIStream = async (
     method: "POST",
     body: JSON.stringify({
       model,
-      token: 0,
-      user_id: 0,
-      msg,
+      messages: msg,
+      stream: true,
     }),
   })
   if (res.status !== 200) {
@@ -30,22 +29,22 @@ export const OpenAIStream = async (
     async start(controller) {
       const reader = (res as any).body.getReader() // 获取可读流的读取器
       const onParse = (event: any) => {
-        try{
+        try {
           if (event.type === "event") {
             const data = event.data
             const json = JSON.parse(data)
-            if(!json.choices[0]) return
+            if (!json.choices[0]) return
             if (json.choices[0].finish_reason === "stop") {
               controller.close()
               return
             }
-            const text = json.choices[0].delta.content || ''
+            const text = json.choices[0].delta.content || ""
             // const queue = encoder.encode(text)
             controller.enqueue(text)
             // controller.enqueue(queue);
           }
-        }catch(e){
-          console.log(e,'error')
+        } catch (e) {
+          console.log(e, "error")
         }
       }
 

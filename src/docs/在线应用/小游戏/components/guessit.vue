@@ -269,7 +269,7 @@ watch(
     await nextTick()
     setTimeout(() => {
       if (msgRef.value) msgRef.value.scrollTop = msgRef.value.scrollHeight
-    }, 30)
+    }, 60)
   }
 )
 const error = async () => {

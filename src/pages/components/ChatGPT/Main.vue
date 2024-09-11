@@ -132,6 +132,13 @@ const send = async (event: any) => {
     const newCursorPos = startPos + 1
     await nextTick(() => {
       inputElement.setSelectionRange(newCursorPos, newCursorPos)
+      // 滚动到光标所在位置
+      const cursorLine = inputElement.value
+        .substring(0, newCursorPos)
+        .split("\n").length
+      const lineHeight = parseInt(getComputedStyle(inputElement).lineHeight)
+      const scrollPosition = (cursorLine - 1) * lineHeight
+      inputElement.scrollTop = scrollPosition
     })
     return
   }

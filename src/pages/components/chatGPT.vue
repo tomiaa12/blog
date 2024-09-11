@@ -74,7 +74,7 @@ onUnmounted(() => {
 provide("chats", chats)
 
 const currentChat = ref<Chat>()
-const currentModel = ref("gpt-3.5-turbo")
+const currentModel = ref("gpt-4")
 
 const delAll = () => {
   chats.value = []
