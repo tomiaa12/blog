@@ -41,6 +41,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "子比主题8.0破解版+授权文件+美化插件+安装教程",
+        link: "/docs/文章/前端/子比主题8.0破解版+授权文件+美化插件+安装教程.md",
+      },
+      {
         text: "husky 禁止 git 某个分支合并到另一个分支",
         link: "/docs/文章/前端/husky禁止git某个分支合并到另一个分支.md",
       },
