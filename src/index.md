@@ -10,9 +10,6 @@ hero:
   tagline: 包含网址导航、软件分享、HTML、CSS、JavaScript、Vue、React、TypeScript、Node.js...
   actions:
     - theme: brand
-      text: 资源下载
-      link: https://www.xinxinzy.top
-    - theme: brand
       text: 网址导航
       link: /pages/navigation
     - theme: brand
