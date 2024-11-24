@@ -20,13 +20,13 @@ import {
   OnLineApp,
 } from "./catalog"
 
-const generateNav = (arr: DefaultTheme.SidebarItem[]) => 
+const generateNav = (arr: DefaultTheme.SidebarItem[]) =>
   arr.map(i => ({
     ...i,
     items: i.items?.map(i => ({
       ...i,
-      link: Array.isArray(i.items) ? i.items[0].link : i.link
-    }))
+      link: Array.isArray(i.items) ? i.items[0].link : i.link,
+    })),
   })) as (DefaultTheme.NavItemChildren | DefaultTheme.NavItemWithLink)[]
 
 export default defineConfig({
@@ -144,8 +144,8 @@ export default defineConfig({
     sidebarMenuLabel: "目录",
     darkModeSwitchLabel: "切换模式",
     externalLinkIcon: true,
-    lightModeSwitchTitle: '切换到浅色',
-    darkModeSwitchTitle: '切换到深色',
+    lightModeSwitchTitle: "切换到浅色",
+    darkModeSwitchTitle: "切换到深色",
     search: {
       provider: "algolia",
       options: {
@@ -222,7 +222,7 @@ export default defineConfig({
       { text: "导航", link: "/pages/navigation" },
       { text: "软件", link: "/pages/software" },
       { text: "游戏", link: "/pages/game" },
-      { text: "GPT", link: "/pages/chatGPT" },
+      // { text: "GPT", link: "/pages/chatGPT" },
       { text: "在线应用", items: OnLineApp },
       {
         text: "文章",
@@ -293,8 +293,8 @@ export default defineConfig({
   },
   markdown: {
     image: {
-      lazyLoading: true
-    }
+      lazyLoading: true,
+    },
   },
   vite: {
     optimizeDeps: {
