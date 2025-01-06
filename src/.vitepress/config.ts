@@ -63,6 +63,27 @@ export default defineConfig({
         })(); `,
     ],
 
+    // [
+    //   "script",
+    //   {
+    //     src: "https://giscus.app/client.js",
+    //     async: "true",
+    //     "data-repo": "tomiaa12/blogComments",
+    //     "data-repo-id": "R_kgDONlUJAw",
+    //     "data-category": "BlogComments",
+    //     "data-category-id": "DIC_kwDONlUJA84ClsSx",
+    //     "data-mapping": "pathname",
+    //     "data-strict": "0",
+    //     "data-reactions-enabled": "1",
+    //     "data-emit-metadata": "0",
+    //     "data-input-position": "top",
+    //     "data-theme": "preferred_color_scheme",
+    //     "data-lang": "zh-CN",
+    //     "data-loading": "lazy",
+    //     "crossorigin": "anonymous",
+    //   },
+    // ],
+
     // 谷歌广告
     [
       "script",

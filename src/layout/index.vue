@@ -36,14 +36,20 @@
       </div>
     </template>
     <template #doc-after>
-      <Comment v-if="!showGlobalComment" />
+      <!-- <Comment v-if="!showGlobalComment" /> -->
+      <!-- <div
+        v-show="!showGlobalComment"
+        class="giscus"
+      ></div> -->
     </template>
   </defaultLayout>
+
   <ClientOnly> <SideTool /> </ClientOnly>
-  <Comment
+  <!-- <Comment
     v-if="showGlobalComment"
     class="home-comment"
-  />
+  /> -->
+
   <Live2D v-if="!isMobile" />
 
   <el-backtop

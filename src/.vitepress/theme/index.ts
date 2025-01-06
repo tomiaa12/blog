@@ -1,13 +1,14 @@
-import { Theme, inBrowser, useRoute } from "vitepress"
+import { Theme, inBrowser, useRoute, useData } from "vitepress"
 import DefaultTheme from "vitepress/theme"
 import Layout from "@/layout/index.vue"
 import useElIcon from "@element-plus/icons-vue/global"
 import elementPlus from "element-plus"
 import "@/style/index.scss"
 import NProgress from "nprogress"
+import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 
 import mediumZoom from "medium-zoom"
-import { nextTick, watch } from "vue"
+import { nextTick, watch, toRefs } from "vue"
 
 import { createI18n } from "vue-i18n"
 const i18n = createI18n({
@@ -49,6 +50,38 @@ const theme: Theme = {
         }),
       { immediate: true }
     )
+
+
+     // Get frontmatter and route
+     const { frontmatter } = toRefs(useData());
+     // Obtain configuration from: https://giscus.app/
+     giscusTalk({
+       repo: 'tomiaa12/blogComments',
+       repoId: 'R_kgDONlUJAw',
+       category: 'BlogComments', // default: `General`
+       categoryId: 'DIC_kwDONlUJA84ClsSx',
+       mapping: 'pathname', // default: `pathname`
+       inputPosition: 'top', // default: `top`
+       // lang: 'en', // default: `zh-CN`
+       // i18n setting (Note: This configuration will override the default language set by lang)
+       // Configured as an object with key-value pairs inside:
+       // [your i18n configuration name]: [corresponds to the language pack name in Giscus]
+       // locales: {
+       //     'zh-Hans': 'zh-CN',
+       //     'en-US': 'en'
+       // },
+       homePageShowComment: true, // Whether to display the comment area on the homepage, the default is false
+       // lightTheme: 'light', // default: `light`
+       // darkTheme: 'transparent_dark', // default: `transparent_dark`
+     }, {
+       frontmatter, route
+     },
+       // Whether to activate the comment area on all pages.
+       // The default is true, which means enabled, this parameter can be ignored;
+       // If it is false, it means it is not enabled.
+       // You can use `comment: true` preface to enable it separately on the page.
+       true
+     );
   },
 }
 
