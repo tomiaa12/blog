@@ -79,6 +79,7 @@
     "vconsole": "^3.15.1",
     "vite": "^4.5.3",
     "vite-plugin-dts": "^1.7.3",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vue-tsc": "^0.39.5"
   },
   "repository": {
