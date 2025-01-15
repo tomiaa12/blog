@@ -1,4 +1,4 @@
-# ubuntu doker
+# doker
 
 ## 服务器安装 docker
 
@@ -26,6 +26,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
+
 安装 Docker：
 
 更新软件包列表后，安装 Docker 引擎：
@@ -43,6 +44,7 @@ sudo apt install docker-ce
 sudo systemctl status docker
 ```
 
+
 ## 常用命令
 
 ### 镜像操作
@@ -53,6 +55,7 @@ sudo systemctl status docker
 
 ### 容器
 
+
 - `docker ps`查看 docker 状态
 - `docker run`创建容器
   - `-i`表示运行容器
@@ -61,20 +64,27 @@ sudo systemctl status docker
   - `-v`表示目录映射关系
   - `-d`创建一个守护式容器后台运行
   - `-p`端口映射，前者是宿主端口，后者是容器内端口
+
 - `docker rm [image name/image id]` 删除容器
 - `docker stop [image name/image id]`停止容器
 
 - 创建了一个 centos 容器
   `docker run -it --name=mycentos centos:7 /bin/bash`
 
-- 进入容器内
-  `docker exec -it [image name] [path]`
 
-- 查看容器信息
-  `docker inspect [image name]`
 
-过滤要查看的字段`.Network.IP`
-`docker inspect --format='{{.Network.IP}}' [image name]`
+- 进入容器内 `docker exec -it [image name] [path]`
+
+- 查看容器信息 `docker inspect [image name]`
+
+过滤要查看的字段
+
+`.Network.IP`
+
+```
+docker inspect --format='{{.Network.IP}}' [image name]
+```
+
 
 ## 文件拷贝
 
