@@ -16,6 +16,7 @@ export const Server = [
       { text: "生成公钥私钥连接服务器", link: "/docs/服务端/部署/生成公钥私钥连接服务器" },
       { text: "宝塔面板服务器部署", link: "/docs/服务端/部署/宝塔面板服务器部署" },
       { text: "nginx 部署前端项目", link: "/docs/服务端/部署/nginx部署前端项目" },
+      { text: "nginx 代理 502 的情况", link: "/docs/服务端/部署/nginx代理502的情况" },
       { text: "nginx 配置 ssl 证书 https", link: "/docs/服务端/部署/nginx配置ssl证书https" },
       { text: "nginx 配置代理至后台服务", link: "/docs/服务端/部署/nginx配置代理至后台服务" },
       { text: "部署 nodejs 项目", link: "/docs/服务端/部署/部署nodejs项目" },

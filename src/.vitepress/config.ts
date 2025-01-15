@@ -221,11 +221,11 @@ export default defineConfig({
       prev: "上一篇",
       next: "下一篇",
     },
-    // footer: {
-    //   message: '© <a href="https://kuangyx.cn">kuangyx.cn</a> @2021',
-    //   copyright:
-    //     '<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">湘ICP备2021013371号</a>',
-    // },
+    footer: {
+      message: '© <a href="https://kuangyx.cn">kuangyx.cn</a> @2021',
+      copyright:
+        '<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">湘ICP备2024094445号</a>',
+    },
     socialLinks: [
       { icon: "github", link: "https://github.com/tomiaa12" },
       {
