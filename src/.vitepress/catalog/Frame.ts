@@ -80,6 +80,15 @@ export const Frame = [
     ],
   },
   {
+    text: "React19",
+    collapsed: true,
+    items: [
+      { text: "起步", link: "/docs/框架/React19/起步" },
+      { text: "useState", link: "/docs/框架/React19/useState" },
+      { text: "useEffect", link: "/docs/框架/React19/useEffect" },
+    ],
+  },
+  {
     text: "React",
     collapsed: true,
     items: [
@@ -144,6 +153,16 @@ export const Frame = [
             link: "/docs/框架/openlayers示例/地图控件/加载百度地图",
           },
         ],
+      },
+    ],
+  },
+  {
+    text: "wordpress",
+    collapsed: true,
+    items: [
+      {
+        text: "wordpress 常用 sql",
+        link: "/docs/框架/wordpress/wordpress常用sql",
       },
     ],
   },

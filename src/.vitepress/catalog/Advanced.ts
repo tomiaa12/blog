@@ -78,28 +78,28 @@ export const Advanced = [
         text: "指针",
         collapsed: true,
         items: [
-          { text: "指针定义", link: "/docs/进阶/C语言/数组/指针/指针定义" },
-          { text: "指针和数组", link: "/docs/进阶/C语言/数组/指针/指针和数组" },
-          { text: "指针运算", link: "/docs/进阶/C语言/数组/指针/指针运算" },
-          { text: "多级指针", link: "/docs/进阶/C语言/数组/指针/多级指针" },
-          { text: "指针和字符串", link: "/docs/进阶/C语言/数组/指针/指针和字符串" },
-          { text: "指针和函数", link: "/docs/进阶/C语言/数组/指针/指针和函数" },
+          { text: "指针定义", link: "/docs/进阶/C语言/指针/指针定义" },
+          { text: "指针和数组", link: "/docs/进阶/C语言/指针/指针和数组" },
+          { text: "指针运算", link: "/docs/进阶/C语言/指针/指针运算" },
+          { text: "多级指针", link: "/docs/进阶/C语言/指针/多级指针" },
+          { text: "指针和字符串", link: "/docs/进阶/C语言/指针/指针和字符串" },
+          { text: "指针和函数", link: "/docs/进阶/C语言/指针/指针和函数" },
         ]
       },
       {
         text: "内存",
         collapsed: true,
         items: [
-          { text: "内存管理", link: "/docs/进阶/C语言/数组/内存/内存管理" },
-          { text: "内存操作", link: "/docs/进阶/C语言/数组/内存/内存操作" },
+          { text: "内存管理", link: "/docs/进阶/C语言/内存/内存管理" },
+          { text: "内存操作", link: "/docs/进阶/C语言/内存/内存操作" },
         ]
       },
       {
         text: "复合类型",
         collapsed: true,
         items: [
-          { text: "结构体", link: "/docs/进阶/C语言/数组/复合类型/结构体" },
-          { text: "内存操作", link: "/docs/进阶/C语言/数组/复合类型/内存操作" },
+          { text: "结构体", link: "/docs/进阶/C语言/复合类型/结构体" },
+          { text: "内存操作", link: "/docs/进阶/C语言/复合类型/内存操作" },
         ]
       },
     ],
