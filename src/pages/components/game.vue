@@ -173,16 +173,9 @@ watch(curCategory, () => {
   src: url("/fonts/zpix.woff2");
 }
 
-.Layout.game {
-  .container,
-  .content,
-  .content-container {
-    max-width: unset !important;
-  }
-}
-
 .game {
   font-family: zpix;
+  padding: 1rem 3.8rem;
   .img-box {
     position: relative;
     min-height: 240px;

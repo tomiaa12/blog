@@ -141,6 +141,92 @@ git checkout -b [branch] [tag]       # 新建一个分支，指向某个tag
 5. `git branch -m master`重命名当前分支为主分支
 6. `git push -f origin master`强制推送
 
+## git rebase 合并 commit
+
+要将 `commit -m "a"`、`commit -m "b"` 和 `commit -m "d"` 合并为一个提交，同时保留 `commit -m "c"`，可以按照以下步骤操作：
+
+---
+
+### 1. **查看提交历史**
+首先查看最近的提交历史，找到需要合并的提交范围：
+```bash
+git log --oneline
+```
+假设结果如下：
+```
+d4f89cd (HEAD -> main) d
+c3e82ab c
+a1b456b b
+9f123ab a
+```
+
+---
+
+### 2. **交互式变基**
+启动交互式变基，将涉及的提交纳入变基范围：
+```bash
+git rebase -i HEAD~4
+```
+`HEAD~4` 表示处理最近的 4 次提交（`a`、`b`、`c`、`d`）。
+
+---
+
+### 3. **编辑提交列表**
+进入编辑界面后会显示：
+```
+pick 9f123ab a
+pick a1b456b b
+pick c3e82ab c
+pick d4f89cd d
+```
+
+将 `a`、`b` 和 `d` 的第二行及之后的 `pick` 修改为 `squash` 或 `s`，如下：
+```
+pick 9f123ab a
+squash a1b456b b
+pick c3e82ab c
+squash d4f89cd d
+```
+
+---
+
+### 4. **编辑合并后的提交信息**
+Git 会提示你编辑合并后的提交信息。你可以将 `a`、`b` 和 `d` 的说明合并成一个，或者保留默认内容。
+
+例如：
+```
+# This is a combination of 3 commits.
+# The first commit's message is:
+a
+
+# The following commit message will be included:
+b
+d
+```
+你可以修改为：
+```
+a + b + d
+```
+
+---
+
+### 5. **完成变基**
+保存并退出编辑器后，Git 会自动完成变基。如果没有冲突，操作会成功。
+
+---
+
+### 6. **强制推送到远程（如果已推送过）**
+由于修改了提交历史，需要强制推送到远程分支：
+```bash
+git push --force
+```
+
+---
+
+### 注意事项
+- **保留 `c`**：变基时确保 `pick c3e82ab c` 不被修改，它会保持独立。
+- **协作分支警告**：如果其他人也在使用这个分支，强制推送可能导致问题，需沟通后再操作。
+
 ## Linux 命令
 
 ```sh
