@@ -99,7 +99,7 @@ export const Frame = [
     ],
   },
   {
-    text: "openlayers",
+    text: "Openlayers",
     collapsed: true,
     items: [
       { text: "功能介绍", link: "/docs/框架/openlayers/功能介绍" },
@@ -118,7 +118,7 @@ export const Frame = [
     ],
   },
   {
-    text: "openlayers示例",
+    text: "Openlayers示例",
     collapsed: true,
     items: [
       {
@@ -157,7 +157,7 @@ export const Frame = [
     ],
   },
   {
-    text: "wordpress",
+    text: "Wordpress",
     collapsed: true,
     items: [
       {
@@ -165,5 +165,10 @@ export const Frame = [
         link: "/docs/框架/wordpress/wordpress常用sql",
       },
     ],
+  },
+  {
+    text: "小程序",
+    collapsed: true,
+    items: [{ text: "微信小程序入门", link: "/docs/进阶/微信小程序" }],
   },
 ]

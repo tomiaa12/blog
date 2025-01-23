@@ -20,9 +20,4 @@ export const Lib = [
     collapsed: true,
     items: [{ text: "axios", link: "/docs/库/axios" }],
   },
-  {
-    text: "移动端",
-    collapsed: true,
-    items: [{ text: "百度 touch.js", link: "/docs/库/百度touch.js" }],
-  },
 ]

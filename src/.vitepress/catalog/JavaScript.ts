@@ -152,6 +152,9 @@ export const JavaScript = [
   {
     text: "touch",
     collapsed: true,
-    items: [{ text: "原生touch", link: "/docs/JavaScript/原生touch" }],
+    items: [
+      { text: "原生touch", link: "/docs/JavaScript/原生touch" },
+      { text: "touch.js", link: "/docs/库/百度touch.js" }
+    ],
   },
 ]

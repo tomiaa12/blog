@@ -18,6 +18,7 @@ import {
   Frame,
   Article,
   OnLineApp,
+  ResourceCollect,
 } from "./catalog"
 
 const generateNav = (arr: DefaultTheme.SidebarItem[]) =>
@@ -28,6 +29,13 @@ const generateNav = (arr: DefaultTheme.SidebarItem[]) =>
       link: Array.isArray(i.items) ? i.items[0].link : i.link,
     })),
   })) as (DefaultTheme.NavItemChildren | DefaultTheme.NavItemWithLink)[]
+
+const formatterItemFilter = (arr: DefaultTheme.SidebarItem[]) => {
+  return arr.map(i => ({
+    text: i.text,
+    link: Array.isArray(i.items) ? i.items[0].link : i.link,
+  })) as (DefaultTheme.NavItemChildren | DefaultTheme.NavItemWithLink)[]
+}
 
 export default defineConfig({
   title: "web技术学习",
@@ -245,38 +253,81 @@ export default defineConfig({
       { text: "游戏", link: "/pages/game" },
       // { text: "GPT", link: "/pages/chatGPT" },
       { text: "在线应用", items: OnLineApp },
+      { text: "资源收集", link: "/docs/资源收集/介绍" },
       {
         text: "文章",
-        items: generateNav(Article),
+        items: [
+          {
+            text: "JS 库",
+            link: "/docs/文章/JS Lib/百度地图，高德地图，腾讯地图，天地图等坐标互转",
+          },
+          { text: "Vue3 业务组件", link: "/docs/文章/vue3组件/快速上手" },
+          { text: "前端文章", link: "/docs/文章/前端/音频频谱" },
+          {
+            text: "技术教程",
+            link: "/docs/文章/技术教程/v2rarN搭配SwitchyOmega自动代理",
+          },
+          { text: "计算机相关", link: "/docs/文章/计算机相关/ASCII码表" },
+          {
+            text: "系统软件相关",
+            link: "/docs/文章/系统软件相关/vscode更新功能会被禁用",
+          },
+          { text: "CAD Auto Lisp", link: "/docs/文章/AutoLisp/AutoLisp介绍" },
+        ],
       },
       {
-        text: "基础",
-        items: HTMLAndCSS,
+        text: "前端",
+        items: [
+          { text: "HTML&CSS", link: "/docs/HTML/HTML-基础" },
+          { text: "JavaScript", link: "/docs/JavaScript/基本概念/变量" },
+          { text: "ES6", link: "/docs/ES6/变量声明与解构" },
+          { text: "JQuery", link: "/docs/库/JQuery/jQuery初识" },
+          {
+            text: "框架",
+            items: [
+              { text: "Vue", link: "/docs/框架/Vue3/创建响应式数据" },
+              { text: "Nuxt.js", link: "/docs/框架/nuxt.js/安装" },
+              { text: "React", link: "/docs/框架/React19/起步" },
+              { text: "Pixi.js", link: "/docs/框架/pixi.js/基本图形绘制" },
+              { text: "Openlayers", link: "/docs/框架/openlayers/功能介绍" },
+            ],
+          },
+          {
+            text: "进阶",
+            items: [
+              {
+                text: "TypeScript",
+                link: "/docs/进阶/TypeScript/安装配置",
+              },
+              {
+                text: "Canvas",
+                link: "/docs/进阶/Canvas/canvas入门",
+              },
+              {
+                text: "Three.js",
+                link: "/docs/进阶/Three.js/01渲染一个场景和物体",
+              },
+              {
+                text: "Git管理工具",
+                link: "/docs/进阶/git版本管理工具",
+              },
+            ],
+          },
+        ],
       },
-      {
-        text: "JavaScript",
-        items: JavaScript,
-      },
-      {
-        text: "ES6",
-        items: ES6,
-      },
+
       {
         text: "服务端",
-        items: Server,
+        items: [
+          { text: "Java", link: "/docs/服务端/Java/01-初识" },
+          { text: "C 语言", link: "/docs/进阶/C语言/概述" },
+          { text: "部署", link: "/docs/服务端/部署/docker" },
+          { text: "Node.js", link: "/docs/服务端/Node.js/模块引入" },
+          { text: "express", link: "/docs/服务端/express" },
+          { text: "MySql", link: "/docs/服务端/MySql" },
+        ],
       },
-      {
-        text: "库",
-        items: Lib,
-      },
-      {
-        text: "框架",
-        items: generateNav(Frame),
-      },
-      {
-        text: "进阶",
-        items: generateNav(Advanced),
-      },
+
       {
         text: "关于",
         items: [
@@ -288,6 +339,8 @@ export default defineConfig({
       },
     ],
     sidebar: {
+      "/docs/资源收集/": ResourceCollect,
+
       "/docs/在线应用/": OnLineApp,
 
       "/docs/文章/": Article,

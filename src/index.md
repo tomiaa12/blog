@@ -18,6 +18,9 @@ hero:
     - theme: brand
       text: 在线游戏
       link: /pages/game
+    - theme: brand
+      text: 资源收集
+      link: /docs/资源收集/介绍
     - theme: alt
       text: 更新日志
       link: /docs/关于/更新日志
