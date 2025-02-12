@@ -10,7 +10,8 @@ export const ResourceCollect = [
       { text: "富文本", link: "/docs/资源收集/前端资源收集/富文本" },
       { text: "Markdown", link: "/docs/资源收集/前端资源收集/Markdown" },
       { text: "文件上传", link: "/docs/资源收集/前端资源收集/文件上传" },
-
+      { text: "图片", link: "/docs/资源收集/前端资源收集/图片" },
+      { text: "音视频", link: "/docs/资源收集/前端资源收集/音视频" },
     ],
   },
 ]
