@@ -36,7 +36,7 @@ import GithubShields from '@/components/GithubShields.vue'
 
 ## Vue-markdown-editor
 
-<GithubShields username="code-farmer-i" repository="vue-markdown-editor" />
+<GithubShields username="code-farmer-i" repository="vue-markdown-editor" :exclude="['release']" />
 
 基于 Vue 的 Markdown 编辑器
 

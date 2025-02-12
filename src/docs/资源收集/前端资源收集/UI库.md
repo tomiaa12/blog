@@ -57,7 +57,7 @@ import GithubShields from '@/components/GithubShields.vue'
 
 ## Naive UI
 
-<GithubShields username="tusen-ai" repository="naive-ui"  />
+<GithubShields username="tusen-ai" repository="naive-ui" :exclude="['release']" />
 
 一个 Vue 3 组件库，比较完整，主题可调，使用 TypeScript，快，有点意思
 
