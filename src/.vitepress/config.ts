@@ -359,7 +359,7 @@ export default defineConfig({
 
       "/docs/框架/": Frame,
 
-      "/docs/进阶/": Advanced,
+      "/docs/进阶/": Server,
     },
   },
   sitemap: {
