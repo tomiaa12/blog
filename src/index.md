@@ -6,8 +6,8 @@ hero:
   image:
     src: /logo.png
     alt: web技术学习
-  text: web前端技术与软件导航分享
-  tagline: 包含网址导航、软件分享、HTML、CSS、JavaScript、Vue、React、TypeScript、Node.js...
+  text: 
+  tagline: 无需踏破铁鞋，在此寻得你想要
   actions:
     - theme: brand
       text: 网址导航

@@ -19,6 +19,7 @@ import {
   Article,
   OnLineApp,
   ResourceCollect,
+  English,
 } from "./catalog"
 
 const generateNav = (arr: DefaultTheme.SidebarItem[]) =>
@@ -315,7 +316,6 @@ export default defineConfig({
           },
         ],
       },
-
       {
         text: "服务端",
         items: [
@@ -327,7 +327,12 @@ export default defineConfig({
           { text: "MySql", link: "/docs/服务端/MySql" },
         ],
       },
-
+      {
+        text: "其他",
+        items: [
+          { text: "英语", link: "/docs/English/主语" },
+        ],
+      },
       {
         text: "关于",
         items: [
@@ -360,6 +365,8 @@ export default defineConfig({
       "/docs/框架/": Frame,
 
       "/docs/进阶/": Server,
+
+      "/docs/English/": English,
     },
   },
   sitemap: {
