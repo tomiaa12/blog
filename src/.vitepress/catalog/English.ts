@@ -16,6 +16,8 @@ export const English = [
       { text: "不可数名词与量词", link: "/docs/English/不可数名词与量词" },
       { text: "名词的作用", link: "/docs/English/名词的作用" },
       { text: "名词所有格", link: "/docs/English/名词所有格" },
+      { text: "人称代词", link: "/docs/English/人称代词" },
+      { text: "物主代词", link: "/docs/English/物主代词" },
     ]
   }
 ]
