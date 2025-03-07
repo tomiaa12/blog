@@ -3,9 +3,9 @@ export const Server = [
     text: "Java",
     collapsed: true,
     items: [
-      { text: "初识", link: "/docs/服务端/Java/01-初识" },
-      { text: "Scanner输入", link: "/docs/服务端/Java/02-Scanner输入" },
-      { text: "运算符", link: "/docs/服务端/Java/03-运算符" },
+      { text: "初识", link: "/docs/服务端/java/01-初识" },
+      { text: "Scanner输入", link: "/docs/服务端/java/02-Scanner输入" },
+      { text: "运算符", link: "/docs/服务端/java/03-运算符" },
     ],
   },
   {

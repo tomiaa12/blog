@@ -330,6 +330,7 @@ export default defineConfig({
       {
         text: "其他",
         items: [
+          { text: "我的云盘", link: "/docs/关于/我的云盘" },
           { text: "英语", link: "/docs/English/主语" },
         ],
       },
@@ -339,7 +340,6 @@ export default defineConfig({
           { text: "更新日志", link: "/docs/关于/更新日志" },
           { text: "支持我", link: "/docs/关于/支持我" },
           { text: "交流群", link: "/docs/关于/交流群" },
-          { text: "我的云盘", link: "/docs/关于/我的云盘" },
         ],
       },
     ],

@@ -18,6 +18,12 @@ export const English = [
       { text: "名词所有格", link: "/docs/English/名词所有格" },
       { text: "人称代词", link: "/docs/English/人称代词" },
       { text: "物主代词", link: "/docs/English/物主代词" },
+      { text: "指示代词", link: "/docs/English/指示代词" },
+      { text: "形容词定义和语法", link: "/docs/English/形容词定义和语法" },
+      { text: "形容词的比较级和最高级规则", link: "/docs/English/形容词的比较级和最高级规则" },
+      { text: "形容词的比较级和最高级用法", link: "/docs/English/形容词的比较级和最高级用法" },
+      { text: "谓语动词", link: "/docs/English/谓语动词" },
+      { text: "实力动词格式变化", link: "/docs/English/实力动词格式变化" },
     ]
   }
 ]
