@@ -24,6 +24,7 @@ export const English = [
       { text: "形容词的比较级和最高级用法", link: "/docs/English/形容词的比较级和最高级用法" },
       { text: "谓语动词", link: "/docs/English/谓语动词" },
       { text: "实力动词格式变化", link: "/docs/English/实力动词格式变化" },
+      { text: "系动词", link: "/docs/English/系动词" },
     ]
   }
 ]
