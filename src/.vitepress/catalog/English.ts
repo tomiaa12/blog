@@ -3,6 +3,7 @@ export const English = [
     text: "英语",
     collapsed: true,
     items: [
+      { text: "总览", link: "/docs/English/总览" },
       { text: "主语", link: "/docs/English/主语" },
       { text: "谓语", link: "/docs/English/谓语" },
       { text: "表语", link: "/docs/English/表语" },
@@ -23,8 +24,13 @@ export const English = [
       { text: "形容词的比较级和最高级规则", link: "/docs/English/形容词的比较级和最高级规则" },
       { text: "形容词的比较级和最高级用法", link: "/docs/English/形容词的比较级和最高级用法" },
       { text: "谓语动词", link: "/docs/English/谓语动词" },
-      { text: "实力动词格式变化", link: "/docs/English/实力动词格式变化" },
+      { text: "实义动词格式变化", link: "/docs/English/实义动词格式变化" },
       { text: "系动词", link: "/docs/English/系动词" },
+      { text: "助动词", link: "/docs/English/助动词" },
+      { text: "情态动词", link: "/docs/English/情态动词" },
+      { text: "冠词", link: "/docs/English/冠词" },
+      { text: "一般现在时", link: "/docs/English/一般现在时" },
+      { text: "主系表疑问句和否定句", link: "/docs/English/主系表疑问句和否定句" },
     ]
   }
 ]
