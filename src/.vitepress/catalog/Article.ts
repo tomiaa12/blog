@@ -216,6 +216,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "PowerShell命令别名",
+        link: "/docs/文章/系统软件相关/PowerShell命令别名",
+      },
+      {
         text: "vscode 更新功能会被禁用",
         link: "/docs/文章/系统软件相关/vscode更新功能会被禁用",
       },

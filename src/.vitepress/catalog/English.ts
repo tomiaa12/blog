@@ -31,6 +31,8 @@ export const English = [
       { text: "冠词", link: "/docs/English/冠词" },
       { text: "一般现在时", link: "/docs/English/一般现在时" },
       { text: "主系表疑问句和否定句", link: "/docs/English/主系表疑问句和否定句" },
+
+      { text: "序数词与基数词", link: "/docs/English/序数词与基数词" },
     ]
   }
 ]
