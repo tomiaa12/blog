@@ -36,3 +36,44 @@ scp: remote setstat "/usr/xxx": Permission denied
 2. 修改当前用户文件夹权限：`chown -R [用户名] [文件夹]`
 
 
+## 完整示例
+
+```js
+const inquirer = require("inquirer");
+const { spawn } = require("child_process");
+
+const arg = process.argv.slice(2)[1];
+const prompt = inquirer.createPromptModule()
+
+const choices = [
+  {
+    name: "开发环境 xx.88",
+    user: 'centos',
+    ip: "192.168.xx.xx",
+    dir: "/centos/deploy/web",
+  },
+  {
+    name: "测试环境 xx.xx",
+    user: 'centos',
+    ip: "192.168.xx.79",
+    dir: "/data/web",
+  },
+];
+
+prompt([
+    {
+      type: "list",
+      name: "env",
+      message: `选择上传到的服务器：`,
+      choices: choices,
+    },
+  ])
+  .then(({ env }) => {
+    const { user, ip, dir, name } = choices.find((i) => i.name === env);
+    const npmScript = `scp -r dist ${user}@${ip}:${dir}`;
+    const child = spawn(npmScript, { shell: true, stdio: 'inherit' })
+    child.on('close', () => console.log(`--- ${name}上传完成 ---`));
+  });
+```
+
+
