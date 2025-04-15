@@ -41,6 +41,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "打包选择环境并压缩",
+        link: "/docs/文章/前端/打包选择环境并压缩",
+      },
+      {
         text: "Highcharts 不同高度 3D 饼图",
         link: "/docs/文章/前端/Highcharts不同高度的3D饼图",
       },
