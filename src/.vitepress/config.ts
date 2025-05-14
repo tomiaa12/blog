@@ -46,6 +46,16 @@ export default defineConfig({
   lastUpdated: true,
   outDir: "../kuangyx",
   head: [
+    // Google Analytics
+    ["script", { async: "true", src: "https://www.googletagmanager.com/gtag/js?id=G-1E60HGJXV1" }],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1E60HGJXV1');`,
+    ],
     // vercel CSP 网络分析
     // [
     //   "meta",

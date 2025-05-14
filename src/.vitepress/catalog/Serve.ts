@@ -135,6 +135,8 @@ export const Server = [
     text: "Node.js",
     collapsed: true,
     items: [
+      { text: "Node.js 控制台动态进度条（带转圈动画）", link: "/docs/服务端/Node.js/Node.js 控制台动态进度条（带转圈动画）" },
+      { text: "获取302接口cookie", link: "/docs/服务端/Node.js/Node.js爬虫获取302接口cookie" },
       { text: "模块引入", link: "/docs/服务端/Node.js/模块引入" },
       { text: "dos 指令", link: "/docs/服务端/Node.js/dos指令" },
       { text: "Buffer 缓冲区", link: "/docs/服务端/Node.js/Buffer" },

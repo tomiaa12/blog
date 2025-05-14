@@ -75,11 +75,18 @@ function ports { netstat -aon | findstr :$args }
 
 ```powershell
 function c {
-  param (
-    [string]$message = "默认内容"
+  [CmdletBinding()]
+  param(
+    # 把所有“剩余”的位置参数都收进来，合成一个 string[]
+    [Parameter(ValueFromRemainingArguments = $true)]
+    [string[]]$Message
   )
+
+  # 拼成一句话
+  $commitMessage = $Message -join ' '
+  # Write-Host "`"$commitMessage`""  # 用来调试你到底收到什么
   git add .
-  git commit -m $message
+  git commit -m $commitMessage
 }
 ```
 
