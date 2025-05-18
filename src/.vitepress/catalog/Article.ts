@@ -41,6 +41,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "vue气泡组件",
+        link: "/docs/文章/前端/vue气泡组件",
+      },
+      {
         text: "git配置分支合并规则",
         link: "/docs/文章/前端/husky禁止git某个分支合并到另一个分支",
       },
