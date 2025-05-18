@@ -122,37 +122,32 @@ export const Frame = [
     collapsed: true,
     items: [
       {
-        text: "地图控件",
-        items: [
-          {
-            text: "导航控件",
-            link: "/docs/框架/openlayers示例/地图控件/导航控件",
-          },
-          {
-            text: "鼠标位置",
-            link: "/docs/框架/openlayers示例/地图控件/鼠标位置",
-          },
-          {
-            text: "比例尺",
-            link: "/docs/框架/openlayers示例/地图控件/比例尺",
-          },
-          {
-            text: "缩略图",
-            link: "/docs/框架/openlayers示例/地图控件/缩略图",
-          },
-          {
-            text: "图层切换",
-            link: "/docs/框架/openlayers示例/地图控件/图层切换",
-          },
-          {
-            text: "地图联动",
-            link: "/docs/框架/openlayers示例/地图控件/地图联动",
-          },
-          {
-            text: "加载百度地图",
-            link: "/docs/框架/openlayers示例/地图控件/加载百度地图",
-          },
-        ],
+        text: "导航控件",
+        link: "/docs/框架/openlayers示例/地图控件/导航控件",
+      },
+      {
+        text: "鼠标位置",
+        link: "/docs/框架/openlayers示例/地图控件/鼠标位置",
+      },
+      {
+        text: "比例尺",
+        link: "/docs/框架/openlayers示例/地图控件/比例尺",
+      },
+      {
+        text: "缩略图",
+        link: "/docs/框架/openlayers示例/地图控件/缩略图",
+      },
+      {
+        text: "图层切换",
+        link: "/docs/框架/openlayers示例/地图控件/图层切换",
+      },
+      {
+        text: "地图联动",
+        link: "/docs/框架/openlayers示例/地图控件/地图联动",
+      },
+      {
+        text: "加载百度地图",
+        link: "/docs/框架/openlayers示例/地图控件/加载百度地图",
       },
     ],
   },
@@ -163,6 +158,10 @@ export const Frame = [
       {
         text: "wordpress 常用 sql",
         link: "/docs/框架/wordpress/wordpress常用sql",
+      },
+      {
+        text: "子比主题隐藏普通会员价格",
+        link: "/docs/框架/wordpress/子比主题隐藏普通会员价格",
       },
     ],
   },

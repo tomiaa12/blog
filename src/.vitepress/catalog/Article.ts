@@ -45,6 +45,18 @@ export const Article = [
         link: "/docs/文章/前端/vue气泡组件",
       },
       {
+        text: "打包选择环境并压缩",
+        link: "/docs/文章/前端/打包选择环境并压缩",
+      },
+      {
+        text: "Highcharts 不同高度 3D 饼图",
+        link: "/docs/文章/前端/Highcharts不同高度的3D饼图",
+      },
+      {
+        text: "cheerio 爬虫",
+        link: "/docs/文章/前端/cheerio爬虫",
+      },
+      {
         text: "git配置分支合并规则",
         link: "/docs/文章/前端/husky禁止git某个分支合并到另一个分支",
       },
@@ -211,6 +223,10 @@ export const Article = [
     text: "系统软件相关",
     collapsed: true,
     items: [
+      {
+        text: "PowerShell命令别名",
+        link: "/docs/文章/系统软件相关/PowerShell命令别名",
+      },
       {
         text: "vscode 更新功能会被禁用",
         link: "/docs/文章/系统软件相关/vscode更新功能会被禁用",

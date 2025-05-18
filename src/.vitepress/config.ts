@@ -19,6 +19,7 @@ import {
   Article,
   OnLineApp,
   ResourceCollect,
+  English,
 } from "./catalog"
 
 const generateNav = (arr: DefaultTheme.SidebarItem[]) =>
@@ -45,6 +46,16 @@ export default defineConfig({
   lastUpdated: true,
   outDir: "../kuangyx",
   head: [
+    // Google Analytics
+    ["script", { async: "true", src: "https://www.googletagmanager.com/gtag/js?id=G-1E60HGJXV1" }],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1E60HGJXV1');`,
+    ],
     // vercel CSP 网络分析
     // [
     //   "meta",
@@ -315,11 +326,10 @@ export default defineConfig({
           },
         ],
       },
-
       {
         text: "服务端",
         items: [
-          { text: "Java", link: "/docs/服务端/Java/01-初识" },
+          { text: "Java", link: "/docs/服务端/java/01-初识" },
           { text: "C 语言", link: "/docs/进阶/C语言/概述" },
           { text: "部署", link: "/docs/服务端/部署/docker" },
           { text: "Node.js", link: "/docs/服务端/Node.js/模块引入" },
@@ -327,14 +337,19 @@ export default defineConfig({
           { text: "MySql", link: "/docs/服务端/MySql" },
         ],
       },
-
+      {
+        text: "其他",
+        items: [
+          { text: "我的云盘", link: "/docs/关于/我的云盘" },
+          { text: "英语", link: "/docs/English/主语" },
+        ],
+      },
       {
         text: "关于",
         items: [
           { text: "更新日志", link: "/docs/关于/更新日志" },
           { text: "支持我", link: "/docs/关于/支持我" },
           { text: "交流群", link: "/docs/关于/交流群" },
-          { text: "我的云盘", link: "/docs/关于/我的云盘" },
         ],
       },
     ],
@@ -359,6 +374,9 @@ export default defineConfig({
 
       "/docs/框架/": Frame,
 
+      "/docs/进阶/": Server,
+
+      "/docs/English/": English,
     },
   },
   sitemap: {
