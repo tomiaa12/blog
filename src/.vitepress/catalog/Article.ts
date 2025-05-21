@@ -166,6 +166,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "v2ray服务器搭建创建订阅链接",
+        link: "/docs/文章/技术教程/v2ray服务器搭建创建订阅链接",
+      },
+      {
         text: "v2rar搭配SwitchyOmega",
         link: "/docs/文章/技术教程/v2rarN搭配SwitchyOmega自动代理",
       },
