@@ -47,7 +47,13 @@ export default defineConfig({
   outDir: "../kuangyx",
   head: [
     // Google Analytics
-    ["script", { async: "true", src: "https://www.googletagmanager.com/gtag/js?id=G-1E60HGJXV1" }],
+    [
+      "script",
+      {
+        async: "true",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-1E60HGJXV1",
+      },
+    ],
     [
       "script",
       {},
@@ -306,6 +312,7 @@ export default defineConfig({
           {
             text: "进阶",
             items: [
+              { text: "Cesium", link: "/docs/进阶/Cesium/基础配置" },
               {
                 text: "TypeScript",
                 link: "/docs/进阶/TypeScript/安装配置",

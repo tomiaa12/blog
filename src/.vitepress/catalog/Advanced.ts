@@ -1,18 +1,147 @@
 export const Advanced = [
   {
+    text: "Cesium",
+    collapsed: true,
+    items: [
+      { text: "静态资源配置", link: "/docs/进阶/Cesium/静态资源配置" },
+      {
+        link: "/docs/进阶/Cesium/基础配置",
+        text: "基础配置",
+      },
+      {
+        link: "/docs/进阶/Cesium/自定义背景",
+        text: "自定义背景",
+      },
+      {
+        link: "/docs/进阶/Cesium/自定义地图",
+        text: "自定义地图",
+      },
+      {
+        link: "/docs/进阶/Cesium/添加地形",
+        text: "添加地形",
+      },
+      {
+        link: "/docs/进阶/Cesium/坐标系转换",
+        text: "坐标系转换",
+      },
+      {
+        link: "/docs/进阶/Cesium/相机控制",
+        text: "相机控制",
+      },
+      {
+        link: "/docs/进阶/Cesium/添加物体",
+        text: "添加物体",
+      },
+      {
+        link: "/docs/进阶/Cesium/添加3D模型",
+        text: "添加3D模型",
+      },
+      {
+        link: "/docs/进阶/Cesium/primitive元素",
+        text: "primitive元素",
+      },
+      {
+        link: "/docs/进阶/Cesium/多个实体在一个primitive元素",
+        text: "多个实体在一个primitive元素",
+      },
+      {
+        link: "/docs/进阶/Cesium/修改primitive颜色",
+        text: "修改primitive颜色",
+      },
+      {
+        link: "/docs/进阶/Cesium/primitive和entity物体互动",
+        text: "primitive和entity物体互动",
+      },
+      {
+        link: "/docs/进阶/Cesium/entity面材质",
+        text: "entity面材质",
+      },
+      {
+        link: "/docs/进阶/Cesium/entity线材质",
+        text: "entity线材质",
+      },
+      {
+        link: "/docs/进阶/Cesium/Appearance",
+        text: "Appearance",
+      },
+      {
+        link: "/docs/进阶/Cesium/primitive材质",
+        text: "primitive材质",
+      },
+      {
+        link: "/docs/进阶/Cesium/着色器自定义材质",
+        text: "着色器自定义材质",
+      },
+      {
+        link: "/docs/进阶/Cesium/加载GeoJson数据",
+        text: "加载GeoJson数据",
+      },
+      {
+        link: "/docs/进阶/Cesium/加载kml数据",
+        text: "加载kml数据",
+      },
+      {
+        link: "/docs/进阶/Cesium/加载kmz数据",
+        text: "加载kmz数据",
+      },
+      {
+        link: "/docs/进阶/Cesium/加载czml数据",
+        text: "加载czml数据",
+      },
+      {
+        link: "/docs/进阶/Cesium/加载czml时序数据",
+        text: "加载czml时序数据",
+      },
+      {
+        link: "/docs/进阶/Cesium/追踪飞机跨洋飞行",
+        text: "追踪飞机跨洋飞行",
+      },
+      {
+        link: "/docs/进阶/Cesium/3DTiles与性能监控",
+        text: "3DTiles与性能监控",
+      },
+      {
+        link: "/docs/进阶/Cesium/设置3DTiles样式",
+        text: "设置3DTiles样式",
+      },
+      {
+        link: "/docs/进阶/Cesium/设置3DTiles样式高级设置",
+        text: "设置3DTiles样式高级设置",
+      },
+    ],
+  },
+  {
     text: "Three.js",
     collapsed: true,
     items: [
-      { text: "渲染一个场景和物体", link: "/docs/进阶/Three.js/01渲染一个场景和物体" },
+      {
+        text: "渲染一个场景和物体",
+        link: "/docs/进阶/Three.js/01渲染一个场景和物体",
+      },
       { text: "轨道控制器", link: "/docs/进阶/Three.js/02轨道控制器" },
       { text: "坐标辅助器", link: "/docs/进阶/Three.js/03坐标辅助器" },
-      { text: "设置物体移动、缩放、旋转", link: "/docs/进阶/Three.js/04设置物体移动、缩放、旋转" },
-      { text: "requstAnimationFrame 应用", link: "/docs/进阶/Three.js/05requstAnimationFrame应用" },
-      { text: "clock 跟踪时间处理动画", link: "/docs/进阶/Three.js/06clock跟踪时间处理动画" },
+      {
+        text: "设置物体移动、缩放、旋转",
+        link: "/docs/进阶/Three.js/04设置物体移动、缩放、旋转",
+      },
+      {
+        text: "requstAnimationFrame 应用",
+        link: "/docs/进阶/Three.js/05requstAnimationFrame应用",
+      },
+      {
+        text: "clock 跟踪时间处理动画",
+        link: "/docs/进阶/Three.js/06clock跟踪时间处理动画",
+      },
       { text: "gsap 处理动画", link: "/docs/进阶/Three.js/07gsap处理动画" },
       { text: "画布自适应宽度", link: "/docs/进阶/Three.js/08画布自适应宽度" },
-      { text: "可视化界面更改变量", link: "/docs/进阶/Three.js/09可视化界面更改变量" },
-      { text: "几何体顶点法向属性", link: "/docs/进阶/Three.js/10几何体顶点法向属性" },
+      {
+        text: "可视化界面更改变量",
+        link: "/docs/进阶/Three.js/09可视化界面更改变量",
+      },
+      {
+        text: "几何体顶点法向属性",
+        link: "/docs/进阶/Three.js/10几何体顶点法向属性",
+      },
     ],
   },
   {
