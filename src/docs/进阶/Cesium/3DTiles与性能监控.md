@@ -1,0 +1,74 @@
+# Cesium 3DTiles与性能监控
+
+
+::: details 示例代码
+
+```vue
+<template>
+  <div id="cesiumContainer" ref="cesiumContainer"></div>
+</template>
+
+<script setup>
+import * as Cesium from "cesium";
+import { onMounted } from "vue";
+
+onMounted(async () => {
+  const viewer = new Cesium.Viewer("cesiumContainer", {
+    // 隐藏 logo
+    creditContainer: document.createElement('div'),
+    // 隐藏右上角的帮助按钮
+    navigationHelpButton: false,
+    // 去除第一次加载后控制台报错
+    infoBox: false,
+    // 右上角搜索框
+    geocoder: false,
+    // 底部时间线
+    timeline: false,
+    // 左下角动画控件
+    animation: false,
+    // 右上角主页按钮
+    homeButton: false,
+    // 右上角显示模式
+    sceneModePicker: false,
+    // 右上角投影切换按钮
+    baseLayerPicker: false,
+
+
+    // 添加地形
+    terrainProvider: await Cesium.createWorldTerrainAsync({
+      // 水面波浪效果
+      requestWaterMask: true,
+      // 光照阴影效果
+      requestVertexNormals: true
+    }),
+
+    // 自定义地形数据下载(tif格式) https://www.gscloud.cn/sources/accessdata/305?pid=302
+    // 下载cesiumlab软件，转换数据http://cesiumlab.com/cesiumlab.html，安装后打开浏览器页面，地形切片-》输入文件-》三角算法vcg-》输出文件 散列-》保存
+    // 自定义地形数据
+    // terrainProvider: await Cesium.CesiumTerrainProvider.fromUrl("./terrains/gz"),
+  });
+
+  const tileset = await Cesium.Cesium3DTileset.fromUrl("./Assets/tileset.json");
+  viewer.scene.primitives.add(tileset);
+
+  viewer.zoomTo(tileset);
+  
+  // 3dtiles调试面板
+  viewer.extend(Cesium.viewerCesium3DTilesInspectorMixin);
+
+});
+</script>
+
+
+<style scoped>
+#cesiumContainer {
+  height: 100%;
+  width: 100%;
+}
+</style>
+
+```
+
+:::
+
+<iframe src="https://cesium.kuangyx.cn/app24?hiddenSidebar=true" ></iframe>

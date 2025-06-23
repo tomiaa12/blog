@@ -47,7 +47,13 @@ export default defineConfig({
   outDir: "../kuangyx",
   head: [
     // Google Analytics
-    ["script", { async: "true", src: "https://www.googletagmanager.com/gtag/js?id=G-1E60HGJXV1" }],
+    [
+      "script",
+      {
+        async: "true",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-1E60HGJXV1",
+      },
+    ],
     [
       "script",
       {},
@@ -306,6 +312,7 @@ export default defineConfig({
           {
             text: "进阶",
             items: [
+              { text: "Cesium", link: "/docs/进阶/Cesium/基础配置" },
               {
                 text: "TypeScript",
                 link: "/docs/进阶/TypeScript/安装配置",
@@ -330,7 +337,7 @@ export default defineConfig({
         text: "服务端",
         items: [
           { text: "Java", link: "/docs/服务端/java/01-初识" },
-          { text: "C 语言", link: "/docs/进阶/C语言/概述" },
+          { text: "C 语言", link: "/docs/服务端/C语言/概述" },
           { text: "部署", link: "/docs/服务端/部署/docker" },
           { text: "Node.js", link: "/docs/服务端/Node.js/模块引入" },
           { text: "express", link: "/docs/服务端/express" },
@@ -374,7 +381,7 @@ export default defineConfig({
 
       "/docs/框架/": Frame,
 
-      "/docs/进阶/": Server,
+      "/docs/进阶/": Advanced,
 
       "/docs/English/": English,
     },

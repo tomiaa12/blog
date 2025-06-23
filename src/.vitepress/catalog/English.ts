@@ -4,6 +4,7 @@ export const English = [
     collapsed: true,
     items: [
       { text: "总览", link: "/docs/English/总览" },
+      { text: "常见发音对照表", link: "/docs/English/常见发音对照表" },
       { text: "主语", link: "/docs/English/主语" },
       { text: "谓语", link: "/docs/English/谓语" },
       { text: "表语", link: "/docs/English/表语" },
