@@ -36,6 +36,10 @@ export const English = [
       { text: "主谓宾疑问句否定句", link: "/docs/English/主谓宾疑问句否定句" },
 
       { text: "序数词与基数词", link: "/docs/English/序数词与基数词" },
+
+      { text: "否定句", link: "/docs/English/否定句" },
+      { text: "肯定句转疑问句", link: "/docs/English/肯定句转疑问句" },
+      { text: "特殊疑问句", link: "/docs/English/特殊疑问句" },
     ]
   }
 ]
