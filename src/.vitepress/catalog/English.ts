@@ -34,6 +34,7 @@ export const English = [
       { text: "主系表疑问句和否定句", link: "/docs/English/主系表疑问句和否定句" },
       { text: "主谓宾构成方式", link: "/docs/English/主谓宾构成方式" },
       { text: "主谓宾疑问句否定句", link: "/docs/English/主谓宾疑问句否定句" },
+      { text: "16种时态", link: "/docs/English/16种时态" },
 
       { text: "序数词与基数词", link: "/docs/English/序数词与基数词" },
 
