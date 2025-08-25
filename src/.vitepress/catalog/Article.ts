@@ -41,6 +41,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "加载Lottie动态图标",
+        link: "/docs/文章/前端/加载Lottie动态图标",
+      },
+      {
         text: "vue气泡组件",
         link: "/docs/文章/前端/vue气泡组件",
       },
