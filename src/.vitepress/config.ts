@@ -347,6 +347,7 @@ export default defineConfig({
       {
         text: "其他",
         items: [
+          { text: "面试", link: "/docs/关于/面试" },
           { text: "我的云盘", link: "/docs/关于/我的云盘" },
           { text: "英语", link: "/docs/English/主语" },
         ],
