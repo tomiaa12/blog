@@ -86,6 +86,7 @@ export const Server = [
     collapsed: true,
     items: [
       { text: "docker", link: "/docs/服务端/部署/docker" },
+      { text: "VMware安装Linux", link: "/docs/服务端/部署/VMware安装Linux" },
       { text: "Linux 命令", link: "/docs/服务端/部署/Linux命令" },
       {
         text: "生成公钥私钥连接服务器",

@@ -1,5 +1,6 @@
 import live2d from "pixi-live2d-display"
 import type * as PIXI from "pixi.js"
+import type { AllowedComponentProps, ComponentCustomProps, VNode, Component } from 'vue'
 
 declare global {
   interface Window {
@@ -20,4 +21,18 @@ declare module "axios" {
 declare module "busuanzi.pure.js" {
   function fetch(): any
   export = fetch
+}
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elem: string]: any
+    }
+    interface Element extends VNode {}
+    interface ElementClass extends Component {}
+    interface ElementAttributesProperty {
+      $props: any
+    }
+    interface IntrinsicAttributes extends AllowedComponentProps, ComponentCustomProps {}
+  }
 }
