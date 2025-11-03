@@ -75,7 +75,7 @@
               </template>
               <template v-else>
                 <p>{{ row.phonetic0 }}</p>
-                <p>{{ row.phonetic1 }}</p>
+                <p v-if="row.phonetic1 !== row.phonetic0">{{ row.phonetic1 }}</p>
               </template>
             </div>
             <el-icon
