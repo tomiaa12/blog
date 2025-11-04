@@ -4,7 +4,7 @@
       <el-button type="primary" @click="showDictDialog = true">
         选择词典
       </el-button>
-      <span class="current-dict" v-if="currentDictName">当前词典：{{ currentDictName }}</span>
+      <span class="current-dict" v-if="currentDictInfo.description">当前词典：{{ currentDictInfo.label }} - {{ currentDictInfo.description }} ({{ currentDictInfo.length }}个词)</span>
     </div>
     
     <el-dialog
@@ -33,7 +33,7 @@ const emits = defineEmits([])
 const STORAGE_KEY = "word-dict-practice-selected-dict-id"
 
 const selectedData = ref<any[]>([])
-const currentDictName = ref('')
+const currentDictInfo = ref<any>({})
 const currentDictId = ref<string>(localStorage.getItem(STORAGE_KEY) || 'cet4')
 const showDictDialog = ref(false)
 
@@ -50,7 +50,7 @@ async function loadDictById(dictId: string) {
       baseURL: ""
     })
     selectedData.value = response.data
-    currentDictName.value = dict.label
+    currentDictInfo.value = dict
   } catch (error) {
     console.error('加载词典失败:', error)
   }
@@ -70,7 +70,7 @@ watch(currentDictId, (newValue, oldValue) => {
 function handleDictSelected(payload: { words: any[], dictInfo: any }) {
   isSelectingFromClick = true
   selectedData.value = payload.words
-  currentDictName.value = payload.dictInfo.label
+  currentDictInfo.value = payload.dictInfo
   currentDictId.value = payload.dictInfo.id
   showDictDialog.value = false
   // 保存到 localStorage
