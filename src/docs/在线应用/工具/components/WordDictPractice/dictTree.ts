@@ -1933,3 +1933,23 @@ export const dictTree = [
     ],
   },
 ];
+
+// 递归扁平化词典树，只提取有 id 的词典项
+function flattenDictTree(tree: any[]): any[] {
+  const result: any[] = []
+  
+  tree.forEach(item => {
+    if (item.children && item.children.length > 0) {
+      // 如果有子节点，递归处理
+      result.push(...flattenDictTree(item.children))
+    } else if (item.id) {
+      // 如果没有子节点且有 id，说明是词典项
+      result.push(item)
+    }
+  })
+  
+  return result
+}
+
+// 导出拍平后的词典数组
+export const flatDictList = flattenDictTree(dictTree)

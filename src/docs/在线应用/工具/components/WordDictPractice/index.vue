@@ -10,8 +10,8 @@
     <el-dialog
       v-model="showDictDialog"
       title="选择词典"
-      width="80%"
-      :close-on-click-modal="false"
+      width="calc(100vw - 40px)"
+      top="2vh"
     >
       <DictSelector @dict-selected="handleDictSelected" />
     </el-dialog>
@@ -59,5 +59,10 @@ function handleDictSelected(payload: { words: any[], dictInfo: any }) {
 
 .word-table {
   height: calc(88vh - 60px);
+}
+
+:deep() .el-dialog__title {
+  font-size: 25px;
+  font-weight: 600;
 }
 </style>

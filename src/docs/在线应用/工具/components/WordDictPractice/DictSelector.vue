@@ -1,47 +1,27 @@
 <template>
   <div class="dict-selector">
     <el-tabs v-model="activeTab" class="dict-tabs">
-      <el-tab-pane label="中国考试" name="中国考试">
-        <div class="dict-grid">
-          <div
-            v-for="dict in chineseDicts"
-            :key="dict.id"
-            class="dict-card"
-            @click="selectDict(dict)"
-          >
-            <div class="dict-title">{{ dict.label }}</div>
-            <div class="dict-description">{{ dict.description }}</div>
-            <div class="dict-count">{{ dict.length }}个词</div>
-          </div>
-        </div>
-      </el-tab-pane>
-      
-      <el-tab-pane label="国际考试" name="国际考试">
-        <div class="dict-grid">
-          <div
-            v-for="dict in internationalDicts"
-            :key="dict.id"
-            class="dict-card"
-            @click="selectDict(dict)"
-          >
-            <div class="dict-title">{{ dict.label }}</div>
-            <div class="dict-description">{{ dict.description }}</div>
-            <div class="dict-count">{{ dict.length }}个词</div>
-          </div>
-        </div>
-      </el-tab-pane>
-      
-      <el-tab-pane label="青少年英语" name="青少年英语">
-        <div class="dict-grid">
-          <div
-            v-for="dict in youthDicts"
-            :key="dict.id"
-            class="dict-card"
-            @click="selectDict(dict)"
-          >
-            <div class="dict-title">{{ dict.label }}</div>
-            <div class="dict-description">{{ dict.description }}</div>
-            <div class="dict-count">{{ dict.length }}个词</div>
+      <el-tab-pane 
+        v-for="category in dictTree" 
+        :key="category.label" 
+        :label="category.label" 
+        :name="category.label"
+      >
+        <!-- 第二级：遍历子分类，显示 label 和卡片 -->
+        <div v-for="subCategory in category.children" :key="subCategory.label" class="sub-category-section">
+          <div class="sub-category-label">{{ subCategory.label }}</div>
+          <div class="dict-card-grid">
+            <!-- 第三级：竖着的长方形卡片显示词典 label + length -->
+            <div
+              v-for="dict in subCategory.children"
+              :key="dict.id"
+              class="dict-card"
+              :class="{ 'is-selected': selectedDictId === dict.id }"
+              @click="selectDict(dict)"
+            >
+                <div class="dict-label">{{ dict.label }}</div>
+                <div class="dict-length">{{ dict.length }}个词</div>
+            </div>
           </div>
         </div>
       </el-tab-pane>
@@ -50,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { dictTree } from './dictTree'
 import axios from 'axios'
 
@@ -58,52 +38,14 @@ const emits = defineEmits<{
   (e: 'dict-selected', data: { words: any[], dictInfo: any }): void
 }>()
 
-const activeTab = ref('中国考试')
-
-// 扁平化词典数据并分类
-const chineseDicts = ref<any[]>([])
-const internationalDicts = ref<any[]>([])
-const youthDicts = ref<any[]>([])
-
-// 处理词典树数据
-function flattenDicts(tree: any[]) {
-  tree.forEach(category => {
-    const flatDicts = flattenCategory(category.children)
-    
-    if (category.label === '中国考试') {
-      chineseDicts.value = flatDicts
-    } else if (category.label === '国际考试') {
-      internationalDicts.value = flatDicts
-    } else if (category.label === '青少年英语') {
-      youthDicts.value = flatDicts
-    }
-  })
-}
-
-// 递归扁平化子分类
-function flattenCategory(children: any[]): any[] {
-  const result: any[] = []
-  
-  children.forEach(item => {
-    if (item.children && item.children.length > 0) {
-      // 如果有子分类，继续递归
-      result.push(...flattenCategory(item.children))
-    } else {
-      // 如果没有子分类，就是词典项
-      result.push(item)
-    }
-  })
-  
-  return result
-}
-
-// 初始化数据
-flattenDicts(dictTree)
+const activeTab = ref<string>(dictTree[0]?.label || '')
+const selectedDictId = ref<string>('')
 
 // 选择词典
 async function selectDict(dict: any) {
+  selectedDictId.value = dict.id
   try {
-    const response = await axios.get(dict.url,{
+    const response = await axios.get(dict.url, {
       baseURL: ""
     })
     emits('dict-selected', {
@@ -117,57 +59,84 @@ async function selectDict(dict: any) {
 </script>
 
 <style lang="scss" scoped>
+
 .dict-tabs {
-  :deep() {
-    .el-tabs__header {
-      margin-bottom: 20px;
-    }
+  :deep(.el-tabs__header) {
+    margin-bottom: 20px;
   }
 }
 
-.dict-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+.sub-category-section {
+  margin-bottom: 30px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sub-category-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--el-text-color-primary);
+  margin-bottom: 12px;
+}
+
+.dict-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
 }
 
 .dict-card {
-  position: relative;
-  padding: 16px;
+  width: 130px;
+  height: 160px;
+  padding: 12px 16px;
   background-color: var(--el-bg-color);
   border: 1px solid var(--el-border-color);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
-  min-height: 120px;
-  
+  transition: all 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
   &:hover {
     border-color: var(--el-color-primary);
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
+  }
+  
+  &.is-selected {
+    background-color: var(--el-color-primary);
+    border-color: var(--el-color-primary);
+    color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
   }
 }
 
-.dict-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--el-text-color-primary);
-  margin-bottom: 8px;
-}
-
-.dict-description {
-  font-size: 14px;
-  color: var(--el-text-color-secondary);
-  line-height: 1.5;
-}
-
-.dict-count {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  font-size: 14px;
-  color: var(--el-text-color-regular);
+.dict-label {
+  font-size: 16px;
   font-weight: 500;
+  color: inherit;
+  word-break: break-all;
+}
+
+.dict-length {
+  font-size: 12px;
+  color: inherit;
+  opacity: 0.8;
+  margin-top: auto;
+  text-align: right;
+}
+
+.dict-card.is-selected .dict-length {
+  opacity: 1;
+}
+
+:deep() .el-tabs__item {
+  font-size: 20px;
+  font-weight: 600;
 }
 </style>
 
