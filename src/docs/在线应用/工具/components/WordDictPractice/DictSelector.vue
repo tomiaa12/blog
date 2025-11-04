@@ -20,6 +20,7 @@
               @click="selectDict(dict)"
             >
                 <div class="dict-label">{{ dict.label }}</div>
+                <div class="dict-desc">{{ dict.description }}</div>
                 <div class="dict-length">{{ dict.length }}个词</div>
             </div>
           </div>
@@ -30,20 +31,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { dictTree } from './dictTree'
+import { ref, watch, computed } from 'vue'
+import { dictTree, flatDictList } from './dictTree'
 import axios from 'axios'
 
+const props = defineProps<{
+  modelValue?: string | null
+}>()
+
 const emits = defineEmits<{
+  (e: 'update:modelValue', value: string): void
   (e: 'dict-selected', data: { words: any[], dictInfo: any }): void
 }>()
 
 const activeTab = ref<string>(dictTree[0]?.label || '')
-const selectedDictId = ref<string>('')
 
-// 选择词典
-async function selectDict(dict: any) {
-  selectedDictId.value = dict.id
+// 计算属性：使用 modelValue 作为选中状态
+const selectedDictId = computed({
+  get: () => props.modelValue || '',
+  set: (value: string) => emits('update:modelValue', value)
+})
+
+// 加载词典数据（点击卡片时调用）
+async function loadDictById(dictId: string) {
+  const dict = flatDictList.find(d => d.id === dictId)
+  if (!dict) {
+    console.error('未找到词典:', dictId)
+    return
+  }
+
   try {
     const response = await axios.get(dict.url, {
       baseURL: ""
@@ -55,6 +71,31 @@ async function selectDict(dict: any) {
   } catch (error) {
     console.error('加载词典失败:', error)
   }
+}
+
+// 监听 modelValue 变化，自动切换 tab（不加载数据，由父组件处理）
+watch(() => props.modelValue, (newValue) => {
+  if (newValue) {
+    const dict = flatDictList.find(d => d.id === newValue)
+    if (dict) {
+      // 找到词典所属的分类，切换到对应的 tab
+      for (const category of dictTree) {
+        for (const subCategory of category.children) {
+          if (subCategory.children?.some(d => d.id === newValue)) {
+            activeTab.value = category.label
+            break
+          }
+        }
+      }
+    }
+  }
+}, { immediate: true })
+
+// 选择词典（点击卡片时调用）
+async function selectDict(dict: any) {
+  selectedDictId.value = dict.id
+  // 加载词典数据
+  await loadDictById(dict.id)
 }
 </script>
 
@@ -89,9 +130,9 @@ async function selectDict(dict: any) {
 }
 
 .dict-card {
-  width: 130px;
-  height: 160px;
-  padding: 12px 16px;
+  width: 140px;
+  min-height: 170px;
+  padding: 12px 10px;
   background-color: var(--el-bg-color);
   border: 1px solid var(--el-border-color);
   border-radius: 8px;
@@ -115,6 +156,13 @@ async function selectDict(dict: any) {
   }
 }
 
+.dict-desc {
+  font-size: 12px;
+  color: inherit;
+  opacity: 0.8;
+  word-break: break-all;
+  text-align: left;
+}
 .dict-label {
   font-size: 16px;
   font-weight: 500;
