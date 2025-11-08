@@ -2,7 +2,8 @@
   <ClientOnly>
     <FirstLoading />
   </ClientOnly>
-  <defaultLayout :class="getCurClass">
+  <el-config-provider :locale="locale">
+    <defaultLayout :class="getCurClass">
     <template #aside-outline-after>
       <ins
         class="adsbygoogle"
@@ -42,9 +43,10 @@
         class="giscus"
       ></div> -->
     </template>
-  </defaultLayout>
+    </defaultLayout>
+  </el-config-provider>
 
-  <ClientOnly> <SideTool /> </ClientOnly>
+  <ClientOnly v-if="!isMobile"> <SideTool /> </ClientOnly>
   <!-- <Comment
     v-if="showGlobalComment"
     class="home-comment"
@@ -59,6 +61,7 @@
 </template>
 
 <script setup lang="ts">
+import zhCn from "element-plus/es/locale/lang/zh-cn"
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import { useRoute, useRouter, useData, inBrowser } from "vitepress"
 import { computed, onMounted, watch, nextTick } from "vue"
@@ -76,6 +79,8 @@ const data = useData()
 const getCurClass = computed(() => data.frontmatter.value.class)
 
 const showGlobalComment = computed(() => data.frontmatter.value.layout)
+
+const locale = zhCn
 
 let script: any
 onMounted(async () => {

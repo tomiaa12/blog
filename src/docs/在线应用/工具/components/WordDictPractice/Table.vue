@@ -1,235 +1,331 @@
 <template>
   <div class="table-container">
-    <div class="table-header">
-      <p>单词默写练习</p>
-      <el-button type="primary" @click="shuffleData">随机排序</el-button>
-    </div>
-    <el-table
-      :data="pagedData"
-      :row-class-name="rowClass"
-      border
-      @sort-change="handleSortChange"
+    <div
+      v-if="simpleWordsLoading && !simpleWordsLoaded"
+      class="simple-word-init simple-word-init--loading"
     >
-      <el-table-column
-        label="序号"
-        width="80"
-        align="center"
+      正在加载熟悉单词...
+    </div>
+    <div
+      v-else-if="!simpleWordsLoaded"
+      class="simple-word-init simple-word-init--error"
+    >
+      <div>
+        熟悉单词加载失败 {{ simpleWordsError ? `：${simpleWordsError}` : "" }}
+      </div>
+      <el-button
+        size="small"
+        type="primary"
+        @click="initializeSimpleWords({ forceRemote: stateReadyForSimpleWords })"
       >
-        <template #default="{ $index }">
-          {{ (currentPage - 1) * pageSize + $index + 1 }}
-        </template>
-      </el-table-column>
+        重试
+      </el-button>
+    </div>
+    <template v-else>
+      <div class="table-header">
+        <p>单词默写练习</p>
+        <el-button
+          type="primary"
+          @click="shuffleData"
+        >
+          随机排序
+        </el-button>
+        <el-button
+          type="primary"
+          @click="openSimpleWordsDrawer"
+        >
+          已熟悉单词
+        </el-button>
+      </div>
+      <el-table
+        :data="pagedData"
+        :row-class-name="rowClass"
+        border
+        @sort-change="handleSortChange"
+      >
+        <el-table-column
+          label="序号"
+          width="80"
+          align="center"
+        >
+          <template #default="{ $index }">
+            {{ (currentPage - 1) * pageSize + $index + 1 }}
+          </template>
+        </el-table-column>
 
-      <el-table-column
-        prop="word"
-        label="单词"
-        width="150"
-        sortable="custom"
-      >
-        <template #header="{ column }">
-          <div class="word-column-header">
-            <span>单词</span>
-            <el-icon
-              :size="16"
-              style="cursor: pointer"
-              @click.stop="toggleColumnHide('word')"
-            >
-              <Hide v-if="!wordColumnHidden" />
-              <View v-else />
-            </el-icon>
-          </div>
-        </template>
-        <template #default="{ row }">
-          <div style="display: flex; align-items: center; gap: 8px">
-            <span
-              v-if="row.wordHidden"
-              style="flex: 1"
-              >***</span
-            >
-            <span
-              v-else
-              style="flex: 1"
-              >{{ row.word }}</span
-            >
-            <el-icon
-              :size="16"
-              style="cursor: pointer; flex-shrink: 0"
-              @click="row.wordHidden = !row.wordHidden"
-            >
-              <Hide v-if="!row.wordHidden" />
-              <View v-else />
-            </el-icon>
-          </div>
-        </template>
-      </el-table-column>
-
-      <el-table-column
-        label="音标"
-        width="160"
-      >
-        <template #header>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 8px;
-            "
-          >
-            <span>音标</span>
-            <el-icon
-              :size="16"
-              style="cursor: pointer"
-              @click="toggleColumnHide('phonetic')"
-            >
-              <Hide v-if="!phoneticColumnHidden" />
-              <View v-else />
-            </el-icon>
-          </div>
-        </template>
-        <template #default="{ row }">
-          <div style="display: flex; align-items: center; gap: 8px">
-            <div style="flex: 1">
-              <template v-if="row.phoneticHidden">
-                <p>***</p>
-                <p v-if="row.phonetic1 !== row.phonetic0">***</p>
-              </template>
-              <template v-else>
-                <p>[{{ row.phonetic0 }}]</p>
-                <p v-if="row.phonetic1 !== row.phonetic0">
-                  [{{ row.phonetic1 }}]
-                </p>
-              </template>
+        <el-table-column
+          prop="word"
+          label="单词"
+          width="150"
+          sortable="custom"
+        >
+          <template #header="{ column }">
+            <div class="word-column-header">
+              <span>单词</span>
+              <el-icon
+                :size="16"
+                style="cursor: pointer"
+                @click.stop="toggleColumnHide('word')"
+              >
+                <Hide v-if="!wordColumnHidden" />
+                <View v-else />
+              </el-icon>
             </div>
-            <el-icon
-              :size="16"
-              style="cursor: pointer; flex-shrink: 0"
-              @click="row.phoneticHidden = !row.phoneticHidden"
-            >
-              <Hide v-if="!row.phoneticHidden" />
-              <View v-else />
-            </el-icon>
-            <el-icon
-              :size="20"
+          </template>
+          <template #default="{ row }">
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span
+                v-if="row.wordHidden"
+                style="flex: 1"
+                >***</span
+              >
+              <span
+                v-else
+                style="flex: 1"
+                >{{ row.word }}</span
+              >
+              <el-icon
+                :size="16"
+                style="cursor: pointer; flex-shrink: 0"
+                @click="row.wordHidden = !row.wordHidden"
+              >
+                <Hide v-if="!row.wordHidden" />
+                <View v-else />
+              </el-icon>
+            </div>
+          </template>
+        </el-table-column>
+
+        <el-table-column
+          label="音标"
+          width="160"
+        >
+          <template #header>
+            <div
               style="
-                cursor: pointer;
-                color: var(--el-color-primary);
-                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
               "
-              @click="playAudio(row.word, 'us')"
             >
-              <VideoPlay />
-            </el-icon>
-          </div>
-        </template>
-      </el-table-column>
+              <span>音标</span>
+              <el-icon
+                :size="16"
+                style="cursor: pointer"
+                @click="toggleColumnHide('phonetic')"
+              >
+                <Hide v-if="!phoneticColumnHidden" />
+                <View v-else />
+              </el-icon>
+            </div>
+          </template>
+          <template #default="{ row }">
+            <div style="display: flex; align-items: center; gap: 8px">
+              <div style="flex: 1">
+                <template v-if="row.phoneticHidden">
+                  <p>***</p>
+                  <p v-if="row.phonetic1 !== row.phonetic0">***</p>
+                </template>
+                <template v-else>
+                  <p>[{{ row.phonetic0 }}]</p>
+                  <p v-if="row.phonetic1 !== row.phonetic0">
+                    [{{ row.phonetic1 }}]
+                  </p>
+                </template>
+              </div>
+              <el-icon
+                :size="16"
+                style="cursor: pointer; flex-shrink: 0"
+                @click="row.phoneticHidden = !row.phoneticHidden"
+              >
+                <Hide v-if="!row.phoneticHidden" />
+                <View v-else />
+              </el-icon>
+              <el-icon
+                :size="20"
+                style="
+                  cursor: pointer;
+                  color: var(--el-color-primary);
+                  flex-shrink: 0;
+                "
+                @click="playAudio(row.word, 'us')"
+              >
+                <VideoPlay />
+              </el-icon>
+            </div>
+          </template>
+        </el-table-column>
 
-      <el-table-column
-        label="释义"
-        width="300"
-        v-if="!isMobile"
-      >
-        <template #default="{ row }">
-          <div>
-            <br />
-            <ExpandableText
-              v-for="item in row.trans"
-              :key="item.pos"
-              :lines="2"
-            >
-              <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
-            </ExpandableText>
-            <br />
-          </div>
-        </template>
-      </el-table-column>
+        <el-table-column
+          label="释义"
+          width="300"
+          v-if="!isMobile"
+        >
+          <template #default="{ row }">
+            <div>
+              <br />
+              <ExpandableText
+                v-for="item in row.trans"
+                :key="item.pos"
+                :lines="2"
+              >
+                <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
+              </ExpandableText>
+              <br />
+            </div>
+          </template>
+        </el-table-column>
 
-      <el-table-column
-        label="默写"
-        :min-width="writeColumnMinWidth"
-      >
-        <template #default="{ row, $index }">
-          <div v-if="isMobile">
-            <br />
-            <ExpandableText
-              v-for="item in row.trans"
-              :key="item.pos"
-              :lines="2"
-            >
-              <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
-            </ExpandableText>
-            <br />
-          </div>
-          <p>
-            <el-icon
-              :size="20"
-              style="cursor: pointer; color: var(--el-color-primary)"
-              @click="playAudio(row.word, 'us')"
-            >
-              <VideoPlay />
-            </el-icon>
-            <el-icon
-              v-if="isInputCorrect(row)"
-              :size="20"
-              style="color: var(--el-color-success); margin-left: 8px"
-            >
-              <Check />
-            </el-icon>
-            <el-icon
-              v-if="row.checked && !row.isCorrect"
-              :size="20"
-              style="color: var(--el-color-danger); margin-left: 8px"
-            >
-              <Close />
-            </el-icon>
-            
-            <span v-if="focusedIndex === $index">
-              按 Enter 或 Tab 键切换到下一个输入框
-            </span>
-          </p>
-          <el-input
-            :ref="el => setInputRef(el, $index)"
-            v-model="row.modelValue"
-            placeholder=""
-            clearable
-            autocomplete="off"
-            @keydown.enter.prevent="handleEnterKey($index, $event)"
-            @focus="handleInputFocus($index, $event)"
-            @blur="handleInputBlur($index, row)"
-            inputmode="text"
-          />
-        </template>
-      </el-table-column>
-    </el-table>
+        <el-table-column
+          label="默写"
+          :min-width="writeColumnMinWidth"
+        >
+          <template #default="{ row, $index }">
+            <div v-if="isMobile">
+              <br />
+              <ExpandableText
+                v-for="item in row.trans"
+                :key="item.pos"
+                :lines="2"
+              >
+                <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
+              </ExpandableText>
+              <br />
+            </div>
+            <p class="input-tip-container">
+              <el-icon
+                :size="20"
+                style="cursor: pointer; color: var(--el-color-primary)"
+                @click="playAudio(row.word, 'us')"
+              >
+                <VideoPlay />
+              </el-icon>
+              <el-icon
+                v-if="isInputCorrect(row)"
+                :size="20"
+                style="color: var(--el-color-success); margin-left: 8px"
+              >
+                <Check />
+              </el-icon>
+              <el-icon
+                v-if="row.checked && !row.isCorrect"
+                :size="20"
+                style="color: var(--el-color-danger); margin-left: 8px"
+              >
+                <Close />
+              </el-icon>
 
-    <el-pagination
-      v-model:current-page="currentPage"
-      v-model:page-size="pageSize"
-      :page-sizes="[20, 50, 100]"
-      :total="tableData.length"
-      layout="total, sizes, prev, pager, next, jumper"
-      style="margin-top: 16px; justify-content: flex-end"
-    />
+              <span v-if="focusedIndex === $index">
+                按 Enter 或 Tab 键切换到下一个输入框
+              </span>
+
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="isWordInSimpleList(row)"
+                @click="handleAddSimpleWord(row)"
+              >
+                {{ isWordInSimpleList(row) ? "已加入熟悉单词" : "加入熟悉单词" }}
+              </el-button>
+            </p>
+            <el-input
+              :ref="el => setInputRef(el, $index)"
+              v-model="row.modelValue"
+              placeholder=""
+              clearable
+              autocomplete="off"
+              @keydown.enter.prevent="handleEnterKey($index, $event)"
+              @focus="handleInputFocus($index, $event)"
+              @blur="handleInputBlur($index, row)"
+              inputmode="text"
+            />
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <el-pagination
+        v-model:current-page="currentPage"
+        v-model:page-size="pageSize"
+        :page-sizes="[5, 10, 20, 30, 40, 50]"
+        :total="tableData.length"
+        layout="total, sizes, prev, pager, next, jumper"
+        prev-text="上一页"
+        next-text="下一页"
+        style="
+          margin-top: 16px;
+          justify-content: flex-end;
+          padding: 16px 16px 30px;
+        "
+      />
+      <SimpleWordsDrawer
+        v-model="simpleWordsDrawerVisible"
+        :simple-words="simpleWords"
+        :loading="simpleWordsLoading"
+        :error="simpleWordsError"
+        @remove="handleRemoveSimpleWord"
+        @clear-all="handleClearAllSimpleWords"
+      />
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, nextTick, onMounted, onBeforeUnmount } from "vue"
+import { ref, watch, computed, nextTick, onMounted, onBeforeUnmount, toRef } from "vue"
 import { ElIcon } from "element-plus"
 import { VideoPlay, Hide, View, Check, Close } from "@element-plus/icons-vue"
 import ExpandableText from "./ExpandableText.vue"
 import PosTag from "./PosTag.vue"
+import SimpleWordsDrawer from "./SimpleWordsDrawer.vue"
 import { isMobile } from "@/utils"
+import { useSimpleWords } from "./hooks/useSimpleWords"
+import type { SimpleWordItem } from "./hooks/useSimpleWords"
 const props = defineProps<{
   data: any
+  dictId?: string
 }>()
 
 // 为每个数据项初始化 modelValue 字段，确保响应式
 const tableData = ref<any[]>([])
+const originalData = ref<any[]>([])
+
+const dictIdRef = toRef(props, "dictId")
+
+const {
+  simpleWordsDrawerVisible,
+  simpleWords,
+  simpleWordsLoading,
+  simpleWordsError,
+  simpleWordsLoaded,
+  addSimpleWordLoading,
+  stateReadyForSimpleWords,
+  initializeSimpleWords,
+  openSimpleWordsDrawer,
+  handleAddSimpleWord,
+  isWordInSimpleList: isWordInSimpleListByWord,
+  removeSimpleWord,
+  clearAllSimpleWords,
+} = useSimpleWords(dictIdRef)
+
+function isWordInSimpleList(row: any) {
+  return isWordInSimpleListByWord(row?.word)
+}
+
+async function handleRemoveSimpleWord(item: SimpleWordItem) {
+  if (!item?.key) return
+  await removeSimpleWord(item.key)
+}
+
+async function handleClearAllSimpleWords() {
+  await clearAllSimpleWords()
+}
 
 // 分页相关
 const currentPage = ref(1)
-const pageSize = ref(50)
+const pageSize = ref(10)
+
+// 统计排序状态
+const sortOrder = ref<"ascending" | "descending" | null>(null)
 
 // 输入框引用（使用 Map 存储，key 为行索引）
 const inputRefs = new Map<number, any>()
@@ -246,24 +342,37 @@ function setInputRef(el: any, index: number) {
   }
 }
 
-// 当前排序状态
-const sortOrder = ref<'ascending' | 'descending' | null>(null)
+function updateVisibleData(options: { resetPage?: boolean } = {}) {
+  const filtered = originalData.value.filter(row => !isWordInSimpleList(row))
+  tableData.value = filtered
+
+  inputRefs.clear()
+  focusedIndex.value = null
+
+  const totalPages = filtered.length ? Math.ceil(filtered.length / pageSize.value) : 1
+  if (options.resetPage) {
+    currentPage.value = 1
+    sortOrder.value = null
+  } else if (currentPage.value > totalPages) {
+    currentPage.value = totalPages || 1
+  }
+}
 
 // 计算当前页显示的数据（排序后分页）
 const pagedData = computed(() => {
   let sortedData = [...tableData.value]
-  
+
   // 如果有排序，先排序
   if (sortOrder.value) {
     sortedData.sort((a, b) => {
-      const wordA = (a.word || '').toLowerCase()
-      const wordB = (b.word || '').toLowerCase()
-      if (wordA < wordB) return sortOrder.value === 'ascending' ? -1 : 1
-      if (wordA > wordB) return sortOrder.value === 'ascending' ? 1 : -1
+      const wordA = (a.word || "").toLowerCase()
+      const wordB = (b.word || "").toLowerCase()
+      if (wordA < wordB) return sortOrder.value === "ascending" ? -1 : 1
+      if (wordA > wordB) return sortOrder.value === "ascending" ? 1 : -1
       return 0
     })
   }
-  
+
   // 然后分页
   const start = (currentPage.value - 1) * pageSize.value
   const end = start + pageSize.value
@@ -327,12 +436,12 @@ const phoneticColumnHidden = ref(true)
 function toggleColumnHide(key: "word" | "phonetic") {
   if (key === "word") {
     wordColumnHidden.value = !wordColumnHidden.value
-    tableData.value.forEach(row => {
+    originalData.value.forEach(row => {
       row.wordHidden = wordColumnHidden.value
     })
   } else if (key === "phonetic") {
     phoneticColumnHidden.value = !phoneticColumnHidden.value
-    tableData.value.forEach(row => {
+    originalData.value.forEach(row => {
       row.phoneticHidden = phoneticColumnHidden.value
     })
   }
@@ -342,20 +451,65 @@ function toggleColumnHide(key: "word" | "phonetic") {
 watch(
   () => props.data,
   newData => {
-    tableData.value = newData.map((item: any) => ({
-      ...item,
-      modelValue: item.modelValue || "",
-      wordHidden: wordColumnHidden.value,
-      phoneticHidden: phoneticColumnHidden.value,
-      checked: false, // 是否已校验
-      isCorrect: false, // 是否正确
-    }))
-    // 数据更新后重置到第一页，清空输入框引用，重置排序
-    currentPage.value = 1
-    inputRefs.clear()
-    sortOrder.value = null
+    const existingRowMap = new Map<string, any[]>()
+    originalData.value.forEach((row, index) => {
+      const word = typeof row?.word === "string" ? row.word.toLowerCase() : ""
+      const key = word || `__index_${index}`
+      const list = existingRowMap.get(key)
+      if (list) {
+        list.push(row)
+      } else {
+        existingRowMap.set(key, [row])
+      }
+    })
+
+    const nextOriginal = newData.map((item: any, index: number) => {
+      const word = typeof item?.word === "string" ? item.word : ""
+      const key = word ? word.toLowerCase() : `__index_${index}`
+      const existingList = existingRowMap.get(key)
+      const existing = existingList?.length ? existingList.shift() : undefined
+      if (existing) {
+        const {
+          modelValue,
+          wordHidden,
+          phoneticHidden,
+          checked,
+          isCorrect,
+        } = existing
+        Object.assign(existing, item)
+        existing.modelValue = modelValue ?? existing.modelValue ?? ""
+        existing.wordHidden =
+          typeof wordHidden === "boolean" ? wordHidden : wordColumnHidden.value
+        existing.phoneticHidden =
+          typeof phoneticHidden === "boolean"
+            ? phoneticHidden
+            : phoneticColumnHidden.value
+        existing.checked = typeof checked === "boolean" ? checked : false
+        existing.isCorrect = typeof isCorrect === "boolean" ? isCorrect : false
+        return existing
+      }
+      return {
+        ...item,
+        modelValue: item.modelValue || "",
+        wordHidden: wordColumnHidden.value,
+        phoneticHidden: phoneticColumnHidden.value,
+        checked: false, // 是否已校验
+        isCorrect: false, // 是否正确
+      }
+    })
+
+    originalData.value = nextOriginal
+    updateVisibleData({ resetPage: true })
   },
   { immediate: true }
+)
+
+watch(
+  () => simpleWords.value,
+  () => {
+    updateVisibleData()
+  },
+  { deep: true }
 )
 
 // 监听分页变化，清空输入框引用和聚焦状态
@@ -438,7 +592,7 @@ function isInputCorrect(row: any): boolean {
 // 处理输入框获得焦点，自动滚动到可视区域
 function handleInputFocus(index: number, event: FocusEvent) {
   const target = event.target as HTMLElement
-  if (target) {
+  if (target && isMobile) {
     nextTick(() => {
       target.scrollIntoView({
         behavior: "smooth",
@@ -477,36 +631,40 @@ function handleInputBlur(index: number, row: any) {
 // 打乱数据
 function shuffleData() {
   // 使用 Fisher-Yates 洗牌算法
-  const shuffled = [...tableData.value]
+  const shuffled = [...originalData.value]
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
-  tableData.value = shuffled
-  // 重置到第一页，重置排序
-  currentPage.value = 1
-  sortOrder.value = null
   // 清空所有输入框
-  tableData.value.forEach(row => {
+  shuffled.forEach(row => {
     row.modelValue = ""
     row.checked = false
     row.isCorrect = false
   })
+  originalData.value = shuffled
+  updateVisibleData({ resetPage: true })
 }
 
 // 单词排序方法（用于 Element Plus 的 sort-method）
 function sortWord(a: any, b: any): number {
-  const wordA = (a.word || '').toLowerCase()
-  const wordB = (b.word || '').toLowerCase()
+  const wordA = (a.word || "").toLowerCase()
+  const wordB = (b.word || "").toLowerCase()
   if (wordA < wordB) return -1
   if (wordA > wordB) return 1
   return 0
 }
 
 // 处理排序变化
-function handleSortChange({ prop, order }: { prop: string; order: string | null }) {
-  if (prop === 'word') {
-    sortOrder.value = order as 'ascending' | 'descending' | null
+function handleSortChange({
+  prop,
+  order,
+}: {
+  prop: string
+  order: string | null
+}) {
+  if (prop === "word") {
+    sortOrder.value = order as "ascending" | "descending" | null
     // 排序后重置到第一页，但不影响输入框等数据
     // 输入框数据存储在 row.modelValue 中，排序时对象引用会一起移动，数据不会丢失
     currentPage.value = 1
@@ -519,6 +677,31 @@ function rowClass({ row }: any) {
 }
 </script>
 <style lang="scss" scoped>
+
+
+:deep() .el-drawer__header {
+  margin-bottom: 0;
+}
+
+.simple-word-init {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+  font-size: 14px;
+  color: var(--el-text-color-regular);
+}
+
+.simple-word-init--loading {
+  color: var(--el-color-primary);
+}
+
+.simple-word-init--error {
+  flex-direction: column;
+  color: var(--el-color-danger);
+}
+
 .table-header {
   display: flex;
   align-items: center;
@@ -531,6 +714,12 @@ function rowClass({ row }: any) {
     font-weight: 600;
     color: var(--el-text-color-primary);
   }
+}
+.input-tip-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 4px;
 }
 
 :deep() {
@@ -564,7 +753,7 @@ function rowClass({ row }: any) {
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
             .caret-wrapper {
               order: 3; // 排序图标放在最后
               margin-left: auto;
