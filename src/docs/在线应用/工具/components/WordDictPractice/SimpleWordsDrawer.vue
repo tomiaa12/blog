@@ -1,9 +1,12 @@
 <template>
   <el-drawer
     v-model="visible"
+    :lock-scroll="true"
     title="已熟悉单词"
     :size="isMobile ? '100%' : '35%'"
     direction="rtl"
+    class="simple-word-drawer"
+    append-to-body
   >
     <div class="simple-word-panel">
       <div
@@ -19,10 +22,15 @@
         {{ error }}
       </div>
       <template v-else>
-        <div >
-          <div style="font-size: 14px;">熟悉单词将不会出现在默写单词列表中。</div>
-          <div class="simple-word-actions">
-            <p v-if="simpleWords.length" style="font-size: 14px;">
+        <div>
+          <div style="font-size: 14px">
+            熟悉单词将不会出现在默写单词列表中。
+          </div>
+          <div
+            class="simple-word-actions"
+            v-if="simpleWords.length"
+          >
+            <p style="font-size: 14px">
               共 {{ simpleWords.length }} 个熟悉单词
             </p>
 
@@ -45,27 +53,48 @@
             >
               <div class="simple-word-item__title">
                 <span class="word">{{ item.word }}</span>
-                <span
-                  class="phonetic"
-                  v-if="item.phonetic0"
-                  >[{{ item.phonetic0 }}]</span
+                <div
+                  class="simple-word-item__phonetics"
+                  v-if="
+                    item.phonetic0 ||
+                    (item.phonetic1 && item.phonetic1 !== item.phonetic0)
+                  "
                 >
-                <span
-                  class="phonetic"
-                  v-if="item.phonetic1 && item.phonetic1 !== item.phonetic0"
-                >
-                  [{{ item.phonetic1 }}]
-                </span>
+                  <span
+                    class="phonetic-item"
+                    v-if="item.phonetic0"
+                  >
+                    <WordAudioButton
+                      :word="item.word"
+                      variant="us"
+                      :size="18"
+                    />
+                    <span class="phonetic">[{{ item.phonetic0 }}]</span>
+                  </span>
+                  <span
+                    class="phonetic-item"
+                    v-if="item.phonetic1 && item.phonetic1 !== item.phonetic0"
+                  >
+                    <WordAudioButton
+                      :word="item.word"
+                      variant="uk"
+                      :size="18"
+                    />
+                    <span class="phonetic">[{{ item.phonetic1 }}]</span>
+                  </span>
+                </div>
               </div>
               <div class="simple-word-item__trans">
-                <span
+                <ExpandableText
                   v-for="trans in item.trans"
                   :key="trans.pos + trans.cn"
-                  class="trans-item"
+                  :max-lines="2"
                 >
-                  <PosTag :pos="trans.pos">{{ trans.pos }}</PosTag>
-                  {{ trans.cn }}
-                </span>
+                  <span class="trans-item">
+                    <PosTag :pos="trans.pos">{{ trans.pos }}</PosTag>
+                    {{ trans.cn }}
+                  </span>
+                </ExpandableText>
               </div>
               <div class="simple-word-item__actions">
                 <el-button
@@ -105,6 +134,9 @@ import PosTag from "./PosTag.vue"
 import { ElMessageBox } from "element-plus"
 import type { SimpleWordItem } from "./hooks/useSimpleWords"
 import { isMobile } from "@/utils"
+import { useScrollLock } from "@/hooks/useScrollLock"
+import WordAudioButton from "./WordAudioButton.vue"
+import ExpandableText from "./ExpandableText.vue"
 
 const props = defineProps<{
   modelValue: boolean
@@ -123,6 +155,8 @@ const visible = computed({
   get: () => props.modelValue,
   set: value => emits("update:modelValue", value),
 })
+
+useScrollLock(visible)
 
 const confirmingDeleteAll = ref(false)
 const currentPage = ref(1)
@@ -174,6 +208,11 @@ async function handleClearAll() {
 </script>
 
 <style scoped lang="scss">
+.simple-word-drawer {
+  .el-drawer__header {
+    margin-bottom: 0;
+  }
+}
 .simple-word-panel {
   display: flex;
   flex-direction: column;
@@ -186,6 +225,7 @@ async function handleClearAll() {
   align-items: center;
   justify-content: space-between;
   padding: 6px 0;
+  box-shadow: 0 1px 0 0 var(--el-border-color-light);
 }
 
 .simple-word-status {
@@ -203,6 +243,7 @@ async function handleClearAll() {
   flex: 1;
   overflow-y: auto;
   padding-bottom: 55px;
+  padding-right: 10px;
 }
 
 .simple-word-item {
@@ -215,12 +256,25 @@ async function handleClearAll() {
 
 .simple-word-item__title {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 8px;
 
   .word {
     font-weight: 600;
     font-size: 16px;
+  }
+
+  .simple-word-item__phonetics {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    .phonetic-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
   }
 
   .phonetic {
@@ -255,5 +309,14 @@ async function handleClearAll() {
   position: absolute;
   bottom: 0;
   background-color: var(--el-bg-color);
+}
+</style>
+
+<style>
+.simple-word-drawer {
+  .el-drawer__body {
+    padding-right: 0;
+    padding-top: 0;
+  }
 }
 </style>

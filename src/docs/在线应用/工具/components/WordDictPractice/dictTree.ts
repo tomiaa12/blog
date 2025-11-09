@@ -1,5 +1,34 @@
 export const dictTree = [
   {
+    label: "墨墨背单词",
+    children: [
+      {
+        label: "小学英语",
+        children: [
+          {
+            id: "momo-xiaoxue-dagang",
+            label: "小学英语大纲",
+            description: "小学英语大纲词汇",
+            url: "/dicts/momo-xiaoxue-dagang.json",
+            length: 532,
+          },
+        ],
+      },
+      {
+        label: "初中英语",
+        children: [
+          {
+            id: "momo-chuzhong-dagang",
+            label: "初中英语大纲",
+            description: "初中英语大纲词汇",
+            url: "/dicts/momo-chuzhong-dagang.json",
+            length: 1674,
+          },
+        ],
+      },
+    ],
+  },
+  {
     label: "中国考试",
     children: [
       {
@@ -1932,12 +1961,12 @@ export const dictTree = [
       },
     ],
   },
-];
+]
 
 // 递归扁平化词典树，只提取有 id 的词典项
 function flattenDictTree(tree: any[]): any[] {
   const result: any[] = []
-  
+
   tree.forEach(item => {
     if (item.children && item.children.length > 0) {
       // 如果有子节点，递归处理
@@ -1947,7 +1976,7 @@ function flattenDictTree(tree: any[]): any[] {
       result.push(item)
     }
   })
-  
+
   return result
 }
 

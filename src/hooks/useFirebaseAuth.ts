@@ -22,9 +22,13 @@ import {
 
 // Firebase 配置：建议在生产环境通过环境变量注入
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+}
+
+if (!firebaseConfig.apiKey || !firebaseConfig.authDomain || !firebaseConfig.projectId) {
+  throw new Error("Firebase 配置缺失，请检查环境变量")
 }
 
 let firebaseApp: FirebaseApp | null = null

@@ -1,0 +1,1858 @@
+[{"custom":false,"id":0,"word":"a","phonetic0":"ǝ","phonetic1":"ǝ","trans":[{"pos":"冠","cn":"⼀（个）"}
+,{"pos":"名","cn":"英⽂字⺟表的第⼀个字⺟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"about","phonetic0":"ǝˈbaʊt","phonetic1":"ǝˈbaʊt","trans":[{"pos":"介","cn":"关于； ⼤约； ⼤概； 涉及"}
+,{"pos":"副","cn":"⼤约； 到处"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"after","phonetic0":"ˈæftǝr","phonetic1":"ˈæftǝr","trans":[{"pos":"副","cn":"以后； 后来"}
+,{"pos":"介","cn":"在…之后"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"afternoon","phonetic0":"ˌæftǝrˈnuːn","phonetic1":"ˌæftǝrˈnuːn","trans":[{"pos":"名","cn":"下午"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"again","phonetic0":"ǝˈɡen","phonetic1":"ǝˈɡen","trans":[{"pos":"副","cn":"再次； ⼜⼀次"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"age","phonetic0":"eɪdʒ","phonetic1":"eɪdʒ","trans":[{"pos":"名","cn":"年龄； 时代"}
+,{"pos":"动","cn":"变⽼"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ago","phonetic0":"ǝˈɡǝʊ","phonetic1":"ǝˈɡǝʊ","trans":[{"pos":"副","cn":"以前"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"air","phonetic0":"er","phonetic1":"er","trans":[{"pos":"名","cn":"空⽓； 空中； ⽓氛； 神态"}
+,{"pos":"动","cn":"（使） 通⻛； 播出； 晾⼲"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"all","phonetic0":"ɔːl","phonetic1":"ɔːl","trans":[{"pos":"形","cn":"全部的"}
+,{"pos":"副","cn":"全部地"}
+,{"pos":"名","cn":"全部"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"also","phonetic0":"ˈɔːlsǝʊ","phonetic1":"ˈɔːlsǝʊ","trans":[{"pos":"副","cn":"也； 还"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"always","phonetic0":"ˈɔːlweɪz","phonetic1":"ˈɔːlweɪz","trans":[{"pos":"副","cn":"总是； ⼀直"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"am","phonetic0":"æm","phonetic1":"æm","trans":[{"pos":"动","cn":"是； 动词be 的第⼀⼈称单数现在式"}
+,{"pos":"缩","cn":"上午； “ante meridiem” 的缩写"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"an","phonetic0":"æn","phonetic1":"æn","trans":[{"pos":"冠","cn":"⼀个 （在下⼀单词为元⾳开头时代替“a”）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"and","phonetic0":"ænd","phonetic1":"ænd","trans":[{"pos":"连","cn":"和； 与"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"angry","phonetic0":"ˈæŋɡri","phonetic1":"ˈæŋɡri","trans":[{"pos":"形","cn":"⽣⽓的； 愤怒的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"animal","phonetic0":"ˈænɪm(ǝ)l","phonetic1":"ˈænɪm(ǝ)l","trans":[{"pos":"名","cn":"动物"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"answer","phonetic0":"ˈænsǝr","phonetic1":"ˈænsǝr","trans":[{"pos":"名","cn":"回答； 答案"}
+,{"pos":"动","cn":"回答； 回应"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"any","phonetic0":"ˈeni","phonetic1":"ˈeni","trans":[{"pos":"形","cn":"任何的；"}
+,{"pos":"代","cn":"任何"}
+,{"pos":"副","cn":"稍微"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"apple","phonetic0":"ˈæp(ǝ)l","phonetic1":"ˈæp(ǝ)l","trans":[{"pos":"名","cn":"苹果"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"are","phonetic0":"ɑːr","phonetic1":"ɑːr","trans":[{"pos":"动","cn":"是"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"arm","phonetic0":"ɑːrm","phonetic1":"ɑːrm","trans":[{"pos":"名","cn":"⼿臂"}
+,{"pos":"动","cn":"武装"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"art","phonetic0":"ɑːrt","phonetic1":"ɑːrt","trans":[{"pos":"名","cn":"艺术"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ask","phonetic0":"æsk","phonetic1":"æsk","trans":[{"pos":"动","cn":"问； 询问； 要求"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"astronaut","phonetic0":"ˈæstrǝnɔːt","phonetic1":"ˈæstrǝnɔːt","trans":[{"pos":"名","cn":"宇航员； 太空⼈"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"at","phonetic0":"æt","phonetic1":"æt","trans":[{"pos":"介","cn":"朝； 向； 在（某处）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"aunt","phonetic0":"ænt","phonetic1":"ænt","trans":[{"pos":"名","cn":"姑； 婶； 姨； 伯⺟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"autumn","phonetic0":"ˈɔːtǝm","phonetic1":"ˈɔːtǝm","trans":[{"pos":"名","cn":"秋季； 秋天"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"baby","phonetic0":"ˈbeɪbi","phonetic1":"ˈbeɪbi","trans":[{"pos":"名","cn":"婴⼉； 宝⻉"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"back","phonetic0":"bæk","phonetic1":"bæk","trans":[{"pos":"名","cn":"背部； 后⾯"}
+,{"pos":"副","cn":"回原处； 向后"}
+,{"pos":"形","cn":"后⾯的； 拖⽋的"}
+,{"pos":"动","cn":"⽀持"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bad","phonetic0":"bæd","phonetic1":"bæd","trans":[{"pos":"形","cn":"坏的； 糟糕的； 严重的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bag","phonetic0":"bæɡ","phonetic1":"bæɡ","trans":[{"pos":"名","cn":"袋⼦； ⼿包"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ball","phonetic0":"bɔːl","phonetic1":"bɔːl","trans":[{"pos":"名","cn":"球； 舞会"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"banana","phonetic0":"bǝˈnænǝ","phonetic1":"bǝˈnænǝ","trans":[{"pos":"名","cn":"⾹蕉"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"basketball","phonetic0":"ˈbæskɪtbɔːl","phonetic1":"ˈbæskɪtbɔːl","trans":[{"pos":"名","cn":"篮球"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"be","phonetic0":"biː","phonetic1":"biː","trans":[{"pos":"动","cn":"是； 存在； 成为"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"beach","phonetic0":"biːtʃ","phonetic1":"biːtʃ","trans":[{"pos":"名","cn":"海滩； 沙滩"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bear","phonetic0":"ber","phonetic1":"ber","trans":[{"pos":"名","cn":"熊"}
+,{"pos":"动","cn":"负荷； 带有； 忍受； 承受； ⽣"}
+,{"pos":"","cn":"（孩⼦）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"beautiful","phonetic0":"ˈbjuːtɪf(ǝ)l","phonetic1":"ˈbjuːtɪf(ǝ)l","trans":[{"pos":"形","cn":"漂亮的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"because","phonetic0":"bɪˈkɔːz","phonetic1":"bɪˈkɔːz","trans":[{"pos":"连","cn":"因为"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bed","phonetic0":"bed","phonetic1":"bed","trans":[{"pos":"名","cn":"床； 底； （花） 坛"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bee","phonetic0":"biː","phonetic1":"biː","trans":[{"pos":"名","cn":"蜜蜂"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"before","phonetic0":"bɪˈfɔːr","phonetic1":"bɪˈfɔːr","trans":[{"pos":"介","cn":"在…之前； 先于"}
+,{"pos":"副","cn":"以前； 之前"}
+,{"pos":"连","cn":"在…以前"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"begin","phonetic0":"bɪˈɡɪn","phonetic1":"bɪˈɡɪn","trans":[{"pos":"动","cn":"开始； 着⼿"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"behind","phonetic0":"bɪˈhaɪnd","phonetic1":"bɪˈhaɪnd","trans":[{"pos":"介","cn":"在…后⾯"}
+,{"pos":"副","cn":"在后⾯"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"beside","phonetic0":"bɪˈsaɪd","phonetic1":"bɪˈsaɪd","trans":[{"pos":"介","cn":"在旁边（或附近）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"best","phonetic0":"best","phonetic1":"best","trans":[{"pos":"形","cn":"最好的； 最多的； 最⼤的；"}
+,{"pos":"","cn":"“good” 的最⾼级"}
+,{"pos":"副","cn":"最好地； 最多地； 最⼤地；"}
+,{"pos":"","cn":"“well” 的最⾼级"}
+,{"pos":"名","cn":"最⾼⽔平； 最佳物； 佼佼者"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"between","phonetic0":"bɪˈtwiːn","phonetic1":"bɪˈtwiːn","trans":[{"pos":"介","cn":"（空间或时间上） 在…之间"}
+,{"pos":"副","cn":"（空间或时间上） 介于…之间"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bicycle","phonetic0":"ˈbaɪsɪk(ǝ)l","phonetic1":"ˈbaɪsɪk(ǝ)l","trans":[{"pos":"名","cn":"⾃⾏⻋； 脚踏⻋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"big","phonetic0":"bɪɡ","phonetic1":"bɪɡ","trans":[{"pos":"形","cn":"⼤的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bike","phonetic0":"baɪk","phonetic1":"baɪk","trans":[{"pos":"名","cn":"⾃⾏⻋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bird","phonetic0":"bɜːrd","phonetic1":"bɜːrd","trans":[{"pos":"名","cn":"⻦"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"birthday","phonetic0":"ˈbɜːrθdeɪ","phonetic1":"ˈbɜːrθdeɪ","trans":[{"pos":"名","cn":"⽣⽇"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"black","phonetic0":"blæk","phonetic1":"blæk","trans":[{"pos":"形","cn":"⿊⾊的"}
+,{"pos":"名","cn":"⿊⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"blackboard","phonetic0":"ˈblækbɔːrd","phonetic1":"ˈblækbɔːrd","trans":[{"pos":"名","cn":"⿊板"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"blue","phonetic0":"bluː","phonetic1":"bluː","trans":[{"pos":"形","cn":"蓝⾊的； 忧郁的"}
+,{"pos":"名","cn":"蓝⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"boat","phonetic0":"bǝʊt","phonetic1":"bǝʊt","trans":[{"pos":"名","cn":"⼩船"}
+,{"pos":"动","cn":"划船； ⽤船运输； ⽤船装运"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"body","phonetic0":"ˈbɑːdi","phonetic1":"ˈbɑːdi","trans":[{"pos":"名","cn":"身体"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"book","phonetic0":"bʊk","phonetic1":"bʊk","trans":[{"pos":"名","cn":"书； 账簿"}
+,{"pos":"动","cn":"预订"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"box","phonetic0":"bɑːks","phonetic1":"bɑːks","trans":[{"pos":"名","cn":"箱⼦； 盒⼦； ⼀拳"}
+,{"pos":"动","cn":"拳击； 装箱"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"boy","phonetic0":"bɔɪ","phonetic1":"bɔɪ","trans":[{"pos":"名","cn":"男孩"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bread","phonetic0":"bred","phonetic1":"bred","trans":[{"pos":"名","cn":"⾯包； ⽣计"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"breakfast","phonetic0":"ˈbrekfǝst","phonetic1":"ˈbrekfǝst","trans":[{"pos":"名","cn":"早餐； 早饭"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bring","phonetic0":"brɪŋ","phonetic1":"brɪŋ","trans":[{"pos":"动","cn":"带来； 引起； 导致"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"brother","phonetic0":"ˈbrʌðǝr","phonetic1":"ˈbrʌðǝr","trans":[{"pos":"名","cn":"兄弟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"brown","phonetic0":"braʊn","phonetic1":"braʊn","trans":[{"pos":"形","cn":"褐⾊的； 棕⾊的"}
+,{"pos":"名","cn":"褐⾊； 棕⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bus","phonetic0":"bʌs","phonetic1":"bʌs","trans":[{"pos":"名","cn":"公共汽⻋； 巴⼠"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"busy","phonetic0":"ˈbɪzi","phonetic1":"ˈbɪzi","trans":[{"pos":"形","cn":"忙碌的； 忙于"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"but","phonetic0":"bʌt","phonetic1":"bʌt","trans":[{"pos":"连","cn":"但是； 然⽽"}
+,{"pos":"介","cn":"除…以外"}
+,{"pos":"副","cn":"只能； 仅仅"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"buy","phonetic0":"baɪ","phonetic1":"baɪ","trans":[{"pos":"动","cn":"买； 换取； 收买； 相信"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"by","phonetic0":"baɪ","phonetic1":"baɪ","trans":[{"pos":"介","cn":"通过； 乘坐； 由； 被"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"bye","phonetic0":"baɪ","phonetic1":"baɪ","trans":[{"pos":"叹","cn":"再⻅"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cake","phonetic0":"keɪk","phonetic1":"keɪk","trans":[{"pos":"名","cn":"蛋糕； 饼"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"call","phonetic0":"kɔːl","phonetic1":"kɔːl","trans":[{"pos":"名","cn":"打电话"}
+,{"pos":"动","cn":"叫； 打电话"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"can","phonetic0":"kæn","phonetic1":"kæn","trans":[{"pos":"动","cn":"能"}
+,{"pos":"名","cn":"⾦属罐"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"candle","phonetic0":"ˈkænd(ǝ)l","phonetic1":"ˈkænd(ǝ)l","trans":[{"pos":"名","cn":"蜡烛"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"candy","phonetic0":"ˈkændi","phonetic1":"ˈkændi","trans":[{"pos":"名","cn":"糖果"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cap","phonetic0":"kæp","phonetic1":"kæp","trans":[{"pos":"名","cn":"帽⼦"}
+,{"pos":"动","cn":"覆盖…的顶部"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"car","phonetic0":"kɑːr","phonetic1":"kɑːr","trans":[{"pos":"名","cn":"⼩汽⻋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"card","phonetic0":"kɑːrd","phonetic1":"kɑːrd","trans":[{"pos":"名","cn":"卡⽚； 纸牌； 银⾏卡"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"careful","phonetic0":"ˈkerf(ǝ)l","phonetic1":"ˈkerf(ǝ)l","trans":[{"pos":"形","cn":"⼩⼼的； 仔细的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cat","phonetic0":"kæt","phonetic1":"kæt","trans":[{"pos":"名","cn":"猫"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"catch","phonetic0":"kætʃ","phonetic1":"kætʃ","trans":[{"pos":"动","cn":"接住； 抓住； 赶上； 得病； 理解"}
+,{"pos":"名","cn":"接住； 搭扣"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"chair","phonetic0":"tʃer","phonetic1":"tʃer","trans":[{"pos":"名","cn":"椅⼦； 主席； 教授的职位"}
+,{"pos":"动","cn":"使就任要职； 主持"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"chicken","phonetic0":"ˈtʃɪkɪn","phonetic1":"ˈtʃɪkɪn","trans":[{"pos":"名","cn":"鸡⾁； 鸡"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"child","phonetic0":"tʃaɪld","phonetic1":"tʃaɪld","trans":[{"pos":"名","cn":"⼉童； ⼩孩"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"children","phonetic0":"ˈtʃɪldrǝn","phonetic1":"ˈtʃɪldrǝn","trans":[{"pos":"名","cn":"⼉童； ⼩孩； “child” 的复数"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"China","phonetic0":"ˈtʃaɪnǝ","phonetic1":"ˈtʃaɪnǝ","trans":[{"pos":"名","cn":"中国"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Chinese","phonetic0":"ˌtʃaɪˈniːz","phonetic1":"ˌtʃaɪˈniːz","trans":[{"pos":"名","cn":"中国⼈； 汉语"}
+,{"pos":"形","cn":"中国的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"chore","phonetic0":"tʃɔːr","phonetic1":"tʃɔːr","trans":[{"pos":"名","cn":"家务活； 杂事； 令⼈讨厌的或繁"}
+,{"pos":"","cn":"重的⼯作"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cinema","phonetic0":"ˈsɪnǝmǝ","phonetic1":"ˈsɪnǝmǝ","trans":[{"pos":"名","cn":"电影院； 电影"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"city","phonetic0":"ˈsɪti","phonetic1":"ˈsɪti","trans":[{"pos":"名","cn":"城市"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"class","phonetic0":"klæs","phonetic1":"klæs","trans":[{"pos":"名","cn":"班级； 课； 等级； 阶级； 类别"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"classroom","phonetic0":"ˈklæsruːm","phonetic1":"ˈklæsruːm","trans":[{"pos":"名","cn":"教室"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"clean","phonetic0":"kliːn","phonetic1":"kliːn","trans":[{"pos":"动","cn":"打扫； 使⼲净"}
+,{"pos":"形","cn":"洁净的； ⼲净的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"clever","phonetic0":"ˈklevǝr","phonetic1":"ˈklevǝr","trans":[{"pos":"形","cn":"聪明的； 灵巧的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"clock","phonetic0":"klɑːk","phonetic1":"klɑːk","trans":[{"pos":"名","cn":"时钟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"close","phonetic0":"klǝʊz","phonetic1":"klǝʊz","trans":[{"pos":"动","cn":"关闭； 使接近"}
+,{"pos":"形","cn":"接近的； 亲密的"}
+,{"pos":"副","cn":"接近地； 紧挨地"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"clothes","phonetic0":"klǝʊðz","phonetic1":"klǝʊðz","trans":[{"pos":"名","cn":"⾐服； 服装"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cloudy","phonetic0":"ˈklaʊdi","phonetic1":"ˈklaʊdi","trans":[{"pos":"形","cn":"多云的； 浑浊的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"coat","phonetic0":"kǝʊt","phonetic1":"kǝʊt","trans":[{"pos":"名","cn":"⼤⾐； 外⾐"}
+,{"pos":"动","cn":"（⽤…） 覆盖"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cold","phonetic0":"kǝʊld","phonetic1":"kǝʊld","trans":[{"pos":"名","cn":"寒冷； 感冒"}
+,{"pos":"形","cn":"寒冷的； 冰冷的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"color","phonetic0":"ˈkʌlǝr","phonetic1":"ˈkʌlǝr","trans":[{"pos":"名","cn":"颜⾊"}
+,{"pos":"动","cn":"着⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"colour","phonetic0":"ˈkʌlǝr","phonetic1":"ˈkʌlǝr","trans":[{"pos":"名","cn":"颜⾊"}
+,{"pos":"动","cn":"着⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"come","phonetic0":"kʌm","phonetic1":"kʌm","trans":[{"pos":"动","cn":"来； 到来"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"computer","phonetic0":"kǝmˈpjuːtǝr","phonetic1":"kǝmˈpjuːtǝr","trans":[{"pos":"名","cn":"计算机； 电脑"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cook","phonetic0":"kʊk","phonetic1":"kʊk","trans":[{"pos":"名","cn":"厨师"}
+,{"pos":"动","cn":"烹饪"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cool","phonetic0":"kuːl","phonetic1":"kuːl","trans":[{"pos":"形","cn":"凉的； 凉爽的； 冷静的； 顶好的； 酷的"}
+,{"pos":"动","cn":"变凉； 冷静下来"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cousin","phonetic0":"ˈkʌz(ǝ)n","phonetic1":"ˈkʌz(ǝ)n","trans":[{"pos":"名","cn":"堂兄弟（或姐妹）； 表兄弟（或姐妹）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cow","phonetic0":"kaʊ","phonetic1":"kaʊ","trans":[{"pos":"名","cn":"⺟⽜； 奶⽜； ⼤型⺟兽"}
+,{"pos":"动","cn":"威胁； 吓唬"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cry","phonetic0":"kraɪ","phonetic1":"kraɪ","trans":[{"pos":"动","cn":"哭； 呼喊"}
+,{"pos":"名","cn":"哭； 呼喊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cup","phonetic0":"kʌp","phonetic1":"kʌp","trans":[{"pos":"名","cn":"杯⼦； 茶杯"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cut","phonetic0":"kʌt","phonetic1":"kʌt","trans":[{"pos":"动","cn":"切； 割； 削减"}
+,{"pos":"名","cn":"切； 割； 伤⼝； 削减"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"cute","phonetic0":"kjuːt","phonetic1":"kjuːt","trans":[{"pos":"形","cn":"可爱的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"dad","phonetic0":"dæd","phonetic1":"dæd","trans":[{"pos":"名","cn":"爸爸"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"dance","phonetic0":"dæns","phonetic1":"dæns","trans":[{"pos":"名","cn":"舞蹈"}
+,{"pos":"动","cn":"跳舞"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"day","phonetic0":"deɪ","phonetic1":"deɪ","trans":[{"pos":"名","cn":"⽇； 天； 时代"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"dear","phonetic0":"dɪr","phonetic1":"dɪr","trans":[{"pos":"形","cn":"亲爱的； 宝贵的； 昂贵的"}
+,{"pos":"名","cn":"亲爱的⼈； 可爱的⼈"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"desk","phonetic0":"desk","phonetic1":"desk","trans":[{"pos":"名","cn":"桌⼦； 书桌"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"difficult","phonetic0":"ˈdɪfɪkǝlt","phonetic1":"ˈdɪfɪkǝlt","trans":[{"pos":"形","cn":"困难的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"dinner","phonetic0":"ˈdɪnǝr","phonetic1":"ˈdɪnǝr","trans":[{"pos":"名","cn":"晚餐； 晚宴"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"dirty","phonetic0":"ˈdɜːrti","phonetic1":"ˈdɜːrti","trans":[{"pos":"形","cn":"肮脏的"}
+,{"pos":"动","cn":"使变脏"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"do","phonetic0":"duː","phonetic1":"duː","trans":[{"pos":"动","cn":"做"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"doctor","phonetic0":"ˈdɑːktǝr","phonetic1":"ˈdɑːktǝr","trans":[{"pos":"名","cn":"医⽣； 博⼠"}
+,{"pos":"动","cn":"篡改"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"dog","phonetic0":"dɔːɡ","phonetic1":"dɔːɡ","trans":[{"pos":"名","cn":"狗"}
+,{"pos":"动","cn":"尾随"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"doll","phonetic0":"dɑːl","phonetic1":"dɑːl","trans":[{"pos":"名","cn":"洋娃娃； 玩偶"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"door","phonetic0":"dɔːr","phonetic1":"dɔːr","trans":[{"pos":"名","cn":"⻔"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"down","phonetic0":"daʊn","phonetic1":"daʊn","trans":[{"pos":"副","cn":"向下"}
+,{"pos":"形","cn":"向下的； 沮丧的"}
+,{"pos":"介","cn":"沿…向下"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"draw","phonetic0":"drɔː","phonetic1":"drɔː","trans":[{"pos":"动","cn":"拉； 拽； 画； 提取； 吸引"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"dress","phonetic0":"dres","phonetic1":"dres","trans":[{"pos":"名","cn":"连⾐裙； ⾐服"}
+,{"pos":"动","cn":"（给…） 穿⾐服"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"drink","phonetic0":"drɪŋk","phonetic1":"drɪŋk","trans":[{"pos":"动","cn":"喝； 喝酒"}
+,{"pos":"名","cn":"饮料； 酒"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"driver","phonetic0":"ˈdraɪvǝr","phonetic1":"ˈdraɪvǝr","trans":[{"pos":"名","cn":"司机； 驾驶员"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"duck","phonetic0":"dʌk","phonetic1":"dʌk","trans":[{"pos":"名","cn":"鸭； 鸭⾁"}
+,{"pos":"动","cn":"没⼊⽔中； 潜⼊； 闪避"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ear","phonetic0":"ɪr","phonetic1":"ɪr","trans":[{"pos":"名","cn":"⽿朵"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"early","phonetic0":"ˈɜːrli","phonetic1":"ˈɜːrli","trans":[{"pos":"副","cn":"提早地"}
+,{"pos":"形","cn":"早的； 早前的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"earth","phonetic0":"ɜːrθ","phonetic1":"ɜːrθ","trans":[{"pos":"名","cn":"地球； 泥⼟； 陆地； 尘世"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"easy","phonetic0":"ˈiːzi","phonetic1":"ˈiːzi","trans":[{"pos":"形","cn":"容易的； 轻松的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"eat","phonetic0":"iːt","phonetic1":"iːt","trans":[{"pos":"动","cn":"吃"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"egg","phonetic0":"eɡ","phonetic1":"eɡ","trans":[{"pos":"名","cn":"蛋； 鸡蛋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"elephant","phonetic0":"ˈelɪfǝnt","phonetic1":"ˈelɪfǝnt","trans":[{"pos":"名","cn":"⼤象"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"email","phonetic0":"ˈiːmeɪl","phonetic1":"ˈiːmeɪl","trans":[{"pos":"名","cn":"电⼦邮件"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"English","phonetic0":"ˈɪŋɡlɪʃ","phonetic1":"ˈɪŋɡlɪʃ","trans":[{"pos":"名","cn":"英语； 英⽂"}
+,{"pos":"形","cn":"英格兰的； 英格兰⼈的； 英语的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"evening","phonetic0":"ˈiːvnɪŋ","phonetic1":"ˈiːvnɪŋ","trans":[{"pos":"名","cn":"晚上； 傍晚"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"every","phonetic0":"ˈevri","phonetic1":"ˈevri","trans":[{"pos":"形","cn":"每个"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"excited","phonetic0":"ɪkˈsaɪtɪd","phonetic1":"ɪkˈsaɪtɪd","trans":[{"pos":"形","cn":"激动的； 兴奋的"}
+,{"pos":"动","cn":"使兴奋； 使激动； “excite” 的过"}
+,{"pos":"","cn":"去式和过去分词"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"exercise","phonetic0":"ˈeksǝrsaɪz","phonetic1":"ˈeksǝrsaɪz","trans":[{"pos":"名","cn":"练习； 锻炼； 运动； ⾏使"}
+,{"pos":"动","cn":"运⽤； 使⽤； 锻炼； 使担忧"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"eye","phonetic0":"aɪ","phonetic1":"aɪ","trans":[{"pos":"名","cn":"眼睛"}
+,{"pos":"动","cn":"注视； 审视"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"face","phonetic0":"feɪs","phonetic1":"feɪs","trans":[{"pos":"名","cn":"脸"}
+,{"pos":"动","cn":"⾯对"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"family","phonetic0":"ˈfæmǝli","phonetic1":"ˈfæmǝli","trans":[{"pos":"名","cn":"家庭； 家族"}
+,{"pos":"形","cn":"家庭的； 家族的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"famous","phonetic0":"ˈfeɪmǝs","phonetic1":"ˈfeɪmǝs","trans":[{"pos":"形","cn":"著名的； 出名的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"fan","phonetic0":"fæn","phonetic1":"fæn","trans":[{"pos":"名","cn":"⻛扇； 粉丝"}
+,{"pos":"动","cn":"煽动； 吹拂"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"far","phonetic0":"fɑːr","phonetic1":"fɑːr","trans":[{"pos":"副","cn":"远； 极"}
+,{"pos":"形","cn":"较远的； 遥远的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"farm","phonetic0":"fɑːrm","phonetic1":"fɑːrm","trans":[{"pos":"名","cn":"农场； 农庄"}
+,{"pos":"动","cn":"耕种； 务农"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"farmer","phonetic0":"ˈfɑːrmǝr","phonetic1":"ˈfɑːrmǝr","trans":[{"pos":"名","cn":"农场主； 农⺠"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"fast","phonetic0":"fæst","phonetic1":"fæst","trans":[{"pos":"形","cn":"快的； 迅速的"}
+,{"pos":"副","cn":"迅速"}
+,{"pos":"动","cn":"禁⻝； 斋戒"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"father","phonetic0":"ˈfɑːðǝr","phonetic1":"ˈfɑːðǝr","trans":[{"pos":"名","cn":"⽗亲； 爸爸"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"favorite","phonetic0":"ˈfeɪvǝrɪt","phonetic1":"ˈfeɪvǝrɪt","trans":[{"pos":"形","cn":"特别喜爱的"}
+,{"pos":"名","cn":"特别喜爱的⼈（或物）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"favourite","phonetic0":"ˈfeɪvǝrɪt","phonetic1":"ˈfeɪvǝrɪt","trans":[{"pos":"形","cn":"特别受喜爱的"}
+,{"pos":"名","cn":"特别喜爱的事物"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"feel","phonetic0":"fiːl","phonetic1":"fiːl","trans":[{"pos":"动","cn":"感到； 触摸； 认为"}
+,{"pos":"名","cn":"感受； 触觉"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"feet","phonetic0":"fiːt","phonetic1":"fiːt","trans":[{"pos":"名","cn":"脚； 英尺； “foot” 的复数"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"film","phonetic0":"fɪlm","phonetic1":"fɪlm","trans":[{"pos":"名","cn":"电影； 底⽚； 薄薄的⼀层"}
+,{"pos":"动","cn":"拍摄电影"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"find","phonetic0":"faɪnd","phonetic1":"faɪnd","trans":[{"pos":"动","cn":"找； 找到； 发现； 认为"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"fine","phonetic0":"faɪn","phonetic1":"faɪn","trans":[{"pos":"形","cn":"很好的； 晴朗的； 健康的"}
+,{"pos":"副","cn":"很好"}
+,{"pos":"名","cn":"罚款"}
+,{"pos":"动","cn":"罚款"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"fire","phonetic0":"ˈfaɪǝr","phonetic1":"ˈfaɪǝr","trans":[{"pos":"名","cn":"⽕； 炮⽕； 热情； 激情"}
+,{"pos":"动","cn":"射击； 开⽕； 解雇； 激发"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"fish","phonetic0":"fɪʃ","phonetic1":"fɪʃ","trans":[{"pos":"名","cn":"⻥； ⻥⾁"}
+,{"pos":"动","cn":"钓⻥； 捕⻥"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"floor","phonetic0":"flɔːr","phonetic1":"flɔːr","trans":[{"pos":"名","cn":"地板； 地⾯； 楼层"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"flower","phonetic0":"ˈflaʊǝr","phonetic1":"ˈflaʊǝr","trans":[{"pos":"名","cn":"花； 花朵"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"fly","phonetic0":"flaɪ","phonetic1":"flaɪ","trans":[{"pos":"动","cn":"⻜翔； ⻜⾏"}
+,{"pos":"名","cn":"苍蝇"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"food","phonetic0":"fuːd","phonetic1":"fuːd","trans":[{"pos":"名","cn":"⻝物"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"foot","phonetic0":"fʊt","phonetic1":"fʊt","trans":[{"pos":"名","cn":"脚， ⾜底； 英尺"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"football","phonetic0":"ˈfʊtbɔːl","phonetic1":"ˈfʊtbɔːl","trans":[{"pos":"名","cn":"[英]⾜球； [美]橄榄球"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"for","phonetic0":"fɔːr","phonetic1":"fɔːr","trans":[{"pos":"介","cn":"为； 给； 因为"}
+,{"pos":"连","cn":"因为； 由于"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"free","phonetic0":"friː","phonetic1":"friː","trans":[{"pos":"形","cn":"⾃由的； 免费的 [副] ⾃由地； 免费地 [动] 释放"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"friend","phonetic0":"frend","phonetic1":"frend","trans":[{"pos":"名","cn":"朋友"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"from","phonetic0":"frʌm","phonetic1":"frʌm","trans":[{"pos":"介","cn":"从； 来⾃"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"front","phonetic0":"frʌnt","phonetic1":"frʌnt","trans":[{"pos":"名","cn":"前⾯； 前线"}
+,{"pos":"形","cn":"前⾯的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"fruit","phonetic0":"fruːt","phonetic1":"fruːt","trans":[{"pos":"名","cn":"⽔果； 成果"}
+,{"pos":"动","cn":"结果实"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"game","phonetic0":"ɡeɪm","phonetic1":"ɡeɪm","trans":[{"pos":"名","cn":"游戏； ⽐赛"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"garden","phonetic0":"ˈɡɑːrd(ǝ)n","phonetic1":"ˈɡɑːrd(ǝ)n","trans":[{"pos":"名","cn":"花园"}
+,{"pos":"动","cn":"从事园艺"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"get","phonetic0":"ɡet","phonetic1":"ɡet","trans":[{"pos":"动","cn":"得到； 获得； 使； 收到； 变得"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"gift","phonetic0":"ɡɪft","phonetic1":"ɡɪft","trans":[{"pos":"名","cn":"礼物； 天赋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"girl","phonetic0":"ɡɜːrl","phonetic1":"ɡɜːrl","trans":[{"pos":"名","cn":"⼥孩"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"give","phonetic0":"ɡɪv","phonetic1":"ɡɪv","trans":[{"pos":"动","cn":"给予； 发出"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"glass","phonetic0":"ɡlæs","phonetic1":"ɡlæs","trans":[{"pos":"名","cn":"玻璃； 玻璃杯"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"go","phonetic0":"ɡǝʊ","phonetic1":"ɡǝʊ","trans":[{"pos":"动","cn":"⾛； 去"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"good","phonetic0":"ɡʊd","phonetic1":"ɡʊd","trans":[{"pos":"形","cn":"好的； 优秀的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"goodbye","phonetic0":"ˌɡʊdˈbaɪ","phonetic1":"ˌɡʊdˈbaɪ","trans":[{"pos":"叹","cn":"再⻅"}
+,{"pos":"名","cn":"说再⻅"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"grandfather","phonetic0":"ˈɡrænfɑːðǝr","phonetic1":"ˈɡrænfɑːðǝr","trans":[{"pos":"名","cn":"祖⽗； 爷爷"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"grandma","phonetic0":"ˈɡrænmɑː","phonetic1":"ˈɡrænmɑː","trans":[{"pos":"名","cn":"祖⺟； 外祖⺟； 奶奶； 外婆"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"grandmother","phonetic0":"ˈɡrænmʌðǝr","phonetic1":"ˈɡrænmʌðǝr","trans":[{"pos":"名","cn":"祖⺟； 外祖⺟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"grandpa","phonetic0":"ˈɡrænpɑː","phonetic1":"ˈɡrænpɑː","trans":[{"pos":"名","cn":"姥爷； 爷爷"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"grape","phonetic0":"ɡreɪp","phonetic1":"ɡreɪp","trans":[{"pos":"名","cn":"葡萄"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"grass","phonetic0":"ɡræs","phonetic1":"ɡræs","trans":[{"pos":"名","cn":"草； 草地； ⼤麻； 告密者"}
+,{"pos":"动","cn":"使吃草； 放牧； 告发"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"great","phonetic0":"ɡreɪt","phonetic1":"ɡreɪt","trans":[{"pos":"形","cn":"伟⼤的； ⼤的； 极好的"}
+,{"pos":"副","cn":"很好地"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"green","phonetic0":"ɡriːn","phonetic1":"ɡriːn","trans":[{"pos":"形","cn":"绿⾊的； 未熟的； ⽆经验的"}
+,{"pos":"名","cn":"绿⾊； 绿⾊物品"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hair","phonetic0":"her","phonetic1":"her","trans":[{"pos":"名","cn":"头发； ⽑发"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"half","phonetic0":"hæf","phonetic1":"hæf","trans":[{"pos":"名","cn":"⼀半"}
+,{"pos":"形","cn":"⼀半的"}
+,{"pos":"副","cn":"⼀半地"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hand","phonetic0":"hænd","phonetic1":"hænd","trans":[{"pos":"名","cn":"⼿"}
+,{"pos":"动","cn":"交； 递； 给"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"happy","phonetic0":"ˈhæpi","phonetic1":"ˈhæpi","trans":[{"pos":"形","cn":"快乐的； ⾼兴的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hard","phonetic0":"hɑːrd","phonetic1":"hɑːrd","trans":[{"pos":"形","cn":"坚硬的； 困难的； 费劲的"}
+,{"pos":"副","cn":"努⼒地"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"has","phonetic0":"hæz","phonetic1":"hæz","trans":[{"pos":"动","cn":"有； 吃； “have” 的第三⼈称单数"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"have","phonetic0":"hæv","phonetic1":"hæv","trans":[{"pos":"动","cn":"有； 吃； 得到"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"he","phonetic0":"hiː","phonetic1":"hiː","trans":[{"pos":"名","cn":"他"}
+,{"pos":"代","cn":"他"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"head","phonetic0":"hed","phonetic1":"hed","trans":[{"pos":"名","cn":"头； 脑袋； 上端； ⾸脑"}
+,{"pos":"动","cn":"朝…⾏进； 居⾸位； 领导"}
+,{"pos":"形","cn":"头的； 主要的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"healthy","phonetic0":"ˈhelθi","phonetic1":"ˈhelθi","trans":[{"pos":"形","cn":"健康的； 健壮的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hear","phonetic0":"hɪr","phonetic1":"hɪr","trans":[{"pos":"动","cn":"听； 听⻅"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"heavy","phonetic0":"ˈhevi","phonetic1":"ˈhevi","trans":[{"pos":"形","cn":"重的； 沉重的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hello","phonetic0":"hǝˈlǝʊ","phonetic1":"hǝˈlǝʊ","trans":[{"pos":"叹","cn":"喂； 哈喽"}
+,{"pos":"名","cn":"“喂” 的招呼声或问候声"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"help","phonetic0":"help","phonetic1":"help","trans":[{"pos":"名","cn":"帮助"}
+,{"pos":"动","cn":"帮助"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"helpful","phonetic0":"ˈhelpf(ǝ)l","phonetic1":"ˈhelpf(ǝ)l","trans":[{"pos":"形","cn":"有益的； 有帮助的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"her","phonetic0":"hɜːr","phonetic1":"hɜːr","trans":[{"pos":"代","cn":"她的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"here","phonetic0":"hɪr","phonetic1":"hɪr","trans":[{"pos":"副","cn":"这⾥"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hi","phonetic0":"haɪ","phonetic1":"haɪ","trans":[{"pos":"叹","cn":"嗨； 你好"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hill","phonetic0":"hɪl","phonetic1":"hɪl","trans":[{"pos":"名","cn":"丘陵； ⼩⼭"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"him","phonetic0":"hɪm","phonetic1":"hɪm","trans":[{"pos":"代","cn":"他（宾格）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"his","phonetic0":"hɪz","phonetic1":"hɪz","trans":[{"pos":"代","cn":"他的（he 的所有格）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"holiday","phonetic0":"ˈhɑːlǝdeɪ","phonetic1":"ˈhɑːlǝdeɪ","trans":[{"pos":"名","cn":"假⽇； 假期"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"home","phonetic0":"hǝʊm","phonetic1":"hǝʊm","trans":[{"pos":"名","cn":"家； 家庭"}
+,{"pos":"副","cn":"在家"}
+,{"pos":"形","cn":"家的； 家庭的"}
+,{"pos":"动","cn":"送…回家； 提供住处"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hometown","phonetic0":"ˈhǝʊmtaʊn","phonetic1":"ˈhǝʊmtaʊn","trans":[{"pos":"名","cn":"家乡； 故乡"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"horse","phonetic0":"hɔːrs","phonetic1":"hɔːrs","trans":[{"pos":"名","cn":"⻢"}
+,{"pos":"动","cn":"骑⻢"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hospital","phonetic0":"ˈhɑːspɪt(ǝ)l","phonetic1":"ˈhɑːspɪt(ǝ)l","trans":[{"pos":"名","cn":"医院"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hot","phonetic0":"hɑːt","phonetic1":"hɑːt","trans":[{"pos":"形","cn":"热的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hour","phonetic0":"ˈaʊǝr","phonetic1":"ˈaʊǝr","trans":[{"pos":"名","cn":"⼩时"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"house","phonetic0":"haʊs","phonetic1":"haʊs","trans":[{"pos":"名","cn":"房⼦； 房屋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"how","phonetic0":"haʊ","phonetic1":"haʊ","trans":[{"pos":"副","cn":"如何； 怎样； 多么"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hungry","phonetic0":"ˈhʌŋɡri","phonetic1":"ˈhʌŋɡri","trans":[{"pos":"形","cn":"饥饿的； 渴望的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hurry","phonetic0":"ˈhɜːri","phonetic1":"ˈhɜːri","trans":[{"pos":"名","cn":"匆忙； 仓促"}
+,{"pos":"动","cn":"抓紧； 赶快； 匆忙地做"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"hurt","phonetic0":"hɜːrt","phonetic1":"hɜːrt","trans":[{"pos":"动","cn":"受伤； 感到疼痛"}
+,{"pos":"名","cn":"伤痛"}
+,{"pos":"形","cn":"受伤的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"I","phonetic0":"aɪ","phonetic1":"aɪ","trans":[{"pos":"代","cn":"我（主语）"}
+,{"pos":"名","cn":"碘（元素iodine 的符号）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ice","phonetic0":"aɪs","phonetic1":"aɪs","trans":[{"pos":"名","cn":"冰"}
+,{"pos":"动","cn":"（使） 结冰"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ice cream","phonetic0":"ˈaɪs kriːm","phonetic1":"ˈaɪs kriːm","trans":[{"pos":"名","cn":"冰淇淋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"idea","phonetic0":"aɪˈdiːǝ","phonetic1":"aɪˈdiːǝ","trans":[{"pos":"名","cn":"主意； 想法； 理念"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ill","phonetic0":"ɪl","phonetic1":"ɪl","trans":[{"pos":"形","cn":"⽣病的； 不舒服的； 坏的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"in","phonetic0":"ɪn","phonetic1":"ɪn","trans":[{"pos":"介","cn":"在…⾥⾯； 在"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"interesting","phonetic0":"ˈɪntrǝstɪŋ","phonetic1":"ˈɪntrǝstɪŋ","trans":[{"pos":"形","cn":"有趣的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Internet","phonetic0":"ˈɪntǝrnet","phonetic1":"ˈɪntǝrnet","trans":[{"pos":"名","cn":"因特⽹； 互联⽹"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"is","phonetic0":"ɪz","phonetic1":"ɪz","trans":[{"pos":"动","cn":"是"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"it","phonetic0":"ɪt","phonetic1":"ɪt","trans":[{"pos":"代","cn":"它"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"its","phonetic0":"ɪts","phonetic1":"ɪts","trans":[{"pos":"代","cn":"它的（所有格）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"job","phonetic0":"dʒɑːb","phonetic1":"dʒɑːb","trans":[{"pos":"名","cn":"⼯作"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"juice","phonetic0":"dʒuːs","phonetic1":"dʒuːs","trans":[{"pos":"名","cn":"果汁"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"jump","phonetic0":"dʒʌmp","phonetic1":"dʒʌmp","trans":[{"pos":"名","cn":"跳； 跳跃"}
+,{"pos":"动","cn":"跳； 跳跃"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"keep","phonetic0":"kiːp","phonetic1":"kiːp","trans":[{"pos":"动","cn":"继续； 保持； 保留"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"kid","phonetic0":"kɪd","phonetic1":"kɪd","trans":[{"pos":"名","cn":"⼩孩"}
+,{"pos":"动","cn":"哄骗； 开玩笑"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"kind","phonetic0":"kaɪnd","phonetic1":"kaɪnd","trans":[{"pos":"名","cn":"种类"}
+,{"pos":"形","cn":"善良的； 和蔼的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"kitchen","phonetic0":"ˈkɪtʃɪn","phonetic1":"ˈkɪtʃɪn","trans":[{"pos":"名","cn":"厨房"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"kite","phonetic0":"kaɪt","phonetic1":"kaɪt","trans":[{"pos":"名","cn":"⻛筝"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"know","phonetic0":"nǝʊ","phonetic1":"nǝʊ","trans":[{"pos":"动","cn":"知道"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"lake","phonetic0":"leɪk","phonetic1":"leɪk","trans":[{"pos":"名","cn":"湖； 湖泊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"last","phonetic0":"læst","phonetic1":"læst","trans":[{"pos":"形","cn":"最后的； 最近的 [副] 最后； 最近⼀次 [动] 持续"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"late","phonetic0":"leɪt","phonetic1":"leɪt","trans":[{"pos":"形","cn":"晚的； 迟的； 已故的"}
+,{"pos":"副","cn":"晚； 迟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"learn","phonetic0":"lɜːrn","phonetic1":"lɜːrn","trans":[{"pos":"动","cn":"学习； 得知"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"left","phonetic0":"left","phonetic1":"left","trans":[{"pos":"动","cn":"离开； “leave” 的过去式和过去分词"}
+,{"pos":"名","cn":"左； 左边"}
+,{"pos":"形","cn":"左边的"}
+,{"pos":"副","cn":"向左； 在左边"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"leg","phonetic0":"leɡ","phonetic1":"leɡ","trans":[{"pos":"名","cn":"腿部"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"lesson","phonetic0":"ˈles(ǝ)n","phonetic1":"ˈles(ǝ)n","trans":[{"pos":"名","cn":"课； 功课； 课程； 教训"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"let","phonetic0":"let","phonetic1":"let","trans":[{"pos":"动","cn":"让； 允许； 放开； 出租"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"letter","phonetic0":"ˈletǝr","phonetic1":"ˈletǝr","trans":[{"pos":"名","cn":"信； 字⺟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"library","phonetic0":"ˈlaɪbreri","phonetic1":"ˈlaɪbreri","trans":[{"pos":"名","cn":"图书馆"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"light","phonetic0":"laɪt","phonetic1":"laɪt","trans":[{"pos":"名","cn":"光； 灯； 光线"}
+,{"pos":"形","cn":"轻的； 浅的； 明亮的； 少量的"}
+,{"pos":"动","cn":"点燃； 照亮"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"like","phonetic0":"laɪk","phonetic1":"laɪk","trans":[{"pos":"动","cn":"喜欢"}
+,{"pos":"介","cn":"像"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"lion","phonetic0":"ˈlaɪǝn","phonetic1":"ˈlaɪǝn","trans":[{"pos":"名","cn":"狮⼦"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"listen","phonetic0":"ˈlɪs(ǝ)n","phonetic1":"ˈlɪs(ǝ)n","trans":[{"pos":"动","cn":"听"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"little","phonetic0":"ˈlɪt(ǝ)l","phonetic1":"ˈlɪt(ǝ)l","trans":[{"pos":"形","cn":"少的； ⼩的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"live","phonetic0":"lɪv","phonetic1":"lɪv","trans":[{"pos":"动","cn":"⽣活； 居住； 活着"}
+,{"pos":"形","cn":"活的； 现场的； 实况转播的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"long","phonetic0":"lɔːŋ","phonetic1":"lɔːŋ","trans":[{"pos":"形","cn":"⻓的； ⻓时间的"}
+,{"pos":"副","cn":"⻓久地； 始终 [名] ⻓时间； ⻓期 [动] 渴望； 盼望"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"look","phonetic0":"lʊk","phonetic1":"lʊk","trans":[{"pos":"动","cn":"看； 看上去"}
+,{"pos":"名","cn":"看"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"lot","phonetic0":"lɑːt","phonetic1":"lɑːt","trans":[{"pos":"名","cn":"许多； 命运； 抽签； ⼟地"}
+,{"pos":"副","cn":"很； ⾮常"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"love","phonetic0":"lʌv","phonetic1":"lʌv","trans":[{"pos":"名","cn":"爱； 爱情； 爱好的事物"}
+,{"pos":"动","cn":"爱； 热爱"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"lovely","phonetic0":"ˈlʌvli","phonetic1":"ˈlʌvli","trans":[{"pos":"形","cn":"可爱的； 美丽的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"lunch","phonetic0":"lʌntʃ","phonetic1":"lʌntʃ","trans":[{"pos":"名","cn":"午餐； 午饭"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"make","phonetic0":"meɪk","phonetic1":"meɪk","trans":[{"pos":"动","cn":"做； 制作； 使得"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"man","phonetic0":"mæn","phonetic1":"mæn","trans":[{"pos":"名","cn":"男⼈； ⼈"}
+,{"pos":"动","cn":"操作； ⼯作"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"many","phonetic0":"ˈmeni","phonetic1":"ˈmeni","trans":[{"pos":"形","cn":"许多的"}
+,{"pos":"代","cn":"许多⼈或物"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"map","phonetic0":"mæp","phonetic1":"mæp","trans":[{"pos":"名","cn":"地图"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"math","phonetic0":"mæθ","phonetic1":"mæθ","trans":[{"pos":"名","cn":"数学"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"mathematics","phonetic0":"ˌmæθǝˈmætɪks","phonetic1":"ˌmæθǝˈmætɪks","trans":[{"pos":"名","cn":"数学"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"maths","phonetic0":"mæθs","phonetic1":"mæθs","trans":[{"pos":"名","cn":"数学"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"may","phonetic0":"meɪ","phonetic1":"meɪ","trans":[{"pos":"助动","cn":"可能； 可以； 会； 愿"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"me","phonetic0":"miː","phonetic1":"miː","trans":[{"pos":"代","cn":"我（宾语）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"meat","phonetic0":"miːt","phonetic1":"miːt","trans":[{"pos":"名","cn":"⾁"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"meet","phonetic0":"miːt","phonetic1":"miːt","trans":[{"pos":"动","cn":"遇⻅； ⻅⾯； 满⾜"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"men","phonetic0":"men","phonetic1":"men","trans":[{"pos":"名","cn":"男⼈； ⼈； “man” 的复数"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"mice","phonetic0":"maɪs","phonetic1":"maɪs","trans":[{"pos":"名","cn":"⽼⿏； “mouse” 的复数"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"middle","phonetic0":"ˈmɪd(ǝ)l","phonetic1":"ˈmɪd(ǝ)l","trans":[{"pos":"名","cn":"中间"}
+,{"pos":"形","cn":"中间的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"milk","phonetic0":"mɪlk","phonetic1":"mɪlk","trans":[{"pos":"名","cn":"奶"}
+,{"pos":"动","cn":"挤奶"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"minute","phonetic0":"ˈmɪnɪt","phonetic1":"ˈmɪnɪt","trans":[{"pos":"名","cn":"分钟； ⼀会⼉"}
+,{"pos":"形","cn":"微⼩的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Miss","phonetic0":"mɪs","phonetic1":"mɪs","trans":[{"pos":"名","cn":"⼩姐"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"mom","phonetic0":"mɑːm","phonetic1":"mɑːm","trans":[{"pos":"名","cn":"妈妈"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"money","phonetic0":"ˈmʌni","phonetic1":"ˈmʌni","trans":[{"pos":"名","cn":"钱； ⾦钱"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"monkey","phonetic0":"ˈmʌŋki","phonetic1":"ˈmʌŋki","trans":[{"pos":"名","cn":"猴⼦"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"month","phonetic0":"mʌnθ","phonetic1":"mʌnθ","trans":[{"pos":"名","cn":"⽉； ⽉份"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"moon","phonetic0":"muːn","phonetic1":"muːn","trans":[{"pos":"名","cn":"⽉亮； ⽉球"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"morning","phonetic0":"ˈmɔːrnɪŋ","phonetic1":"ˈmɔːrnɪŋ","trans":[{"pos":"名","cn":"早晨； 上午"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"mother","phonetic0":"ˈmʌðǝr","phonetic1":"ˈmʌðǝr","trans":[{"pos":"名","cn":"⺟亲"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"mouse","phonetic0":"maʊs","phonetic1":"maʊs","trans":[{"pos":"名","cn":"⽼⿏； ⿏标"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"mouth","phonetic0":"maʊθ","phonetic1":"maʊθ","trans":[{"pos":"名","cn":"嘴； ⼝"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"move","phonetic0":"muːv","phonetic1":"muːv","trans":[{"pos":"动","cn":"移动； 搬家"}
+,{"pos":"名","cn":"⾏动； 移动"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Mr","phonetic0":"ˈmɪstǝr","phonetic1":"ˈmɪstǝr","trans":[{"pos":"缩","cn":"先⽣； “Mister” 的缩写"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Mr.","phonetic0":"ˈmɪstǝr","phonetic1":"ˈmɪstǝr","trans":[{"pos":"名","cn":"男⼠"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Mrs","phonetic0":"ˈmɪsɪz","phonetic1":"ˈmɪsɪz","trans":[{"pos":"缩","cn":"太太； 夫⼈； “Mistress” 的缩写"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Mrs.","phonetic0":"ˈmɪsɪz","phonetic1":"ˈmɪsɪz","trans":[{"pos":"缩","cn":"太太； 夫⼈； “Mistress” 的缩写"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Ms","phonetic0":"mɪz","phonetic1":"mɪz","trans":[{"pos":"名","cn":"（⽤于⼥⼦的姓⽒或姓名前， 不"}
+,{"pos":"","cn":"指明婚否） ⼥⼠"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"Ms.","phonetic0":"mɪz","phonetic1":"mɪz","trans":[{"pos":"名","cn":"⼥⼠； ⼩姐"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"much","phonetic0":"mʌtʃ","phonetic1":"mʌtʃ","trans":[{"pos":"副","cn":"⾮常地"}
+,{"pos":"形","cn":"多； 许多"}
+,{"pos":"代","cn":"许多"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"mum","phonetic0":"mʌm","phonetic1":"mʌm","trans":[{"pos":"形","cn":"沉默的； 不说话的"}
+,{"pos":"名","cn":"妈妈"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"music","phonetic0":"ˈmjuːzɪk","phonetic1":"ˈmjuːzɪk","trans":[{"pos":"名","cn":"⾳乐； 乐曲"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"must","phonetic0":"mʌst","phonetic1":"mʌst","trans":[{"pos":"助动","cn":"必须； ⼀定要"}
+,{"pos":"名","cn":"必须做的事； 必不可少的事物"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"my","phonetic0":"maɪ","phonetic1":"maɪ","trans":[{"pos":"代","cn":"我的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"name","phonetic0":"neɪm","phonetic1":"neɪm","trans":[{"pos":"名","cn":"姓名； 名称"}
+,{"pos":"动","cn":"命名； 提名； 说出…的名字"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"near","phonetic0":"nɪr","phonetic1":"nɪr","trans":[{"pos":"形","cn":"近的"}
+,{"pos":"介","cn":"靠近； 在…附近"}
+,{"pos":"副","cn":"近地"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"never","phonetic0":"ˈnevǝr","phonetic1":"ˈnevǝr","trans":[{"pos":"副","cn":"从未； 决不"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"new","phonetic0":"nuː","phonetic1":"nuː","trans":[{"pos":"形","cn":"新的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"next","phonetic0":"nekst","phonetic1":"nekst","trans":[{"pos":"形","cn":"下⼀个的"}
+,{"pos":"副","cn":"随后"}
+,{"pos":"代","cn":"下⼀个"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"nice","phonetic0":"naɪs","phonetic1":"naɪs","trans":[{"pos":"形","cn":"令⼈愉快的； 美好的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"night","phonetic0":"naɪt","phonetic1":"naɪt","trans":[{"pos":"名","cn":"夜晚； 晚上"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"no","phonetic0":"nǝʊ","phonetic1":"nǝʊ","trans":[{"pos":"形","cn":"没有； 不"}
+,{"pos":"副","cn":"不； 不是"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"noodle","phonetic0":"ˈnuːd(ǝ)l","phonetic1":"ˈnuːd(ǝ)l","trans":[{"pos":"名","cn":"⾯条"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"nose","phonetic0":"nǝʊz","phonetic1":"nǝʊz","trans":[{"pos":"名","cn":"⿐⼦"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"not","phonetic0":"nɑːt","phonetic1":"nɑːt","trans":[{"pos":"副","cn":"不； 不是"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"now","phonetic0":"naʊ","phonetic1":"naʊ","trans":[{"pos":"副","cn":"现在； ⽬前"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"nurse","phonetic0":"nɜːrs","phonetic1":"nɜːrs","trans":[{"pos":"名","cn":"护⼠； 保姆"}
+,{"pos":"动","cn":"护理； 照料； 喂奶"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"o'clock","phonetic0":"ǝˈklɑːk","phonetic1":"ǝˈklɑːk","trans":[{"pos":"副","cn":"…点钟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"of","phonetic0":"ʌv","phonetic1":"ʌv","trans":[{"pos":"介","cn":"关于； 属于"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"off","phonetic0":"ɔːf","phonetic1":"ɔːf","trans":[{"pos":"介","cn":"离开； 脱落"}
+,{"pos":"副","cn":"离； 断开"}
+,{"pos":"叹","cn":"⾛开"}
+,{"pos":"形","cn":"远离的； 空闲的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"often","phonetic0":"ˈɔːfǝn","phonetic1":"ˈɔːfǝn","trans":[{"pos":"副","cn":"常常地； 时常地"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"OK","phonetic0":"ǝʊˈkeɪ","phonetic1":"ǝʊˈkeɪ","trans":[{"pos":"形","cn":"好的； 不错的； 可以的"}
+,{"pos":"叹","cn":"好的； 可以"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"old","phonetic0":"ǝʊld","phonetic1":"ǝʊld","trans":[{"pos":"形","cn":"⽼的； 旧的； 年⽼的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"on","phonetic0":"ɑːn","phonetic1":"ɑːn","trans":[{"pos":"介","cn":"在……上"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"open","phonetic0":"ˈǝʊpǝn","phonetic1":"ˈǝʊpǝn","trans":[{"pos":"动","cn":"打开； 开放"}
+,{"pos":"形","cn":"开放的； 营业的"}
+,{"pos":"名","cn":"公开； 户外"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"or","phonetic0":"ɔːr","phonetic1":"ɔːr","trans":[{"pos":"连","cn":"或者； 否则"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"orange","phonetic0":"ˈɔːrɪndʒ","phonetic1":"ˈɔːrɪndʒ","trans":[{"pos":"形","cn":"橙⾊的"}
+,{"pos":"名","cn":"橙⾊； 橙⼦"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"our","phonetic0":"ˈaʊǝr","phonetic1":"ˈaʊǝr","trans":[{"pos":"代","cn":"我们的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"out","phonetic0":"aʊt","phonetic1":"aʊt","trans":[{"pos":"副","cn":"出去； 外出； 离开"}
+,{"pos":"介","cn":"向外； 在外⾯"}
+,{"pos":"形","cn":"外⾯的； 出局的"}
+,{"pos":"动","cn":"使熄灭； 揭露； 驱逐"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"over","phonetic0":"ˈǝʊvǝr","phonetic1":"ˈǝʊvǝr","trans":[{"pos":"副","cn":"结束； 越过； ⼤于"}
+,{"pos":"介","cn":"越过； 遍于…之上"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"pair","phonetic0":"per","phonetic1":"per","trans":[{"pos":"名","cn":"⼀双； ⼀对"}
+,{"pos":"动","cn":"（使） 成对； （使） 配对"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"panda","phonetic0":"ˈpændǝ","phonetic1":"ˈpændǝ","trans":[{"pos":"名","cn":"⼤熊猫"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"paper","phonetic0":"ˈpeɪpǝr","phonetic1":"ˈpeɪpǝr","trans":[{"pos":"名","cn":"纸； 报纸； 论⽂； 试卷"}
+,{"pos":"动","cn":"⽤墙纸贴"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"parent","phonetic0":"ˈperǝnt","phonetic1":"ˈperǝnt","trans":[{"pos":"名","cn":"⽗亲（或⺟亲）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"park","phonetic0":"pɑːrk","phonetic1":"pɑːrk","trans":[{"pos":"名","cn":"公园； 园区"}
+,{"pos":"动","cn":"停放； 停⻋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"party","phonetic0":"ˈpɑːrti","phonetic1":"ˈpɑːrti","trans":[{"pos":"名","cn":"聚会； 政党"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"PE","phonetic0":"ˌpiː ˈiː","phonetic1":"ˌpiː ˈiː","trans":[{"pos":"缩","cn":"体育教育； “physical education” 的缩写"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"pen","phonetic0":"pen","phonetic1":"pen","trans":[{"pos":"名","cn":"钢笔； 笔； 围栏"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"pencil","phonetic0":"ˈpens(ǝ)l","phonetic1":"ˈpens(ǝ)l","trans":[{"pos":"名","cn":"铅笔"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"people","phonetic0":"ˈpiːp(ǝ)l","phonetic1":"ˈpiːp(ǝ)l","trans":[{"pos":"名","cn":"⼈们； ⼈； ⼈⺠"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"pet","phonetic0":"pet","phonetic1":"pet","trans":[{"pos":"名","cn":"宠物； 宠⼉"}
+,{"pos":"动","cn":"爱抚"}
+,{"pos":"形","cn":"钟爱的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"phone","phonetic0":"fǝʊn","phonetic1":"fǝʊn","trans":[{"pos":"名","cn":"电话"}
+,{"pos":"动","cn":"打电话"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"photo","phonetic0":"ˈfǝʊtǝʊ","phonetic1":"ˈfǝʊtǝʊ","trans":[{"pos":"名","cn":"照⽚"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"photograph","phonetic0":"ˈfǝʊtǝɡræf","phonetic1":"ˈfǝʊtǝɡræf","trans":[{"pos":"名","cn":"照⽚； 相⽚"}
+,{"pos":"动","cn":"照相； 拍照"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"physical education","phonetic0":"ˌfɪzɪk(ǝ)l edʒu\nˈkeɪʃ(ǝ)n","phonetic1":"ˌfɪzɪk(ǝ)l edʒu\nˈkeɪʃ(ǝ)n","trans":[{"pos":"短语","cn":"体育教育； 体育课"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"piano","phonetic0":"piˈænǝʊ","phonetic1":"piˈænǝʊ","trans":[{"pos":"名","cn":"钢琴"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"picture","phonetic0":"ˈpɪktʃǝr","phonetic1":"ˈpɪktʃǝr","trans":[{"pos":"名","cn":"图画； 照⽚"}
+,{"pos":"动","cn":"想象； 描述"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"pig","phonetic0":"pɪɡ","phonetic1":"pɪɡ","trans":[{"pos":"名","cn":"猪"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ping-pong","phonetic0":"ˈpɪŋ pɑːŋ","phonetic1":"ˈpɪŋ pɑːŋ","trans":[{"pos":"名","cn":"乒乓球"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"pink","phonetic0":"pɪŋk","phonetic1":"pɪŋk","trans":[{"pos":"名","cn":"粉红⾊"}
+,{"pos":"形","cn":"粉红⾊的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"place","phonetic0":"pleɪs","phonetic1":"pleɪs","trans":[{"pos":"名","cn":"地⽅； ⽅位"}
+,{"pos":"动","cn":"安置； 安放"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"plane","phonetic0":"pleɪn","phonetic1":"pleɪn","trans":[{"pos":"名","cn":"⻜机； 平⾯"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"plant","phonetic0":"plænt","phonetic1":"plænt","trans":[{"pos":"名","cn":"植物； 作物； ⻋间； 装置； ⼯"}
+,{"pos":"","cn":"⼚； 发电⼚"}
+,{"pos":"动","cn":"种植； 栽培； 安置； 放置"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"play","phonetic0":"pleɪ","phonetic1":"pleɪ","trans":[{"pos":"动","cn":"玩； 演奏； 扮演； 播放"}
+,{"pos":"名","cn":"戏剧； ⽐赛"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"playground","phonetic0":"ˈpleɪɡraʊnd","phonetic1":"ˈpleɪɡraʊnd","trans":[{"pos":"名","cn":"操场； 运动场； 游乐场"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"please","phonetic0":"pliːz","phonetic1":"pliːz","trans":[{"pos":"叹","cn":"请"}
+,{"pos":"动","cn":"使欢喜； 取悦"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"police","phonetic0":"pǝˈliːs","phonetic1":"pǝˈliːs","trans":[{"pos":"名","cn":"警⽅； 警察部⻔"}
+,{"pos":"动","cn":"维持治安； 管理； 监督"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"potato","phonetic0":"pǝˈteɪtǝʊ","phonetic1":"pǝˈteɪtǝʊ","trans":[{"pos":"名","cn":"⼟⾖； ⻢铃薯"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"put","phonetic0":"pʊt","phonetic1":"pʊt","trans":[{"pos":"动","cn":"放； 放置"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"question","phonetic0":"ˈkwestʃǝn","phonetic1":"ˈkwestʃǝn","trans":[{"pos":"名","cn":"问题； 疑问"}
+,{"pos":"动","cn":"询问； 怀疑"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"quiet","phonetic0":"ˈkwaɪǝt","phonetic1":"ˈkwaɪǝt","trans":[{"pos":"形","cn":"安静的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"rabbit","phonetic0":"ˈræbɪt","phonetic1":"ˈræbɪt","trans":[{"pos":"名","cn":"兔⼦"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"rain","phonetic0":"reɪn","phonetic1":"reɪn","trans":[{"pos":"名","cn":"⾬； ⾬⽔"}
+,{"pos":"动","cn":"下⾬"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"read","phonetic0":"riːd","phonetic1":"riːd","trans":[{"pos":"动","cn":"读； 阅读"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"red","phonetic0":"red","phonetic1":"red","trans":[{"pos":"形","cn":"红的"}
+,{"pos":"名","cn":"红⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"rice","phonetic0":"raɪs","phonetic1":"raɪs","trans":[{"pos":"名","cn":"⽶饭"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"right","phonetic0":"raɪt","phonetic1":"raɪt","trans":[{"pos":"形","cn":"右边的； 正确的"}
+,{"pos":"名","cn":"权利； 右边"}
+,{"pos":"副","cn":"正确地； 直接地； 向右"}
+,{"pos":"动","cn":"扶直； 纠正"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"river","phonetic0":"ˈrɪvǝr","phonetic1":"ˈrɪvǝr","trans":[{"pos":"名","cn":"河； 河流"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"robot","phonetic0":"ˈrǝʊbɑːt","phonetic1":"ˈrǝʊbɑːt","trans":[{"pos":"名","cn":"机器⼈"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"room","phonetic0":"ruːm","phonetic1":"ruːm","trans":[{"pos":"名","cn":"房间； 空间"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ruler","phonetic0":"ˈruːlǝr","phonetic1":"ˈruːlǝr","trans":[{"pos":"名","cn":"尺⼦； 统治者"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"run","phonetic0":"rʌn","phonetic1":"rʌn","trans":[{"pos":"动","cn":"跑步； 经营"}
+,{"pos":"名","cn":"跑； 运转"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sad","phonetic0":"sæd","phonetic1":"sæd","trans":[{"pos":"形","cn":"伤⼼的； 难过的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"safe","phonetic0":"seɪf","phonetic1":"seɪf","trans":[{"pos":"形","cn":"安全的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"say","phonetic0":"seɪ","phonetic1":"seɪ","trans":[{"pos":"动","cn":"说； 讲； 说话"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"school","phonetic0":"skuːl","phonetic1":"skuːl","trans":[{"pos":"名","cn":"学校"}
+,{"pos":"动","cn":"教育"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"schoolbag","phonetic0":"ˈskuːlˌbæɡ","phonetic1":"ˈskuːlˌbæɡ","trans":[{"pos":"名","cn":"书包"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"science","phonetic0":"ˈsaɪǝns","phonetic1":"ˈsaɪǝns","trans":[{"pos":"名","cn":"科学"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sea","phonetic0":"siː","phonetic1":"siː","trans":[{"pos":"名","cn":"海； 海洋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"season","phonetic0":"ˈsiːz(ǝ)n","phonetic1":"ˈsiːz(ǝ)n","trans":[{"pos":"名","cn":"季节"}
+,{"pos":"动","cn":"给...调味； ⻛⼲"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"see","phonetic0":"siː","phonetic1":"siː","trans":[{"pos":"动","cn":"看； 领悟"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sell","phonetic0":"sel","phonetic1":"sel","trans":[{"pos":"动","cn":"出售； 卖"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"share","phonetic0":"ʃer","phonetic1":"ʃer","trans":[{"pos":"动","cn":"共享； 分享"}
+,{"pos":"名","cn":"分享； 股份"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"she","phonetic0":"ʃiː","phonetic1":"ʃiː","trans":[{"pos":"代","cn":"她（主格）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sheep","phonetic0":"ʃiːp","phonetic1":"ʃiːp","trans":[{"pos":"名","cn":"绵⽺； ⼩⽺； 羔⽺"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"ship","phonetic0":"ʃɪp","phonetic1":"ʃɪp","trans":[{"pos":"名","cn":"船； 舰"}
+,{"pos":"动","cn":"装运； 把…装上船； 使乘船； 在船上⼯作"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"shirt","phonetic0":"ʃɜːrt","phonetic1":"ʃɜːrt","trans":[{"pos":"名","cn":"衬衫"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"shoe","phonetic0":"ʃuː","phonetic1":"ʃuː","trans":[{"pos":"名","cn":"鞋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"shop","phonetic0":"ʃɑːp","phonetic1":"ʃɑːp","trans":[{"pos":"名","cn":"商店"}
+,{"pos":"动","cn":"购物"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"short","phonetic0":"ʃɔːrt","phonetic1":"ʃɔːrt","trans":[{"pos":"形","cn":"短的； 矮的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"shorts","phonetic0":"ʃɔːrts","phonetic1":"ʃɔːrts","trans":[{"pos":"名","cn":"短裤"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"should","phonetic0":"ʃʊd","phonetic1":"ʃʊd","trans":[{"pos":"助动","cn":"应该； 应当"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"show","phonetic0":"ʃǝʊ","phonetic1":"ʃǝʊ","trans":[{"pos":"动","cn":"展示； 表明； 给...看"}
+,{"pos":"名","cn":"演出； 节⽬； 展览会； 表现"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sing","phonetic0":"sɪŋ","phonetic1":"sɪŋ","trans":[{"pos":"动","cn":"唱歌； 演唱"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sister","phonetic0":"ˈsɪstǝr","phonetic1":"ˈsɪstǝr","trans":[{"pos":"名","cn":"姐妹"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sit","phonetic0":"sɪt","phonetic1":"sɪt","trans":[{"pos":"动","cn":"坐"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"skirt","phonetic0":"skɜːrt","phonetic1":"skɜːrt","trans":[{"pos":"名","cn":"短裙； 下摆； 边缘"}
+,{"pos":"动","cn":"位于…的边缘； 绕着…⾛； 避开"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sleep","phonetic0":"sliːp","phonetic1":"sliːp","trans":[{"pos":"名","cn":"睡眠"}
+,{"pos":"动","cn":"睡觉"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"slow","phonetic0":"slǝʊ","phonetic1":"slǝʊ","trans":[{"pos":"形","cn":"缓慢的； 漫⻓的； 迟钝的"}
+,{"pos":"动","cn":"使减速"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"small","phonetic0":"smɔːl","phonetic1":"smɔːl","trans":[{"pos":"形","cn":"⼩的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"snow","phonetic0":"snǝʊ","phonetic1":"snǝʊ","trans":[{"pos":"动","cn":"下雪； 降雪"}
+,{"pos":"名","cn":"雪花； 雪"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"so","phonetic0":"sǝʊ","phonetic1":"sǝʊ","trans":[{"pos":"副","cn":"如此； 这么； 很； 也"}
+,{"pos":"连","cn":"所以"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sock","phonetic0":"sɑːk","phonetic1":"sɑːk","trans":[{"pos":"名","cn":"短袜； 重击"}
+,{"pos":"动","cn":"猛打"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"some","phonetic0":"sʌm","phonetic1":"sʌm","trans":[{"pos":"形","cn":"⼀些； 某些"}
+,{"pos":"代","cn":"有些； 若⼲"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sometimes","phonetic0":"ˈsʌmtaɪmz","phonetic1":"ˈsʌmtaɪmz","trans":[{"pos":"副","cn":"有时； 间或"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"song","phonetic0":"sɔːŋ","phonetic1":"sɔːŋ","trans":[{"pos":"名","cn":"歌； 歌曲"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sorry","phonetic0":"ˈsɑːri","phonetic1":"ˈsɑːri","trans":[{"pos":"形","cn":"对不起的； 遗憾的； 抱歉的"}
+,{"pos":"叹","cn":"对不起； 抱歉"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"soup","phonetic0":"suːp","phonetic1":"suːp","trans":[{"pos":"名","cn":"汤"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"space","phonetic0":"speɪs","phonetic1":"speɪs","trans":[{"pos":"名","cn":"空间； 太空； 空格； 空⽩"}
+,{"pos":"动","cn":"以⼀定间隔排列"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"speak","phonetic0":"spiːk","phonetic1":"spiːk","trans":[{"pos":"动","cn":"讲话； 发⾔"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sport","phonetic0":"spɔːrt","phonetic1":"spɔːrt","trans":[{"pos":"名","cn":"体育运动"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"spring","phonetic0":"sprɪŋ","phonetic1":"sprɪŋ","trans":[{"pos":"名","cn":"春天； 弹簧； 泉"}
+,{"pos":"动","cn":"跳； 跃； 蹦； 突然猛烈地移动"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"stand","phonetic0":"stænd","phonetic1":"stænd","trans":[{"pos":"动","cn":"站⽴； 忍受； 抵御"}
+,{"pos":"名","cn":"停⽌； 抵抗的状态； ⽴⾜点"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"star","phonetic0":"stɑːr","phonetic1":"stɑːr","trans":[{"pos":"名","cn":"星； 恒星； 明星"}
+,{"pos":"动","cn":"主演"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"stop","phonetic0":"stɑːp","phonetic1":"stɑːp","trans":[{"pos":"动","cn":"停⽌； 阻⽌"}
+,{"pos":"名","cn":"停⽌； 阻⽌； ⻋站； 停留"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"story","phonetic0":"ˈstɔːri","phonetic1":"ˈstɔːri","trans":[{"pos":"名","cn":"故事； ⼩说； 轶事； 假话"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"street","phonetic0":"striːt","phonetic1":"striːt","trans":[{"pos":"名","cn":"街道； ⼤街"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"strong","phonetic0":"strɔːŋ","phonetic1":"strɔːŋ","trans":[{"pos":"形","cn":"强壮的； 强烈的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"student","phonetic0":"ˈstuːd(ǝ)nt","phonetic1":"ˈstuːd(ǝ)nt","trans":[{"pos":"名","cn":"学⽣"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"study","phonetic0":"ˈstʌdi","phonetic1":"ˈstʌdi","trans":[{"pos":"动","cn":"学习； 研究"}
+,{"pos":"名","cn":"学习； 研究； 书房"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"subject","phonetic0":"ˈsʌbdʒekt","phonetic1":"ˈsʌbdʒekt","trans":[{"pos":"名","cn":"学科； 对象； 主题； 主语 [形] 易遭受…的； 受…⽀配的 [动] 使⾂服"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"summer","phonetic0":"ˈsʌmǝr","phonetic1":"ˈsʌmǝr","trans":[{"pos":"名","cn":"夏季； 夏天"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sun","phonetic0":"sʌn","phonetic1":"sʌn","trans":[{"pos":"名","cn":"太阳； 阳光"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sunny","phonetic0":"ˈsʌni","phonetic1":"ˈsʌni","trans":[{"pos":"形","cn":"阳光灿烂的； 晴朗的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"supermarket","phonetic0":"ˈsuːpǝrmɑːrkɪt","phonetic1":"ˈsuːpǝrmɑːrkɪt","trans":[{"pos":"名","cn":"超市； 超级市场"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sure","phonetic0":"ʃʊr","phonetic1":"ʃʊr","trans":[{"pos":"副","cn":"当然； 当然可以； 确定"}
+,{"pos":"形","cn":"确信； 必定的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sweater","phonetic0":"ˈswetǝr","phonetic1":"ˈswetǝr","trans":[{"pos":"名","cn":"⽑⾐"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"sweep","phonetic0":"swiːp","phonetic1":"swiːp","trans":[{"pos":"动","cn":"扫； 打扫； 掠过； 扫荡"}
+,{"pos":"名","cn":"扫； 打扫； 掠过； 席卷"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"swim","phonetic0":"swɪm","phonetic1":"swɪm","trans":[{"pos":"动","cn":"游泳"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"table","phonetic0":"ˈteɪb(ǝ)l","phonetic1":"ˈteɪb(ǝ)l","trans":[{"pos":"名","cn":"桌⼦； 台⼦； 表格"}
+,{"pos":"动","cn":"把…列⼊议事⽇程； 搁置"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tail","phonetic0":"teɪl","phonetic1":"teɪl","trans":[{"pos":"名","cn":"尾巴； 尾随者"}
+,{"pos":"动","cn":"跟踪"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"take","phonetic0":"teɪk","phonetic1":"teɪk","trans":[{"pos":"动","cn":"拿； 带领； 乘坐； 接受； 花费；"}
+,{"pos":"","cn":"做（某个动作）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"talk","phonetic0":"tɔːk","phonetic1":"tɔːk","trans":[{"pos":"动","cn":"说话； 交谈"}
+,{"pos":"名","cn":"谈话"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tall","phonetic0":"tɔːl","phonetic1":"tɔːl","trans":[{"pos":"形","cn":"⾼的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"taxi","phonetic0":"ˈtæksi","phonetic1":"ˈtæksi","trans":[{"pos":"名","cn":"出租⻋； 计程⻋"}
+,{"pos":"动","cn":"乘坐出租汽⻋"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tea","phonetic0":"tiː","phonetic1":"tiː","trans":[{"pos":"名","cn":"茶； 茶叶； 茶⽔"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"teacher","phonetic0":"ˈtiːtʃǝr","phonetic1":"ˈtiːtʃǝr","trans":[{"pos":"名","cn":"教师"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"television","phonetic0":"ˈtelɪvɪʒ(ǝ)n","phonetic1":"ˈtelɪvɪʒ(ǝ)n","trans":[{"pos":"名","cn":"电视机； 电视节⽬； 电视⾏业"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tell","phonetic0":"tel","phonetic1":"tel","trans":[{"pos":"动","cn":"告诉； 讲述； 说； 辨别"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"thank","phonetic0":"θæŋk","phonetic1":"θæŋk","trans":[{"pos":"动","cn":"谢谢"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"that","phonetic0":"ðæt","phonetic1":"ðæt","trans":[{"pos":"形","cn":"那； 那个； 那样的"}
+,{"pos":"代","cn":"那⼉； 那⾥"}
+,{"pos":"连","cn":"那（引导从句）"}
+,{"pos":"副","cn":"那个； 那么； 那样"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"the","phonetic0":"ðǝ","phonetic1":"ðǝ","trans":[{"pos":"冠","cn":"这个"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"their","phonetic0":"ðer","phonetic1":"ðer","trans":[{"pos":"代","cn":"他们的， 她们的； 它们的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"them","phonetic0":"ðǝm","phonetic1":"ðǝm","trans":[{"pos":"代","cn":"他们； 她们； 它们（宾格）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"then","phonetic0":"ðen","phonetic1":"ðen","trans":[{"pos":"副","cn":"然后； 接下来； 那时"}
+,{"pos":"形","cn":"当时的； 那时的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"there","phonetic0":"ðer","phonetic1":"ðer","trans":[{"pos":"副","cn":"在那⾥"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"these","phonetic0":"ðiːz","phonetic1":"ðiːz","trans":[{"pos":"代","cn":"这些； “this” 的复数 [形] 这些的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"they","phonetic0":"ðeɪ","phonetic1":"ðeɪ","trans":[{"pos":"代","cn":"他们； 它们； 她们"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"thin","phonetic0":"θɪn","phonetic1":"θɪn","trans":[{"pos":"形","cn":"瘦的； 薄的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"think","phonetic0":"θɪŋk","phonetic1":"θɪŋk","trans":[{"pos":"动","cn":"认为； 想； 思考"}
+,{"pos":"名","cn":"思考"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"this","phonetic0":"ðɪs","phonetic1":"ðɪs","trans":[{"pos":"形","cn":"这"}
+,{"pos":"代","cn":"这个"}
+,{"pos":"副","cn":"这个； 这样； 这么"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"those","phonetic0":"ðǝʊz","phonetic1":"ðǝʊz","trans":[{"pos":"形","cn":"那些的"}
+,{"pos":"代","cn":"那些； “that” 的复数"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tidy","phonetic0":"ˈtaɪdi","phonetic1":"ˈtaɪdi","trans":[{"pos":"形","cn":"整洁的； 整⻬的"}
+,{"pos":"动","cn":"收拾； 整理"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tiger","phonetic0":"ˈtaɪɡǝr","phonetic1":"ˈtaɪɡǝr","trans":[{"pos":"名","cn":"⽼⻁"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"time","phonetic0":"taɪm","phonetic1":"taɪm","trans":[{"pos":"名","cn":"时间； 倍； 次数； 时期"}
+,{"pos":"动","cn":"计时； 安排时间"}
+,{"pos":"形","cn":"时间的； 定时的； 分期的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tired","phonetic0":"ˈtaɪǝrd","phonetic1":"ˈtaɪǝrd","trans":[{"pos":"形","cn":"疲倦的； 厌烦的"}
+,{"pos":"动","cn":"使疲倦； 使厌烦； “tire” 的过去"}
+,{"pos":"","cn":"式和过去分词"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"to","phonetic0":"tuː","phonetic1":"tuː","trans":[{"pos":"介","cn":"到； 向； ⾄； 对于"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"today","phonetic0":"tǝˈdeɪ","phonetic1":"tǝˈdeɪ","trans":[{"pos":"名","cn":"今天； 当今"}
+,{"pos":"副","cn":"在今天； 当今"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"toilet","phonetic0":"ˈtɔɪlǝt","phonetic1":"ˈtɔɪlǝt","trans":[{"pos":"名","cn":"厕所； ⻢桶； 卫⽣间； 盥洗室"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tomato","phonetic0":"tǝˈmeɪtǝʊ","phonetic1":"tǝˈmeɪtǝʊ","trans":[{"pos":"名","cn":"⻄红柿； 番茄"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tomorrow","phonetic0":"tǝˈmɑːrǝʊ","phonetic1":"tǝˈmɑːrǝʊ","trans":[{"pos":"副","cn":"在明天"}
+,{"pos":"名","cn":"明天"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"too","phonetic0":"tuː","phonetic1":"tuː","trans":[{"pos":"副","cn":"也； 过于"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"top","phonetic0":"tɑːp","phonetic1":"tɑːp","trans":[{"pos":"名","cn":"顶； 顶部； 顶端"}
+,{"pos":"动","cn":"胜过； 超过； 居…之⾸"}
+,{"pos":"形","cn":"最⾼的； 极棒的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"toy","phonetic0":"tɔɪ","phonetic1":"tɔɪ","trans":[{"pos":"名","cn":"玩具"}
+,{"pos":"动","cn":"玩弄"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"train","phonetic0":"treɪn","phonetic1":"treɪn","trans":[{"pos":"名","cn":"⽕⻋； 列⻋； 列； 队"}
+,{"pos":"动","cn":"训练； 培训"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"travel","phonetic0":"ˈtræv(ǝ)l","phonetic1":"ˈtræv(ǝ)l","trans":[{"pos":"动","cn":"旅游； 旅⾏"}
+,{"pos":"名","cn":"旅游； 旅⾏"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"tree","phonetic0":"triː","phonetic1":"triː","trans":[{"pos":"名","cn":"树； 树⽊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"trousers","phonetic0":"ˈtraʊzǝrz","phonetic1":"ˈtraʊzǝrz","trans":[{"pos":"名","cn":"裤⼦； ⻓裤"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"try","phonetic0":"traɪ","phonetic1":"traɪ","trans":[{"pos":"名","cn":"尝试； 试图"}
+,{"pos":"动","cn":"尝试； 试图； 努⼒"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"turn","phonetic0":"tɜːrn","phonetic1":"tɜːrn","trans":[{"pos":"动","cn":"转身； 转弯； 转动； 转变"}
+,{"pos":"名","cn":"轮到的机会； 拐弯； 转变"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"TV","phonetic0":"ˌtiː ˈviː","phonetic1":"ˌtiː ˈviː","trans":[{"pos":"缩","cn":"电视机； “television” 的缩写"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"umbrella","phonetic0":"ʌmˈbrelǝ","phonetic1":"ʌmˈbrelǝ","trans":[{"pos":"名","cn":"伞； ⾬伞"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"uncle","phonetic0":"ˈʌŋk(ǝ)l","phonetic1":"ˈʌŋk(ǝ)l","trans":[{"pos":"名","cn":"叔⽗； 伯⽗； 舅⽗； 姑⽗； 姨⽗"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"under","phonetic0":"ˈʌndǝr","phonetic1":"ˈʌndǝr","trans":[{"pos":"介","cn":"在…下⾯； 低于"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"up","phonetic0":"ʌp","phonetic1":"ʌp","trans":[{"pos":"副","cn":"向上"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"us","phonetic0":"ʌs","phonetic1":"ʌs","trans":[{"pos":"代","cn":"我们（宾格）"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"use","phonetic0":"juːz","phonetic1":"juːz","trans":[{"pos":"动","cn":"使⽤； 利⽤"}
+,{"pos":"名","cn":"使⽤； ⽤途"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"vegetable","phonetic0":"ˈvedʒtǝb(ǝ)l","phonetic1":"ˈvedʒtǝb(ǝ)l","trans":[{"pos":"名","cn":"蔬菜"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"very","phonetic0":"ˈveri","phonetic1":"ˈveri","trans":[{"pos":"副","cn":"⾮常； 很"}
+,{"pos":"形","cn":"恰好是， 正是"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"visit","phonetic0":"ˈvɪzɪt","phonetic1":"ˈvɪzɪt","trans":[{"pos":"动","cn":"访问； 参观"}
+,{"pos":"名","cn":"访问； 参观"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wait","phonetic0":"weɪt","phonetic1":"weɪt","trans":[{"pos":"动","cn":"等待； 等候"}
+,{"pos":"名","cn":"等待； 等候"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wake","phonetic0":"weɪk","phonetic1":"weɪk","trans":[{"pos":"动","cn":"醒来； 唤醒"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"walk","phonetic0":"wɔːk","phonetic1":"wɔːk","trans":[{"pos":"动","cn":"⾏⾛"}
+,{"pos":"名","cn":"步⾏"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wall","phonetic0":"wɔːl","phonetic1":"wɔːl","trans":[{"pos":"名","cn":"墙壁"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"want","phonetic0":"wɑːnt","phonetic1":"wɑːnt","trans":[{"pos":"动","cn":"想要"}
+,{"pos":"名","cn":"缺乏"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"warm","phonetic0":"wɔːrm","phonetic1":"wɔːrm","trans":[{"pos":"形","cn":"温暖的"}
+,{"pos":"动","cn":"（使） 变暖"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wash","phonetic0":"wɑːʃ","phonetic1":"wɑːʃ","trans":[{"pos":"动","cn":"洗； 洗涤"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"watch","phonetic0":"wɑːtʃ","phonetic1":"wɑːtʃ","trans":[{"pos":"动","cn":"观看； 观察； ⼩⼼"}
+,{"pos":"名","cn":"⼿表； 监视； 注意"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"water","phonetic0":"ˈwɔːtǝr","phonetic1":"ˈwɔːtǝr","trans":[{"pos":"名","cn":"⽔"}
+,{"pos":"动","cn":"给…浇⽔； 给（某地） 供⽔"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"way","phonetic0":"weɪ","phonetic1":"weɪ","trans":[{"pos":"名","cn":"道路； ⽅向； 路线； ⽅法； ⽅式"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"we","phonetic0":"wiː","phonetic1":"wiː","trans":[{"pos":"代","cn":"我们"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wear","phonetic0":"wer","phonetic1":"wer","trans":[{"pos":"动","cn":"穿； 戴"}
+,{"pos":"名","cn":"⾐着； 磨损"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"weather","phonetic0":"ˈweðǝr","phonetic1":"ˈweðǝr","trans":[{"pos":"名","cn":"天⽓"}
+,{"pos":"动","cn":"使受⻛吹⾬打； ⻛⼲； 经受住"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"week","phonetic0":"wiːk","phonetic1":"wiːk","trans":[{"pos":"名","cn":"周； 星期； 礼拜"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"welcome","phonetic0":"ˈwelkǝm","phonetic1":"ˈwelkǝm","trans":[{"pos":"名","cn":"欢迎"}
+,{"pos":"形","cn":"受欢迎的"}
+,{"pos":"动","cn":"欢迎"}
+,{"pos":"叹","cn":"欢迎"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"well","phonetic0":"wel","phonetic1":"wel","trans":[{"pos":"副","cn":"好； 对； 满意地"}
+,{"pos":"形","cn":"健康的"}
+,{"pos":"名","cn":"泉； 井； 油井"}
+,{"pos":"叹","cn":"（⽤于表示惊讶， 疑虑， 接受等）好"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"what","phonetic0":"wʌt","phonetic1":"wʌt","trans":[{"pos":"代","cn":"什么"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"when","phonetic0":"wen","phonetic1":"wen","trans":[{"pos":"副","cn":"什么时候"}
+,{"pos":"连","cn":"在…的时候"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"where","phonetic0":"wer","phonetic1":"wer","trans":[{"pos":"副","cn":"在哪⾥"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"which","phonetic0":"wɪtʃ","phonetic1":"wɪtʃ","trans":[{"pos":"代","cn":"哪个"}
+,{"pos":"形","cn":"哪个的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"white","phonetic0":"waɪt","phonetic1":"waɪt","trans":[{"pos":"形","cn":"⽩⾊的"}
+,{"pos":"名","cn":"⽩⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"who","phonetic0":"huː","phonetic1":"huː","trans":[{"pos":"代","cn":"谁"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"whose","phonetic0":"huːz","phonetic1":"huːz","trans":[{"pos":"代","cn":"谁的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"why","phonetic0":"waɪ","phonetic1":"waɪ","trans":[{"pos":"副","cn":"为什么"}
+,{"pos":"名","cn":"为什么"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"will","phonetic0":"wɪl","phonetic1":"wɪl","trans":[{"pos":"助动","cn":"将会； 愿意"}
+,{"pos":"动","cn":"愿意； 遗赠"}
+,{"pos":"名","cn":"意志； 意愿； 遗嘱"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"win","phonetic0":"wɪn","phonetic1":"wɪn","trans":[{"pos":"动","cn":"赢； 获得"}
+,{"pos":"名","cn":"胜利； 赢得"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"window","phonetic0":"ˈwɪndǝʊ","phonetic1":"ˈwɪndǝʊ","trans":[{"pos":"名","cn":"窗⼝； 窗户"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"windy","phonetic0":"ˈwɪndi","phonetic1":"ˈwɪndi","trans":[{"pos":"形","cn":"有⻛的； 多⻛的； 空谈的； 吹⽜"}
+,{"pos":"","cn":"的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"winter","phonetic0":"ˈwɪntǝr","phonetic1":"ˈwɪntǝr","trans":[{"pos":"名","cn":"冬季； 冬天"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wish","phonetic0":"wɪʃ","phonetic1":"wɪʃ","trans":[{"pos":"名","cn":"祝福； 愿望"}
+,{"pos":"动","cn":"祝愿； 希望"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"with","phonetic0":"wɪð","phonetic1":"wɪð","trans":[{"pos":"介","cn":"⽤； 和； 有； 对； 随着"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"woman","phonetic0":"ˈwʊmǝn","phonetic1":"ˈwʊmǝn","trans":[{"pos":"名","cn":"⼥⼈； 妇⼥"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"women","phonetic0":"ˈwɪmɪn","phonetic1":"ˈwɪmɪn","trans":[{"pos":"名","cn":"⼥⼈； 妇⼥； “woman” 的复数"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wonderful","phonetic0":"ˈwʌndǝrf(ǝ)l","phonetic1":"ˈwʌndǝrf(ǝ)l","trans":[{"pos":"形","cn":"精彩的； 极好的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"word","phonetic0":"wɜːrd","phonetic1":"wɜːrd","trans":[{"pos":"名","cn":"词； 单词； 话语"}
+,{"pos":"动","cn":"⽤词语表达"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"work","phonetic0":"wɜːrk","phonetic1":"wɜːrk","trans":[{"pos":"名","cn":"⼯作； 作品； 活计； 制作品"}
+,{"pos":"动","cn":"（使） ⼯作； （使） 运转； 操作； 经"}
+,{"pos":"","cn":"营； 起作⽤"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"worker","phonetic0":"ˈwɜːrkǝr","phonetic1":"ˈwɜːrkǝr","trans":[{"pos":"名","cn":"⼯⼈； ⼯作者； 劳动者"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"world","phonetic0":"wɜːrld","phonetic1":"wɜːrld","trans":[{"pos":"名","cn":"世界"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"worry","phonetic0":"ˈwɜːri","phonetic1":"ˈwɜːri","trans":[{"pos":"动","cn":"担⼼； 担忧"}
+,{"pos":"名","cn":"担⼼； 忧虑"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"write","phonetic0":"raɪt","phonetic1":"raɪt","trans":[{"pos":"动","cn":"书写； 写信； 写作"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"wrong","phonetic0":"rɔːŋ","phonetic1":"rɔːŋ","trans":[{"pos":"形","cn":"错误的"}
+,{"pos":"名","cn":"错误"}
+,{"pos":"副","cn":"错误地"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"year","phonetic0":"jɪr","phonetic1":"jɪr","trans":[{"pos":"名","cn":"年"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"yellow","phonetic0":"ˈjelǝʊ","phonetic1":"ˈjelǝʊ","trans":[{"pos":"形","cn":"⻩⾊的"}
+,{"pos":"名","cn":"⻩⾊"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"yes","phonetic0":"jes","phonetic1":"jes","trans":[{"pos":"副","cn":"是"}
+,{"pos":"名","cn":"是"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"yesterday","phonetic0":"ˈjestǝrdeɪ","phonetic1":"ˈjestǝrdeɪ","trans":[{"pos":"名","cn":"昨天"}
+,{"pos":"副","cn":"昨天"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"you","phonetic0":"juː","phonetic1":"juː","trans":[{"pos":"代","cn":"你； 你们"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"young","phonetic0":"jʌŋ","phonetic1":"jʌŋ","trans":[{"pos":"形","cn":"年轻的； 年幼的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"your","phonetic0":"jʊr","phonetic1":"jʊr","trans":[{"pos":"代","cn":"你的； 你们的"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+,{"custom":false,"id":0,"word":"zoo","phonetic0":"zuː","phonetic1":"zuː","trans":[{"pos":"名","cn":"动物园"}
+],"sentences":[],"phrases":[],"synos":[],"relWords":{"root":"","rels":[]}
+,"etymology":[]}
+]

@@ -1,5 +1,10 @@
 <template>
-  <div class="dict-selector">
+  <div
+    class="dict-selector"
+    v-loading="loadingDictId !== null"
+    element-loading-text="正在加载词典..."
+    element-loading-background="rgba(255, 255, 255, 0.85)"
+  >
     <el-tabs v-model="activeTab" class="dict-tabs">
       <el-tab-pane 
         v-for="category in dictTree" 
@@ -31,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref, watch, computed } from "vue"
 import { dictTree, flatDictList } from './dictTree'
 import axios from 'axios'
 
@@ -45,6 +50,7 @@ const emits = defineEmits<{
 }>()
 
 const activeTab = ref<string>(dictTree[0]?.label || '')
+const loadingDictId = ref<string | null>(null)
 
 // 计算属性：使用 modelValue 作为选中状态
 const selectedDictId = computed({
@@ -61,6 +67,7 @@ async function loadDictById(dictId: string) {
   }
 
   try {
+    loadingDictId.value = dictId
     const response = await axios.get(dict.url, {
       baseURL: ""
     })
@@ -70,6 +77,8 @@ async function loadDictById(dictId: string) {
     })
   } catch (error) {
     console.error('加载词典失败:', error)
+  } finally {
+    loadingDictId.value = null
   }
 }
 
@@ -92,11 +101,12 @@ watch(() => props.modelValue, (newValue) => {
 }, { immediate: true })
 
 // 选择词典（点击卡片时调用）
-async function selectDict(dict: any) {
+function selectDict(dict: any) {
   selectedDictId.value = dict.id
   // 加载词典数据
-  await loadDictById(dict.id)
+  loadDictById(dict.id)
 }
+
 </script>
 
 <style lang="scss" scoped>

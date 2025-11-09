@@ -87,7 +87,7 @@ const posDescription = computed(() => {
   cursor: help;
   font-weight: 500;
   user-select: none;
-  
+  white-space: nowrap;
   &:hover {
     opacity: 0.8;
     text-decoration: underline;

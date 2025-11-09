@@ -36,6 +36,7 @@
         >
           已熟悉单词
         </el-button>
+        <span>剩余 {{ tableData.length }} 个单词</span>
       </div>
       <el-table
         :data="pagedData"
@@ -43,6 +44,8 @@
         border
         @sort-change="handleSortChange"
       >
+
+      <template v-if="!isMobile">
         <el-table-column
           label="序号"
           width="80"
@@ -128,9 +131,22 @@
                   <p v-if="row.phonetic1 !== row.phonetic0">***</p>
                 </template>
                 <template v-else>
-                  <p>[{{ row.phonetic0 }}]</p>
-                  <p v-if="row.phonetic1 !== row.phonetic0">
-                    [{{ row.phonetic1 }}]
+                  <p class="phonetic-row">
+                    <WordAudioButton
+                      :word="row.word"
+                      variant="us"
+                    />
+                    <span>[{{ row.phonetic0 }}]</span>
+                  </p>
+                  <p
+                    v-if="row.phonetic1 && row.phonetic1 !== row.phonetic0"
+                    class="phonetic-row"
+                  >
+                    <WordAudioButton
+                      :word="row.word"
+                      variant="uk"
+                    />
+                    <span>[{{ row.phonetic1 }}]</span>
                   </p>
                 </template>
               </div>
@@ -142,17 +158,7 @@
                 <Hide v-if="!row.phoneticHidden" />
                 <View v-else />
               </el-icon>
-              <el-icon
-                :size="20"
-                style="
-                  cursor: pointer;
-                  color: var(--el-color-primary);
-                  flex-shrink: 0;
-                "
-                @click="playAudio(row.word, 'us')"
-              >
-                <VideoPlay />
-              </el-icon>
+              
             </div>
           </template>
         </el-table-column>
@@ -160,7 +166,7 @@
         <el-table-column
           label="释义"
           width="300"
-          v-if="!isMobile"
+          
         >
           <template #default="{ row }">
             <div>
@@ -176,6 +182,7 @@
             </div>
           </template>
         </el-table-column>
+      </template>
 
         <el-table-column
           label="默写"
@@ -183,6 +190,55 @@
         >
           <template #default="{ row, $index }">
             <div v-if="isMobile">
+              <div class="mobile-inline-info">
+                <div class="mobile-word">
+                  单词：
+                  <span v-if="row.wordHidden">***</span>
+                  <span v-else>{{ row.word }}</span>
+                  <el-icon
+                    :size="16"
+                    style="cursor: pointer; margin-left: 8px"
+                    @click="row.wordHidden = !row.wordHidden"
+                  >
+                    <Hide v-if="!row.wordHidden" />
+                    <View v-else />
+                  </el-icon>
+                </div>
+                <div class="mobile-phonetic">
+                  音标：
+                  <div v-if="row.phoneticHidden" class="flex">
+                    <p>***</p>
+                    <p v-if="row.phonetic1 !== row.phonetic0">***</p>
+                  </div>
+                  <div v-else class="flex">
+                    <p class="phonetic-row">
+                      <WordAudioButton
+                        :word="row.word"
+                        variant="us"
+                      />
+                      <span>[{{ row.phonetic0 }}]</span>
+                    </p>
+                    <p
+                      v-if="row.phonetic1 && row.phonetic1 !== row.phonetic0"
+                      class="phonetic-row"
+                    >
+                      <WordAudioButton
+                        :word="row.word"
+                        variant="uk"
+                      />
+                      <span>[{{ row.phonetic1 }}]</span>
+                    </p>
+                  </div>
+                  <el-icon
+                    :size="16"
+                    style="cursor: pointer; margin-left: 8px"
+                    @click="row.phoneticHidden = !row.phoneticHidden"
+                  >
+                    <Hide v-if="!row.phoneticHidden" />
+                    <View v-else />
+                  </el-icon>
+                </div>
+              </div>
               <br />
               <ExpandableText
                 v-for="item in row.trans"
@@ -194,13 +250,10 @@
               <br />
             </div>
             <p class="input-tip-container">
-              <el-icon
-                :size="20"
-                style="cursor: pointer; color: var(--el-color-primary)"
-                @click="playAudio(row.word, 'us')"
-              >
-                <VideoPlay />
-              </el-icon>
+              <WordAudioButton
+                :word="row.word"
+                variant="us"
+              />
               <el-icon
                 v-if="isInputCorrect(row)"
                 :size="20"
@@ -216,10 +269,6 @@
                 <Close />
               </el-icon>
 
-              <span v-if="focusedIndex === $index">
-                按 Enter 或 Tab 键切换到下一个输入框
-              </span>
-
               <el-button
                 type="primary"
                 size="small"
@@ -228,6 +277,9 @@
               >
                 {{ isWordInSimpleList(row) ? "已加入熟悉单词" : "加入熟悉单词" }}
               </el-button>
+              <span v-if="focusedIndex === $index">
+                按 Enter 或 Tab 键切换到下一个输入框
+              </span>
             </p>
             <el-input
               :ref="el => setInputRef(el, $index)"
@@ -235,6 +287,7 @@
               placeholder=""
               clearable
               autocomplete="off"
+              @keydown="handleInputKeydown($event, row)"
               @keydown.enter.prevent="handleEnterKey($index, $event)"
               @focus="handleInputFocus($index, $event)"
               @blur="handleInputBlur($index, row)"
@@ -248,10 +301,9 @@
         v-model:current-page="currentPage"
         v-model:page-size="pageSize"
         :page-sizes="[5, 10, 20, 30, 40, 50]"
+        :pager-count="4"
         :total="tableData.length"
         layout="total, sizes, prev, pager, next, jumper"
-        prev-text="上一页"
-        next-text="下一页"
         style="
           margin-top: 16px;
           justify-content: flex-end;
@@ -272,14 +324,34 @@
 
 <script setup lang="ts">
 import { ref, watch, computed, nextTick, onMounted, onBeforeUnmount, toRef } from "vue"
-import { ElIcon } from "element-plus"
-import { VideoPlay, Hide, View, Check, Close } from "@element-plus/icons-vue"
+import { Hide, View, Check, Close } from "@element-plus/icons-vue"
 import ExpandableText from "./ExpandableText.vue"
 import PosTag from "./PosTag.vue"
 import SimpleWordsDrawer from "./SimpleWordsDrawer.vue"
+import WordAudioButton from "./WordAudioButton.vue"
 import { isMobile } from "@/utils"
 import { useSimpleWords } from "./hooks/useSimpleWords"
 import type { SimpleWordItem } from "./hooks/useSimpleWords"
+import { globalData } from "./hooks/useGlobaData"
+
+import beep from "@/assets/sound/beep.wav"
+import correct from "@/assets/sound/correct.wav"
+
+const keySoundModules = import.meta.glob("@/assets/sound/key-sounds/*", {
+  eager: true,
+  import: "default",
+})
+
+const keySoundMap = Object.entries(keySoundModules).reduce<Record<string, string>>(
+  (acc, [path, moduleValue]) => {
+    const matched = path.split("/").pop()
+    if (matched && typeof moduleValue === "string") {
+      acc[matched] = moduleValue
+    }
+    return acc
+  },
+  {}
+)
 const props = defineProps<{
   data: any
   dictId?: string
@@ -332,6 +404,164 @@ const inputRefs = new Map<number, any>()
 
 // 当前聚焦的输入框索引（用于显示提示文字）
 const focusedIndex = ref<number | null>(null)
+
+const audioContextRef = ref<AudioContext | null>(null)
+const audioBufferRef = ref<AudioBuffer | null>(null)
+let currentSoundToken: symbol | null = null
+const feedbackBufferCache = new Map<string, AudioBuffer | null>()
+const feedbackBufferLoading = new Map<string, Promise<AudioBuffer | null>>()
+
+function resolveKeySoundSrc(soundId?: unknown) {
+  if (!soundId || typeof soundId !== "string") {
+    return null
+  }
+  const matched = keySoundMap[soundId]
+  if (matched) {
+    return matched
+  }
+  console.warn(`未找到按键音效文件: ${soundId}`)
+  return null
+}
+
+function ensureAudioContext() {
+  if (typeof window === "undefined" || typeof AudioContext === "undefined") {
+    return null
+  }
+  if (!audioContextRef.value) {
+    audioContextRef.value = new AudioContext()
+  }
+  return audioContextRef.value
+}
+
+async function updateKeySoundAudio(soundId?: unknown) {
+  const src = resolveKeySoundSrc(soundId)
+  if (!src) {
+    audioBufferRef.value = null
+    currentSoundToken = null
+    return
+  }
+  const context = ensureAudioContext()
+  if (!context) {
+    return
+  }
+
+  const token = Symbol(src)
+  currentSoundToken = token
+
+  try {
+    const response = await fetch(src)
+    const arrayBuffer = await response.arrayBuffer()
+    const audioBuffer = await context.decodeAudioData(arrayBuffer)
+    if (currentSoundToken === token) {
+      audioBufferRef.value = audioBuffer
+    }
+  } catch (error) {
+    if (currentSoundToken === token) {
+      audioBufferRef.value = null
+    }
+    console.error("加载按键音效失败:", error)
+  }
+}
+
+function playKeySound(event: KeyboardEvent | Event) {
+  if (!(event instanceof KeyboardEvent)) {
+    return
+  }
+
+  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+    return
+  }
+
+  const context = ensureAudioContext()
+  const buffer = audioBufferRef.value
+  if (!context || !buffer) {
+    return
+  }
+
+  if (context.state === "suspended") {
+    context.resume().catch(() => {
+      // ignore resume errors
+    })
+  }
+
+  const source = context.createBufferSource()
+  source.buffer = buffer
+  source.connect(context.destination)
+  try {
+    source.start(0)
+  } catch (error) {
+    console.warn("播放按键音效失败:", error)
+  }
+}
+
+async function getFeedbackBuffer(context: AudioContext, src: string): Promise<AudioBuffer | null> {
+  const cached = feedbackBufferCache.get(src)
+  if (cached !== undefined) {
+    return cached
+  }
+
+  const loading = feedbackBufferLoading.get(src)
+  if (loading) {
+    return loading
+  }
+
+  const loader = (async () => {
+    try {
+      const response = await fetch(src)
+      const arrayBuffer = await response.arrayBuffer()
+      const buffer = await context.decodeAudioData(arrayBuffer)
+      feedbackBufferCache.set(src, buffer)
+      return buffer
+    } catch (error) {
+      console.error("加载反馈音效失败:", error)
+      feedbackBufferCache.set(src, null)
+      return null
+    } finally {
+      feedbackBufferLoading.delete(src)
+    }
+  })()
+
+  feedbackBufferLoading.set(src, loader)
+  return loader
+}
+
+async function playFeedbackSound(type: "correct" | "incorrect") {
+  const context = ensureAudioContext()
+  if (!context) {
+    return
+  }
+
+  if (context.state === "suspended") {
+    try {
+      await context.resume()
+    } catch {
+      return
+    }
+  }
+
+  const src = type === "correct" ? correct : beep
+  const buffer = await getFeedbackBuffer(context, src)
+  if (!buffer) {
+    return
+  }
+
+  const source = context.createBufferSource()
+  source.buffer = buffer
+  source.connect(context.destination)
+  try {
+    source.start(0)
+  } catch (error) {
+    console.warn("播放反馈音效失败:", error)
+  }
+}
+
+watch(
+  () => globalData.value?.sound,
+  soundId => {
+    updateKeySoundAudio(soundId)
+  },
+  { immediate: true }
+)
 
 // 设置输入框引用
 function setInputRef(el: any, index: number) {
@@ -411,22 +641,6 @@ onBeforeUnmount(() => {
     window.removeEventListener("resize", handleResize)
   }
 })
-
-// 音频播放相关
-const PronunciationApi = "https://dict.youdao.com/dictvoice?audio="
-const audio = new Audio()
-
-// 播放音频
-function playAudio(word: string, type: string = "us") {
-  const audioType = type === "uk" ? 1 : 2
-  const url = `${PronunciationApi}${word}&type=${audioType}`
-  audio.src = url
-  audio.volume = 0.8 // 默认音量
-  audio.playbackRate = 1 // 默认速度
-  audio.play().catch(err => {
-    console.error("播放失败:", err)
-  })
-}
 
 // 列级别显示隐藏状态（默认隐藏）
 const wordColumnHidden = ref(true)
@@ -592,7 +806,7 @@ function isInputCorrect(row: any): boolean {
 // 处理输入框获得焦点，自动滚动到可视区域
 function handleInputFocus(index: number, event: FocusEvent) {
   const target = event.target as HTMLElement
-  if (target && isMobile) {
+  if (target && isMobile.value) {
     nextTick(() => {
       target.scrollIntoView({
         behavior: "smooth",
@@ -626,6 +840,19 @@ function handleInputBlur(index: number, row: any) {
   // 失去焦点后校验（用于显示错误图标）
   row.checked = true
   row.isCorrect = row.modelValue.trim().toLowerCase() === row.word.toLowerCase()
+}
+
+function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
+  const keyboardEvent = event as KeyboardEvent
+  if ("isComposing" in keyboardEvent && keyboardEvent.isComposing) {
+    return
+  }
+  if (row.modelValue && (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab")) {
+    const isCorrect = row ? isInputCorrect(row) : false
+    void playFeedbackSound(isCorrect ? "correct" : "incorrect")
+    return
+  }
+  playKeySound(event)
 }
 
 // 打乱数据
@@ -702,9 +929,20 @@ function rowClass({ row }: any) {
   color: var(--el-color-danger);
 }
 
+.table-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .table-header {
+  position: sticky;
+  top: var(--word-dict-practice-table-header-offset, 0px);
+  z-index: 5;
+  background: var(--el-bg-color);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 16px;
 
@@ -722,6 +960,35 @@ function rowClass({ row }: any) {
   padding-bottom: 4px;
 }
 
+.mobile-inline-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.mobile-word {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.mobile-phonetic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.phonetic-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.flex {
+  display: flex;
+}
 :deep() {
   .bg-success {
     background-color: var(--el-color-success-light-9);
