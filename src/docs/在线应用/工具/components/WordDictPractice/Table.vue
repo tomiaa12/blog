@@ -16,7 +16,9 @@
       <el-button
         size="small"
         type="primary"
-        @click="initializeSimpleWords({ forceRemote: stateReadyForSimpleWords })"
+        @click="
+          initializeSimpleWords({ forceRemote: stateReadyForSimpleWords })
+        "
       >
         重试
       </el-button>
@@ -44,145 +46,142 @@
         border
         @sort-change="handleSortChange"
       >
+        <template v-if="!isMobile">
+          <el-table-column
+            label="序号"
+            width="80"
+            align="center"
+          >
+            <template #default="{ $index }">
+              {{ (currentPage - 1) * pageSize + $index + 1 }}
+            </template>
+          </el-table-column>
 
-      <template v-if="!isMobile">
-        <el-table-column
-          label="序号"
-          width="80"
-          align="center"
-        >
-          <template #default="{ $index }">
-            {{ (currentPage - 1) * pageSize + $index + 1 }}
-          </template>
-        </el-table-column>
-
-        <el-table-column
-          prop="word"
-          label="单词"
-          width="150"
-          sortable="custom"
-        >
-          <template #header="{ column }">
-            <div class="word-column-header">
-              <span>单词</span>
-              <el-icon
-                :size="16"
-                style="cursor: pointer"
-                @click.stop="toggleColumnHide('word')"
-              >
-                <Hide v-if="!wordColumnHidden" />
-                <View v-else />
-              </el-icon>
-            </div>
-          </template>
-          <template #default="{ row }">
-            <div style="display: flex; align-items: center; gap: 8px">
-              <span
-                v-if="row.wordHidden"
-                style="flex: 1"
-                >***</span
-              >
-              <span
-                v-else
-                style="flex: 1"
-                >{{ row.word }}</span
-              >
-              <el-icon
-                :size="16"
-                style="cursor: pointer; flex-shrink: 0"
-                @click="row.wordHidden = !row.wordHidden"
-              >
-                <Hide v-if="!row.wordHidden" />
-                <View v-else />
-              </el-icon>
-            </div>
-          </template>
-        </el-table-column>
-
-        <el-table-column
-          label="音标"
-          width="160"
-        >
-          <template #header>
-            <div
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-              "
-            >
-              <span>音标</span>
-              <el-icon
-                :size="16"
-                style="cursor: pointer"
-                @click="toggleColumnHide('phonetic')"
-              >
-                <Hide v-if="!phoneticColumnHidden" />
-                <View v-else />
-              </el-icon>
-            </div>
-          </template>
-          <template #default="{ row }">
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div style="flex: 1">
-                <template v-if="row.phoneticHidden">
-                  <p>***</p>
-                  <p v-if="row.phonetic1 !== row.phonetic0">***</p>
-                </template>
-                <template v-else>
-                  <p class="phonetic-row">
-                    <WordAudioButton
-                      :word="row.word"
-                      variant="us"
-                    />
-                    <span>[{{ row.phonetic0 }}]</span>
-                  </p>
-                  <p
-                    v-if="row.phonetic1 && row.phonetic1 !== row.phonetic0"
-                    class="phonetic-row"
-                  >
-                    <WordAudioButton
-                      :word="row.word"
-                      variant="uk"
-                    />
-                    <span>[{{ row.phonetic1 }}]</span>
-                  </p>
-                </template>
+          <el-table-column
+            prop="word"
+            label="单词"
+            width="150"
+            sortable="custom"
+          >
+            <template #header="{ column }">
+              <div class="word-column-header">
+                <span>单词</span>
+                <el-icon
+                  :size="16"
+                  style="cursor: pointer"
+                  @click.stop="toggleColumnHide('word')"
+                >
+                  <Hide v-if="!wordColumnHidden" />
+                  <View v-else />
+                </el-icon>
               </div>
-              <el-icon
-                :size="16"
-                style="cursor: pointer; flex-shrink: 0"
-                @click="row.phoneticHidden = !row.phoneticHidden"
-              >
-                <Hide v-if="!row.phoneticHidden" />
-                <View v-else />
-              </el-icon>
-              
-            </div>
-          </template>
-        </el-table-column>
+            </template>
+            <template #default="{ row }">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <span
+                  v-if="row.wordHidden"
+                  style="flex: 1"
+                  >***</span
+                >
+                <span
+                  v-else
+                  style="flex: 1"
+                  >{{ row.word }}</span
+                >
+                <el-icon
+                  :size="16"
+                  style="cursor: pointer; flex-shrink: 0"
+                  @click="row.wordHidden = !row.wordHidden"
+                >
+                  <Hide v-if="!row.wordHidden" />
+                  <View v-else />
+                </el-icon>
+              </div>
+            </template>
+          </el-table-column>
 
-        <el-table-column
-          label="释义"
-          width="300"
-          
-        >
-          <template #default="{ row }">
-            <div>
-              <br />
-              <ExpandableText
-                v-for="item in row.trans"
-                :key="item.pos"
-                :lines="2"
+          <el-table-column
+            label="音标"
+            width="160"
+          >
+            <template #header>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 8px;
+                "
               >
-                <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
-              </ExpandableText>
-              <br />
-            </div>
-          </template>
-        </el-table-column>
-      </template>
+                <span>音标</span>
+                <el-icon
+                  :size="16"
+                  style="cursor: pointer"
+                  @click="toggleColumnHide('phonetic')"
+                >
+                  <Hide v-if="!phoneticColumnHidden" />
+                  <View v-else />
+                </el-icon>
+              </div>
+            </template>
+            <template #default="{ row }">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <div style="flex: 1">
+                  <template v-if="row.phoneticHidden">
+                    <p>***</p>
+                    <p v-if="row.phonetic1 !== row.phonetic0">***</p>
+                  </template>
+                  <template v-else>
+                    <p class="phonetic-row">
+                      <WordAudioButton
+                        :word="row.word"
+                        variant="us"
+                      />
+                      <span>[{{ row.phonetic0 }}]</span>
+                    </p>
+                    <p
+                      v-if="row.phonetic1 && row.phonetic1 !== row.phonetic0"
+                      class="phonetic-row"
+                    >
+                      <WordAudioButton
+                        :word="row.word"
+                        variant="uk"
+                      />
+                      <span>[{{ row.phonetic1 }}]</span>
+                    </p>
+                  </template>
+                </div>
+                <el-icon
+                  :size="16"
+                  style="cursor: pointer; flex-shrink: 0"
+                  @click="row.phoneticHidden = !row.phoneticHidden"
+                >
+                  <Hide v-if="!row.phoneticHidden" />
+                  <View v-else />
+                </el-icon>
+              </div>
+            </template>
+          </el-table-column>
+
+          <el-table-column
+            label="释义"
+            width="300"
+          >
+            <template #default="{ row }">
+              <div>
+                <br />
+                <ExpandableText
+                  v-for="item in row.trans"
+                  :key="item.pos"
+                  :lines="2"
+                >
+                  <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
+                </ExpandableText>
+                <br />
+              </div>
+            </template>
+          </el-table-column>
+        </template>
 
         <el-table-column
           label="默写"
@@ -206,11 +205,17 @@
                 </div>
                 <div class="mobile-phonetic">
                   音标：
-                  <div v-if="row.phoneticHidden" class="flex">
+                  <div
+                    v-if="row.phoneticHidden"
+                    class="flex"
+                  >
                     <p>***</p>
                     <p v-if="row.phonetic1 !== row.phonetic0">***</p>
                   </div>
-                  <div v-else class="flex">
+                  <div
+                    v-else
+                    class="flex"
+                  >
                     <p class="phonetic-row">
                       <WordAudioButton
                         :word="row.word"
@@ -275,9 +280,11 @@
                 :disabled="isWordInSimpleList(row)"
                 @click="handleAddSimpleWord(row)"
               >
-                {{ isWordInSimpleList(row) ? "已加入熟悉单词" : "加入熟悉单词" }}
+                {{
+                  isWordInSimpleList(row) ? "已加入熟悉单词" : "加入熟悉单词"
+                }}
               </el-button>
-              <span v-if="focusedIndex === $index">
+              <span v-if="focusedIndex === $index && !isMobile">
                 按 Enter 或 Tab 键切换到下一个输入框
               </span>
             </p>
@@ -323,7 +330,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, nextTick, onMounted, onBeforeUnmount, toRef } from "vue"
+import {
+  ref,
+  watch,
+  computed,
+  nextTick,
+  onMounted,
+  onBeforeUnmount,
+  toRef,
+} from "vue"
 import { Hide, View, Check, Close } from "@element-plus/icons-vue"
 import ExpandableText from "./ExpandableText.vue"
 import PosTag from "./PosTag.vue"
@@ -342,16 +357,15 @@ const keySoundModules = import.meta.glob("@/assets/sound/key-sounds/*", {
   import: "default",
 })
 
-const keySoundMap = Object.entries(keySoundModules).reduce<Record<string, string>>(
-  (acc, [path, moduleValue]) => {
-    const matched = path.split("/").pop()
-    if (matched && typeof moduleValue === "string") {
-      acc[matched] = moduleValue
-    }
-    return acc
-  },
-  {}
-)
+const keySoundMap = Object.entries(keySoundModules).reduce<
+  Record<string, string>
+>((acc, [path, moduleValue]) => {
+  const matched = path.split("/").pop()
+  if (matched && typeof moduleValue === "string") {
+    acc[matched] = moduleValue
+  }
+  return acc
+}, {})
 const props = defineProps<{
   data: any
   dictId?: string
@@ -494,7 +508,10 @@ function playKeySound(event: KeyboardEvent | Event) {
   }
 }
 
-async function getFeedbackBuffer(context: AudioContext, src: string): Promise<AudioBuffer | null> {
+async function getFeedbackBuffer(
+  context: AudioContext,
+  src: string
+): Promise<AudioBuffer | null> {
   const cached = feedbackBufferCache.get(src)
   if (cached !== undefined) {
     return cached
@@ -579,7 +596,9 @@ function updateVisibleData(options: { resetPage?: boolean } = {}) {
   inputRefs.clear()
   focusedIndex.value = null
 
-  const totalPages = filtered.length ? Math.ceil(filtered.length / pageSize.value) : 1
+  const totalPages = filtered.length
+    ? Math.ceil(filtered.length / pageSize.value)
+    : 1
   if (options.resetPage) {
     currentPage.value = 1
     sortOrder.value = null
@@ -683,13 +702,8 @@ watch(
       const existingList = existingRowMap.get(key)
       const existing = existingList?.length ? existingList.shift() : undefined
       if (existing) {
-        const {
-          modelValue,
-          wordHidden,
-          phoneticHidden,
-          checked,
-          isCorrect,
-        } = existing
+        const { modelValue, wordHidden, phoneticHidden, checked, isCorrect } =
+          existing
         Object.assign(existing, item)
         existing.modelValue = modelValue ?? existing.modelValue ?? ""
         existing.wordHidden =
@@ -806,13 +820,10 @@ function isInputCorrect(row: any): boolean {
 // 处理输入框获得焦点，自动滚动到可视区域
 function handleInputFocus(index: number, event: FocusEvent) {
   const target = event.target as HTMLElement
+  event.preventDefault()
   if (target && isMobile.value) {
     nextTick(() => {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      })
+      target.scrollIntoView({ block: "end"})
     })
   }
 
@@ -847,7 +858,10 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
   if ("isComposing" in keyboardEvent && keyboardEvent.isComposing) {
     return
   }
-  if (row.modelValue && (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab")) {
+  if (
+    row.modelValue &&
+    (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab")
+  ) {
     const isCorrect = row ? isInputCorrect(row) : false
     void playFeedbackSound(isCorrect ? "correct" : "incorrect")
     return
@@ -904,8 +918,6 @@ function rowClass({ row }: any) {
 }
 </script>
 <style lang="scss" scoped>
-
-
 :deep() .el-drawer__header {
   margin-bottom: 0;
 }

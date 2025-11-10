@@ -406,13 +406,6 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   }
 }
 
-.word-table {
-  height: calc(84vh - 60px);
-  &.is-mobile {
-    height: calc(91vh);
-  }
-}
-
 .dict-status,
 .dict-empty {
   display: flex;
