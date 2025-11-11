@@ -30,10 +30,9 @@
       <el-card shadow="never">
         <el-form
           v-if="!globalDataLoading"
-          label-position="top"
           class="settings-form"
         >
-          <el-form-item label="按键音效">
+          <el-form-item label="按键音效：">
             <el-select
               v-model="globalData.sound"
               placeholder="选择键盘音效"
@@ -46,6 +45,16 @@
                 :value="option.id"
               />
             </el-select>
+          </el-form-item>
+          <el-form-item>
+            <el-checkbox v-model="globalData.autoJump">
+              正确后自动跳转
+            </el-checkbox>
+          </el-form-item>
+          <el-form-item>
+            <el-checkbox v-model="globalData.autoPlayAudio">
+              默写时自动发音
+            </el-checkbox>
           </el-form-item>
         </el-form>
         <div v-else>正在加载全局设置...</div>

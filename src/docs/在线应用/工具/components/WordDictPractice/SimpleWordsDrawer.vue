@@ -2,7 +2,7 @@
   <el-drawer
     v-model="visible"
     :lock-scroll="true"
-    title="已熟悉单词"
+    :title="`已熟悉单词${ simpleWords.length }`"
     :size="isMobile ? '100%' : '35%'"
     direction="rtl"
     class="simple-word-drawer"
@@ -30,9 +30,9 @@
             class="simple-word-actions"
             v-if="simpleWords.length"
           >
-            <p style="font-size: 14px">
+            <!-- <p style="font-size: 14px">
               共 {{ simpleWords.length }} 个熟悉单词
-            </p>
+            </p> -->
 
             <el-button
               type="danger"
@@ -208,11 +208,7 @@ async function handleClearAll() {
 </script>
 
 <style scoped lang="scss">
-.simple-word-drawer {
-  .el-drawer__header {
-    margin-bottom: 0;
-  }
-}
+
 .simple-word-panel {
   display: flex;
   flex-direction: column;
@@ -312,11 +308,16 @@ async function handleClearAll() {
 }
 </style>
 
-<style>
+<style lang="scss">
 .simple-word-drawer {
   .el-drawer__body {
     padding-right: 0;
     padding-top: 0;
+  }
+}
+.simple-word-drawer {
+  .el-drawer__header {
+    margin-bottom: 10px;
   }
 }
 </style>

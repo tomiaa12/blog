@@ -7,6 +7,8 @@ const LOCAL_STORAGE_KEY = "word-dict-practice-global-data"
 const DEFAULT_GLOBAL_DATA = {
   sound: "机械键盘2.mp3",
   volume: 60,
+  autoJump: true,
+  autoPlayAudio: false,
 }
 
 export const globalData = ref<any>({ ...DEFAULT_GLOBAL_DATA })

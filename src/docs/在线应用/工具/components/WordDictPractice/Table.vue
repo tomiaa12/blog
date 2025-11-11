@@ -36,7 +36,7 @@
           type="primary"
           @click="openSimpleWordsDrawer"
         >
-          已熟悉单词
+          已熟悉单词（{{ simpleWords.length }}个）
         </el-button>
         <span>剩余 {{ tableData.length }} 个单词</span>
       </div>
@@ -187,6 +187,19 @@
           label="默写"
           :min-width="writeColumnMinWidth"
         >
+          <template #header>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%">
+              <span>默写</span>
+              <el-button
+                type="danger"
+                size="small"
+                @click="clearAllInputs"
+                style="font-size: 12px; padding: 4px 8px"
+              >
+                重置输入框
+              </el-button>
+            </div>
+          </template>
           <template #default="{ row, $index }">
             <div v-if="isMobile">
               <div class="mobile-inline-info">
@@ -294,8 +307,8 @@
               placeholder=""
               clearable
               autocomplete="off"
+              @input="handleInputChange($event, row)"
               @keydown="handleInputKeydown($event, row)"
-              @keydown.enter.prevent="handleEnterKey($index, $event)"
               @focus="handleInputFocus($index, $event)"
               @blur="handleInputBlur($index, row)"
               inputmode="text"
@@ -572,6 +585,27 @@ async function playFeedbackSound(type: "correct" | "incorrect") {
   }
 }
 
+// 播放单词发音（使用与WordAudioButton相同的逻辑）
+function playWordAudio(word: string, variant: "us" | "uk" = "us") {
+  if (!word || typeof window === "undefined") {
+    return
+  }
+
+  const PRONUNCIATION_API = "https://dict.youdao.com/dictvoice?audio="
+  const encoded = encodeURIComponent(word)
+  const audioType = variant === "uk" ? 1 : 2
+  const url = `${PRONUNCIATION_API}${encoded}&type=${audioType}`
+
+  const audio = new Audio()
+  audio.pause()
+  audio.src = url
+  audio.playbackRate = 1
+
+  audio.play().catch(error => {
+    console.error("播放失败:", error)
+  })
+}
+
 watch(
   () => globalData.value?.sound,
   soundId => {
@@ -834,6 +868,11 @@ function handleInputFocus(index: number, event: FocusEvent) {
   const row = pagedData.value[index]
   if (row) {
     row.checked = false
+
+    // 如果启用了自动发音，播放单词音频
+    if (globalData.value?.autoPlayAudio) {
+      playWordAudio(row.word, "us")
+    }
   }
 }
 
@@ -858,15 +897,88 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
   if ("isComposing" in keyboardEvent && keyboardEvent.isComposing) {
     return
   }
-  if (
-    row.modelValue &&
-    (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab")
-  ) {
-    const isCorrect = row ? isInputCorrect(row) : false
-    void playFeedbackSound(isCorrect ? "correct" : "incorrect")
+
+  // Ctrl + Tab: 回到上一个输入框
+  if (keyboardEvent.shiftKey && keyboardEvent.key === "Tab") {
+    event.preventDefault()
+    const currentIndex = pagedData.value.indexOf(row)
+    const prevIndex = currentIndex - 1
+
+    if (prevIndex >= 0) {
+      nextTick(() => {
+        focusInputByIndex(prevIndex)
+        setTimeout(() => {
+          const allInputs = document.querySelectorAll(".table-container .el-input__inner")
+          if (allInputs.length > prevIndex) {
+            const prevInput = allInputs[prevIndex] as HTMLInputElement
+            if (prevInput && document.activeElement !== prevInput) {
+              prevInput.focus()
+              prevInput.select()
+            }
+          }
+        }, 10)
+      })
+    }
     return
   }
+
+  // Enter 或 Tab: 检查是否正确，不正确则播放错误声音并显示错误图标
+  if (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab") {
+    const currentValue = row.modelValue || ""
+    if (currentValue.trim()) {
+      const isCorrect = currentValue.trim().toLowerCase() === row.word.toLowerCase()
+      if (!isCorrect) {
+        void playFeedbackSound("incorrect")
+        // 显示错误图标
+        row.checked = true
+        row.isCorrect = false
+        return // 错误时不跳转
+      }
+    } else {
+      // 输入为空时清除错误状态
+      row.checked = false
+      row.isCorrect = false
+    }
+    // 只有输入正确时才跳转到下一个输入框
+    handleEnterKey(pagedData.value.indexOf(row), event)
+    return
+  }
+
+  // 退格键或删除键：清除错误状态，表示要修正
+  if (keyboardEvent.key === "Backspace" || keyboardEvent.key === "Delete") {
+    row.checked = false
+    row.isCorrect = false
+  }
+
   playKeySound(event)
+}
+
+// 清空所有输入框的值
+function clearAllInputs() {
+  originalData.value.forEach(row => {
+    row.modelValue = ""
+    row.checked = false
+    row.isCorrect = false
+  })
+}
+
+// 处理输入变化，实时检查是否正确
+function handleInputChange(value: string, row: any) {
+  if (!value || value.trim() === "") {
+    return
+  }
+
+  const isCorrect = value.trim().toLowerCase() === row.word.toLowerCase()
+  if (isCorrect) {
+    void playFeedbackSound("correct")
+    // 如果启用了自动跳转，自动跳到下一个输入框
+    if (globalData.value?.autoJump) {
+      nextTick(() => {
+        const currentIndex = pagedData.value.indexOf(row)
+        handleEnterKey(currentIndex, new Event('auto-jump'))
+      })
+    }
+  }
 }
 
 // 打乱数据
@@ -985,6 +1097,9 @@ function rowClass({ row }: any) {
   gap: 8px;
   font-weight: 600;
 }
+:deep() .input-tip-container .el-icon {
+  margin-left: 0 !important;
+}
 
 .mobile-phonetic {
   display: flex;
@@ -1010,11 +1125,6 @@ function rowClass({ row }: any) {
   .el-table__body tr:hover > td {
     background-color: transparent !important;
   }
-
-  .el-table__body tr.el-table__row:hover {
-    background-color: transparent !important;
-  }
-
   // 确保排序图标与自定义 header 内容对齐
   .word-column-header {
     display: flex;
