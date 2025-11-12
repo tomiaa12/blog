@@ -39,6 +39,16 @@
           已熟悉单词（{{ simpleWords.length }}个）
         </el-button>
         <span>剩余 {{ tableData.length }} 个单词</span>
+        <el-tooltip placement="top">
+            <template #content>
+              <p>Ctrl + ←/→ 切换上一页/下一页</p>
+              <p>Ctrl + ↑/↓ 切换到第一/最后一个输入框</p>
+              <p>↑/↓ 切换到上/下一个输入框</p>
+              <p>Ctrl + B 播放正在输入的单词发音</p>
+              <p>Ctrl + J 将当前页默写正确的单词全部加入熟悉单词</p>
+            </template>
+          <el-button>快捷键</el-button>
+        </el-tooltip>
       </div>
       <el-table
         :data="pagedData"
@@ -188,7 +198,15 @@
           :min-width="writeColumnMinWidth"
         >
           <template #header>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                width: 100%;
+              "
+            >
               <span>默写</span>
               <el-button
                 type="danger"
@@ -298,7 +316,8 @@
                 }}
               </el-button>
               <span v-if="focusedIndex === $index && !isMobile">
-                按 Enter 或 Tab 键切换到下一个输入框
+                按{{ row.checked && !row.isCorrect ? " Enter 或" : "" }} Tab
+                键切换到下一个输入框
               </span>
             </p>
             <el-input
@@ -682,9 +701,82 @@ function handleResize() {
   }
 }
 
+// 处理快捷键：Ctrl + ←/→ 切换页面，Ctrl + B 播放当前单词
+function handleGlobalKeydown(event: KeyboardEvent) {
+  // 处理方向键切换输入框（不需要Ctrl键）
+  if (event.key === "ArrowUp") {
+    event.preventDefault()
+    if (focusedIndex.value !== null && focusedIndex.value > 0) {
+      focusInputByIndex(focusedIndex.value - 1)
+    }
+  } else if (event.key === "ArrowDown") {
+    event.preventDefault()
+    if (focusedIndex.value !== null && focusedIndex.value < pagedData.value.length - 1) {
+      focusInputByIndex(focusedIndex.value + 1)
+    }
+  }
+
+  // 需要Ctrl键的快捷键
+  if (!event.ctrlKey) return
+
+  if (event.key === "ArrowLeft") {
+    event.preventDefault()
+    if (currentPage.value > 1) {
+      currentPage.value--
+    }
+    focusInputByIndex(0)
+  } else if (event.key === "ArrowRight") {
+    event.preventDefault()
+    const totalPages = Math.ceil(tableData.value.length / pageSize.value)
+    if (currentPage.value < totalPages) {
+      currentPage.value++
+    }
+    focusInputByIndex(0)
+  } else if (event.key === "ArrowUp") {
+    event.preventDefault()
+    // Ctrl + ↑ 切换到第一个输入框
+    focusInputByIndex(0)
+  } else if (event.key === "ArrowDown") {
+    event.preventDefault()
+    // Ctrl + ↓ 切换到最后一个输入框
+    focusInputByIndex(pagedData.value.length - 1)
+  } else if (event.key === "b" || event.key === "B") {
+    event.preventDefault()
+    // 播放当前聚焦单词的发音
+    if (focusedIndex.value !== null) {
+      const currentRow = pagedData.value[focusedIndex.value]
+      if (currentRow?.word) {
+        playWordAudio(currentRow.word, "us")
+      }
+    }
+  } else if (event.key === "j" || event.key === "J") {
+    event.preventDefault()
+    // 将当前页默写正确的单词全部加入熟悉单词
+    const correctWords = pagedData.value.filter(row =>
+      row.modelValue && row.modelValue.trim().toLowerCase() === row.word.toLowerCase()
+    )
+    correctWords.forEach(row => {
+      if (!isWordInSimpleList(row)) {
+        handleAddSimpleWord(row)
+      }
+    })
+
+    // 操作完成后聚焦到离上次最近的输入框
+    nextTick(() => {
+      if (pagedData.value.length > 0) {
+        const nearestIndex = focusedIndex.value !== null && focusedIndex.value < pagedData.value.length
+          ? focusedIndex.value
+          : 0
+        focusInputByIndex(nearestIndex)
+      }
+    })
+  }
+}
+
 onMounted(() => {
   if (typeof window !== "undefined") {
     window.addEventListener("resize", handleResize)
+    window.addEventListener("keydown", handleGlobalKeydown)
     windowWidth.value = window.innerWidth
   }
 })
@@ -692,6 +784,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (typeof window !== "undefined") {
     window.removeEventListener("resize", handleResize)
+    window.removeEventListener("keydown", handleGlobalKeydown)
   }
 })
 
@@ -857,7 +950,7 @@ function handleInputFocus(index: number, event: FocusEvent) {
   event.preventDefault()
   if (target && isMobile.value) {
     nextTick(() => {
-      target.scrollIntoView({ block: "end"})
+      target.scrollIntoView({ block: "end" })
     })
   }
 
@@ -908,7 +1001,9 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
       nextTick(() => {
         focusInputByIndex(prevIndex)
         setTimeout(() => {
-          const allInputs = document.querySelectorAll(".table-container .el-input__inner")
+          const allInputs = document.querySelectorAll(
+            ".table-container .el-input__inner"
+          )
           if (allInputs.length > prevIndex) {
             const prevInput = allInputs[prevIndex] as HTMLInputElement
             if (prevInput && document.activeElement !== prevInput) {
@@ -926,13 +1021,14 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
   if (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab") {
     const currentValue = row.modelValue || ""
     if (currentValue.trim()) {
-      const isCorrect = currentValue.trim().toLowerCase() === row.word.toLowerCase()
+      const isCorrect =
+        currentValue.trim().toLowerCase() === row.word.toLowerCase()
       if (!isCorrect) {
         void playFeedbackSound("incorrect")
         // 显示错误图标
         row.checked = true
         row.isCorrect = false
-        return // 错误时不跳转
+        if (keyboardEvent.key === "Enter") return
       }
     } else {
       // 输入为空时清除错误状态
@@ -975,7 +1071,7 @@ function handleInputChange(value: string, row: any) {
     if (globalData.value?.autoJump) {
       nextTick(() => {
         const currentIndex = pagedData.value.indexOf(row)
-        handleEnterKey(currentIndex, new Event('auto-jump'))
+        handleEnterKey(currentIndex, new Event("auto-jump"))
       })
     }
   }
