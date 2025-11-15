@@ -11,6 +11,7 @@ export type SimpleWordItem = {
   trans: SimpleWordTrans[]
   phonetic0?: string | null
   phonetic1?: string | null
+  sourceDictId?: string | null
 }
 
 type SimpleWordsStoreEntry = {
@@ -68,6 +69,7 @@ function storeToList(store: SimpleWordsStore): SimpleWordItem[] {
     trans: Array.isArray(entry.trans) ? entry.trans : [],
     phonetic0: entry.phonetic0 ?? null,
     phonetic1: entry.phonetic1 ?? null,
+    sourceDictId: entry.sourceDictId ?? null,
   }))
 }
 
@@ -198,7 +200,7 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
     return simpleWordsMap.value.has(key)
   }
 
-  async function handleAddSimpleWord(row: any) {
+  async function handleAddSimpleWord(row: any, dictId: string | null) {
     const word = row.word?.trim()
     if (!word) {
       ElMessage.error("无法获取单词内容")
@@ -215,7 +217,7 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
       trans: Array.isArray(row.trans) ? row.trans : [],
       phonetic0: row.phonetic0 ?? null,
       phonetic1: row.phonetic1 ?? null,
-      sourceDictId: dictId?.value ?? null,
+      sourceDictId: dictId ?? null,
     }
     const localStore = loadSimpleWordsFromLocal()
     localStore[key] = entry
@@ -227,6 +229,7 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
       trans: entry.trans,
       phonetic0: entry.phonetic0 ?? null,
       phonetic1: entry.phonetic1 ?? null,
+      sourceDictId: dictId ?? null,
     }
     simpleWords.value = [...simpleWords.value.filter(item => item.key !== key), optimisticItem].sort(
       (a, b) => a.word.localeCompare(b.word)

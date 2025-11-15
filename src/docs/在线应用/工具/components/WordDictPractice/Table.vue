@@ -1121,7 +1121,7 @@ function handleSortChange({
 }
 
 function rowClass({ row }: any) {
-  if (row.modelValue === row.word) return "bg-success"
+  if (row.modelValue.trim().toLowerCase() === row.word.trim().toLowerCase()) return "bg-success"
   return ""
 }
 </script>
