@@ -1,5 +1,12 @@
 export const Server = [
   {
+    text: "Python",
+    collapsed: true,
+    items: [
+      { text: "初识", link: "/docs/服务端/Python/01-初识" },
+    ]
+  },
+  {
     text: "Java",
     collapsed: true,
     items: [

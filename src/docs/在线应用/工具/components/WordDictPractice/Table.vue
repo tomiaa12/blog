@@ -34,9 +34,21 @@
         </el-button>
         <el-button
           type="primary"
+          @click="shuffleCurrentPageData"
+        >
+          当前页随机排序
+        </el-button>
+        <el-button
+          type="primary"
           @click="openSimpleWordsDrawer"
         >
           已熟悉单词（{{ simpleWords.length }}个）
+        </el-button>
+        <el-button
+          type="primary"
+          @click="openCurrentDictSimpleWordsDrawer"
+        >
+          当前词典已熟悉单词（{{ currentDictSimpleWordsCount }}个）
         </el-button>
         <span>剩余 {{ tableData.length }} 个单词</span>
         <el-tooltip placement="top">
@@ -351,7 +363,7 @@
       />
       <SimpleWordsDrawer
         v-model="simpleWordsDrawerVisible"
-        :simple-words="simpleWords"
+        :simple-words="displayedSimpleWords"
         :loading="simpleWordsLoading"
         :error="simpleWordsError"
         @remove="handleRemoveSimpleWord"
@@ -424,6 +436,40 @@ const {
   removeSimpleWord,
   clearAllSimpleWords,
 } = useSimpleWords(dictIdRef)
+
+// 控制是否只显示当前词典的已熟悉单词
+const showCurrentDictOnly = ref(false)
+
+// 计算当前词典的已熟悉单词数量
+const currentDictSimpleWordsCount = computed(() => {
+  if (!props.dictId) return simpleWords.value.length
+  return simpleWords.value.filter(
+    item => item.sourceDictId === props.dictId
+  ).length
+})
+
+// 根据状态筛选显示的已熟悉单词
+const displayedSimpleWords = computed(() => {
+  if (!showCurrentDictOnly.value || !props.dictId) {
+    return simpleWords.value
+  }
+  return simpleWords.value.filter(
+    item => item.sourceDictId === props.dictId
+  )
+})
+
+// 打开当前词典已熟悉单词抽屉
+function openCurrentDictSimpleWordsDrawer() {
+  showCurrentDictOnly.value = true
+  openSimpleWordsDrawer()
+}
+
+// 监听抽屉关闭，重置筛选状态
+watch(simpleWordsDrawerVisible, (newVal) => {
+  if (!newVal) {
+    showCurrentDictOnly.value = false
+  }
+})
 
 function isWordInSimpleList(row: any) {
   return isWordInSimpleListByWord(row?.word)
@@ -757,7 +803,7 @@ function handleGlobalKeydown(event: KeyboardEvent) {
     )
     correctWords.forEach(row => {
       if (!isWordInSimpleList(row)) {
-        handleAddSimpleWord(row)
+        handleAddSimpleWord(row, props.dictId)
       }
     })
 
@@ -1055,6 +1101,9 @@ function clearAllInputs() {
     row.modelValue = ""
     row.checked = false
     row.isCorrect = false
+    row.wordHidden = true
+    row.phoneticHidden = true
+
   })
 }
 
@@ -1093,6 +1142,51 @@ function shuffleData() {
   })
   originalData.value = shuffled
   updateVisibleData({ resetPage: true })
+}
+
+// 当前页随机排序
+function shuffleCurrentPageData() {
+  // 如果没有数据，直接返回
+  if (tableData.value.length === 0) return
+  
+  // 计算当前页在 tableData 中的起始和结束位置
+  const start = (currentPage.value - 1) * pageSize.value
+  const end = Math.min(start + pageSize.value, tableData.value.length)
+  
+  // 保存当前页原始数据的副本
+  const currentPageData = tableData.value.slice(start, end)
+  
+  // 使用 Fisher-Yates 洗牌算法打乱当前页数据
+  for (let i = currentPageData.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[currentPageData[i], currentPageData[j]] = [currentPageData[j], currentPageData[i]]
+  }
+  
+  // 将打乱后的数据放回 tableData（不清空输入框）
+  for (let i = 0; i < currentPageData.length; i++) {
+    tableData.value[start + i] = currentPageData[i]
+  }
+  
+  // 同时更新 originalData，保持数据一致性
+  // 创建一个映射来快速查找 originalData 中的索引
+  const wordToOriginalIndex = new Map<string, number>()
+  for (let i = 0; i < originalData.value.length; i++) {
+    const word = originalData.value[i].word
+    if (!wordToOriginalIndex.has(word)) {
+      wordToOriginalIndex.set(word, i)
+    }
+  }
+  
+  // 更新 originalData 中对应的数据
+  currentPageData.forEach((item, idx) => {
+    const originalIdx = wordToOriginalIndex.get(item.word)
+    if (originalIdx !== undefined) {
+      originalData.value[originalIdx] = item
+    }
+  })
+  
+  // 强制更新视图
+  tableData.value = [...tableData.value]
 }
 
 // 单词排序方法（用于 Element Plus 的 sort-method）

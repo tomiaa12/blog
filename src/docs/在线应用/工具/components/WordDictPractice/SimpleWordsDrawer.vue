@@ -45,6 +45,26 @@
           </div>
         </div>
         <template v-if="simpleWords.length">
+          <el-input 
+            v-model="keyWord" 
+            placeholder="输入单词或释义筛选" 
+            clearable 
+          />
+          
+          <div 
+            v-if="keyWord.trim() && filteredSimpleWords.length === 0"
+            class="simple-word-status"
+          >
+            未找到匹配的单词
+          </div>
+          
+          <div 
+            v-else-if="keyWord.trim()"
+            style="font-size: 13px; color: var(--el-text-color-regular); padding: 4px 0;"
+          >
+            找到 {{ filteredSimpleWords.length }} 个匹配的单词
+          </div>
+          
           <div class="simple-word-list">
             <div
               v-for="item in pagedSimpleWords"
@@ -111,7 +131,7 @@
             v-model:current-page="currentPage"
             v-model:page-size="pageSize"
             :page-sizes="[10, 20, 30, 50]"
-            :total="simpleWords.length"
+            :total="filteredSimpleWords.length"
             :pager-count="4"
             layout="prev, pager, next, jumper"
             class="simple-word-pagination"
@@ -157,23 +177,55 @@ const visible = computed({
 })
 
 useScrollLock(visible)
-
+const keyWord = ref("")
 const confirmingDeleteAll = ref(false)
 const currentPage = ref(1)
 const pageSize = ref(10)
 
+// 根据搜索关键词过滤单词
+const filteredSimpleWords = computed(() => {
+  if (!keyWord.value.trim()) {
+    return props.simpleWords
+  }
+  
+  const keyword = keyWord.value.trim().toLowerCase()
+  return props.simpleWords.filter(item => {
+    // 搜索单词
+    if (item.word.toLowerCase().includes(keyword)) {
+      return true
+    }
+    
+    // 搜索释义
+    if (item.trans && item.trans.length > 0) {
+      return item.trans.some(trans => {
+        const cnText = trans.cn?.toLowerCase() || ""
+        const posText = trans.pos?.toLowerCase() || ""
+        return cnText.includes(keyword) || posText.includes(keyword)
+      })
+    }
+    
+    return false
+  })
+})
+
+// 分页后的单词列表
 const pagedSimpleWords = computed(() => {
   const start = (currentPage.value - 1) * pageSize.value
   const end = start + pageSize.value
-  return props.simpleWords.slice(start, end)
+  return filteredSimpleWords.value.slice(start, end)
+})
+
+// 监听搜索关键词变化，重置到第一页
+watch(keyWord, () => {
+  currentPage.value = 1
 })
 
 watch(
-  () => [props.simpleWords.length, pageSize.value],
+  () => [filteredSimpleWords.value.length, pageSize.value],
   () => {
     const totalPages = Math.max(
       1,
-      Math.ceil(props.simpleWords.length / pageSize.value)
+      Math.ceil(filteredSimpleWords.value.length / pageSize.value)
     )
     if (currentPage.value > totalPages) {
       currentPage.value = totalPages

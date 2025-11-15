@@ -200,7 +200,7 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
     return simpleWordsMap.value.has(key)
   }
 
-  async function handleAddSimpleWord(row: any, dictId: string | null) {
+  async function handleAddSimpleWord(row: any, dictId: string) {
     const word = row.word?.trim()
     if (!word) {
       ElMessage.error("无法获取单词内容")

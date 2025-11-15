@@ -336,6 +336,7 @@ export default defineConfig({
       {
         text: "服务端",
         items: [
+          { text: "Python", link: "/docs/服务端/Python/01-初识" },
           { text: "Java", link: "/docs/服务端/java/01-初识" },
           { text: "C 语言", link: "/docs/服务端/C语言/概述" },
           { text: "部署", link: "/docs/服务端/部署/docker" },

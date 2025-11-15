@@ -19,7 +19,7 @@ import {
   type FirestoreError,
   type Unsubscribe,
 } from "firebase/firestore"
-console.log(import.meta.env)
+
 // Firebase 配置：建议在生产环境通过环境变量注入
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
