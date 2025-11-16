@@ -811,31 +811,70 @@ function setInputRef(el: any, index: number) {
 }
 
 function updateVisibleData(options: { resetPage?: boolean } = {}) {
-  const filtered = originalData.value.filter(row => {
-    // 过滤掉已熟悉的单词
-    if (isWordInSimpleList(row)) return false
+  // 如果不需要重置页面，保持当前排序
+  if (!options.resetPage && tableData.value.length > 0) {
+    // 创建一个 Map 来记录当前 tableData 中每个单词的位置
+    const orderMap = new Map<string, number>()
+    tableData.value.forEach((row, index) => {
+      orderMap.set(row.word, index)
+    })
     
-    // 根据练习模式过滤
-    const isRare = isWordInRareList(row)
-    const mode = globalData.value?.practiceMode || 'all'
+    // 从 originalData 过滤数据
+    const filtered = originalData.value.filter(row => {
+      // 过滤掉已熟悉的单词
+      if (isWordInSimpleList(row)) return false
+      
+      // 根据练习模式过滤
+      const isRare = isWordInRareList(row)
+      const mode = globalData.value?.practiceMode || 'all'
+      
+      if (mode === 'rareOnly') {
+        // 仅生僻词模式：只显示标记为生僻词的单词
+        return isRare
+      } else if (mode === 'excludeRare') {
+        // 排除生僻词模式：隐藏标记为生僻词的单词
+        return !isRare
+      }
+      // 'all' 模式：显示全部单词（包括生僻词）
+      return true
+    })
     
-    if (mode === 'rareOnly') {
-      // 仅生僻词模式：只显示标记为生僻词的单词
-      return isRare
-    } else if (mode === 'excludeRare') {
-      // 排除生僻词模式：隐藏标记为生僻词的单词
-      return !isRare
-    }
-    // 'all' 模式：显示全部单词（包括生僻词）
-    return true
-  })
-  tableData.value = filtered
+    // 根据之前的顺序重新排列数据
+    const sorted = filtered.sort((a, b) => {
+      const orderA = orderMap.has(a.word) ? orderMap.get(a.word)! : Infinity
+      const orderB = orderMap.has(b.word) ? orderMap.get(b.word)! : Infinity
+      return orderA - orderB
+    })
+    
+    tableData.value = sorted
+  } else {
+    // 重置页面时，直接从 originalData 过滤
+    const filtered = originalData.value.filter(row => {
+      // 过滤掉已熟悉的单词
+      if (isWordInSimpleList(row)) return false
+      
+      // 根据练习模式过滤
+      const isRare = isWordInRareList(row)
+      const mode = globalData.value?.practiceMode || 'all'
+      
+      if (mode === 'rareOnly') {
+        // 仅生僻词模式：只显示标记为生僻词的单词
+        return isRare
+      } else if (mode === 'excludeRare') {
+        // 排除生僻词模式：隐藏标记为生僻词的单词
+        return !isRare
+      }
+      // 'all' 模式：显示全部单词（包括生僻词）
+      return true
+    })
+    tableData.value = filtered
+  }
 
   inputRefs.clear()
   focusedIndex.value = null
 
-  const totalPages = filtered.length
-    ? Math.ceil(filtered.length / pageSize.value)
+  const totalPages = tableData.value.length
+    ? Math.ceil(tableData.value.length / pageSize.value)
     : 1
   if (options.resetPage) {
     currentPage.value = 1

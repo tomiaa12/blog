@@ -149,7 +149,7 @@ const STORAGE_KEY = "word-dict-practice-selected-dict-id"
 // 页面主体的响应式数据
 const selectedData = ref<any[]>([])
 const currentDictInfo = ref<any>({})
-const currentDictId = ref<string>()
+const currentDictId = ref<string>('')
 const showDictDialog = ref(false)
 const dictLoading = ref(true)
 const dictStatusMessage = ref<string | null>("正在加载词典数据...")
