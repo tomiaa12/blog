@@ -57,7 +57,8 @@
               <p>Ctrl + ↑/↓ 切换到第一/最后一个输入框</p>
               <p>↑/↓ 切换到上/下一个输入框</p>
               <p>Ctrl + B 播放正在输入的单词发音</p>
-              <p>Ctrl + J 将当前页默写正确的单词全部加入熟悉单词</p>
+              <p>Ctrl + J 加入当前聚焦的单词到熟悉单词</p>
+              <p>Ctrl + Shift + J 将当前页默写正确的单词全部加入熟悉单词</p>
             </template>
           <el-button>快捷键</el-button>
         </el-tooltip>
@@ -321,7 +322,7 @@
                 type="primary"
                 size="small"
                 :disabled="isWordInSimpleList(row)"
-                @click="handleAddSimpleWord(row)"
+                @click="handleAddSimpleWord(row, dictId)"
               >
                 {{
                   isWordInSimpleList(row) ? "已加入熟悉单词" : "加入熟悉单词"
@@ -412,7 +413,7 @@ const keySoundMap = Object.entries(keySoundModules).reduce<
 }, {})
 const props = defineProps<{
   data: any
-  dictId?: string
+  dictId: string
 }>()
 
 // 为每个数据项初始化 modelValue 字段，确保响应式
@@ -797,15 +798,27 @@ function handleGlobalKeydown(event: KeyboardEvent) {
     }
   } else if (event.key === "j" || event.key === "J") {
     event.preventDefault()
-    // 将当前页默写正确的单词全部加入熟悉单词
-    const correctWords = pagedData.value.filter(row =>
-      row.modelValue && row.modelValue.trim().toLowerCase() === row.word.toLowerCase()
-    )
-    correctWords.forEach(row => {
-      if (!isWordInSimpleList(row)) {
-        handleAddSimpleWord(row, props.dictId)
+    
+    // Ctrl+Shift+J: 将当前页默写正确的单词全部加入熟悉单词
+    if (event.shiftKey) {
+      const correctWords = pagedData.value.filter(row =>
+        row.modelValue && row.modelValue.trim().toLowerCase() === row.word.toLowerCase()
+      )
+      correctWords.forEach(row => {
+        if (!isWordInSimpleList(row)) {
+          handleAddSimpleWord(row, props.dictId)
+        }
+      })
+    } 
+    // Ctrl+J: 只加入当前聚焦的单词
+    else {
+      if (focusedIndex.value !== null) {
+        const currentRow = pagedData.value[focusedIndex.value]
+        if (currentRow && !isWordInSimpleList(currentRow)) {
+          handleAddSimpleWord(currentRow, props.dictId)
+        }
       }
-    })
+    }
 
     // 操作完成后聚焦到离上次最近的输入框
     nextTick(() => {
