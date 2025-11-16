@@ -31,12 +31,13 @@
         <el-form
           v-if="!globalDataLoading"
           class="settings-form"
+          inline
         >
           <el-form-item label="按键音效：">
             <el-select
               v-model="globalData.sound"
               placeholder="选择键盘音效"
-              style="width: 100%"
+              style="min-width: 120px;"
             >
               <el-option
                 v-for="option in keySoundOptions"
@@ -48,14 +49,26 @@
           </el-form-item>
           <el-form-item>
             <el-checkbox v-model="globalData.autoJump">
-              正确后自动跳转
+              <el-tooltip content="启用后，正确输入单词后会自动跳转到下一个输入框" placement="top" effect="dark">
+               正确后自动跳转
+              </el-tooltip>
             </el-checkbox>
           </el-form-item>
           <el-form-item>
             <el-checkbox v-model="globalData.autoPlayAudio">
-              默写时自动发音
+              <el-tooltip content="启用后，默写时会自动播放单词发音" placement="top" effect="dark">
+                默写时自动发音
+              </el-tooltip>
             </el-checkbox>
           </el-form-item>
+          <el-form-item>
+            <el-checkbox v-model="globalData.hideRareWords">
+              <el-tooltip content="启用后，已标记为生僻词的单词将不会在默写列表中显示" placement="top" effect="dark">
+                隐藏生僻词
+              </el-tooltip>
+            </el-checkbox>
+          </el-form-item>
+          
         </el-form>
         <div v-else>正在加载全局设置...</div>
       </el-card>

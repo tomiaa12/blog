@@ -26,42 +26,56 @@
     <template v-else>
       <div class="table-header">
         <p>单词默写练习</p>
-        <el-button
-          type="primary"
-          @click="shuffleData"
-        >
-          随机排序
-        </el-button>
-        <el-button
-          type="primary"
-          @click="shuffleCurrentPageData"
-        >
-          当前页随机排序
-        </el-button>
-        <el-button
-          type="primary"
-          @click="openSimpleWordsDrawer"
-        >
-          已熟悉单词（{{ simpleWords.length }}个）
-        </el-button>
-        <el-button
-          type="primary"
-          @click="openCurrentDictSimpleWordsDrawer"
-        >
-          当前词典已熟悉单词（{{ currentDictSimpleWordsCount }}个）
-        </el-button>
-        <span>剩余 {{ tableData.length }} 个单词</span>
-        <el-tooltip placement="top">
-            <template #content>
-              <p>Ctrl + ←/→ 切换上一页/下一页</p>
-              <p>Ctrl + ↑/↓ 切换到第一/最后一个输入框</p>
-              <p>↑/↓ 切换到上/下一个输入框</p>
-              <p>Ctrl + B 播放正在输入的单词发音</p>
-              <p>Ctrl + J 加入当前聚焦的单词到熟悉单词</p>
-              <p>Ctrl + Shift + J 将当前页默写正确的单词全部加入熟悉单词</p>
-            </template>
-          <el-button>快捷键</el-button>
-        </el-tooltip>
+        <div>
+          <el-button
+            type="primary"
+            @click="shuffleData"
+          >
+            随机排序
+          </el-button>
+          <el-button
+            type="primary"
+            @click="shuffleCurrentPageData"
+          >
+            当前页随机排序
+          </el-button>
+          <el-button
+            type="success"
+            @click="openSimpleWordsDrawer"
+          >
+            熟悉词（{{ simpleWords.length }}个）
+          </el-button>
+          <el-button
+            type="success"
+            @click="openCurrentDictSimpleWordsDrawer"
+          >
+            当前词典熟悉词（{{ currentDictSimpleWordsCount }}个）
+          </el-button>
+          <el-button
+            type="warning"
+            @click="openRareWordsDrawer"
+          >
+            生僻词（{{ rareWords.length }}个）
+          </el-button>
+          <el-button
+            type="warning"
+            @click="openCurrentDictRareWordsDrawer"
+          >
+            当前词典生僻词（{{ currentDictRareWordsCount }}个）
+          </el-button>
+          <span>剩余 {{ tableData.length }} 词</span>
+          <el-tooltip placement="top">
+              <template #content>
+                <p>Ctrl + ←/→ 切换上一页/下一页</p>
+                <p>Ctrl + ↑/↓ 切换到第一/最后一个输入框</p>
+                <p>↑/↓ 切换到上/下一个输入框</p>
+                <p>Ctrl + B 播放正在输入的单词发音</p>
+                <p>Ctrl + J 加入当前聚焦的单词到熟悉单词</p>
+                <p>Ctrl + Shift + J 将当前页默写正确的单词全部加入熟悉单词</p>
+              </template>
+            <el-button>快捷键</el-button>
+          </el-tooltip>
+        </div>
       </div>
       <el-table
         :data="pagedData"
@@ -102,13 +116,8 @@
             <template #default="{ row }">
               <div style="display: flex; align-items: center; gap: 8px">
                 <span
-                  v-if="row.wordHidden"
                   style="flex: 1"
-                  >***</span
-                >
-                <span
-                  v-else
-                  style="flex: 1"
+                  :style="{ filter: row.wordHidden ? 'blur(5px)' : 'none', userSelect: row.wordHidden ? 'none' : 'auto' }"
                   >{{ row.word }}</span
                 >
                 <el-icon
@@ -149,30 +158,24 @@
             </template>
             <template #default="{ row }">
               <div style="display: flex; align-items: center; gap: 8px">
-                <div style="flex: 1">
-                  <template v-if="row.phoneticHidden">
-                    <p>***</p>
-                    <p v-if="row.phonetic1 !== row.phonetic0">***</p>
-                  </template>
-                  <template v-else>
-                    <p class="phonetic-row">
-                      <WordAudioButton
-                        :word="row.word"
-                        variant="us"
-                      />
-                      <span>[{{ row.phonetic0 }}]</span>
-                    </p>
-                    <p
-                      v-if="row.phonetic1 && row.phonetic1 !== row.phonetic0"
-                      class="phonetic-row"
-                    >
-                      <WordAudioButton
-                        :word="row.word"
-                        variant="uk"
-                      />
-                      <span>[{{ row.phonetic1 }}]</span>
-                    </p>
-                  </template>
+                <div style="flex: 1" :style="{ filter: row.phoneticHidden ? 'blur(5px)' : 'none', userSelect: row.phoneticHidden ? 'none' : 'auto' }">
+                  <p class="phonetic-row">
+                    <WordAudioButton
+                      :word="row.word"
+                      variant="us"
+                    />
+                    <span>[{{ row.phonetic0 }}]</span>
+                  </p>
+                  <p
+                    v-if="row.phonetic1 && row.phonetic1 !== row.phonetic0"
+                    class="phonetic-row"
+                  >
+                    <WordAudioButton
+                      :word="row.word"
+                      variant="uk"
+                    />
+                    <span>[{{ row.phonetic1 }}]</span>
+                  </p>
                 </div>
                 <el-icon
                   :size="16"
@@ -190,17 +193,47 @@
             label="释义"
             width="300"
           >
-            <template #default="{ row }">
-              <div>
-                <br />
-                <ExpandableText
-                  v-for="item in row.trans"
-                  :key="item.pos"
-                  :lines="2"
+            <template #header>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 8px;
+                "
+              >
+                <span>释义</span>
+                <el-icon
+                  :size="16"
+                  style="cursor: pointer"
+                  @click="toggleColumnHide('trans')"
                 >
-                  <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
-                </ExpandableText>
-                <br />
+                  <Hide v-if="!transColumnHidden" />
+                  <View v-else />
+                </el-icon>
+              </div>
+            </template>
+            <template #default="{ row }">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <div style="flex: 1" :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }">
+                  <br />
+                  <ExpandableText
+                    v-for="item in row.trans"
+                    :key="item.pos"
+                    :lines="2"
+                  >
+                    <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
+                  </ExpandableText>
+                  <br />
+                </div>
+                <el-icon
+                  :size="16"
+                  style="cursor: pointer; flex-shrink: 0"
+                  @click="row.transHidden = !row.transHidden"
+                >
+                  <Hide v-if="!row.transHidden" />
+                  <View v-else />
+                </el-icon>
               </div>
             </template>
           </el-table-column>
@@ -236,8 +269,7 @@
               <div class="mobile-inline-info">
                 <div class="mobile-word">
                   单词：
-                  <span v-if="row.wordHidden">***</span>
-                  <span v-else>{{ row.word }}</span>
+                  <span :style="{ filter: row.wordHidden ? 'blur(5px)' : 'none', userSelect: row.wordHidden ? 'none' : 'auto' }">{{ row.word }}</span>
                   <el-icon
                     :size="16"
                     style="cursor: pointer; margin-left: 8px"
@@ -250,15 +282,8 @@
                 <div class="mobile-phonetic">
                   音标：
                   <div
-                    v-if="row.phoneticHidden"
                     class="flex"
-                  >
-                    <p>***</p>
-                    <p v-if="row.phonetic1 !== row.phonetic0">***</p>
-                  </div>
-                  <div
-                    v-else
-                    class="flex"
+                    :style="{ filter: row.phoneticHidden ? 'blur(5px)' : 'none', userSelect: row.phoneticHidden ? 'none' : 'auto' }"
                   >
                     <p class="phonetic-row">
                       <WordAudioButton
@@ -289,13 +314,25 @@
                 </div>
               </div>
               <br />
-              <ExpandableText
-                v-for="item in row.trans"
-                :key="item.pos"
-                :lines="2"
-              >
-                <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
-              </ExpandableText>
+              <div style="display: flex; align-items: center; gap: 8px">
+                <div style="flex: 1" :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }">
+                  <ExpandableText
+                    v-for="item in row.trans"
+                    :key="item.pos"
+                    :lines="2"
+                  >
+                    <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
+                  </ExpandableText>
+                </div>
+                <el-icon
+                  :size="16"
+                  style="cursor: pointer; flex-shrink: 0"
+                  @click="row.transHidden = !row.transHidden"
+                >
+                  <Hide v-if="!row.transHidden" />
+                  <View v-else />
+                </el-icon>
+              </div>
               <br />
             </div>
             <p class="input-tip-container">
@@ -325,7 +362,17 @@
                 @click="handleAddSimpleWord(row, dictId)"
               >
                 {{
-                  isWordInSimpleList(row) ? "已加入熟悉单词" : "加入熟悉单词"
+                  isWordInSimpleList(row) ? "已加入熟悉词" : "加入熟悉词"
+                }}
+              </el-button>
+              <el-button
+                type="warning"
+                size="small"
+                :disabled="isWordInRareList(row)"
+                @click="handleAddRareWord(row, dictId)"
+              >
+                {{
+                  isWordInRareList(row) ? "已加入生僻词" : "加入生僻词"
                 }}
               </el-button>
               <span v-if="focusedIndex === $index && !isMobile">
@@ -355,7 +402,7 @@
         :page-sizes="[5, 10, 20, 30, 40, 50]"
         :pager-count="4"
         :total="tableData.length"
-        layout="total, sizes, prev, pager, next, jumper"
+        layout="prev, pager, next,total, sizes, jumper"
         style="
           margin-top: 16px;
           justify-content: flex-end;
@@ -369,6 +416,14 @@
         :error="simpleWordsError"
         @remove="handleRemoveSimpleWord"
         @clear-all="handleClearAllSimpleWords"
+      />
+      <RareWordsDrawer
+        v-model="rareWordsDrawerVisible"
+        :rare-words="displayedRareWords"
+        :loading="rareWordsLoading"
+        :error="rareWordsError"
+        @remove="handleRemoveRareWord"
+        @clear-all="handleClearAllRareWords"
       />
     </template>
   </div>
@@ -388,10 +443,13 @@ import { Hide, View, Check, Close } from "@element-plus/icons-vue"
 import ExpandableText from "./ExpandableText.vue"
 import PosTag from "./PosTag.vue"
 import SimpleWordsDrawer from "./SimpleWordsDrawer.vue"
+import RareWordsDrawer from "./RareWordsDrawer.vue"
 import WordAudioButton from "./WordAudioButton.vue"
 import { isMobile } from "@/utils"
 import { useSimpleWords } from "./hooks/useSimpleWords"
 import type { SimpleWordItem } from "./hooks/useSimpleWords"
+import { useRareWords } from "./hooks/useRareWords"
+import type { RareWordItem } from "./hooks/useRareWords"
 import { globalData } from "./hooks/useGlobaData"
 
 import beep from "@/assets/sound/beep.wav"
@@ -438,8 +496,27 @@ const {
   clearAllSimpleWords,
 } = useSimpleWords(dictIdRef)
 
+// 生僻词相关
+const {
+  rareWordsDrawerVisible,
+  rareWords,
+  rareWordsLoading,
+  rareWordsError,
+  rareWordsLoaded,
+  addRareWordLoading,
+  stateReadyForRareWords,
+  initializeRareWords,
+  openRareWordsDrawer,
+  handleAddRareWord,
+  isWordInRareList: isWordInRareListByWord,
+  removeRareWord,
+  clearAllRareWords,
+} = useRareWords(dictIdRef)
+
 // 控制是否只显示当前词典的已熟悉单词
 const showCurrentDictOnly = ref(false)
+// 控制是否只显示当前词典的生僻词
+const showCurrentDictRareOnly = ref(false)
 
 // 计算当前词典的已熟悉单词数量
 const currentDictSimpleWordsCount = computed(() => {
@@ -472,8 +549,43 @@ watch(simpleWordsDrawerVisible, (newVal) => {
   }
 })
 
+// 计算当前词典的生僻词数量
+const currentDictRareWordsCount = computed(() => {
+  if (!props.dictId) return rareWords.value.length
+  return rareWords.value.filter(
+    item => item.sourceDictId === props.dictId
+  ).length
+})
+
+// 根据状态筛选显示的生僻词
+const displayedRareWords = computed(() => {
+  if (!showCurrentDictRareOnly.value || !props.dictId) {
+    return rareWords.value
+  }
+  return rareWords.value.filter(
+    item => item.sourceDictId === props.dictId
+  )
+})
+
+// 打开当前词典生僻词抽屉
+function openCurrentDictRareWordsDrawer() {
+  showCurrentDictRareOnly.value = true
+  openRareWordsDrawer()
+}
+
+// 监听生僻词抽屉关闭，重置筛选状态
+watch(rareWordsDrawerVisible, (newVal) => {
+  if (!newVal) {
+    showCurrentDictRareOnly.value = false
+  }
+})
+
 function isWordInSimpleList(row: any) {
   return isWordInSimpleListByWord(row?.word)
+}
+
+function isWordInRareList(row: any) {
+  return isWordInRareListByWord(row?.word)
 }
 
 async function handleRemoveSimpleWord(item: SimpleWordItem) {
@@ -483,6 +595,15 @@ async function handleRemoveSimpleWord(item: SimpleWordItem) {
 
 async function handleClearAllSimpleWords() {
   await clearAllSimpleWords()
+}
+
+async function handleRemoveRareWord(item: RareWordItem) {
+  if (!item?.key) return
+  await removeRareWord(item.key)
+}
+
+async function handleClearAllRareWords() {
+  await clearAllRareWords()
 }
 
 // 分页相关
@@ -690,7 +811,13 @@ function setInputRef(el: any, index: number) {
 }
 
 function updateVisibleData(options: { resetPage?: boolean } = {}) {
-  const filtered = originalData.value.filter(row => !isWordInSimpleList(row))
+  const filtered = originalData.value.filter(row => {
+    // 过滤掉已熟悉的单词
+    if (isWordInSimpleList(row)) return false
+    // 如果启用了隐藏生僻词，过滤掉生僻词
+    if (globalData.value?.hideRareWords && isWordInRareList(row)) return false
+    return true
+  })
   tableData.value = filtered
 
   inputRefs.clear()
@@ -850,9 +977,10 @@ onBeforeUnmount(() => {
 // 列级别显示隐藏状态（默认隐藏）
 const wordColumnHidden = ref(true)
 const phoneticColumnHidden = ref(true)
+const transColumnHidden = ref(false) // 释义默认显示
 
 // 切换列显示隐藏
-function toggleColumnHide(key: "word" | "phonetic") {
+function toggleColumnHide(key: "word" | "phonetic" | "trans") {
   if (key === "word") {
     wordColumnHidden.value = !wordColumnHidden.value
     originalData.value.forEach(row => {
@@ -862,6 +990,11 @@ function toggleColumnHide(key: "word" | "phonetic") {
     phoneticColumnHidden.value = !phoneticColumnHidden.value
     originalData.value.forEach(row => {
       row.phoneticHidden = phoneticColumnHidden.value
+    })
+  } else if (key === "trans") {
+    transColumnHidden.value = !transColumnHidden.value
+    originalData.value.forEach(row => {
+      row.transHidden = transColumnHidden.value
     })
   }
 }
@@ -888,7 +1021,7 @@ watch(
       const existingList = existingRowMap.get(key)
       const existing = existingList?.length ? existingList.shift() : undefined
       if (existing) {
-        const { modelValue, wordHidden, phoneticHidden, checked, isCorrect } =
+        const { modelValue, wordHidden, phoneticHidden, transHidden, checked, isCorrect } =
           existing
         Object.assign(existing, item)
         existing.modelValue = modelValue ?? existing.modelValue ?? ""
@@ -898,6 +1031,10 @@ watch(
           typeof phoneticHidden === "boolean"
             ? phoneticHidden
             : phoneticColumnHidden.value
+        existing.transHidden =
+          typeof transHidden === "boolean"
+            ? transHidden
+            : transColumnHidden.value
         existing.checked = typeof checked === "boolean" ? checked : false
         existing.isCorrect = typeof isCorrect === "boolean" ? isCorrect : false
         return existing
@@ -907,6 +1044,7 @@ watch(
         modelValue: item.modelValue || "",
         wordHidden: wordColumnHidden.value,
         phoneticHidden: phoneticColumnHidden.value,
+        transHidden: transColumnHidden.value,
         checked: false, // 是否已校验
         isCorrect: false, // 是否正确
       }
@@ -924,6 +1062,23 @@ watch(
     updateVisibleData()
   },
   { deep: true }
+)
+
+// 监听生僻词变化，更新数据
+watch(
+  () => rareWords.value,
+  () => {
+    updateVisibleData()
+  },
+  { deep: true }
+)
+
+// 监听隐藏生僻词设置变化，更新数据
+watch(
+  () => globalData.value?.hideRareWords,
+  () => {
+    updateVisibleData()
+  }
 )
 
 // 监听分页变化，清空输入框引用和聚焦状态
@@ -1116,6 +1271,7 @@ function clearAllInputs() {
     row.isCorrect = false
     row.wordHidden = true
     row.phoneticHidden = true
+    row.transHidden = false
 
   })
 }
@@ -1236,6 +1392,16 @@ function rowClass({ row }: any) {
 :deep() .el-drawer__header {
   margin-bottom: 0;
 }
+:deep() .el-button+.el-button {
+  margin-left: 0;
+  margin-right: 12px;
+}
+
+:deep() {
+  .el-pagination {
+    flex-wrap: wrap;
+  }
+}
 
 .simple-word-init {
   display: flex;
@@ -1264,15 +1430,17 @@ function rowClass({ row }: any) {
 
 .table-header {
   position: sticky;
-  top: var(--word-dict-practice-table-header-offset, 0px);
+  top: var(--word-dict-practice-table-header-offset, 15px);
   z-index: 5;
   background: var(--el-bg-color);
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
   margin-bottom: 16px;
-
+  > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 0;
+  }
   p {
     margin: 0;
     font-size: 16px;

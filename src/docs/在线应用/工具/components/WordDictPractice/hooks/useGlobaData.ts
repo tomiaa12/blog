@@ -9,6 +9,7 @@ const DEFAULT_GLOBAL_DATA = {
   volume: 60,
   autoJump: true,
   autoPlayAudio: false,
+  hideRareWords: false,
 }
 
 export const globalData = ref<any>({ ...DEFAULT_GLOBAL_DATA })

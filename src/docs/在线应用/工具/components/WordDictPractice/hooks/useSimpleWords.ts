@@ -203,12 +203,12 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
   async function handleAddSimpleWord(row: any, dictId: string) {
     const word = row.word?.trim()
     if (!word) {
-      ElMessage.error("无法获取单词内容")
+      ElMessage.error({ message: "无法获取单词内容", grouping: true })
       return
     }
     const key = buildWordKey(word)
     if (simpleWordsMap.value.has(key)) {
-      ElMessage.info("该单词已在熟悉列表中")
+      ElMessage.info({ message: "该单词已在熟悉列表中", grouping: true })
       return
     }
 
@@ -244,12 +244,13 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
           [key]: entry,
         })
       }
-      ElMessage.success(
-        canSyncRemote ? "已加入熟悉单词" : "已在本地记录熟悉单词，可登录后同步云端"
-      )
+      ElMessage.success({
+        message: canSyncRemote ? "已加入熟悉单词" : "已在本地记录熟悉单词，可登录后同步云端",
+        grouping: true
+      })
     } catch (error) {
       console.error("加入已熟悉单词失败:", error)
-      ElMessage.error("云端同步失败，已保存在本地")
+      ElMessage.error({ message: "云端同步失败，已保存在本地", grouping: true })
     } finally {
       addSimpleWordLoading.value = false
     }
@@ -286,10 +287,10 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
           [trimmedKey]: deleteField(),
         })
       }
-      ElMessage.success("已移除熟悉单词")
+      ElMessage.success({ message: "已移除熟悉单词", grouping: true })
     } catch (error) {
       console.error("移除熟悉单词失败:", error)
-      ElMessage.error("云端同步失败，但本地已移除")
+      ElMessage.error({ message: "云端同步失败，但本地已移除", grouping: true })
     }
   }
 
@@ -305,10 +306,10 @@ function openSimpleWordsDrawer(forceRemote?: boolean | Event) {
       if (stateReadyForSimpleWords.value && Object.keys(payload).length) {
         await saveDocumentData(PAGE_KEY, SIMPLE_WORDS_RECORD_ID, payload)
       }
-      ElMessage.success("已清空熟悉单词")
+      ElMessage.success({ message: "已清空熟悉单词", grouping: true })
     } catch (error) {
       console.error("清空熟悉单词失败:", error)
-      ElMessage.error("云端同步失败，但本地已清空")
+      ElMessage.error({ message: "云端同步失败，但本地已清空", grouping: true })
     }
   }
 
