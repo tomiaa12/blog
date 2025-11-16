@@ -25,7 +25,6 @@
     </div>
     <template v-else>
       <div class="table-header">
-        <p>单词默写练习</p>
         <div>
           <el-button
             type="primary"
@@ -1047,6 +1046,9 @@ function toggleColumnHide(key: "word" | "phonetic" | "trans") {
       row.transHidden = transColumnHidden.value
     })
   }
+  
+  // 强制触发 tableData 更新，确保视图能够响应式更新
+  tableData.value = [...tableData.value]
 }
 
 // 初始化数据
