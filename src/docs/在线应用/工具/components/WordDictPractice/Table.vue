@@ -814,8 +814,19 @@ function updateVisibleData(options: { resetPage?: boolean } = {}) {
   const filtered = originalData.value.filter(row => {
     // 过滤掉已熟悉的单词
     if (isWordInSimpleList(row)) return false
-    // 如果启用了隐藏生僻词，过滤掉生僻词
-    if (globalData.value?.hideRareWords && isWordInRareList(row)) return false
+    
+    // 根据练习模式过滤
+    const isRare = isWordInRareList(row)
+    const mode = globalData.value?.practiceMode || 'all'
+    
+    if (mode === 'rareOnly') {
+      // 仅生僻词模式：只显示标记为生僻词的单词
+      return isRare
+    } else if (mode === 'excludeRare') {
+      // 排除生僻词模式：隐藏标记为生僻词的单词
+      return !isRare
+    }
+    // 'all' 模式：显示全部单词（包括生僻词）
     return true
   })
   tableData.value = filtered
@@ -1073,9 +1084,9 @@ watch(
   { deep: true }
 )
 
-// 监听隐藏生僻词设置变化，更新数据
+// 监听练习模式变化，更新数据
 watch(
-  () => globalData.value?.hideRareWords,
+  () => globalData.value?.practiceMode,
   () => {
     updateVisibleData()
   }

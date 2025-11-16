@@ -25,7 +25,7 @@
         <div>
           <div style="font-size: 14px; line-height: 1.8;">
             <p style="margin: 0 0 8px 0;">生僻词用于标记不常见或难以记忆的单词。</p>
-            <p style="margin: 0;">可在设置中开启"隐藏生僻词"功能，让已标记的生僻词不在默写列表中显示。</p>
+            <p style="margin: 0;">可在设置中切换<strong>练习模式</strong>：专门练习生僻词，或暂时排除生僻词。</p>
           </div>
           <div
             class="rare-word-actions"

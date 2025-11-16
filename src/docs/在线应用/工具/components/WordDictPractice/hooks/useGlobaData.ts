@@ -9,7 +9,7 @@ const DEFAULT_GLOBAL_DATA = {
   volume: 60,
   autoJump: true,
   autoPlayAudio: false,
-  hideRareWords: false,
+  practiceMode: 'all' as 'all' | 'rareOnly' | 'excludeRare', // 练习模式：all-全部单词, rareOnly-仅生僻词, excludeRare-排除生僻词
 }
 
 export const globalData = ref<any>({ ...DEFAULT_GLOBAL_DATA })

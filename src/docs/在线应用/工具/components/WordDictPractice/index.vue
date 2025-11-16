@@ -20,7 +20,7 @@
           <span
             class="current-dict"
             v-if="currentDictInfo.description"
-            >当前词典：{{ currentDictInfo.label }} -
+            >{{ currentDictInfo.label }} -
             {{ currentDictInfo.description }} ({{
               currentDictInfo.length
             }}个词)</span
@@ -37,7 +37,7 @@
             <el-select
               v-model="globalData.sound"
               placeholder="选择键盘音效"
-              style="min-width: 120px;"
+              style="width: 120px;"
             >
               <el-option
                 v-for="option in keySoundOptions"
@@ -54,6 +54,29 @@
               </el-tooltip>
             </el-checkbox>
           </el-form-item>
+          <el-form-item label="练习模式：">
+            <el-select
+              v-model="globalData.practiceMode"
+              placeholder="选择练习模式"
+              style="width: 120px;"
+            >
+              <el-option label="全部单词" value="all">
+                <el-tooltip content="练习所有未熟悉的单词（包括生僻词）" placement="left" effect="dark">
+                  <span>全部单词</span>
+                </el-tooltip>
+              </el-option>
+              <el-option label="仅生僻词" value="rareOnly">
+                <el-tooltip content="只练习已标记为生僻词的单词" placement="left" effect="dark">
+                  <span>仅生僻词</span>
+                </el-tooltip>
+              </el-option>
+              <el-option label="排除生僻词" value="excludeRare">
+                <el-tooltip content="练习时隐藏已标记的生僻词" placement="left" effect="dark">
+                  <span>排除生僻词</span>
+                </el-tooltip>
+              </el-option>
+            </el-select>
+          </el-form-item>
           <el-form-item>
             <el-checkbox v-model="globalData.autoPlayAudio">
               <el-tooltip content="启用后，默写时会自动播放单词发音" placement="top" effect="dark">
@@ -61,14 +84,6 @@
               </el-tooltip>
             </el-checkbox>
           </el-form-item>
-          <el-form-item>
-            <el-checkbox v-model="globalData.hideRareWords">
-              <el-tooltip content="启用后，已标记为生僻词的单词将不会在默写列表中显示" placement="top" effect="dark">
-                隐藏生僻词
-              </el-tooltip>
-            </el-checkbox>
-          </el-form-item>
-          
         </el-form>
         <div v-else>正在加载全局设置...</div>
       </el-card>
