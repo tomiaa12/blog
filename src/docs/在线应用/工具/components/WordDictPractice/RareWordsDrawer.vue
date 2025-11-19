@@ -42,11 +42,25 @@
           </div>
         </div>
         <template v-if="rareWords.length">
-          <el-input 
-            v-model="keyWord" 
-            placeholder="输入单词或释义筛选" 
-            clearable 
-          />
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <el-input
+              v-model="keyWord"
+              placeholder="输入单词或释义筛选"
+              clearable
+              style="flex: 1;"
+            />
+            <el-select
+              v-model="sortType"
+              placeholder="排序方式"
+              style="width: 120px;"
+              @change="handleSortChange"
+            >
+              <el-option label="时间倒序" value="timeDesc" />
+              <el-option label="时间顺序" value="timeAsc" />
+              <el-option label="单词顺序" value="wordAsc" />
+              <el-option label="单词倒序" value="wordDesc" />
+            </el-select>
+          </div>
           
           <div 
             v-if="keyWord.trim() && filteredRareWords.length === 0"
@@ -70,6 +84,9 @@
             >
               <div class="rare-word-item__title">
                 <span class="word">{{ item.word }}</span>
+                <div class="rare-word-item__time">
+                  {{ formatTime(item.addedAt) }}
+                </div>
                 <div
                   class="rare-word-item__phonetics"
                   v-if="
@@ -178,30 +195,48 @@ const keyWord = ref("")
 const confirmingDeleteAll = ref(false)
 const currentPage = ref(1)
 const pageSize = ref(10)
+const sortType = ref<"timeDesc" | "timeAsc" | "wordAsc" | "wordDesc">("timeDesc") // 默认时间倒序
 
-// 根据搜索关键词过滤单词
+// 根据搜索关键词过滤并排序单词
 const filteredRareWords = computed(() => {
-  if (!keyWord.value.trim()) {
-    return props.rareWords
+  let filtered = props.rareWords
+
+  // 先过滤
+  if (keyWord.value.trim()) {
+    const keyword = keyWord.value.trim().toLowerCase()
+    filtered = props.rareWords.filter(item => {
+      // 搜索单词
+      if (item.word.toLowerCase().includes(keyword)) {
+        return true
+      }
+
+      // 搜索释义
+      if (item.trans && item.trans.length > 0) {
+        return item.trans.some(trans => {
+          const cnText = trans.cn?.toLowerCase() || ""
+          const posText = trans.pos?.toLowerCase() || ""
+          return cnText.includes(keyword) || posText.includes(keyword)
+        })
+      }
+
+      return false
+    })
   }
-  
-  const keyword = keyWord.value.trim().toLowerCase()
-  return props.rareWords.filter(item => {
-    // 搜索单词
-    if (item.word.toLowerCase().includes(keyword)) {
-      return true
+
+  // 再排序
+  return filtered.sort((a, b) => {
+    switch (sortType.value) {
+      case "timeDesc":
+        return new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime()
+      case "timeAsc":
+        return new Date(a.addedAt).getTime() - new Date(b.addedAt).getTime()
+      case "wordAsc":
+        return a.word.localeCompare(b.word)
+      case "wordDesc":
+        return b.word.localeCompare(a.word)
+      default:
+        return 0
     }
-    
-    // 搜索释义
-    if (item.trans && item.trans.length > 0) {
-      return item.trans.some(trans => {
-        const cnText = trans.cn?.toLowerCase() || ""
-        const posText = trans.pos?.toLowerCase() || ""
-        return cnText.includes(keyword) || posText.includes(keyword)
-      })
-    }
-    
-    return false
   })
 })
 
@@ -216,6 +251,55 @@ const pagedRareWords = computed(() => {
 watch(keyWord, () => {
   currentPage.value = 1
 })
+
+// 排序变化时重置到第一页
+function handleSortChange() {
+  currentPage.value = 1
+}
+
+// 格式化时间显示
+function formatTime(isoString: string): string {
+  const date = new Date(isoString)
+  const now = new Date()
+  const diff = now.getTime() - date.getTime()
+
+  // 小于1分钟
+  if (diff < 60 * 1000) {
+    return '刚刚'
+  }
+
+  // 小于1小时
+  if (diff < 60 * 60 * 1000) {
+    const minutes = Math.floor(diff / (60 * 1000))
+    return `${minutes}分钟前`
+  }
+
+  // 小于24小时
+  if (diff < 24 * 60 * 60 * 1000) {
+    const hours = Math.floor(diff / (60 * 60 * 1000))
+    return `${hours}小时前`
+  }
+
+  // 小于7天
+  if (diff < 7 * 24 * 60 * 60 * 1000) {
+    const days = Math.floor(diff / (24 * 60 * 60 * 1000))
+    return `${days}天前`
+  }
+
+  // 超过7天显示具体日期时间
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  const hour = String(date.getHours()).padStart(2, '0')
+  const minute = String(date.getMinutes()).padStart(2, '0')
+
+  // 如果是今年，不显示年份
+  if (year === now.getFullYear()) {
+    return `${month}-${day} ${hour}:${minute}`
+  }
+
+  return `${year}-${month}-${day} ${hour}:${minute}`
+}
 
 watch(
   () => [filteredRareWords.value.length, pageSize.value],
@@ -307,6 +391,12 @@ async function handleClearAll() {
   .word {
     font-weight: 600;
     font-size: 16px;
+  }
+
+  .rare-word-item__time {
+    color: var(--el-text-color-placeholder);
+    font-size: 12px;
+    margin-left: auto;
   }
 
   .rare-word-item__phonetics {

@@ -4,6 +4,7 @@ export const Server = [
     collapsed: true,
     items: [
       { text: "初识", link: "/docs/服务端/Python/01-初识" },
+      { text: "初识（二）", link: "/docs/服务端/Python/02-初识-2" },
     ]
   },
   {

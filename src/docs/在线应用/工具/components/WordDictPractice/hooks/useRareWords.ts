@@ -12,6 +12,7 @@ export type RareWordItem = {
   phonetic0?: string | null
   phonetic1?: string | null
   sourceDictId?: string | null
+  addedAt: string // ISO 8601格式的时间戳
 }
 
 type RareWordsStoreEntry = {
@@ -20,6 +21,7 @@ type RareWordsStoreEntry = {
   phonetic0?: string | null
   phonetic1?: string | null
   sourceDictId?: string | null
+  addedAt: string // ISO 8601格式的时间戳
 }
 
 type RareWordsStore = Record<string, RareWordsStoreEntry>
@@ -70,6 +72,7 @@ function storeToList(store: RareWordsStore): RareWordItem[] {
     phonetic0: entry.phonetic0 ?? null,
     phonetic1: entry.phonetic1 ?? null,
     sourceDictId: entry.sourceDictId ?? null,
+    addedAt: entry.addedAt ?? new Date().toISOString(), // 为旧数据设置默认时间
   }))
 }
 
@@ -88,6 +91,7 @@ function normalizeRemoteData(data: any): RareWordsStore {
       phonetic0: entry.phonetic0 ?? entry.phonetic ?? null,
       phonetic1: entry.phonetic1 ?? null,
       sourceDictId: entry.sourceDictId ?? null,
+      addedAt: entry.addedAt ?? new Date().toISOString(), // 为旧数据设置默认时间
     }
   })
   return store
@@ -106,6 +110,7 @@ function mergeStores(remote: RareWordsStore, local: RareWordsStore) {
         ...remoteEntry,
         ...entry,
         word: entry.word ?? remoteEntry.word ?? key,
+        addedAt: entry.addedAt ?? remoteEntry.addedAt ?? new Date().toISOString(), // 保留较早的时间
       }
     }
   })
@@ -178,7 +183,7 @@ export function useRareWords(dictId?: Ref<string | undefined | null>) {
       rareWordsError.value = message
       workingStore = localStore
     } finally {
-      rareWords.value = storeToList(workingStore).sort((a, b) => a.word.localeCompare(b.word))
+      rareWords.value = storeToList(workingStore).sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime()) // 默认时间倒序
       rareWordsLoaded.value = true
       rareWordsLoading.value = false
     }
@@ -218,6 +223,7 @@ export function useRareWords(dictId?: Ref<string | undefined | null>) {
       phonetic0: row.phonetic0 ?? null,
       phonetic1: row.phonetic1 ?? null,
       sourceDictId: dictId ?? null,
+      addedAt: new Date().toISOString(),
     }
     const localStore = loadRareWordsFromLocal()
     localStore[key] = entry
@@ -230,9 +236,10 @@ export function useRareWords(dictId?: Ref<string | undefined | null>) {
       phonetic0: entry.phonetic0 ?? null,
       phonetic1: entry.phonetic1 ?? null,
       sourceDictId: dictId ?? null,
+      addedAt: entry.addedAt,
     }
     rareWords.value = [...rareWords.value.filter(item => item.key !== key), optimisticItem].sort(
-      (a, b) => a.word.localeCompare(b.word)
+      (a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime()
     )
     rareWordsLoaded.value = true
 

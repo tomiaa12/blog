@@ -813,9 +813,11 @@ function updateVisibleData(options: { resetPage?: boolean } = {}) {
   // 如果不需要重置页面，保持当前排序
   if (!options.resetPage && tableData.value.length > 0) {
     // 创建一个 Map 来记录当前 tableData 中每个单词的位置
+    // 使用 originalData 作为顺序基准
     const orderMap = new Map<string, number>()
-    tableData.value.forEach((row, index) => {
-      orderMap.set(row.word, index)
+    originalData.value.forEach((row, index) => {
+      const key = (row.word || '').toLowerCase()
+      orderMap.set(key, index)
     })
     
     // 从 originalData 过滤数据
@@ -840,8 +842,8 @@ function updateVisibleData(options: { resetPage?: boolean } = {}) {
     
     // 根据之前的顺序重新排列数据
     const sorted = filtered.sort((a, b) => {
-      const orderA = orderMap.has(a.word) ? orderMap.get(a.word)! : Infinity
-      const orderB = orderMap.has(b.word) ? orderMap.get(b.word)! : Infinity
+      const orderA = orderMap.has((a.word||'').toLowerCase()) ? orderMap.get((a.word||'').toLowerCase())! : Infinity
+      const orderB = orderMap.has((b.word||'').toLowerCase()) ? orderMap.get((b.word||'').toLowerCase())! : Infinity
       return orderA - orderB
     })
     
