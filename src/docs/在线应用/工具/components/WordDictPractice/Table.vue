@@ -223,8 +223,15 @@
                   >
                     <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
                   </ExpandableText>
-                  <br />
+                  <el-button
+                    type="primary"
+                    size="small"
+                    @click="openTransDetail(row)"
+                  >
+                    查看详情
+                  </el-button>
                 </div>
+                
                 <el-icon
                   :size="16"
                   style="cursor: pointer; flex-shrink: 0"
@@ -322,6 +329,13 @@
                   >
                     <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
                   </ExpandableText>
+                  <el-button
+                    type="primary"
+                    size="small"
+                    @click="openTransDetail(row)"
+                  >
+                    查看详情
+                  </el-button>
                 </div>
                 <el-icon
                   :size="16"
@@ -424,6 +438,12 @@
         @remove="handleRemoveRareWord"
         @clear-all="handleClearAllRareWords"
       />
+
+      <!-- 单词详情弹窗 -->
+      <WordDetailDialog
+        v-model="wordDetailDialogVisible"
+        :word-data="currentWordData"
+      />
     </template>
   </div>
 </template>
@@ -444,6 +464,7 @@ import PosTag from "./PosTag.vue"
 import SimpleWordsDrawer from "./SimpleWordsDrawer.vue"
 import RareWordsDrawer from "./RareWordsDrawer.vue"
 import WordAudioButton from "./WordAudioButton.vue"
+import WordDetailDialog from "./WordDetailDialog.vue"
 import { isMobile } from "@/utils"
 import { useSimpleWords } from "./hooks/useSimpleWords"
 import type { SimpleWordItem } from "./hooks/useSimpleWords"
@@ -516,6 +537,10 @@ const {
 const showCurrentDictOnly = ref(false)
 // 控制是否只显示当前词典的生僻词
 const showCurrentDictRareOnly = ref(false)
+
+// 单词详情弹窗
+const wordDetailDialogVisible = ref(false)
+const currentWordData = ref<any>(null)
 
 // 计算当前词典的已熟悉单词数量
 const currentDictSimpleWordsCount = computed(() => {
@@ -1437,12 +1462,23 @@ function handleSortChange({
   }
 }
 
+// 打开单词详情弹窗
+function openTransDetail(row: any) {
+  currentWordData.value = row
+  wordDetailDialogVisible.value = true
+}
+
 function rowClass({ row }: any) {
   if (row.modelValue.trim().toLowerCase() === row.word.trim().toLowerCase()) return "bg-success"
   return ""
 }
 </script>
 <style lang="scss" scoped>
+:deep() {
+  .el-button + .el-button {
+    margin-right: 0 !important;
+  }
+}
 :deep() .el-drawer__header {
   margin-bottom: 0;
 }
@@ -1484,7 +1520,7 @@ function rowClass({ row }: any) {
 
 .table-header {
   position: sticky;
-  top: var(--word-dict-practice-table-header-offset, 15px);
+  top: var(--word-dict-practice-table-header-offset, 47px);
   z-index: 5;
   background: var(--el-bg-color);
   margin-bottom: 16px;
