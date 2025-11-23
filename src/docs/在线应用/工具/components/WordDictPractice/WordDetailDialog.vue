@@ -1,7 +1,6 @@
 <template>
   <el-dialog
     v-model="visible"
-    :title="`单词详情 - ${wordData?.word || ''}`"
     :width="isMobile ? '100%' : '800px'"
     :fullscreen="isMobile"
     :before-close="handleClose"
@@ -10,7 +9,10 @@
     lock-scroll
     top="3vh"
   >
-    <div v-if="wordData" class="word-detail-content">
+    <div
+      v-if="wordData"
+      class="word-detail-content"
+    >
       <!-- 基本信息 -->
       <div class="word-basic-info">
         <div class="word-header">
@@ -18,7 +20,9 @@
           <div class="phonetics">
             <div class="phonetic-item">
               <span class="phonetic-label">英:</span>
-              <span class="phonetic-text">{{ wordData.phonetic0 || '暂无' }}</span>
+              <span class="phonetic-text">{{
+                wordData.phonetic0 || "暂无"
+              }}</span>
               <WordAudioButton
                 :word="wordData.word"
                 variant="uk"
@@ -28,7 +32,9 @@
             </div>
             <div class="phonetic-item">
               <span class="phonetic-label">美:</span>
-              <span class="phonetic-text">{{ wordData.phonetic1 || '暂无' }}</span>
+              <span class="phonetic-text">{{
+                wordData.phonetic1 || "暂无"
+              }}</span>
               <WordAudioButton
                 :word="wordData.word"
                 variant="us"
@@ -41,7 +47,10 @@
       </div>
 
       <!-- 翻译 -->
-      <div v-if="wordData.trans && wordData.trans.length" class="section">
+      <div
+        v-if="wordData.trans && wordData.trans.length"
+        class="section"
+      >
         <h3 class="section-title">翻译</h3>
         <div class="trans-list">
           <div
@@ -49,14 +58,21 @@
             :key="item.pos"
             class="trans-item"
           >
-            <PosTag :pos="item.pos" class="trans-pos">{{ item.pos }}</PosTag>
+            <PosTag
+              :pos="item.pos"
+              class="trans-pos"
+              >{{ item.pos }}</PosTag
+            >
             <span class="trans-cn">{{ item.cn }}</span>
           </div>
         </div>
       </div>
 
       <!-- 例句 -->
-      <div v-if="wordData.sentences && wordData.sentences.length" class="section">
+      <div
+        v-if="wordData.sentences && wordData.sentences.length"
+        class="section"
+      >
         <h3 class="section-title">例句</h3>
         <div class="sentences-list">
           <div
@@ -65,7 +81,9 @@
             class="sentence-item"
           >
             <div class="sentence-en">
-              <span v-html="highlightWordInText(sentence.c, wordData.word)"></span>
+              <span
+                v-html="highlightWordInText(sentence.c, wordData.word)"
+              ></span>
               <WordAudioButton
                 :word="sentence.c"
                 :size="14"
@@ -78,7 +96,10 @@
       </div>
 
       <!-- 短语 -->
-      <div v-if="wordData.phrases && wordData.phrases.length" class="section">
+      <div
+        v-if="wordData.phrases && wordData.phrases.length"
+        class="section"
+      >
         <h3 class="section-title">短语</h3>
         <div class="phrases-list">
           <div
@@ -100,7 +121,10 @@
       </div>
 
       <!-- 同义词 -->
-      <div v-if="wordData.synos && wordData.synos.length" class="section">
+      <div
+        v-if="wordData.synos && wordData.synos.length"
+        class="section"
+      >
         <h3 class="section-title">同义词</h3>
         <div class="synos-list">
           <div
@@ -109,10 +133,18 @@
             class="syno-item"
           >
             <div class="syno-header">
-              <PosTag v-if="syno.pos" :pos="syno.pos" class="syno-pos">{{ syno.pos }}</PosTag>
+              <PosTag
+                v-if="syno.pos"
+                :pos="syno.pos"
+                class="syno-pos"
+                >{{ syno.pos }}</PosTag
+              >
               <span class="syno-cn">{{ syno.cn }}</span>
             </div>
-            <div v-if="syno.ws && syno.ws.length" class="syno-words">
+            <div
+              v-if="syno.ws && syno.ws.length"
+              class="syno-words"
+            >
               <div
                 v-for="(word, wordIndex) in syno.ws"
                 :key="wordIndex"
@@ -130,10 +162,21 @@
       </div>
 
       <!-- 相关词 -->
-      <div v-if="wordData.relWords && wordData.relWords.rels && wordData.relWords.rels.length" class="section">
+      <div
+        v-if="
+          wordData.relWords &&
+          wordData.relWords.rels &&
+          wordData.relWords.rels.length
+        "
+        class="section"
+      >
         <h3 class="section-title">
           相关词
-          <span v-if="wordData.relWords.root" class="root-word">(词根: {{ wordData.relWords.root }})</span>
+          <span
+            v-if="wordData.relWords.root"
+            class="root-word"
+            >(词根: {{ wordData.relWords.root }})</span
+          >
         </h3>
         <div class="rel-words-list">
           <div
@@ -141,10 +184,16 @@
             :key="index"
             class="rel-group"
           >
-            <div v-if="relGroup.pos" class="rel-pos">
+            <div
+              v-if="relGroup.pos"
+              class="rel-pos"
+            >
               <PosTag :pos="relGroup.pos">{{ relGroup.pos }}</PosTag>
             </div>
-            <div v-if="relGroup.words && relGroup.words.length" class="rel-words">
+            <div
+              v-if="relGroup.words && relGroup.words.length"
+              class="rel-words"
+            >
               <div
                 v-for="(word, wordIndex) in relGroup.words"
                 :key="wordIndex"
@@ -164,17 +213,28 @@
       </div>
 
       <!-- 词源 -->
-      <div v-if="wordData.etymology && wordData.etymology.length" class="section">
+      <div
+        v-if="wordData.etymology && wordData.etymology.length"
+        class="section"
+      >
         <h3 class="section-title">词源</h3>
         <div class="etymology-list">
-          <div
-            v-for="(etym, index) in wordData.etymology"
-            :key="index"
-            class="etymology-item"
-          >
-            <div v-if="etym.t" class="etymology-title">{{ etym.t }}</div>
-            <div v-if="etym.d" class="etymology-desc">{{ etym.d }}</div>
-          </div>
+          <template v-for="(etym, index) in wordData.etymology">
+            <div
+              class="etymology-item"
+              v-if="etym.d"
+            >
+              <div
+                v-if="etym.t"
+                class="etymology-title"
+              >
+                {{ etym.t }}
+              </div>
+              <div class="etymology-desc">
+                {{ etym.d }}
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -182,10 +242,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onUnmounted } from 'vue'
-import { isMobile } from '@/utils'
-import PosTag from './PosTag.vue'
-import WordAudioButton from './WordAudioButton.vue'
+import { ref, watch, onUnmounted } from "vue"
+import { isMobile } from "@/utils"
+import PosTag from "./PosTag.vue"
+import WordAudioButton from "./WordAudioButton.vue"
 
 interface Props {
   modelValue: boolean
@@ -194,18 +254,21 @@ interface Props {
 
 const props = defineProps<Props>()
 const emit = defineEmits<{
-  'update:modelValue': [value: boolean]
+  "update:modelValue": [value: boolean]
 }>()
 
 const visible = ref(false)
 
-watch(() => props.modelValue, (newVal) => {
-  visible.value = newVal
-  handleScrollLock(newVal)
-})
+watch(
+  () => props.modelValue,
+  newVal => {
+    visible.value = newVal
+    handleScrollLock(newVal)
+  }
+)
 
-watch(visible, (newVal) => {
-  emit('update:modelValue', newVal)
+watch(visible, newVal => {
+  emit("update:modelValue", newVal)
   handleScrollLock(newVal)
 })
 
@@ -220,7 +283,7 @@ onUnmounted(() => {
 
 // 处理滚动锁定
 const handleScrollLock = (lock: boolean) => {
-  if (typeof document === 'undefined') return
+  if (typeof document === "undefined") return
 
   const body = document.body
   const html = document.documentElement
@@ -231,27 +294,27 @@ const handleScrollLock = (lock: boolean) => {
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
 
     // 设置body样式防止滚动
-    body.style.position = 'fixed'
+    body.style.position = "fixed"
     body.style.top = `-${scrollTop}px`
     body.style.left = `-${scrollLeft}px`
-    body.style.width = '100%'
-    body.style.overflow = 'hidden'
+    body.style.width = "100%"
+    body.style.overflow = "hidden"
 
     // 同时设置html以防万一
-    html.style.overflow = 'hidden'
+    html.style.overflow = "hidden"
   } else {
     // 恢复原始样式
-    const scrollTop = parseInt(body.style.top || '0', 10) * -1
-    const scrollLeft = parseInt(body.style.left || '0', 10) * -1
+    const scrollTop = parseInt(body.style.top || "0", 10) * -1
+    const scrollLeft = parseInt(body.style.left || "0", 10) * -1
 
     // 移除锁定样式
-    body.style.position = ''
-    body.style.top = ''
-    body.style.left = ''
-    body.style.width = ''
-    body.style.overflow = ''
+    body.style.position = ""
+    body.style.top = ""
+    body.style.left = ""
+    body.style.width = ""
+    body.style.overflow = ""
 
-    html.style.overflow = ''
+    html.style.overflow = ""
 
     // 恢复滚动位置
     window.scrollTo(scrollLeft, scrollTop)
@@ -263,9 +326,9 @@ const highlightWordInText = (text: string, word: string): string => {
   if (!text || !word) return text
 
   // 转义正则表达式特殊字符
-  const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
   // 创建不区分大小写的正则表达式
-  const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi')
+  const regex = new RegExp(`\\b${escapedWord}\\b`, "gi")
 
   return text.replace(regex, `<span class="highlight-word">$&</span>`)
 }
@@ -293,7 +356,7 @@ const highlightWordInText = (text: string, word: string): string => {
 .word-basic-info {
   margin-bottom: 24px;
   padding: 16px;
-  background: #f8f9fa;
+  background: var(--el-bg-color);
   border-radius: 8px;
 }
 
@@ -304,7 +367,7 @@ const highlightWordInText = (text: string, word: string): string => {
 .word-title {
   font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: var(--el-text-color-regular);
   margin-bottom: 8px;
 }
 
@@ -320,7 +383,7 @@ const highlightWordInText = (text: string, word: string): string => {
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: white;
+  background: var(--el-bg-color);
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -328,13 +391,13 @@ const highlightWordInText = (text: string, word: string): string => {
 .phonetic-label {
   font-size: 14px;
   font-weight: 500;
-  color: #409eff;
+  color: var(--el-color-primary);
 }
 
 .phonetic-text {
   font-size: 16px;
-  color: #666;
-  font-family: 'Courier New', monospace;
+  color: var(--el-text-color-regular);
+  font-family: "Courier New", monospace;
 }
 
 .audio-btn {
@@ -352,16 +415,16 @@ const highlightWordInText = (text: string, word: string): string => {
 .section-title {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: var(--el-text-color-regular);
   margin-bottom: 12px;
-  border-bottom: 2px solid #409eff;
+  border-bottom: 1px solid var(--el-color-primary);
   padding-bottom: 4px;
 }
 
 .root-word {
   font-size: 14px;
   font-weight: normal;
-  color: #666;
+  color: var(--el-text-color-regular);
   margin-left: 8px;
 }
 
@@ -377,7 +440,7 @@ const highlightWordInText = (text: string, word: string): string => {
   align-items: flex-start;
   gap: 8px;
   padding: 8px;
-  background: #f8f9fa;
+  background: var(--vp-c-gray-soft);
   border-radius: 4px;
 }
 
@@ -401,7 +464,7 @@ const highlightWordInText = (text: string, word: string): string => {
 .sentence-item,
 .phrase-item {
   padding: 12px;
-  background: #f8f9fa;
+  background: var(--vp-c-gray-soft);
   border-radius: 6px;
 }
 
@@ -409,14 +472,14 @@ const highlightWordInText = (text: string, word: string): string => {
 .phrase-en {
   font-weight: 500;
   margin-bottom: 4px;
-  color: #333;
+  color: var(--el-text-color-regular);
   display: flex;
   align-items: center;
 }
 
-.highlight-word {
-  background-color: #fff3cd;
-  color: #856404;
+:deep() .highlight-word {
+  background-color: var(--el-color-warning-light-9);
+  color: var(--el-color-danger);
   padding: 2px 4px;
   border-radius: 3px;
   font-weight: bold;
@@ -431,7 +494,7 @@ const highlightWordInText = (text: string, word: string): string => {
 
 .sentence-cn,
 .phrase-cn {
-  color: #666;
+  color: var(--el-text-color-regular);
   font-size: 14px;
 }
 
@@ -444,7 +507,7 @@ const highlightWordInText = (text: string, word: string): string => {
 
 .syno-item {
   padding: 12px;
-  background: #f8f9fa;
+  background: var(--vp-c-gray-soft);
   border-radius: 6px;
 }
 
@@ -461,7 +524,7 @@ const highlightWordInText = (text: string, word: string): string => {
 
 .syno-cn {
   font-weight: 500;
-  color: #333;
+  color: var(--el-text-color-regular);
 }
 
 .syno-words {
@@ -475,8 +538,8 @@ const highlightWordInText = (text: string, word: string): string => {
   align-items: center;
   gap: 4px;
   padding: 4px 8px;
-  background: #e8f5e8;
-  color: #67c23a;
+  background: var(--el-color-success-light-9);
+  color: var(--el-color-success);
   border-radius: 4px;
   font-size: 14px;
 }
@@ -494,7 +557,7 @@ const highlightWordInText = (text: string, word: string): string => {
 
 .rel-group {
   padding: 12px;
-  background: #f8f9fa;
+  background: var(--vp-c-gray-soft);
   border-radius: 6px;
 }
 
@@ -513,17 +576,17 @@ const highlightWordInText = (text: string, word: string): string => {
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  background: white;
+  background: var(--el-bg-color);
   border-radius: 4px;
 }
 
 .rel-word {
   font-weight: 500;
-  color: #333;
+  color: var(--el-text-color-regular);
 }
 
 .rel-word-cn {
-  color: #666;
+  color: var(--el-text-color-regular);
   font-size: 14px;
 }
 
@@ -536,18 +599,18 @@ const highlightWordInText = (text: string, word: string): string => {
 
 .etymology-item {
   padding: 12px;
-  background: #f8f9fa;
+  background: var(--vp-c-gray-soft);
   border-radius: 6px;
 }
 
 .etymology-title {
   font-weight: bold;
-  color: #333;
+  color: var(--el-text-color-regular);
   margin-bottom: 8px;
 }
 
 .etymology-desc {
-  color: #666;
+  color: var(--el-text-color-regular);
   line-height: 1.6;
   white-space: pre-line;
 }

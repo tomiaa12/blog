@@ -100,16 +100,13 @@
             sortable="custom"
           >
             <template #header="{ column }">
-              <div class="word-column-header">
-                <span>单词</span>
-                <el-icon
-                  :size="16"
-                  style="cursor: pointer"
-                  @click.stop="toggleColumnHide('word')"
-                >
-                  <Hide v-if="!wordColumnHidden" />
-                  <View v-else />
-                </el-icon>
+              <div class="word-column-header" @click.stop>
+                <span @click.stop>单词</span>
+                <el-switch
+                  v-model="wordColumnHidden"
+                  size="small"
+                  @click.stop
+                />
               </div>
             </template>
             <template #default="{ row }">
@@ -145,14 +142,11 @@
                 "
               >
                 <span>音标</span>
-                <el-icon
-                  :size="16"
-                  style="cursor: pointer"
-                  @click="toggleColumnHide('phonetic')"
-                >
-                  <Hide v-if="!phoneticColumnHidden" />
-                  <View v-else />
-                </el-icon>
+                <el-switch
+                  v-model="phoneticColumnHidden"
+                  size="small"
+                  @click.stop
+                />
               </div>
             </template>
             <template #default="{ row }">
@@ -202,14 +196,11 @@
                 "
               >
                 <span>释义</span>
-                <el-icon
-                  :size="16"
-                  style="cursor: pointer"
-                  @click="toggleColumnHide('trans')"
-                >
-                  <Hide v-if="!transColumnHidden" />
-                  <View v-else />
-                </el-icon>
+                <el-switch
+                  v-model="transColumnHidden"
+                  size="small"
+                  @click.stop
+                />
               </div>
             </template>
             <template #default="{ row }">
@@ -223,6 +214,13 @@
                   >
                     <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
                   </ExpandableText>
+
+                  <!-- 词源 -->
+                  <div v-if="row.etymology && row.etymology.length" class="etymology-section">
+                    <ExpandableText :lines="2">
+                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
+                    </ExpandableText>
+                  </div>
                   <el-button
                     type="primary"
                     size="small"
@@ -329,6 +327,14 @@
                   >
                     <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
                   </ExpandableText>
+
+                  <!-- 词源 -->
+                  <div v-if="row.etymology && row.etymology.length" class="etymology-section">
+                    <ExpandableText :lines="2">
+                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
+                    </ExpandableText>
+                  </div>
+
                   <el-button
                     type="primary"
                     size="small"
@@ -1078,6 +1084,28 @@ function toggleColumnHide(key: "word" | "phonetic" | "trans") {
   tableData.value = [...tableData.value]
 }
 
+// 监听列隐藏状态变化，更新所有行的对应属性
+watch(wordColumnHidden, (newValue) => {
+  originalData.value.forEach(row => {
+    row.wordHidden = newValue
+  })
+  tableData.value = [...tableData.value]
+})
+
+watch(phoneticColumnHidden, (newValue) => {
+  originalData.value.forEach(row => {
+    row.phoneticHidden = newValue
+  })
+  tableData.value = [...tableData.value]
+})
+
+watch(transColumnHidden, (newValue) => {
+  originalData.value.forEach(row => {
+    row.transHidden = newValue
+  })
+  tableData.value = [...tableData.value]
+})
+
 // 初始化数据
 watch(
   () => props.data,
@@ -1520,10 +1548,11 @@ function rowClass({ row }: any) {
 
 .table-header {
   position: sticky;
-  top: var(--word-dict-practice-table-header-offset, 47px);
+  top: var(--vp-nav-height, 47px);
   z-index: 5;
   background: var(--el-bg-color);
   margin-bottom: 16px;
+  border-bottom: 1px solid var(--el-border-color-light);
   > div {
     display: flex;
     align-items: center;
@@ -1536,6 +1565,12 @@ function rowClass({ row }: any) {
     font-size: 16px;
     font-weight: 600;
     color: var(--el-text-color-primary);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .table-header {
+    top: 47px;
   }
 }
 .input-tip-container {
@@ -1577,6 +1612,29 @@ function rowClass({ row }: any) {
 .flex {
   display: flex;
 }
+
+/* 词源样式 */
+.etymology-section {
+  margin: 12px 0;
+  padding: 8px;
+  background: var(--el-bg-color);
+  border-radius: 6px;
+  border-left: 3px solid #e6a23c;
+}
+
+.etymology-item-title {
+  font-weight: 500;
+  color: var(--el-text-color-regular);
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.etymology-item-desc {
+  color: var(--el-text-color-regular);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-line;
+}
 :deep() {
   .bg-success {
     background-color: var(--el-color-success-light-9);
@@ -1616,6 +1674,19 @@ function rowClass({ row }: any) {
         }
       }
     }
+  }
+}
+
+/* 移动端词源样式 */
+@media (max-width: 768px) {
+  .etymology-section {
+    margin-top: 8px;
+    padding: 6px;
+  }
+
+
+  .etymology-item-desc {
+    font-size: 11px;
   }
 }
 </style>
