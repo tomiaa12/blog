@@ -201,35 +201,29 @@
                   size="small"
                   @click.stop
                 />
+                <span>词源</span>
+                <el-switch
+                  v-model="etymologyColumnHidden"
+                  size="small"
+                  @click.stop
+                />
               </div>
             </template>
             <template #default="{ row }">
+              <br />
+
+              <!-- 释义行 -->
               <div style="display: flex; align-items: center; gap: 8px">
-                <div style="flex: 1" :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }">
-                  <br />
+                <div style="flex: 1">
                   <ExpandableText
                     v-for="item in row.trans"
                     :key="item.pos"
                     :lines="2"
+                    :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }"
                   >
                     <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
                   </ExpandableText>
-
-                  <!-- 词源 -->
-                  <div v-if="row.etymology && row.etymology.length" class="etymology-section">
-                    <ExpandableText :lines="2">
-                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
-                    </ExpandableText>
-                  </div>
-                  <el-button
-                    type="primary"
-                    size="small"
-                    @click="openTransDetail(row)"
-                  >
-                    查看详情
-                  </el-button>
                 </div>
-                
                 <el-icon
                   :size="16"
                   style="cursor: pointer; flex-shrink: 0"
@@ -239,6 +233,36 @@
                   <View v-else />
                 </el-icon>
               </div>
+
+
+              <!-- 词源行 -->
+              <div style="display: flex; align-items: center; gap: 8px">
+                <div style="flex: 1">
+                  <div v-if="row.etymology && row.etymology.length" class="etymology-section" :style="{ filter: row.etymologyHidden ? 'blur(5px)' : 'none', userSelect: row.etymologyHidden ? 'none' : 'auto' }">
+                    <ExpandableText :lines="2">
+                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
+                    </ExpandableText>
+                  </div>
+                </div>
+                <el-icon
+                  v-if="row.etymology && row.etymology.length"
+                  :size="16"
+                  style="cursor: pointer; flex-shrink: 0"
+                  @click="row.etymologyHidden = !row.etymologyHidden"
+                >
+                  <Hide v-if="!row.etymologyHidden" />
+                  <View v-else />
+                </el-icon>
+              </div>
+
+
+              <el-button
+                type="primary"
+                size="small"
+                @click="openTransDetail(row)"
+              >
+                查看详情
+              </el-button>
             </template>
           </el-table-column>
         </template>
@@ -318,30 +342,17 @@
                 </div>
               </div>
               <br />
+              <!-- 释义行 -->
               <div style="display: flex; align-items: center; gap: 8px">
-                <div style="flex: 1" :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }">
+                <div style="flex: 1">
                   <ExpandableText
                     v-for="item in row.trans"
                     :key="item.pos"
                     :lines="2"
+                    :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }"
                   >
                     <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
                   </ExpandableText>
-
-                  <!-- 词源 -->
-                  <div v-if="row.etymology && row.etymology.length" class="etymology-section">
-                    <ExpandableText :lines="2">
-                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
-                    </ExpandableText>
-                  </div>
-
-                  <el-button
-                    type="primary"
-                    size="small"
-                    @click="openTransDetail(row)"
-                  >
-                    查看详情
-                  </el-button>
                 </div>
                 <el-icon
                   :size="16"
@@ -352,7 +363,29 @@
                   <View v-else />
                 </el-icon>
               </div>
-              <br />
+
+
+              <!-- 词源行 -->
+              <div style="display: flex; align-items: center; gap: 8px">
+                <div style="flex: 1">
+                  <div v-if="row.etymology && row.etymology.length" class="etymology-section" :style="{ filter: row.etymologyHidden ? 'blur(5px)' : 'none', userSelect: row.etymologyHidden ? 'none' : 'auto' }">
+                    <ExpandableText :lines="2">
+                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
+                    </ExpandableText>
+                  </div>
+                </div>
+                <el-icon
+                  v-if="row.etymology && row.etymology.length"
+                  :size="16"
+                  style="cursor: pointer; flex-shrink: 0"
+                  @click="row.etymologyHidden = !row.etymologyHidden"
+                >
+                  <Hide v-if="!row.etymologyHidden" />
+                  <View v-else />
+                </el-icon>
+              </div>
+
+
             </div>
             <p class="input-tip-container">
               <WordAudioButton
@@ -393,6 +426,14 @@
                 {{
                   isWordInRareList(row) ? "已加入生僻词" : "加入生僻词"
                 }}
+              </el-button>
+              
+              <el-button
+                type="primary"
+                size="small"
+                @click="openTransDetail(row)"
+              >
+                查看详情
               </el-button>
               <span v-if="focusedIndex === $index && !isMobile">
                 按{{ row.checked && !row.isCorrect ? " Enter 或" : "" }} Tab
@@ -543,6 +584,9 @@ const {
 const showCurrentDictOnly = ref(false)
 // 控制是否只显示当前词典的生僻词
 const showCurrentDictRareOnly = ref(false)
+
+// 控制词源列的显示隐藏
+const etymologyColumnHidden = ref(false)
 
 // 单词详情弹窗
 const wordDetailDialogVisible = ref(false)
@@ -1106,6 +1150,13 @@ watch(transColumnHidden, (newValue) => {
   tableData.value = [...tableData.value]
 })
 
+watch(etymologyColumnHidden, (newValue) => {
+  originalData.value.forEach(row => {
+    row.etymologyHidden = newValue
+  })
+  tableData.value = [...tableData.value]
+})
+
 // 初始化数据
 watch(
   () => props.data,
@@ -1142,6 +1193,10 @@ watch(
           typeof transHidden === "boolean"
             ? transHidden
             : transColumnHidden.value
+        existing.etymologyHidden =
+          typeof existing.etymologyHidden === "boolean"
+            ? existing.etymologyHidden
+            : etymologyColumnHidden.value
         existing.checked = typeof checked === "boolean" ? checked : false
         existing.isCorrect = typeof isCorrect === "boolean" ? isCorrect : false
         return existing
@@ -1152,6 +1207,7 @@ watch(
         wordHidden: wordColumnHidden.value,
         phoneticHidden: phoneticColumnHidden.value,
         transHidden: transColumnHidden.value,
+        etymologyHidden: etymologyColumnHidden.value,
         checked: false, // 是否已校验
         isCorrect: false, // 是否正确
       }
