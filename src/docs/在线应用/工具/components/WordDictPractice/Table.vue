@@ -291,6 +291,48 @@
                 重置输入框
               </el-button>
             </div>
+
+            <template v-if="isMobile">
+              <div class="word-column-header" @click.stop>
+                <span @click.stop>单词</span>
+                <el-switch
+                  v-model="wordColumnHidden"
+                  size="small"
+                  @click.stop
+                />
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 8px;
+                "
+              >
+                <span>音标</span>
+                <el-switch
+                  v-model="phoneticColumnHidden"
+                  size="small"
+                  @click.stop
+                />
+              </div>
+              <div>
+                <span>释义</span>
+                  <el-switch
+                    v-model="transColumnHidden"
+                    size="small"
+                    @click.stop
+                  />
+              </div>
+              <div>
+                <span>词源</span>
+                <el-switch
+                  v-model="etymologyColumnHidden"
+                  size="small"
+                  @click.stop
+                />
+              </div>
+            </template>
           </template>
           <template #default="{ row, $index }">
             <div v-if="isMobile">
