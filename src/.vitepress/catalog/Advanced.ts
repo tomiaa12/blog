@@ -1,5 +1,18 @@
 export const Advanced = [
   {
+    text: "Flutter",
+    collapsed: true,
+    items: [
+      { text: "Flutter 快速上手", link: "/docs/进阶/Flutter/01-Flutter" },
+      { text: "Flutter 数据类型", link: "/docs/进阶/Flutter/02.数据类型" },
+      { text: "Flutter 方法", link: "/docs/进阶/Flutter/03.方法" },
+      { text: "Flutter 泛型", link: "/docs/进阶/Flutter/04.泛型" },
+      { text: "Flutter HTTP 请求接口", link: "/docs/进阶/Flutter/05.http" },
+      { text: "Flutter 本地存储", link: "/docs/进阶/Flutter/06.本地存储" },
+      { text: "Flutter Widgets", link: "/docs/进阶/Flutter/07.widgets" },
+    ],
+  },
+  {
     text: "Cesium",
     collapsed: true,
     items: [

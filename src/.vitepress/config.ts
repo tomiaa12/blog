@@ -313,6 +313,7 @@ export default defineConfig({
             text: "进阶",
             items: [
               { text: "Cesium", link: "/docs/进阶/Cesium/基础配置" },
+              { text: "Flutter", link: "/docs/进阶/Flutter/01-Flutter" },
               {
                 text: "TypeScript",
                 link: "/docs/进阶/TypeScript/安装配置",

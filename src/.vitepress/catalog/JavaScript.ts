@@ -44,6 +44,7 @@ export const JavaScript = [
     text: "面向对象",
     collapsed: true,
     items: [
+      { text: "对象创建", link: "/docs/JavaScript/面向对象/对象创建" },
       { text: "设计模式", link: "/docs/JavaScript/面向对象/设计模式" },
       { text: "原型继承", link: "/docs/JavaScript/面向对象/原型继承" },
       {
