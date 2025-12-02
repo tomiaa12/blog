@@ -1,0 +1,763 @@
+[
+  {
+    "custom": false,
+    "id": 0,
+    "word": "first",
+    "phonetic0": "fɜːst",
+    "phonetic1": "fɜːrst",
+    "trans": [
+      {
+        "pos": "det.",
+        "cn": "第一位的，最先的；首（次）的；（某一时间或某事后的）紧接着来到的；（一列中）最前面的；最重要的；（用于工作或职位的头衔中）最高的；最迫切的，最合适的"
+      },
+      {
+        "pos": "adv.",
+        "cn": "第一，最初；起初；第一次；（列举时用）首先；（强调不愿意）宁可；以身体的某一部位（或某人）在先（或为首）"
+      },
+      {
+        "pos": "n.",
+        "cn": "第一个人（或事物)；前所未有的事情；（汽车、自行车等的）最低档；（英国大学学位）最高成绩；（棒球）第一垒；一等品"
+      },
+      {
+        "pos": "pron.",
+        "cn": "第一次"
+      },
+      {
+        "pos": "",
+        "cn": "【名】 （First）（美）菲尔斯特（人名）"
+      }
+    ],
+    "sentences": [
+      {
+        "c": "We're expecting our first baby.",
+        "cn": "我们要生第一个孩子了。"
+      },
+      {
+        "c": "First rake the soil smooth.",
+        "cn": "首先把地耙平。"
+      },
+      {
+        "c": "First class costs more.",
+        "cn": "第一类邮件邮资较高。"
+      }
+    ],
+    "phrases": [
+      {
+        "c": "first time",
+        "cn": "第一次；第一时间"
+      },
+      {
+        "c": "at first",
+        "cn": "起先，首先；最初"
+      },
+      {
+        "c": "quality first",
+        "cn": "质量第一"
+      }
+    ],
+    "synos": [
+      {
+        "pos": "adv.",
+        "cn": "第一；首先；优先；宁愿",
+        "ws": [
+          "primarily",
+          "soon",
+          "initially",
+          "rather"
+        ]
+      },
+      {
+        "pos": "n.",
+        "cn": "第一；开始；冠军",
+        "ws": [
+          "threshold",
+          "conception",
+          "beginning",
+          "opening",
+          "title"
+        ]
+      },
+      {
+        "pos": "adj.",
+        "cn": "第一的；基本的；最早的",
+        "ws": [
+          "elementary",
+          "premier",
+          "fundamental",
+          "basic",
+          "essential"
+        ]
+      }
+    ],
+    "relWords": {
+      "root": "first",
+      "rels": [
+        {
+          "pos": "adv.",
+          "words": [
+            {
+              "c": "firstly",
+              "cn": "首先（主要用于列举条目、论点时）；第一"
+            }
+          ]
+        }
+      ]
+    },
+    "etymology": [
+      {
+        "t": "first:第一的",
+        "d": "来自PIE*pre-isto, *pre, 向前，穿过，词源同far, forth. *isto, 最高级后缀。"
+      },
+      {
+        "t": "first:最初，首先",
+        "d": "-st词尾显示其词源是形容词或副词最高级形式。其词源可追溯至原始印欧语*pro(从前,前面),*pro的日耳曼语“子孙”for(前),进入英语后派生出了forth, from, fro, for, fore和before等；*pro的其它“子孙”进入英语后形成了-prim-(首要)和-proto-(第一,原始)。日耳曼语for(前)最高级形式的“子孙”除了现代英语first、瑞典语först和丹麦语først(首要的),还有德语fürst(王子)和荷兰语vorst(王子)。  \n 同源词：for, fore, former, foremost, forth, from, fro, before"
+      }
+    ]
+  },
+  {
+    "custom": false,
+    "id": 0,
+    "word": "second",
+    "phonetic0": "ˈsekənd",
+    "phonetic1": "ˈsekənd",
+    "trans": [
+      {
+        "pos": "num.",
+        "cn": "第二（的），第二个（的）；（重要性、规模、质量等）居第二位的；另外的，外加的"
+      },
+      {
+        "pos": "n.",
+        "cn": "秒（时间单位）；片刻，瞬间；秒（角度单位）；次品，二等货；<非正式>第二次上菜，添菜（seconds）；（车辆的）第二挡；（英国大学本科的）二等成绩学位；<英>（学校或大学的）二年级；（棒球的）二垒；正式支持，附议；（体育俱乐部的）预备队（the seconds）；粗面粉，粗粉面包；（尤指拳击比赛或旧时决斗中的）助手；（乐）二度音程"
+      },
+      {
+        "pos": "v.",
+        "cn": "支持，附议；<英>临时调派，短期调任"
+      },
+      {
+        "pos": "adv.",
+        "cn": "以第二位；第二，其次"
+      },
+      {
+        "pos": "",
+        "cn": "【名】  (Second) （美）塞孔（人名）"
+      }
+    ],
+    "sentences": [
+      {
+        "c": "The second goal was disallowed.",
+        "cn": "第二个进球被判无效。"
+      },
+      {
+        "c": "He hung on to finish second.",
+        "cn": "他顶住了，得了第二名。"
+      },
+      {
+        "c": "I bought the camera second-hand.",
+        "cn": "我买的这架照相机是二手货。"
+      }
+    ],
+    "phrases": [
+      {
+        "c": "second half",
+        "cn": "下半场；后半时"
+      },
+      {
+        "c": "second time",
+        "cn": "第二次"
+      },
+      {
+        "c": "second order",
+        "cn": "adj. 二级的，二阶的"
+      }
+    ],
+    "synos": [
+      {
+        "pos": "n.",
+        "cn": "[计量]秒；第二名；瞬间；二等品",
+        "ws": [
+          "moment",
+          "breath",
+          "instant"
+        ]
+      },
+      {
+        "pos": "vt.",
+        "cn": "支持",
+        "ws": [
+          "encourage",
+          "back",
+          "carry",
+          "champion",
+          "support of"
+        ]
+      },
+      {
+        "pos": "adj.",
+        "cn": "第二的；次要的；附加的",
+        "ws": [
+          "additional",
+          "attached",
+          "supporting",
+          "minor",
+          "peripheral"
+        ]
+      },
+      {
+        "pos": "adv.",
+        "cn": "第二；其次；居第二位",
+        "ws": [
+          "next"
+        ]
+      }
+    ],
+    "relWords": {
+      "root": "second",
+      "rels": [
+        {
+          "pos": "adj.",
+          "words": [
+            {
+              "c": "secondary",
+              "cn": "第二的；中等的；次要的；中级的"
+            }
+          ]
+        },
+        {
+          "pos": "adv.",
+          "words": [
+            {
+              "c": "secondly",
+              "cn": "其次；第二"
+            },
+            {
+              "c": "secondarily",
+              "cn": "在其次；在第二，在第二位"
+            }
+          ]
+        },
+        {
+          "pos": "n.",
+          "words": [
+            {
+              "c": "secondary",
+              "cn": "副手；代理人"
+            },
+            {
+              "c": "seconder",
+              "cn": "附议者；后援者；赞成人"
+            }
+          ]
+        }
+      ]
+    },
+    "etymology": [
+      {
+        "t": "second:次等的，二等的；第二",
+        "d": "作“第二”时,来源于拉丁语中动词sequi(跟随)的派生词,在古法语中为second;作“秒”时,来源于中世纪拉丁语secunda minuta(秒分);作“赞成”时,来源于拉丁语动词secundare(赞成)。"
+      },
+      {
+        "t": "second:第二的，第二位的，紧随其后的",
+        "d": "来自古法语 second,第二的，来自拉丁语 secundus,第二的，从属的，按顺序的，紧跟着的， 来自 sequi,跟随，词源同 sequence,consequent.-und,形容词后缀。"
+      },
+      {
+        "t": "second:秒，片刻，瞬间",
+        "d": "来自法语 seconde,秒，来自拉丁语 secunda pars minuta,即 second diminished part,第二次缩小 的部分。比较 minute,分钟，来自拉丁语 pars minuta prima,即 prime diminished part,第一次缩 小的部分。引申词义片刻，瞬间，短暂等。"
+      }
+    ]
+  },
+  {
+    "custom": false,
+    "id": 0,
+    "word": "third",
+    "phonetic0": "θɜːd",
+    "phonetic1": "θɜːrd",
+    "trans": [
+      {
+        "pos": "num.",
+        "cn": "第三；三分之一；（机动车变速器的）第三档；（音乐）三度音"
+      },
+      {
+        "pos": "n.",
+        "cn": "三分之一；三等学位（英国大学中低于平均水平的学位）"
+      },
+      {
+        "pos": "adj.",
+        "cn": "第三的；三分之一的"
+      },
+      {
+        "pos": "adv.",
+        "cn": "第三（点）"
+      }
+    ],
+    "sentences": [
+      {
+        "c": "This is her third win in a row.",
+        "cn": "这是她连续获得的第三次胜利。"
+      },
+      {
+        "c": "He finished in third place.",
+        "cn": "他得了第三名。"
+      },
+      {
+        "c": "The favourite came third.",
+        "cn": "那个可望夺魁者得了第三名。"
+      }
+    ],
+    "phrases": [
+      {
+        "c": "third part",
+        "cn": "第三部分；第三度"
+      },
+      {
+        "c": "third generation",
+        "cn": "第三代"
+      },
+      {
+        "c": "third world",
+        "cn": "第三世界"
+      }
+    ],
+    "synos": [
+      {
+        "pos": "adj.",
+        "cn": "第三的；三分之一的",
+        "ws": [
+          "tertius",
+          "ternary"
+        ]
+      }
+    ],
+    "relWords": {
+      "root": "third",
+      "rels": [
+        {
+          "pos": "adj.",
+          "words": [
+            {
+              "c": "thirteenth",
+              "cn": "第十三的；十三分之一的"
+            },
+            {
+              "c": "thirtieth",
+              "cn": "第三十个的；三十分之一的"
+            }
+          ]
+        },
+        {
+          "pos": "adv.",
+          "words": [
+            {
+              "c": "thirdly",
+              "cn": "第三"
+            }
+          ]
+        },
+        {
+          "pos": "n.",
+          "words": [
+            {
+              "c": "thirteenth",
+              "cn": "第十三；十三分之一"
+            },
+            {
+              "c": "thirtieth",
+              "cn": "第三十；三十分之一"
+            }
+          ]
+        },
+        {
+          "pos": "num.",
+          "words": [
+            {
+              "c": "thirtieth",
+              "cn": "第三十；三十分之一"
+            }
+          ]
+        }
+      ]
+    },
+    "etymology": [
+      {
+        "t": "third:",
+        "d": ""
+      },
+      {
+        "t": "third:",
+        "d": "来自古英语þridda, 来自原始日耳曼语*þridjô."
+      },
+      {
+        "t": "third:第三，三分之一",
+        "d": "置换自古英语 thridda,第三，来自 Proto-Germanic*thridja,第三，来自 PIE*trei,三，词源同 three. 其原先也可拼为 thrid,但后来逐渐被取代。"
+      }
+    ]
+  },
+  {
+    "custom": false,
+    "id": 0,
+    "word": "fourth",
+    "phonetic0": "fɔːθ",
+    "phonetic1": "fɔːrθ",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "第四的，第四个的；四分之一的"
+      },
+      {
+        "pos": "n.",
+        "cn": "第四，月的第四日；四分之一"
+      },
+      {
+        "pos": "num.",
+        "cn": "第四"
+      }
+    ],
+    "sentences": [
+      {
+        "c": "Thompson is lying in fourth place.",
+        "cn": "汤姆森名列第四。"
+      },
+      {
+        "c": "This was their fourth successive win.",
+        "cn": "这是他们连续第四次获胜。"
+      },
+      {
+        "c": "The lift bell pinged at the fourth floor.",
+        "cn": "该电梯铃在四楼发出响声。"
+      }
+    ],
+    "phrases": [
+      {
+        "c": "fourth quarter",
+        "cn": "第四季度；第四节"
+      },
+      {
+        "c": "may fourth movement",
+        "cn": "五四运动"
+      },
+      {
+        "c": "fourth of july",
+        "cn": "美国独立纪念日"
+      }
+    ],
+    "synos": [
+      {
+        "pos": "adj.",
+        "cn": "第四的，第四个的；四分之一的",
+        "ws": [
+          "quartus",
+          "demisemi"
+        ]
+      },
+      {
+        "pos": "n.",
+        "cn": "第四，月的第四日；四分之一",
+        "ws": [
+          "quarter"
+        ]
+      }
+    ],
+    "relWords": {
+      "root": "four",
+      "rels": [
+        {
+          "pos": "adj.",
+          "words": [
+            {
+              "c": "four",
+              "cn": "四的；四个的"
+            },
+            {
+              "c": "fourteenth",
+              "cn": "第十四的；第十四个的"
+            }
+          ]
+        },
+        {
+          "pos": "adv.",
+          "words": [
+            {
+              "c": "fourthly",
+              "cn": "第四"
+            }
+          ]
+        },
+        {
+          "pos": "n.",
+          "words": [
+            {
+              "c": "fourteenth",
+              "cn": "第十四；月的第十四日；十四分之一"
+            }
+          ]
+        },
+        {
+          "pos": "num.",
+          "words": [
+            {
+              "c": "four",
+              "cn": "四；四个"
+            },
+            {
+              "c": "fourteenth",
+              "cn": "第十四"
+            }
+          ]
+        }
+      ]
+    },
+    "etymology": []
+  },
+  {
+    "custom": false,
+    "id": 0,
+    "word": "fifth",
+    "phonetic0": "fɪfθ",
+    "phonetic1": "fɪfθ",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "第五的；五分之一的"
+      },
+      {
+        "pos": "n.",
+        "cn": "第五；五分之一"
+      },
+      {
+        "pos": "num.",
+        "cn": "第五"
+      }
+    ],
+    "sentences": [
+      {
+        "c": "The meeting is on April fifth.",
+        "cn": "会议日期是四月五日。"
+      },
+      {
+        "c": "He finished fifth in the race.",
+        "cn": "他赛跑得了第五名。"
+      },
+      {
+        "c": "Today is the fifth (of May).",
+        "cn": "今天是（五月）五号。"
+      }
+    ],
+    "phrases": [
+      {
+        "c": "fifth avenue",
+        "cn": "（美国纽约的）第五大道"
+      },
+      {
+        "c": "the fifth century",
+        "cn": "5世纪"
+      },
+      {
+        "c": "fifth amendment",
+        "cn": "（美国宪法修正案）第五条"
+      }
+    ],
+    "synos": [
+      {
+        "pos": "n.",
+        "cn": "第五；五分之一",
+        "ws": [
+          "Quincy"
+        ]
+      }
+    ],
+    "relWords": {
+      "root": "fifth",
+      "rels": [
+        {
+          "pos": "adj.",
+          "words": [
+            {
+              "c": "fifteenth",
+              "cn": "第十五的；十五分之一的"
+            },
+            {
+              "c": "fiftieth",
+              "cn": "第五十的；五十分之一的"
+            }
+          ]
+        },
+        {
+          "pos": "adv.",
+          "words": [
+            {
+              "c": "fifthly",
+              "cn": "第五地；第五"
+            }
+          ]
+        },
+        {
+          "pos": "num.",
+          "words": [
+            {
+              "c": "fifteenth",
+              "cn": "第十五"
+            },
+            {
+              "c": "fiftieth",
+              "cn": "第五十；五十分之一"
+            }
+          ]
+        }
+      ]
+    },
+    "etymology": [
+      {
+        "t": "fifth:",
+        "d": ""
+      },
+      {
+        "t": "fifth:",
+        "d": "来自中世纪英语fifthe, fifte, fift, 来自古英语fīfta(\"fifth\"), 来自原始日耳曼语*fimftô(\"fifth\")或*femftô, 等价于five + -th. 同源于sco fift, fyft(\"fifth\"), frr fyfde(\"fifth\"), 西弗里斯语fyfde(\"fifth\"), 荷兰语vijfde(\"fifth\"), 低地德语fifte, föfte, füfte(\"fifth\"), 德语fünfte(\"fifth\"), 丹麦语femte(\"fifth\"), 瑞典语femte(\"fifth\"), 冰岛语fimmta(\"fifth\")."
+      }
+    ]
+  },
+  {
+    "custom": false,
+    "id": 0,
+    "word": "sixth",
+    "phonetic0": "sɪksθ",
+    "phonetic1": "sɪksθ",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "第六；（比赛或竞赛的）第六名；六分之一；六年级；六度音程；六度音"
+      },
+      {
+        "pos": "adj.",
+        "cn": "（与 the 连用）第六的，第六个的；六分之一的"
+      }
+    ],
+    "sentences": [
+      {
+        "c": "The book is in its sixth printing.",
+        "cn": "这本书是第六次印刷了。"
+      },
+      {
+        "c": "The dictionary is now in its sixth edition.",
+        "cn": "本词典现在是第六版。"
+      },
+      {
+        "c": "Sue is in the sixth form now.",
+        "cn": "休正在读中学最后两年。"
+      }
+    ],
+    "phrases": [
+      {
+        "c": "sixth sense",
+        "cn": "第六感，直觉"
+      },
+      {
+        "c": "sixth form",
+        "cn": "n. （英国中学里的）六年级，最高年级"
+      }
+    ],
+    "synos": [
+      {
+        "pos": "adj.",
+        "cn": "（与 the 连用）第六的，第六个的；六分之一的",
+        "ws": [
+          "sextus"
+        ]
+      }
+    ],
+    "relWords": {
+      "root": "six",
+      "rels": [
+        {
+          "pos": "adj.",
+          "words": [
+            {
+              "c": "sixteen",
+              "cn": "十六的，十六个的"
+            },
+            {
+              "c": "sixteenth",
+              "cn": "第十六的；十六分之一的"
+            },
+            {
+              "c": "sixtieth",
+              "cn": "第六十的；六十分之一的"
+            }
+          ]
+        },
+        {
+          "pos": "adv.",
+          "words": [
+            {
+              "c": "sixthly",
+              "cn": "在第六"
+            }
+          ]
+        },
+        {
+          "pos": "n.",
+          "words": [
+            {
+              "c": "six",
+              "cn": "六，六个"
+            },
+            {
+              "c": "sixtieth",
+              "cn": "第六十；六十分之一"
+            }
+          ]
+        },
+        {
+          "pos": "num.",
+          "words": [
+            {
+              "c": "six",
+              "cn": "六，六个"
+            },
+            {
+              "c": "sixteen",
+              "cn": "十六"
+            },
+            {
+              "c": "sixteenth",
+              "cn": "第十六；十六分之一"
+            },
+            {
+              "c": "sixtieth",
+              "cn": "第六十；六十分之一"
+            }
+          ]
+        }
+      ]
+    },
+    "etymology": [
+      {
+        "t": "sixth:",
+        "d": ""
+      },
+      {
+        "t": "sixth:",
+        "d": "古英语siexta, 来自原始日耳曼语*sehstô."
+      },
+      {
+        "t": "sixth:第六",
+        "d": "six,六，-th,表序数。"
+      }
+    ]
+  },
+  {
+    "custom": false,
+    "id": 0,
+    "word": "seventh",
+    "phonetic0": "",
+    "phonetic1": "",
+    "trans": [],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  }
+]

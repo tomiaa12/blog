@@ -3,6 +3,7 @@ export const Advanced = [
     text: "Flutter",
     collapsed: true,
     items: [
+      { text: "Flutter 环境搭建", link: "/docs/进阶/Flutter/环境搭建" },
       { text: "Flutter 快速上手", link: "/docs/进阶/Flutter/01-Flutter" },
       { text: "Flutter 数据类型", link: "/docs/进阶/Flutter/02.数据类型" },
       { text: "Flutter 方法", link: "/docs/进阶/Flutter/03.方法" },
