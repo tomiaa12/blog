@@ -19,7 +19,17 @@
         v-else-if="error"
         class="rare-word-status rare-word-status--error"
       >
-        {{ error }}
+        <div style="margin-bottom: 12px;">{{ error }}</div>
+        <div 
+          v-if="error.includes('permission') || error.includes('权限')"
+          style="font-size: 13px; line-height: 1.6; text-align: left; padding: 12px; background-color: var(--el-fill-color-light); border-radius: 4px; color: var(--el-text-color-regular);"
+        >
+          <p style="margin: 0 0 8px 0; font-weight: 600;">💡 权限问题解决方案：</p>
+          <p style="margin: 0 0 4px 0;">1. 访问 <a href="https://console.firebase.google.com/" target="_blank" style="color: var(--el-color-primary);">Firebase Console</a></p>
+          <p style="margin: 0 0 4px 0;">2. 选择您的项目 → Firestore Database → 规则</p>
+          <p style="margin: 0 0 4px 0;">3. 配置安全规则 (参考项目 README)</p>
+          <p style="margin: 0;">4. 或使用命令: <code style="padding: 2px 6px; background: var(--el-fill-color); border-radius: 3px;">firebase deploy --only firestore:rules</code></p>
+        </div>
       </div>
       <template v-else>
         <div>

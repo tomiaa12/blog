@@ -275,10 +275,11 @@
             <div
               style="
                 display: flex;
-                align-items: center;
                 justify-content: center;
+                flex-wrap: wrap;
                 gap: 8px;
                 width: 100%;
+                white-space: nowrap;
               "
             >
               <span>默写</span>
@@ -290,49 +291,49 @@
               >
                 重置输入框
               </el-button>
-            </div>
-
-            <template v-if="isMobile">
-              <div class="word-column-header" @click.stop>
-                <span @click.stop>单词</span>
-                <el-switch
-                  v-model="wordColumnHidden"
-                  size="small"
-                  @click.stop
-                />
-              </div>
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  gap: 8px;
-                "
-              >
-                <span>音标</span>
-                <el-switch
-                  v-model="phoneticColumnHidden"
-                  size="small"
-                  @click.stop
-                />
-              </div>
-              <div>
-                <span>释义</span>
+              <template v-if="isMobile">
+                <div class="word-column-header" @click.stop>
+                  <span @click.stop>单词</span>
                   <el-switch
-                    v-model="transColumnHidden"
+                    v-model="wordColumnHidden"
                     size="small"
                     @click.stop
                   />
-              </div>
-              <div>
-                <span>词源</span>
-                <el-switch
-                  v-model="etymologyColumnHidden"
-                  size="small"
-                  @click.stop
-                />
-              </div>
-            </template>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                  "
+                >
+                  <span>音标</span>
+                  <el-switch
+                    v-model="phoneticColumnHidden"
+                    size="small"
+                    @click.stop
+                  />
+                </div>
+                <div>
+                  <span>释义</span>
+                    <el-switch
+                      v-model="transColumnHidden"
+                      size="small"
+                      @click.stop
+                    />
+                </div>
+                <div>
+                  <span>词源</span>
+                  <el-switch
+                    v-model="etymologyColumnHidden"
+                    size="small"
+                    @click.stop
+                  />
+                </div>
+              </template>
+            </div>
+
           </template>
           <template #default="{ row, $index }">
             <div v-if="isMobile">
@@ -1645,7 +1646,7 @@ function rowClass({ row }: any) {
 }
 
 .table-header {
-  position: sticky;
+  // position: sticky;
   top: var(--vp-nav-height, 47px);
   z-index: 5;
   background: var(--el-bg-color);
@@ -1664,13 +1665,17 @@ function rowClass({ row }: any) {
     font-weight: 600;
     color: var(--el-text-color-primary);
   }
+  :deep() .el-button {
+    width: 190px;
+    max-width: 48%;
+  }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .table-header {
     top: 47px;
   }
-}
+} */
 .input-tip-container {
   display: flex;
   align-items: center;
@@ -1748,7 +1753,6 @@ function rowClass({ row }: any) {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 100%;
   }
 
   .el-table__header-wrapper {
@@ -1763,10 +1767,6 @@ function rowClass({ row }: any) {
             .caret-wrapper {
               order: 3; // 排序图标放在最后
               margin-left: auto;
-            }
-
-            .word-column-header {
-              order: 1;
             }
           }
         }

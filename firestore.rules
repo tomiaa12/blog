@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 辅助函数：检查是否为认证用户
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // 辅助函数：检查是否为文档所有者
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+    
+    // blog 集合规则
+    match /blog/{uid} {
+      // 用户只能读写自己的文档
+      allow read, write: if isOwner(uid);
+      
+      // pages 子集合规则
+      match /pages/{pageKey} {
+        // 用户只能读写自己的页面数据
+        allow read, write: if isOwner(uid);
+        
+        // records 子集合规则
+        match /records/{recordId} {
+          // 用户只能读写自己的记录数据
+          allow read, write: if isOwner(uid);
+        }
+      }
+    }
+  }
+}
+

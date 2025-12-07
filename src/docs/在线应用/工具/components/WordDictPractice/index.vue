@@ -33,11 +33,11 @@
           class="settings-form"
           inline
         >
-          <el-form-item label="按键音效：">
+          <el-form-item :label="isMobile ? '音效' : '按键音效：'">
             <el-select
               v-model="globalData.sound"
               placeholder="选择键盘音效"
-              style="width: 120px;"
+              :style="isMobile ? 'width: 84px;' : 'width: 120px;'"
             >
               <el-option
                 v-for="option in keySoundOptions"
@@ -54,11 +54,11 @@
               </el-tooltip>
             </el-checkbox>
           </el-form-item>
-          <el-form-item label="练习模式：">
+          <el-form-item :label="isMobile ? '模式' : '练习模式：'">
             <el-select
               v-model="globalData.practiceMode"
               placeholder="选择练习模式"
-              style="width: 120px;"
+              :style="isMobile ? 'width: 84px;' : 'width: 120px;'"
             >
               <el-option label="全部单词" value="all">
                 <el-tooltip content="练习所有未熟悉的单词（包括生僻词）" placement="left" effect="dark">
