@@ -24,7 +24,7 @@
       </el-button>
     </div>
     <template v-else>
-      <div class="table-header">
+      <div class="table-header th-buttons">
         <div>
           <el-button
             type="primary"
@@ -1665,10 +1665,10 @@ function rowClass({ row }: any) {
     font-weight: 600;
     color: var(--el-text-color-primary);
   }
-  :deep() .el-button {
-    width: 190px;
-    max-width: 48%;
-  }
+}
+.th-buttons :deep() .el-button {
+  width: 190px;
+  max-width: 48%;
 }
 
 /* @media screen and (max-width: 768px) {
