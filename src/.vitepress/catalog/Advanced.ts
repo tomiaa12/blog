@@ -11,6 +11,7 @@ export const Advanced = [
       { text: "Flutter HTTP 请求接口", link: "/docs/进阶/Flutter/05.http" },
       { text: "Flutter 本地存储", link: "/docs/进阶/Flutter/06.本地存储" },
       { text: "Flutter Widgets", link: "/docs/进阶/Flutter/07.widgets" },
+      { text: "StatelessWidget & StatefulWidget", link: "/docs/进阶/Flutter/08.StatelessWidget&StatefulWidget" },
     ],
   },
   {
