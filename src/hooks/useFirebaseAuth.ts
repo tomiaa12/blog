@@ -5,6 +5,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithPopup,
+  signInWithCredential,
   signOut,
   type User,
 } from "firebase/auth"
@@ -318,6 +319,84 @@ function onLogout(callback: (user: User | null) => void) {
 }
 
 /**
+ * VSCode 环境下的 Google OAuth 配置
+ */
+interface VSCodeOAuthConfig {
+  clientId: string
+  clientSecret: string
+  redirectPort?: number
+}
+
+/**
+ * 通过 VSCode 扩展处理 OAuth 登录
+ * 发送消息给扩展，让扩展启动服务器并处理 OAuth 流程
+ */
+async function requestVSCodeOAuth(
+  config: VSCodeOAuthConfig
+): Promise<{ access_token: string; id_token?: string }> {
+  return new Promise((resolve, reject) => {
+    // 定义消息处理器
+    const messageHandler = (event: MessageEvent) => {
+      const message = event.data
+      
+      if (message.type === "vscode-oauth-success") {
+        window.removeEventListener("message", messageHandler)
+        resolve(message.data)
+      } else if (message.type === "vscode-oauth-error") {
+        window.removeEventListener("message", messageHandler)
+        reject(new Error(message.error))
+      }
+    }
+
+    // 监听来自扩展的响应
+    window.addEventListener("message", messageHandler)
+
+    // 发送登录请求给 VSCode 扩展
+    window.parent.postMessage(
+      {
+        type: "vscode-oauth-login",
+        config: {
+          clientId: config.clientId,
+          clientSecret: config.clientSecret,
+          redirectPort: config.redirectPort || 5589,
+        },
+      },
+      "*"
+    )
+
+    // 5分钟超时
+    setTimeout(() => {
+      window.removeEventListener("message", messageHandler)
+      reject(new Error("OAuth request timeout"))
+    }, 5 * 60 * 1000)
+  })
+}
+
+/**
+ * 在 VSCode 环境下使用 Google OAuth 登录
+ * 需要提供 Google OAuth Client ID 和 Client Secret
+ * 
+ * 注意：服务器在 VSCode 扩展中运行（Node.js 环境），
+ * 而不是在浏览器中运行
+ */
+async function signInWithGoogleInVSCode(config: VSCodeOAuthConfig) {
+  // 通过消息通信请求 VSCode 扩展处理 OAuth
+  // 扩展会启动服务器、打开浏览器、接收回调、交换 token
+  const { access_token, id_token } = await requestVSCodeOAuth(config)
+
+  // 用 token 登录 Firebase
+  const credential = GoogleAuthProvider.credential(id_token ?? null, access_token)
+  const result = await signInWithCredential(auth, credential)
+
+  if (result.user) {
+    await upsertUserProfile(result.user)
+    emitLogin(result.user)
+  }
+
+  return result
+}
+
+/**
  * 对外暴露的组合式函数：返回只读用户状态与若干操作方法
  */
 export function useFirebaseAuth() {
@@ -327,6 +406,7 @@ export function useFirebaseAuth() {
     user: readonly(currentUser),
     authReady: readonly(authReady),
     signInWithGoogle,
+    signInWithGoogleInVSCode,
     signOutUser,
     savePageData,
     loadPageData,

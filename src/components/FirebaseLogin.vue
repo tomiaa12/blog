@@ -8,6 +8,7 @@
         type="primary"
         v-if="showLoginButton"
         :loading="loginLoading"
+        :disabled="countdown > 0"
         @click="handleLogin"
       >
         <img
@@ -15,7 +16,8 @@
           alt="Google"
           class="mr-2"
         />
-        Google 登录
+        <span v-if="countdown > 0">{{ countdown }}秒后可重试</span>
+        <span v-else>Google 登录</span>
       </el-button>
     </div>
 
@@ -66,13 +68,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue"
-import { ElAvatar, ElButton, ElCard, ElSpace } from "element-plus"
+import { computed, ref, onUnmounted } from "vue"
+import { ElAvatar, ElButton, ElCard, ElSpace, ElMessage } from "element-plus"
 import { UserFilled } from "@element-plus/icons-vue"
 import { useFirebaseAuth } from "../hooks/useFirebaseAuth"
+import { isVSCode } from "../utils/src/isVSCode"
 import googleIcon from "../assets/svg/google.svg?url"
-const { user, authReady, signInWithGoogle, signOutUser } = useFirebaseAuth()
+
+const { user, authReady, signInWithGoogle, signInWithGoogleInVSCode, signOutUser } = useFirebaseAuth()
 const loginLoading = ref(false)
+const isInVSCode = isVSCode()
+const countdown = ref(0)
+let countdownTimer: number | null = null
 
 const showLoginButton = computed(() => authReady.value && !user.value)
 
@@ -94,11 +101,79 @@ const statusText = computed(() => {
   return user.value ? "" : "未登录，登录以使用云端存储"
 })
 
+/**
+ * 启动倒计时
+ */
+function startCountdown() {
+  // 清除之前的定时器
+  if (countdownTimer !== null) {
+    clearInterval(countdownTimer)
+  }
+  
+  // 设置120秒倒计时
+  countdown.value = 120
+  
+  // 每秒减1
+  countdownTimer = window.setInterval(() => {
+    countdown.value--
+    
+    if (countdown.value <= 0) {
+      if (countdownTimer !== null) {
+        clearInterval(countdownTimer)
+        countdownTimer = null
+      }
+    }
+  }, 1000)
+}
+
+/**
+ * 清除倒计时
+ */
+function clearCountdown() {
+  if (countdownTimer !== null) {
+    clearInterval(countdownTimer)
+    countdownTimer = null
+  }
+  countdown.value = 0
+}
+
 async function handleLogin() {
-  if (loginLoading.value) return
+  if (loginLoading.value || countdown.value > 0) return
+  
   loginLoading.value = true
+  
+  // 启动倒计时
+  startCountdown()
+  
   try {
-    await signInWithGoogle()
+    if (isInVSCode) {
+      // VSCode 环境下使用 OAuth 流程
+      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
+      const clientSecret = import.meta.env.VITE_GOOGLE_CLIENT_SECRET
+      
+      if (!clientId || !clientSecret) {
+        ElMessage.error('Google OAuth 配置缺失，请检查环境变量')
+        clearCountdown() // 配置错误，清除倒计时
+        return
+      }
+      
+      await signInWithGoogleInVSCode({
+        clientId,
+        clientSecret,
+        redirectPort: Number(import.meta.env.VITE_GOOGLE_OAUTH_PORT) || 5589
+      })
+      
+      ElMessage.success('登录成功！')
+      clearCountdown() // 登录成功，清除倒计时
+    } else {
+      // 浏览器环境下使用弹窗登录
+      await signInWithGoogle()
+      clearCountdown() // 登录成功，清除倒计时
+    }
+  } catch (error: any) {
+    console.error('登录失败:', error)
+    ElMessage.error(error?.message || '登录失败，请重试')
+    // 登录失败，倒计时继续
   } finally {
     loginLoading.value = false
   }
@@ -107,7 +182,13 @@ async function handleLogin() {
 async function handleLogout() {
   if (!user.value) return
   await signOutUser()
+  ElMessage.success('已退出登录')
 }
+
+// 组件卸载时清除定时器
+onUnmounted(() => {
+  clearCountdown()
+})
 </script>
 
 <style scoped>

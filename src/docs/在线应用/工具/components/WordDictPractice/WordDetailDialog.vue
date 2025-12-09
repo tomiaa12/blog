@@ -408,7 +408,7 @@ const highlightWordInText = (text: string, word: string): string => {
 .section {
   margin-bottom: 24px;
   padding: 16px;
-  border: 1px solid #e4e7ed;
+  border: 1px solid var(--vp-c-gray-soft);
   border-radius: 8px;
 }
 

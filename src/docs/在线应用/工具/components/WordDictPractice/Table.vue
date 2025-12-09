@@ -27,37 +27,37 @@
       <div class="table-header th-buttons">
         <div>
           <el-button
-            type="primary"
+            :type="isVSCode ? 'default' : 'primary'"
             @click="shuffleData"
           >
             随机排序
           </el-button>
           <el-button
-            type="primary"
+            :type="isVSCode ? 'default' : 'primary'"
             @click="shuffleCurrentPageData"
           >
             当前页随机排序
           </el-button>
           <el-button
-            type="success"
+            :type="isVSCode ? 'default' : 'success'"
             @click="openSimpleWordsDrawer"
           >
             熟悉词（{{ simpleWords.length }}个）
           </el-button>
           <el-button
-            type="success"
+            :type="isVSCode ? 'default' : 'success'"
             @click="openCurrentDictSimpleWordsDrawer"
           >
             当前词典熟悉词（{{ currentDictSimpleWordsCount }}个）
           </el-button>
           <el-button
-            type="warning"
+            :type="isVSCode ? 'default' : 'warning'"
             @click="openRareWordsDrawer"
           >
             生僻词（{{ rareWords.length }}个）
           </el-button>
           <el-button
-            type="warning"
+            :type="isVSCode ? 'default' : 'warning'"
             @click="openCurrentDictRareWordsDrawer"
           >
             当前词典生僻词（{{ currentDictRareWordsCount }}个）
@@ -284,7 +284,7 @@
             >
               <span>默写</span>
               <el-button
-                type="danger"
+                :type="isVSCode ? 'default' : 'danger'"
                 size="small"
                 @click="clearAllInputs"
                 style="font-size: 12px; padding: 4px 8px"
@@ -451,7 +451,7 @@
               </el-icon>
 
               <el-button
-                type="primary"
+                :type="isVSCode ? 'default' : 'primary'"
                 size="small"
                 :disabled="isWordInSimpleList(row)"
                 @click="handleAddSimpleWord(row, dictId)"
@@ -461,7 +461,7 @@
                 }}
               </el-button>
               <el-button
-                type="warning"
+                :type="isVSCode ? 'default' : 'warning'"
                 size="small"
                 :disabled="isWordInRareList(row)"
                 @click="handleAddRareWord(row, dictId)"
@@ -472,7 +472,7 @@
               </el-button>
               
               <el-button
-                type="primary"
+                :type="isVSCode ? 'default' : 'primary'"
                 size="small"
                 @click="openTransDetail(row)"
               >
@@ -561,7 +561,7 @@ import type { SimpleWordItem } from "./hooks/useSimpleWords"
 import { useRareWords } from "./hooks/useRareWords"
 import type { RareWordItem } from "./hooks/useRareWords"
 import { globalData } from "./hooks/useGlobaData"
-
+import { useVSCode } from "@/utils"
 import beep from "@/assets/sound/beep.wav"
 import correct from "@/assets/sound/correct.wav"
 
@@ -579,6 +579,7 @@ const keySoundMap = Object.entries(keySoundModules).reduce<
   }
   return acc
 }, {})
+const { isVSCode } = useVSCode()
 const props = defineProps<{
   data: any
   dictId: string
@@ -1368,7 +1369,7 @@ function isInputCorrect(row: any): boolean {
 function handleInputFocus(index: number, event: FocusEvent) {
   const target = event.target as HTMLElement
   event.preventDefault()
-  if (target && isMobile.value) {
+  if (target && isMobile.value && !isVSCode.value) {
     nextTick(() => {
       target.scrollIntoView({ block: "end" })
     })

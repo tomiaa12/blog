@@ -15,6 +15,7 @@ onMounted(() => {
   new Live2d({
     el: live2dContentRef.value,
     showLoading: false,
+    randomPeople: false,
     maxWidth: 300,
     jsBaseURL: "https://live2d.kuangyx.cn/public",
     hitokotoOptions: {

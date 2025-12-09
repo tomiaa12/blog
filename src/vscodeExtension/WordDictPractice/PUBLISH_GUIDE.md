@@ -1,0 +1,272 @@
+# 📦 VSCode 插件发布快速指南
+
+## ✅ 发布前准备清单
+
+### 1. 更新 package.json
+
+- [ ] **publisher**: 改为你的发布者名称（下面会创建）
+  ```json
+  "publisher": "your-publisher-name"  // ← 需要修改
+  ```
+
+- [ ] **version**: 确认版本号
+  ```json
+  "version": "0.0.1"  // 首次发布保持 0.0.1
+  ```
+
+- [ ] **description**: 已更新 ✅
+- [ ] **keywords**: 已添加 ✅
+- [ ] **repository**: 已更新 ✅
+
+### 2. 检查必需文件
+
+- [x] `extension.js` - 主程序文件
+- [x] `package.json` - 配置文件
+- [x] `README.md` - 说明文档
+- [x] `resources/icon.svg` - 图标文件
+- [ ] `.vscodeignore` - 发布时忽略的文件（已有）
+
+## 🚀 发布步骤
+
+### 步骤 1：创建 Azure DevOps 账号和 Token
+
+1. **访问 Azure DevOps**
+   - 网址：https://dev.azure.com/
+   - 使用 Microsoft 账号登录（没有的话注册一个）
+
+2. **创建 Personal Access Token (PAT)**
+   - 点击右上角用户图标 → **Personal access tokens**
+   - 点击 **+ New Token**
+   - 配置：
+     - Name: `VSCode Extension Publishing`
+     - Organization: `All accessible organizations`
+     - Expiration: `90 days`（或自定义）
+     - Scopes: 选择 **Custom defined**
+       - 勾选 **Marketplace** → **Manage** ✅
+   - 点击 **Create**
+   - ⚠️ **立即复制生成的 Token**（只显示一次！）
+
+### 步骤 2：创建发布者账号
+
+#### 方法 1：通过网页（推荐）
+
+访问：https://marketplace.visualstudio.com/manage
+
+1. 点击 **Create publisher**
+2. 填写信息：
+   - **Publisher ID**: 你的发布者ID（全小写，无空格，如 `tomiaa`）
+   - **Display name**: 显示名称（如 `Tomiaa`）
+   - **Email**: 你的邮箱
+3. 点击 **Create**
+
+#### 方法 2：通过命令行
+
+```bash
+cd /Users/tomiaa/Documents/github/blog/src/vscodeExtension/WordDictPractice
+
+npx @vscode/vsce create-publisher tomiaa
+# 按提示输入 Display name、Email 和 PAT
+```
+
+### 步骤 3：更新 package.json 的 publisher
+
+```bash
+# 编辑 package.json，将 publisher 改为你的发布者ID
+# 例如：
+# "publisher": "tomiaa"
+```
+
+或者运行：
+
+```bash
+# 在插件目录下
+cd /Users/tomiaa/Documents/github/blog/src/vscodeExtension/WordDictPractice
+
+# 使用 sed 替换（Mac/Linux）
+sed -i '' 's/"publisher": "your-publisher-name"/"publisher": "tomiaa"/' package.json
+```
+
+### 步骤 4：登录发布者账号
+
+```bash
+cd /Users/tomiaa/Documents/github/blog/src/vscodeExtension/WordDictPractice
+
+npx @vscode/vsce login tomiaa
+# 输入你在步骤1创建的 Personal Access Token
+```
+
+### 步骤 5：打包插件
+
+```bash
+cd /Users/tomiaa/Documents/github/blog/src/vscodeExtension/WordDictPractice
+
+# 打包成 .vsix 文件
+npx @vscode/vsce package
+
+# 生成文件：word-dict-practice-0.0.1.vsix
+```
+
+### 步骤 6：本地测试（可选但推荐）
+
+```bash
+# 在本地 VSCode 中安装测试
+code --install-extension word-dict-practice-0.0.1.vsix
+
+# 测试功能是否正常
+# 测试完后可以卸载
+code --uninstall-extension tomiaa.word-dict-practice
+```
+
+### 步骤 7：发布到市场
+
+```bash
+cd /Users/tomiaa/Documents/github/blog/src/vscodeExtension/WordDictPractice
+
+# 发布插件
+npx @vscode/vsce publish
+
+# 或者发布并自动升级版本
+npx @vscode/vsce publish patch  # 0.0.1 -> 0.0.2
+```
+
+### 步骤 8：验证发布
+
+1. 访问：https://marketplace.visualstudio.com/manage
+2. 应该能看到你的插件
+3. 等待几分钟到几小时的审核
+4. 审核通过后，在 VSCode 中搜索插件名称即可安装
+
+## 🔄 更新已发布的插件
+
+```bash
+cd /Users/tomiaa/Documents/github/blog/src/vscodeExtension/WordDictPractice
+
+# 修改代码后
+
+# 方式1：自动升级补丁版本并发布
+npx @vscode/vsce publish patch  # 0.0.1 -> 0.0.2
+
+# 方式2：升级小版本
+npx @vscode/vsce publish minor  # 0.0.1 -> 0.1.0
+
+# 方式3：升级大版本
+npx @vscode/vsce publish major  # 0.0.1 -> 1.0.0
+
+# 方式4：指定版本号
+npx @vscode/vsce publish 1.0.0
+```
+
+## 📝 一键发布脚本
+
+创建一个发布脚本方便使用：
+
+```bash
+# 在插件目录创建 publish.sh
+cat > publish.sh << 'EOF'
+#!/bin/bash
+
+echo "📦 开始发布 VSCode 插件..."
+
+# 1. 打包
+echo "1️⃣ 打包插件..."
+npx @vscode/vsce package
+
+# 2. 询问是否发布
+read -p "2️⃣ 是否发布到市场? (y/n) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    # 3. 选择版本升级类型
+    echo "3️⃣ 选择版本升级类型:"
+    echo "  1) patch (0.0.1 -> 0.0.2)"
+    echo "  2) minor (0.0.1 -> 0.1.0)"
+    echo "  3) major (0.0.1 -> 1.0.0)"
+    echo "  4) 不升级，直接发布"
+    read -p "请选择 (1-4): " -n 1 -r
+    echo
+    
+    case $REPLY in
+        1) npx @vscode/vsce publish patch ;;
+        2) npx @vscode/vsce publish minor ;;
+        3) npx @vscode/vsce publish major ;;
+        4) npx @vscode/vsce publish ;;
+        *) echo "❌ 无效选择，取消发布" ;;
+    esac
+fi
+
+echo "✅ 完成！"
+EOF
+
+# 添加执行权限
+chmod +x publish.sh
+```
+
+使用：
+
+```bash
+./publish.sh
+```
+
+## ⚠️ 重要提示
+
+1. **Personal Access Token**
+   - 妥善保管，不要提交到代码仓库
+   - Token 过期后需要重新创建并登录
+
+2. **插件名称**
+   - 发布后不能修改 `name` 字段
+   - 只能修改 `displayName`
+
+3. **版本号规范**
+   - 遵循语义化版本 (Semantic Versioning)
+   - `MAJOR.MINOR.PATCH`
+   - 不能发布相同版本号
+
+4. **审核时间**
+   - 首次发布：几分钟到几小时
+   - 更新版本：通常几分钟
+
+5. **README 重要性**
+   - 市场页面会显示 README.md
+   - 写清楚功能、使用方法、截图
+
+6. **图标**
+   - 建议尺寸：128x128 或 256x256
+   - 格式：PNG 或 SVG
+   - 当前使用：`resources/icon.svg`
+
+## 🎯 快速命令参考
+
+```bash
+# 进入插件目录
+cd /Users/tomiaa/Documents/github/blog/src/vscodeExtension/WordDictPractice
+
+# 首次发布
+npx @vscode/vsce create-publisher your-name    # 创建发布者
+npx @vscode/vsce login your-name                # 登录
+npx @vscode/vsce package                        # 打包
+npx @vscode/vsce publish                        # 发布
+
+# 更新发布
+npx @vscode/vsce publish patch                  # 发布新版本
+
+# 本地测试
+code --install-extension word-dict-practice-0.0.1.vsix
+code --uninstall-extension your-name.word-dict-practice
+```
+
+## 🔗 有用的链接
+
+- **发布管理后台**: https://marketplace.visualstudio.com/manage
+- **Azure DevOps**: https://dev.azure.com/
+- **VSCode 扩展市场**: https://marketplace.visualstudio.com/
+- **官方发布文档**: https://code.visualstudio.com/api/working-with-extensions/publishing-extension
+
+## 📚 更多详细信息
+
+查看完整开发文档：`DEVELOPMENT.md`
+
+## 🎉 完成
+
+发布成功后，用户就可以在 VSCode 中搜索 "默写单词" 或 "word-dict-practice" 安装你的插件了！
+

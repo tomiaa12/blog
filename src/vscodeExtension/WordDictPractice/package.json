@@ -1,0 +1,81 @@
+{
+  "name": "word-dictation",
+  "displayName": "默写单词",
+  "description": "英语单词默写练习插件，支持CET-4/6、小学、初中、高考等多种词典，集成Firebase云同步",
+  "version": "0.0.2",
+  "publisher": "tomiaa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomiaa12/blog"
+  },
+  "keywords": [
+    "english",
+    "vocabulary",
+    "learning",
+    "education",
+    "word",
+    "cet4",
+    "cet6",
+    "练习",
+    "英语",
+    "单词"
+  ],
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:wordDictView"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "word-dict-sidebar",
+          "title": "默写单词",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "word-dict-sidebar": [
+        {
+          "type": "webview",
+          "id": "wordDictView",
+          "name": "默写练习"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "wordDictView.refresh",
+        "title": "🔄 重新加载"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "wordDictView.refresh",
+          "when": "view == wordDictView",
+          "group": "navigation@1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "eslint": "^8.26.0"
+  }
+}
+

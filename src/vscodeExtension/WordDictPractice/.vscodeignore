@@ -1,0 +1,18 @@
+.vscode/**
+.vscode-test/**
+node_modules/**
+.gitignore
+.git/**
+*.vsix
+
+# 开发文档（不打包）
+开发指南.md
+发布指南.md
+实现总结.md
+架构修复说明.md
+VSCode-OAuth使用指南.md
+Google-OAuth配置指南.md
+环境配置.md
+文档索引.md
+创建发布者步骤.md
+PUBLISH_GUIDE.md

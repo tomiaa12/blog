@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512"
+     xmlns="http://www.w3.org/2000/svg"
+     fill="none">
+
+  <!-- 图标主色：浅灰（适合深色背景） -->
+  <g stroke="#CCCCCC" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- 外框：书本主体 -->
+    <rect x="128" y="80" width="256" height="352" rx="32" />
+
+    <!-- 书签 -->
+    <path d="M256 80 v120 l-40 -30 l-40 30 V80" fill="#CCCCCC" stroke="none"/>
+
+    <!-- 下方横线1 -->
+    <line x1="200" y1="300" x2="312" y2="300" />
+
+    <!-- 下方横线2 -->
+    <line x1="200" y1="360" x2="312" y2="360" />
+  </g>
+</svg>
