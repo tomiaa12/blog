@@ -45,6 +45,7 @@ export default defineConfig({
     "包含网址导航、软件分享、HTML、CSS、JavaScript、Vue、React、TypeScript、Node.js...",
   lastUpdated: true,
   outDir: "../kuangyx",
+  srcExclude: ["**/vscodeExtension/**"],
   head: [
     // Google Analytics
     [
