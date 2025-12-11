@@ -3,7 +3,7 @@
   "displayName": "默写单词",
   "description": "英语单词默写练习插件，支持CET-4/6、小学、初中、高考等多种词典，集成Firebase云同步",
   "version": "0.0.2",
-  "publisher": "tomiaa",
+  "publisher": "tomiaa12",
   "repository": {
     "type": "git",
     "url": "https://github.com/tomiaa12/blog"
