@@ -1,0 +1,97 @@
+{
+  "name": "RetroNES",
+  "displayName": "RetroNES(小霸王)",
+  "description": "在 VSCode 上玩经典 NES 小霸王游戏，助你提升开发效率，红白机 FC 游戏 400+（全中文） - Play classic NES games in VSCode",
+  "version": "0.0.1",
+  "publisher": "tomiaa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomiaa12/blog"
+  },
+  "keywords": [
+    "nes",
+    "game",
+    "emulator",
+    "entertainment",
+    "游戏",
+    "模拟器",
+    "娱乐"
+  ],
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:nesGamesView"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nes-games-sidebar",
+          "title": "RetroNES(小霸王)",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "nes-games-sidebar": [
+        {
+          "id": "nesGamesView",
+          "name": "游戏列表(Game List)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "nesGames.openNewPanel",
+        "title": "打开新游戏窗口(Open New Game Window)",
+        "icon": "$(add)"
+      },
+      {
+        "command": "nesGames.showPanel",
+        "title": "显示游戏窗口(Show Game Window)"
+      },
+      {
+        "command": "nesGames.renamePanel",
+        "title": "重命名窗口(Rename Window)",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "nesGames.closePanel",
+        "title": "关闭窗口(Close Window)",
+        "icon": "$(close)"
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "nesGames.renamePanel",
+          "when": "view == nesGamesView && viewItem == gamePanel",
+          "group": "inline@1"
+        },
+        {
+          "command": "nesGames.closePanel",
+          "when": "view == nesGamesView && viewItem == gamePanel",
+          "group": "inline@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "eslint": "^8.26.0"
+  }
+}
+
