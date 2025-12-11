@@ -1,5 +1,5 @@
 <template>
-  <div class="game">
+  <div class="game" :class="{ 'in-vscode': isVSCode }">
     <template v-if="curRom">
       <el-button
         class="back"
@@ -133,6 +133,8 @@ import GameList from "./game/GameList.vue"
 import PlayGame from "./game/PlayGame.vue"
 import InnerLoading from "./game/InnerLoading.vue"
 import SearchCategory from "./common/SearchCategory.vue"
+import { useVSCode } from "@/utils"
+const { isVSCode } = useVSCode()
 
 const curCategory = ref("")
 
@@ -176,6 +178,9 @@ watch(curCategory, () => {
 .game {
   font-family: zpix;
   padding: 1rem 3.8rem;
+  &.in-vscode {
+    padding: 0;
+  }
   .img-box {
     position: relative;
     min-height: 240px;

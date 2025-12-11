@@ -1,5 +1,5 @@
 <template>
-  <div class="fix">
+  <div class="fix" :class="{ 'in-vscode': isVSCode }">
     <el-input
       :model-value="modelValue"
       class="keyword-input"
@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue"
-import { ref } from "vue"
+import { useVSCode } from "@/utils"
 const props = defineProps({
   modelValue: {
     type: String,
@@ -52,6 +52,8 @@ const props = defineProps({
   },
 })
 const emits = defineEmits(["update:modelValue", "update:cate"])
+
+const { isVSCode } = useVSCode()
 </script>
 <style lang="scss" scoped>
 .el-check-tag {
@@ -59,6 +61,9 @@ const emits = defineEmits(["update:modelValue", "update:cate"])
   cursor: pointer;
 }
 .fix {
+  &.in-vscode {
+    top: 0;
+  }
   position: sticky;
   top: var(--vp-nav-height);
   z-index: 10;

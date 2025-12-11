@@ -3,7 +3,7 @@
     <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
       <path d="M746.666667 102.4L362.666667 418.133333 194.133333 279.466667 0 358.4v307.2l194.133333 78.933333 168.533334-138.666666 384 315.733333 277.333333-102.4V204.8L746.666667 102.4z m0 217.6v384l-256-192 256-192z" fill="currentColor"/>
     </svg>
-    <span>VSCode 和 Cursor 插件版已上线，支持在编辑器中练习单词：</span>
+    <span>{{ message }}</span>
     <template v-for="(plugin, index) in plugins" :key="index">
       <a :href="plugin.url" target="_blank" rel="noopener noreferrer">
         {{ plugin.name }}
@@ -30,10 +30,12 @@ const props = withDefaults(defineProps<{
   show?: boolean
   plugins?: PluginLink[]
   storageKey?: string
+  message?: string
 }>(), {
   show: undefined,
   plugins: () => [],
-  storageKey: 'editor-plugin-tip-dismissed'
+  storageKey: 'editor-plugin-tip-dismissed',
+  message: 'VSCode 和 Cursor 插件版已上线：'
 })
 
 const isDismissed = ref(false)
