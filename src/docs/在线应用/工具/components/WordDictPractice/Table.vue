@@ -630,7 +630,7 @@ const showCurrentDictOnly = ref(false)
 const showCurrentDictRareOnly = ref(false)
 
 // 控制词源列的显示隐藏
-const etymologyColumnHidden = ref(false)
+const etymologyColumnHidden = ref(true)
 
 // 单词详情弹窗
 const wordDetailDialogVisible = ref(false)
@@ -1479,7 +1479,7 @@ function clearAllInputs() {
     row.wordHidden = true
     row.phoneticHidden = true
     row.transHidden = false
-
+    row.etymologyHidden = true
   })
 }
 
