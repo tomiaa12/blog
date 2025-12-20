@@ -44,7 +44,7 @@
       class="home-comment"
     /> -->
 
-    <Live2D v-if="!isMobile" />
+    <Live2D v-if="!isMobile && !isTablet" />
 
     <el-backtop v-if="!isMobile" :right="300" />
   </template>
@@ -59,7 +59,7 @@ import { computed, onMounted, watch, nextTick } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
-import { isMobile, useVSCode } from "@/utils"
+import { isMobile, isTablet, useVSCode } from "@/utils"
 import FirstLoading from "./FirstLoading.vue"
 
 const route = useRoute()

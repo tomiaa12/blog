@@ -380,20 +380,49 @@ async function requestVSCodeOAuth(
  * 而不是在浏览器中运行
  */
 async function signInWithGoogleInVSCode(config: VSCodeOAuthConfig) {
-  // 通过消息通信请求 VSCode 扩展处理 OAuth
-  // 扩展会启动服务器、打开浏览器、接收回调、交换 token
-  const { access_token, id_token } = await requestVSCodeOAuth(config)
+  try {
+    // 通过消息通信请求 VSCode 扩展处理 OAuth
+    // 扩展会启动服务器、打开浏览器、接收回调、交换 token
+    const { access_token, id_token } = await requestVSCodeOAuth(config)
 
-  // 用 token 登录 Firebase
-  const credential = GoogleAuthProvider.credential(id_token ?? null, access_token)
-  const result = await signInWithCredential(auth, credential)
+    // 用 token 登录 Firebase
+    const credential = GoogleAuthProvider.credential(id_token ?? null, access_token)
+    const result = await signInWithCredential(auth, credential)
 
-  if (result.user) {
-    await upsertUserProfile(result.user)
-    emitLogin(result.user)
+    if (result.user) {
+      await upsertUserProfile(result.user)
+      emitLogin(result.user)
+    }
+
+    return result
+  } catch (error: any) {
+    // 处理 Firebase 认证错误
+    const errorCode = error?.code || error?.error?.code
+    const errorMessage = error?.message || error?.error?.message || String(error)
+    
+    // 如果是 invalid_client 或 invalid-credential 错误，提供详细的解决建议
+    if (errorCode === 'auth/invalid-credential' || errorCode === 'auth/invalid-credential' || 
+        errorMessage?.includes('invalid_client') || errorMessage?.includes('Unauthorized')) {
+      const detailedError = new Error(
+        `OAuth 客户端配置错误 (${errorCode || 'invalid_client'})\n\n` +
+        `可能的原因：\n` +
+        `1. Google OAuth 客户端 ID 或密钥配置不正确\n` +
+        `2. OAuth 客户端 ID 与 Firebase 项目不匹配\n` +
+        `3. 需要在 Firebase Console 中配置授权域名\n\n` +
+        `解决步骤：\n` +
+        `1. 确认 Google Cloud Console 中的 OAuth 客户端 ID 与 Firebase 项目是同一个项目\n` +
+        `2. 检查环境变量 VITE_GOOGLE_CLIENT_ID 和 VITE_GOOGLE_CLIENT_SECRET 是否正确\n` +
+        `3. 在 Firebase Console → Authentication → 设置 → 授权域名中添加 localhost\n` +
+        `4. 确认 Google Cloud Console 中已添加重定向 URI: http://localhost:${config.redirectPort || 5589}/callback\n\n` +
+        `原始错误: ${errorMessage}`
+      )
+      detailedError.name = error?.name || 'FirebaseAuthError'
+      throw detailedError
+    }
+    
+    // 其他错误直接抛出
+    throw error
   }
-
-  return result
 }
 
 /**

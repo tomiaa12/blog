@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "默写单词",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/WordDrill"
+      ]
+    },
+    {
+      "name": "小霸王",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/RetroNES"
+      ]
+    }
+  ]
+}
+

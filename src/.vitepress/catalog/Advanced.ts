@@ -12,6 +12,7 @@ export const Advanced = [
       { text: "Flutter 本地存储", link: "/docs/进阶/Flutter/06.本地存储" },
       { text: "Flutter Widgets", link: "/docs/进阶/Flutter/07.widgets" },
       { text: "StatelessWidget & StatefulWidget", link: "/docs/进阶/Flutter/08.StatelessWidget&StatefulWidget" },
+      { text: "实战", link: "/docs/进阶/Flutter/09.实战" },
     ],
   },
   {
