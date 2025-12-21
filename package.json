@@ -34,6 +34,7 @@
     "@types/three": "^0.154.0",
     "conventional-changelog-cli": "^2.2.2",
     "inquirer": "^12.9.6",
+    "vite-plugin-pwa": "^1.2.0",
     "vite-svg-loader": "^4.0.0",
     "vitepress": "1.6.4",
     "vue": "^3.5.21"
