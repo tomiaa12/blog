@@ -9,9 +9,13 @@
       <FirebaseLogin />
       <!-- <Firebase /> -->
       <el-card shadow="never">
-        <div class="header">
+        <div
+          class="header"
+          :class="{ 'is-mobile': isMobile }"
+        >
           <el-button
             type="primary"
+            size="small"
             @click="showDictDialog = true"
           >
             <span v-if="currentDictInfo.description">更换词典</span>
@@ -37,6 +41,7 @@
             <el-select
               v-model="globalData.sound"
               placeholder="选择键盘音效"
+              size="small"
               :style="isMobile ? 'width: 84px;' : 'width: 120px;'"
             >
               <el-option
@@ -48,7 +53,10 @@
             </el-select>
           </el-form-item>
           <el-form-item>
-            <el-checkbox v-model="globalData.autoJump">
+            <el-checkbox
+              v-model="globalData.autoJump"
+              size="small"
+            >
               <el-tooltip content="启用后，正确输入单词后会自动跳转到下一个输入框" placement="top" effect="dark">
                正确后自动跳转
               </el-tooltip>
@@ -58,6 +66,7 @@
             <el-select
               v-model="globalData.practiceMode"
               placeholder="选择练习模式"
+              size="small"
               :style="isMobile ? 'width: 84px;' : 'width: 120px;'"
             >
               <el-option label="全部单词" value="all">
@@ -78,14 +87,20 @@
             </el-select>
           </el-form-item>
           <el-form-item>
-            <el-checkbox v-model="globalData.autoPlayAudio">
+            <el-checkbox
+              v-model="globalData.autoPlayAudio"
+              size="small"
+            >
               <el-tooltip content="启用后，默写时会自动播放单词发音" placement="top" effect="dark">
                 默写时自动发音
               </el-tooltip>
             </el-checkbox>
           </el-form-item>
         </el-form>
-        <div v-else>正在加载全局设置...</div>
+        <div
+          v-else
+          style="font-size: 12px; color: var(--el-text-color-regular);"
+        >正在加载全局设置...</div>
       </el-card>
     </div>
 
@@ -413,20 +428,38 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   height: 100%;
 }
 .word-dict-practice__header {
-  margin: 1em 0;
+  margin: 0.5em 0;
   display: flex;
   align-items: stretch;
-  margin-bottom: 16px;
-  padding-top: 10px;
-  gap: 16px;
-  :deep() > div {
+  margin-bottom: 12px;
+  padding-top: 8px;
+  gap: 12px;
+  :deep() .el-card {
     flex: 1;
+    :deep() .el-card__body {
+      padding: 12px 16px;
+    }
   }
   &.is-mobile {
     flex-wrap: wrap;
-    :deep() > div {
+    gap: 8px;
+    margin-bottom: 8px;
+    :deep() .el-card {
       flex: none;
       width: 100%;
+      :deep() .el-card__body {
+        padding: 10px 12px;
+      }
+    }
+  }
+  // iPad 端优化（768px - 1024px）
+  @media (min-width: 768px) and (max-width: 1024px) {
+    gap: 10px;
+    margin-bottom: 10px;
+    :deep() .el-card {
+      :deep() .el-card__body {
+        padding: 10px 14px;
+      }
     }
   }
 }
@@ -434,12 +467,100 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
 .header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-  padding-top: 10px;
+  gap: 12px;
+  margin-bottom: 0;
+  padding-top: 0;
+  flex-wrap: wrap;
   .current-dict {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--el-text-color-regular);
+    line-height: 1.4;
+    word-break: break-word;
+  }
+  &.is-mobile {
+    gap: 8px;
+    .current-dict {
+      font-size: 12px;
+      width: 100%;
+    }
+  }
+}
+
+.settings-form {
+  margin: 0;
+  :deep() .el-form-item {
+    margin-bottom: 6px;
+    margin-right: 12px;
+    .el-form-item__label {
+      padding-bottom: 0;
+      line-height: 28px;
+      font-size: 13px;
+    }
+    .el-form-item__content {
+      line-height: 28px;
+    }
+    // 统一 checkbox 和 select 的高度
+    .el-checkbox {
+      .el-checkbox__label {
+        font-size: 13px;
+        line-height: 28px;
+      }
+    }
+    .el-select {
+      .el-input__inner {
+        height: 28px;
+        line-height: 28px;
+      }
+    }
+  }
+  // 移动端优化
+  @media (max-width: 768px) {
+    :deep() .el-form-item {
+      margin-bottom: 4px;
+      margin-right: 8px;
+      .el-form-item__label {
+        font-size: 12px;
+      }
+      .el-form-item__content {
+        line-height: 24px;
+      }
+      .el-checkbox {
+        .el-checkbox__label {
+          font-size: 12px;
+        }
+      }
+      .el-select {
+        .el-input__inner {
+          height: 24px;
+        }
+      }
+    }
+  }
+  // iPad 端优化
+  @media (min-width: 768px) and (max-width: 1024px) {
+    :deep() .el-form-item {
+      margin-bottom: 5px;
+      margin-right: 10px;
+      .el-form-item__label {
+        font-size: 12px;
+        line-height: 26px;
+      }
+      .el-form-item__content {
+        line-height: 26px;
+      }
+      .el-checkbox {
+        .el-checkbox__label {
+          font-size: 12px;
+          line-height: 26px;
+        }
+      }
+      .el-select {
+        .el-input__inner {
+          height: 26px;
+          line-height: 26px;
+        }
+      }
+    }
   }
 }
 

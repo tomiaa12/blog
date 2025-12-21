@@ -67,7 +67,7 @@ const dismiss = () => {
 
 <style scoped>
 .editor-plugin-tip {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 12px 16px;

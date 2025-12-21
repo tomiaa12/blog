@@ -242,7 +242,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onUnmounted } from "vue"
+import { ref, watch } from "vue"
 import { isMobile } from "@/utils"
 import PosTag from "./PosTag.vue"
 import WordAudioButton from "./WordAudioButton.vue"
@@ -263,62 +263,15 @@ watch(
   () => props.modelValue,
   newVal => {
     visible.value = newVal
-    handleScrollLock(newVal)
   }
 )
 
 watch(visible, newVal => {
   emit("update:modelValue", newVal)
-  handleScrollLock(newVal)
 })
 
 const handleClose = () => {
   visible.value = false
-}
-
-// 组件卸载时清理滚动锁定
-onUnmounted(() => {
-  handleScrollLock(false)
-})
-
-// 处理滚动锁定
-const handleScrollLock = (lock: boolean) => {
-  if (typeof document === "undefined") return
-
-  const body = document.body
-  const html = document.documentElement
-
-  if (lock) {
-    // 保存原始样式
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
-
-    // 设置body样式防止滚动
-    body.style.position = "fixed"
-    body.style.top = `-${scrollTop}px`
-    body.style.left = `-${scrollLeft}px`
-    body.style.width = "100%"
-    body.style.overflow = "hidden"
-
-    // 同时设置html以防万一
-    html.style.overflow = "hidden"
-  } else {
-    // 恢复原始样式
-    const scrollTop = parseInt(body.style.top || "0", 10) * -1
-    const scrollLeft = parseInt(body.style.left || "0", 10) * -1
-
-    // 移除锁定样式
-    body.style.position = ""
-    body.style.top = ""
-    body.style.left = ""
-    body.style.width = ""
-    body.style.overflow = ""
-
-    html.style.overflow = ""
-
-    // 恢复滚动位置
-    window.scrollTo(scrollLeft, scrollTop)
-  }
 }
 
 // 在文本中标红指定单词

@@ -254,15 +254,6 @@
                   <View v-else />
                 </el-icon>
               </div>
-
-
-              <el-button
-                type="primary"
-                size="small"
-                @click="openTransDetail(row)"
-              >
-                查看详情
-              </el-button>
             </template>
           </el-table-column>
         </template>
@@ -291,7 +282,24 @@
               >
                 重置输入框
               </el-button>
-              <template v-if="isMobile">
+              <el-button
+                :type="isVSCode ? 'default' : 'primary'"
+                size="small"
+                style="font-size: 12px; padding: 4px 8px"
+                @click="showOnlyWord"
+              >
+                只看单词
+              </el-button>
+              <el-button
+                :type="isVSCode ? 'default' : 'primary'"
+                size="small"
+                style="font-size: 12px; padding: 4px 8px"
+                @click="showOnlyTrans"
+              >
+                只看释义
+              </el-button>
+              
+              <div class="mobile-header-controls" v-if="isMobile">
                 <div class="word-column-header" @click.stop>
                   <span @click.stop>单词</span>
                   <el-switch
@@ -301,12 +309,6 @@
                   />
                 </div>
                 <div
-                  style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 8px;
-                  "
                 >
                   <span>音标</span>
                   <el-switch
@@ -331,7 +333,7 @@
                     @click.stop
                   />
                 </div>
-              </template>
+              </div>
             </div>
 
           </template>
@@ -1149,6 +1151,9 @@ const wordColumnHidden = ref(true)
 const phoneticColumnHidden = ref(true)
 const transColumnHidden = ref(false) // 释义默认显示
 
+// 视图模式：'normal' | 'wordOnly' | 'transOnly'
+const viewMode = ref<'normal' | 'wordOnly' | 'transOnly'>('normal')
+
 // 切换列显示隐藏
 function toggleColumnHide(key: "word" | "phonetic" | "trans") {
   if (key === "word") {
@@ -1174,6 +1179,10 @@ function toggleColumnHide(key: "word" | "phonetic" | "trans") {
 
 // 监听列隐藏状态变化，更新所有行的对应属性
 watch(wordColumnHidden, (newValue) => {
+  // 如果用户手动切换了列显示，退出特殊视图模式
+  if (viewMode.value !== 'normal') {
+    viewMode.value = 'normal'
+  }
   originalData.value.forEach(row => {
     row.wordHidden = newValue
   })
@@ -1181,6 +1190,10 @@ watch(wordColumnHidden, (newValue) => {
 })
 
 watch(phoneticColumnHidden, (newValue) => {
+  // 如果用户手动切换了列显示，退出特殊视图模式
+  if (viewMode.value !== 'normal') {
+    viewMode.value = 'normal'
+  }
   originalData.value.forEach(row => {
     row.phoneticHidden = newValue
   })
@@ -1188,6 +1201,10 @@ watch(phoneticColumnHidden, (newValue) => {
 })
 
 watch(transColumnHidden, (newValue) => {
+  // 如果用户手动切换了列显示，退出特殊视图模式
+  if (viewMode.value !== 'normal') {
+    viewMode.value = 'normal'
+  }
   originalData.value.forEach(row => {
     row.transHidden = newValue
   })
@@ -1200,6 +1217,42 @@ watch(etymologyColumnHidden, (newValue) => {
   })
   tableData.value = [...tableData.value]
 })
+
+// 只看单词模式：只显示单词列，隐藏其他列
+function showOnlyWord() {
+  viewMode.value = 'wordOnly'
+  wordColumnHidden.value = false
+  phoneticColumnHidden.value = true
+  transColumnHidden.value = true
+  etymologyColumnHidden.value = true
+  
+  // 更新所有行的显示状态
+  originalData.value.forEach(row => {
+    row.wordHidden = false
+    row.phoneticHidden = true
+    row.transHidden = true
+    row.etymologyHidden = true
+  })
+  tableData.value = [...tableData.value]
+}
+
+// 只看释义模式：只显示释义列，隐藏其他列
+function showOnlyTrans() {
+  viewMode.value = 'transOnly'
+  wordColumnHidden.value = true
+  phoneticColumnHidden.value = true
+  transColumnHidden.value = false
+  etymologyColumnHidden.value = true
+  
+  // 更新所有行的显示状态
+  originalData.value.forEach(row => {
+    row.wordHidden = true
+    row.phoneticHidden = true
+    row.transHidden = false
+    row.etymologyHidden = true
+  })
+  tableData.value = [...tableData.value]
+}
 
 // 初始化数据
 watch(
@@ -1481,6 +1534,11 @@ function clearAllInputs() {
     row.transHidden = false
     row.etymologyHidden = true
   })
+  // 重置header中的Switch切换状态为默认值
+  wordColumnHidden.value = true
+  phoneticColumnHidden.value = true
+  transColumnHidden.value = false
+  etymologyColumnHidden.value = true
 }
 
 // 处理输入变化，实时检查是否正确
@@ -1739,6 +1797,16 @@ function rowClass({ row }: any) {
   line-height: 1.4;
   white-space: pre-line;
 }
+.mobile-header-controls {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  span {
+    margin-right: 8px;
+  }
+}
 :deep() {
   .bg-success {
     background-color: var(--el-color-success-light-9);
@@ -1748,14 +1816,6 @@ function rowClass({ row }: any) {
   .el-table__body tr:hover > td {
     background-color: transparent !important;
   }
-  // 确保排序图标与自定义 header 内容对齐
-  .word-column-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
   .el-table__header-wrapper {
     .el-table__header {
       th {
