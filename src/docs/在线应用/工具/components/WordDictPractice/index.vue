@@ -463,7 +463,9 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
     }
   }
 }
-
+:deep() .el-card__body {
+  --el-card-padding: 10px;
+}
 .header {
   display: flex;
   align-items: center;
@@ -478,10 +480,10 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
     word-break: break-word;
   }
   &.is-mobile {
+    display: inline;
     gap: 8px;
     .current-dict {
       font-size: 12px;
-      width: 100%;
     }
   }
 }

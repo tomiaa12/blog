@@ -33,6 +33,8 @@ class WordDictViewProvider {
         this._extensionUri = extensionUri;
         this._context = context;
         this._oauthServer = null;
+        // 判断是否为开发环境
+        this._isDevelopment = context.extensionMode === vscode.ExtensionMode.Development;
     }
 
     resolveWebviewView(webviewView, context, _token) {
@@ -252,6 +254,13 @@ class WordDictViewProvider {
         // 添加时间戳参数强制 iframe 刷新
         const timestamp = Date.now();
         
+        // 根据环境选择 URL
+        const baseUrl = this._isDevelopment 
+            ? 'http://localhost:5173/docs/%E5%9C%A8%E7%BA%BF%E5%BA%94%E7%94%A8/%E5%B7%A5%E5%85%B7/%E5%9C%A8%E7%BA%BF%E9%BB%98%E5%86%99%E5%8D%95%E8%AF%8D.html'
+            : 'https://kuangyx.cn/docs/%E5%9C%A8%E7%BA%BF%E5%BA%94%E7%94%A8/%E5%B7%A5%E5%85%B7/%E5%9C%A8%E7%BA%BF%E9%BB%98%E5%86%99%E5%8D%95%E8%AF%8D.html';
+        
+        const iframeSrc = `${baseUrl}?vscode=true&_t=${timestamp}`;
+        
         return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -295,7 +304,7 @@ class WordDictViewProvider {
 <body>
   <iframe 
     id="app-iframe"
-    src="https://kuangyx.cn/docs/%E5%9C%A8%E7%BA%BF%E5%BA%94%E7%94%A8/%E5%B7%A5%E5%85%B7/%E5%9C%A8%E7%BA%BF%E9%BB%98%E5%86%99%E5%8D%95%E8%AF%8D.html?vscode=true&_t=${timestamp}" 
+    src="${iframeSrc}" 
     sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-storage-access-by-user-activation"
     width="100%" 
     height="100%"></iframe>

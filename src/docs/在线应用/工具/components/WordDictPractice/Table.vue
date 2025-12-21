@@ -63,7 +63,7 @@
             当前词典生僻词（{{ currentDictRareWordsCount }}个）
           </el-button>
           <span>剩余 {{ tableData.length }} 词</span>
-          <el-tooltip placement="top">
+          <el-tooltip placement="top" v-if="isVSCode || !isMobile">
               <template #content>
                 <p>Ctrl + ←/→ 切换上一页/下一页</p>
                 <p>Ctrl + ↑/↓ 切换到第一/最后一个输入框</p>
@@ -74,6 +74,23 @@
               </template>
             <el-button>快捷键</el-button>
           </el-tooltip>
+
+          <el-pagination
+            v-model:current-page="currentPage"
+            v-model:page-size="pageSize"
+            :page-sizes="pageSizes"
+            :pager-count="4"
+            :total="tableData.length"
+            layout="prev, pager, next"
+          />
+          <el-pagination
+            v-model:current-page="currentPage"
+            v-model:page-size="pageSize"
+            :page-sizes="pageSizes"
+            :pager-count="4"
+            :total="tableData.length"
+            layout="sizes, jumper"
+          />
         </div>
       </div>
       <el-table
@@ -273,7 +290,6 @@
                 white-space: nowrap;
               "
             >
-              <span>默写</span>
               <el-button
                 :type="isVSCode ? 'default' : 'danger'"
                 size="small"
@@ -488,14 +504,14 @@
             <el-input
               :ref="el => setInputRef(el, $index)"
               v-model="row.modelValue"
-              placeholder=""
+              placeholder="请输入单词默写"
               clearable
               autocomplete="off"
+              type="text"
               @input="handleInputChange($event, row)"
               @keydown="handleInputKeydown($event, row)"
               @focus="handleInputFocus($index, $event)"
               @blur="handleInputBlur($index, row)"
-              inputmode="text"
             />
           </template>
         </el-table-column>
@@ -504,7 +520,7 @@
       <el-pagination
         v-model:current-page="currentPage"
         v-model:page-size="pageSize"
-        :page-sizes="[5, 10, 20, 30, 40, 50]"
+        :page-sizes="pageSizes"
         :pager-count="4"
         :total="tableData.length"
         layout="prev, pager, next,total, sizes, jumper"
@@ -563,7 +579,7 @@ import type { SimpleWordItem } from "./hooks/useSimpleWords"
 import { useRareWords } from "./hooks/useRareWords"
 import type { RareWordItem } from "./hooks/useRareWords"
 import { globalData } from "./hooks/useGlobaData"
-import { useVSCode } from "@/utils"
+import { isVSCode } from "@/utils"
 import beep from "@/assets/sound/beep.wav"
 import correct from "@/assets/sound/correct.wav"
 
@@ -581,11 +597,12 @@ const keySoundMap = Object.entries(keySoundModules).reduce<
   }
   return acc
 }, {})
-const { isVSCode } = useVSCode()
 const props = defineProps<{
   data: any
   dictId: string
 }>()
+
+const pageSizes = [5, 10, 20, 30, 40, 50]
 
 // 为每个数据项初始化 modelValue 字段，确保响应式
 const tableData = ref<any[]>([])
@@ -599,7 +616,6 @@ const {
   simpleWordsLoading,
   simpleWordsError,
   simpleWordsLoaded,
-  addSimpleWordLoading,
   stateReadyForSimpleWords,
   initializeSimpleWords,
   openSimpleWordsDrawer,
@@ -615,10 +631,6 @@ const {
   rareWords,
   rareWordsLoading,
   rareWordsError,
-  rareWordsLoaded,
-  addRareWordLoading,
-  stateReadyForRareWords,
-  initializeRareWords,
   openRareWordsDrawer,
   handleAddRareWord,
   isWordInRareList: isWordInRareListByWord,
@@ -1730,11 +1742,11 @@ function rowClass({ row }: any) {
   max-width: 48%;
 }
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .table-header {
-    top: 47px;
+    padding: 0 5px;
   }
-} */
+}
 .input-tip-container {
   display: flex;
   align-items: center;

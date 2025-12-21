@@ -18,8 +18,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue'
-import { isVSCode } from '@/utils/src/isVSCode'
-import { isMobile } from '@/utils/src/isMobile'
+import { isVSCode, isMobile } from '@/utils'
 
 export interface PluginLink {
   name: string
@@ -53,7 +52,7 @@ const show = computed(() => {
   if (props.show !== undefined) {
     return props.show
   }
-  return !isMobile.value && !isVSCode() && props.plugins.length > 0 && !isDismissed.value
+  return !isMobile.value && !isVSCode.value && props.plugins.length > 0 && !isDismissed.value
 })
 
 // 关闭提示

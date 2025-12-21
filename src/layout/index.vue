@@ -59,12 +59,11 @@ import { computed, onMounted, watch, nextTick } from "vue"
 import Comment from "./Comment.vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
-import { isMobile, isTablet, useVSCode } from "@/utils"
+import { isMobile, isTablet, isVSCode } from "@/utils"
 import FirstLoading from "./FirstLoading.vue"
 
 const route = useRoute()
 const router = useRouter()
-const { isVSCode } = useVSCode()
 const data = useData()
 
 // VSCode 环境下默认使用深色模式
@@ -187,7 +186,7 @@ if (inBrowser) {
   .container,
   .content-container {
     max-width: 100% !important;
-    padding: 0 !important;
+    padding: 5px !important;
   }
 }
 </style>

@@ -72,12 +72,11 @@ import { computed, ref, onUnmounted } from "vue"
 import { ElAvatar, ElButton, ElCard, ElSpace, ElMessage } from "element-plus"
 import { UserFilled } from "@element-plus/icons-vue"
 import { useFirebaseAuth } from "../hooks/useFirebaseAuth"
-import { isVSCode } from "../utils/src/isVSCode"
+import { isVSCode } from "../utils"
 import googleIcon from "../assets/svg/google.svg?url"
 
 const { user, authReady, signInWithGoogle, signInWithGoogleInVSCode, signOutUser } = useFirebaseAuth()
 const loginLoading = ref(false)
-const isInVSCode = isVSCode()
 const countdown = ref(0)
 let countdownTimer: number | null = null
 
@@ -146,7 +145,7 @@ async function handleLogin() {
   startCountdown()
   
   try {
-    if (isInVSCode) {
+    if (isVSCode.value) {
       // VSCode 环境下使用 OAuth 流程
       const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
       const clientSecret = import.meta.env.VITE_GOOGLE_CLIENT_SECRET

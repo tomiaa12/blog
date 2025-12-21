@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue"
-import { useVSCode } from "@/utils"
+import { isVSCode } from "@/utils"
 const props = defineProps({
   modelValue: {
     type: String,
@@ -53,7 +53,6 @@ const props = defineProps({
 })
 const emits = defineEmits(["update:modelValue", "update:cate"])
 
-const { isVSCode } = useVSCode()
 </script>
 <style lang="scss" scoped>
 .el-check-tag {

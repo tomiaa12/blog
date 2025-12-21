@@ -133,8 +133,7 @@ import GameList from "./game/GameList.vue"
 import PlayGame from "./game/PlayGame.vue"
 import InnerLoading from "./game/InnerLoading.vue"
 import SearchCategory from "./common/SearchCategory.vue"
-import { useVSCode } from "@/utils"
-const { isVSCode } = useVSCode()
+import { isVSCode } from "@/utils"
 
 const curCategory = ref("")
 
