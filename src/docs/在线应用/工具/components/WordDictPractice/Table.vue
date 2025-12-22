@@ -1359,32 +1359,26 @@ watch(currentPage, () => {
   focusedIndex.value = null
 })
 
-// 处理回车键，移动到下一个输入框（不翻页）
+// 处理回车键，移动到下一个未输入的输入框（不翻页）
 function handleEnterKey(index: number, event: Event) {
   event.preventDefault()
   event.stopPropagation()
 
-  const nextIndex = index + 1
+  // 从当前索引的下一个位置开始查找第一个未输入的输入框
+  let nextIndex = -1
+  for (let i = index + 1; i < pagedData.value.length; i++) {
+    const row = pagedData.value[i]
+    // 找到第一个未输入的输入框（modelValue 为空或未定义）
+    if (!row.modelValue || row.modelValue.trim() === "") {
+      nextIndex = i
+      break
+    }
+  }
 
-  // 只在当前页内移动，不翻页
-  if (nextIndex < pagedData.value.length) {
+  // 如果找到了未输入的输入框，则跳转
+  if (nextIndex !== -1) {
     nextTick(() => {
-      // 方法1：尝试使用 ref
       focusInputByIndex(nextIndex)
-
-      // 方法2：如果 ref 失败，使用 DOM 查询作为备选
-      setTimeout(() => {
-        const allInputs = document.querySelectorAll(
-          ".table-container .el-input__inner"
-        )
-        if (allInputs.length > nextIndex) {
-          const nextInput = allInputs[nextIndex] as HTMLInputElement
-          if (nextInput && document.activeElement !== nextInput) {
-            nextInput.focus()
-            nextInput.select()
-          }
-        }
-      }, 10)
     })
   }
 }
@@ -1477,7 +1471,7 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
     return
   }
 
-  // Ctrl + Tab: 回到上一个输入框
+  // Shift + Tab: 回到上一个输入框
   if (keyboardEvent.shiftKey && keyboardEvent.key === "Tab") {
     event.preventDefault()
     const currentIndex = pagedData.value.indexOf(row)
@@ -1486,18 +1480,6 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
     if (prevIndex >= 0) {
       nextTick(() => {
         focusInputByIndex(prevIndex)
-        setTimeout(() => {
-          const allInputs = document.querySelectorAll(
-            ".table-container .el-input__inner"
-          )
-          if (allInputs.length > prevIndex) {
-            const prevInput = allInputs[prevIndex] as HTMLInputElement
-            if (prevInput && document.activeElement !== prevInput) {
-              prevInput.focus()
-              prevInput.select()
-            }
-          }
-        }, 10)
       })
     }
     return
@@ -1506,24 +1488,49 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
   // Enter 或 Tab: 检查是否正确，不正确则播放错误声音并显示错误图标
   if (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab") {
     const currentValue = row.modelValue || ""
-    if (currentValue.trim()) {
-      const isCorrect =
-        currentValue.trim().toLowerCase() === row.word.toLowerCase()
-      if (!isCorrect) {
-        void playFeedbackSound("incorrect")
-        // 显示错误图标
-        row.checked = true
+    
+    // Tab 键：无论输入是否正确，都跳转到下一个输入框
+    if (keyboardEvent.key === "Tab") {
+      event.preventDefault()
+      // 检查并显示错误状态
+      if (currentValue.trim()) {
+        const isCorrect =
+          currentValue.trim().toLowerCase() === row.word.toLowerCase()
+        if (!isCorrect) {
+          void playFeedbackSound("incorrect")
+          row.checked = true
+          row.isCorrect = false
+        }
+      } else {
+        row.checked = false
         row.isCorrect = false
-        if (keyboardEvent.key === "Enter") return
       }
-    } else {
-      // 输入为空时清除错误状态
-      row.checked = false
-      row.isCorrect = false
+      // 无论正确与否，都跳转到下一个输入框
+      handleEnterKey(pagedData.value.indexOf(row), event)
+      return
     }
-    // 只有输入正确时才跳转到下一个输入框
-    handleEnterKey(pagedData.value.indexOf(row), event)
-    return
+    
+    // Enter 键：只有输入正确或为空时才跳转
+    if (keyboardEvent.key === "Enter") {
+      if (currentValue.trim()) {
+        const isCorrect =
+          currentValue.trim().toLowerCase() === row.word.toLowerCase()
+        if (!isCorrect) {
+          // 输入错误，播放错误声音，显示错误图标，不跳转
+          void playFeedbackSound("incorrect")
+          row.checked = true
+          row.isCorrect = false
+          return
+        }
+      } else {
+        // 输入为空时清除错误状态
+        row.checked = false
+        row.isCorrect = false
+      }
+      // 输入正确或为空，跳转到下一个输入框
+      handleEnterKey(pagedData.value.indexOf(row), event)
+      return
+    }
   }
 
   // 退格键或删除键：清除错误状态，表示要修正
