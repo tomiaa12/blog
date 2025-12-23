@@ -314,6 +314,14 @@
               >
                 只看释义
               </el-button>
+              <el-button
+                :type="isVSCode ? 'default' : 'primary'"
+                size="small"
+                style="font-size: 12px; padding: 4px 8px"
+                @click="toggleAllColumns"
+              >
+                {{ isAllColumnsVisible ? '全部关闭' : '全部打开' }}
+              </el-button>
               
               <div class="mobile-header-controls" v-if="isMobile">
                 <div class="word-column-header" @click.stop>
@@ -1265,6 +1273,35 @@ function showOnlyTrans() {
   })
   tableData.value = [...tableData.value]
 }
+
+// 计算是否所有列都可见
+const isAllColumnsVisible = computed(() => {
+  return !wordColumnHidden.value && 
+         !phoneticColumnHidden.value && 
+         !transColumnHidden.value && 
+         !etymologyColumnHidden.value
+})
+
+// 全部打开/关闭功能
+function toggleAllColumns() {
+  const shouldShowAll = !isAllColumnsVisible.value
+  
+  viewMode.value = 'normal'
+  wordColumnHidden.value = !shouldShowAll
+  phoneticColumnHidden.value = !shouldShowAll
+  transColumnHidden.value = !shouldShowAll
+  etymologyColumnHidden.value = !shouldShowAll
+  
+  // 更新所有行的显示状态
+  originalData.value.forEach(row => {
+    row.wordHidden = !shouldShowAll
+    row.phoneticHidden = !shouldShowAll
+    row.transHidden = !shouldShowAll
+    row.etymologyHidden = !shouldShowAll
+  })
+  tableData.value = [...tableData.value]
+}
+
 
 // 初始化数据
 watch(
