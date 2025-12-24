@@ -41,6 +41,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "svg绘制流程图",
+        link: "/docs/文章/前端/svg绘制流程图",
+      },
+      {
         text: "加载Lottie动态图标",
         link: "/docs/文章/前端/加载Lottie动态图标",
       },
