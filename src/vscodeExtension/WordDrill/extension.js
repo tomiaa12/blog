@@ -18,6 +18,20 @@ function activate(context) {
         })
     );
 
+    // 注册在窗口中打开命令
+    context.subscriptions.push(
+        vscode.commands.registerCommand('wordDictView.openInWindow', () => {
+            provider.openInWindow();
+        })
+    );
+
+    // 注册聚焦窗口命令
+    context.subscriptions.push(
+        vscode.commands.registerCommand('wordDictView.focusWindow', () => {
+            provider.focusWindow();
+        })
+    );
+
     // 注册刷新命令
     context.subscriptions.push(
         vscode.commands.registerCommand('wordDictView.refresh', () => {
@@ -33,6 +47,8 @@ class WordDictViewProvider {
         this._extensionUri = extensionUri;
         this._context = context;
         this._oauthServer = null;
+        this._panel = null; // Webview Panel
+        this._isWindowOpen = false; // 标记窗口是否打开
         // 判断是否为开发环境
         this._isDevelopment = context.extensionMode === vscode.ExtensionMode.Development;
     }
@@ -55,6 +71,11 @@ class WordDictViewProvider {
         webviewView.webview.onDidReceiveMessage(
             async message => {
                 switch (message.type) {
+                    case 'focus-window':
+                        // 聚焦到窗口
+                        this.focusWindow();
+                        break;
+
                     case 'vscode-open-external':
                         // 在外部浏览器中打开 URL
                         if (message.url) {
@@ -85,12 +106,108 @@ class WordDictViewProvider {
     }
 
     /**
+     * 在独立窗口中打开
+     */
+    openInWindow() {
+        // 如果窗口已经存在，直接聚焦
+        if (this._panel) {
+            this._panel.reveal();
+            return;
+        }
+
+        // 创建新的 webview panel
+        this._panel = vscode.window.createWebviewPanel(
+            'wordDictWindow',
+            '默写单词',
+            vscode.ViewColumn.One,
+            {
+                enableScripts: true,
+                retainContextWhenHidden: true
+            }
+        );
+
+        // 设置 panel 内容
+        this._panel.webview.html = this._getIframeHtmlContent(this._panel.webview);
+
+        // 监听来自 panel webview 的消息
+        this._panel.webview.onDidReceiveMessage(
+            async message => {
+                switch (message.type) {
+                    case 'vscode-open-external':
+                        if (message.url) {
+                            vscode.env.openExternal(vscode.Uri.parse(message.url));
+                        }
+                        break;
+                    
+                    case 'vscode-oauth-login':
+                        try {
+                            const result = await this._handleOAuthLogin(message.config);
+                            this._panel.webview.postMessage({
+                                type: 'vscode-oauth-success',
+                                data: result
+                            });
+                        } catch (error) {
+                            this._panel.webview.postMessage({
+                                type: 'vscode-oauth-error',
+                                error: error.message
+                            });
+                        }
+                        break;
+                }
+            },
+            undefined,
+            this._context.subscriptions
+        );
+
+        // 监听 panel 关闭事件
+        this._panel.onDidDispose(
+            () => {
+                this._panel = null;
+                this._isWindowOpen = false;
+                // 恢复侧边栏的 iframe
+                this.refresh();
+            },
+            null,
+            this._context.subscriptions
+        );
+
+        // 更新状态并显示提示
+        this._isWindowOpen = true;
+        this._showWindowOpenTip();
+    }
+
+    /**
+     * 聚焦到窗口
+     */
+    focusWindow() {
+        if (this._panel) {
+            this._panel.reveal();
+        } else {
+            vscode.window.showInformationMessage('窗口未打开');
+        }
+    }
+
+    /**
+     * 显示窗口已打开的提示
+     */
+    _showWindowOpenTip() {
+        if (this._webviewView) {
+            this._webviewView.webview.html = this._getTipHtmlContent();
+        }
+    }
+
+    /**
      * 刷新 webview
      */
     refresh() {
         if (this._webviewView) {
-            // 重新生成 HTML（带新的时间戳强制刷新 iframe）
-            this._webviewView.webview.html = this._getHtmlContent(this._webviewView.webview);
+            // 如果窗口已打开，显示提示
+            if (this._isWindowOpen) {
+                this._webviewView.webview.html = this._getTipHtmlContent();
+            } else {
+                // 重新生成 HTML（带新的时间戳强制刷新 iframe）
+                this._webviewView.webview.html = this._getHtmlContent(this._webviewView.webview);
+            }
             console.log('Webview 已刷新');
         }
     }
@@ -250,7 +367,88 @@ class WordDictViewProvider {
         return resp.json();
     }
 
-    _getHtmlContent(webview) {
+    /**
+     * 获取提示页面的 HTML
+     */
+    _getTipHtmlContent() {
+        return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>默写单词</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--vscode-editor-background);
+            color: var(--vscode-editor-foreground);
+            font-family: var(--vscode-font-family);
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            max-width: 300px;
+        }
+        .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .message {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--vscode-descriptionForeground);
+        }
+        .button {
+            background: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: var(--vscode-font-family);
+        }
+        .button:hover {
+            background: var(--vscode-button-hoverBackground);
+        }
+        .button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🪟</div>
+        <div class="message">已在独立窗口中打开</div>
+        <button class="button" onclick="focusWindow()">查看窗口</button>
+    </div>
+    <script>
+        const vscode = acquireVsCodeApi();
+        
+        function focusWindow() {
+            vscode.postMessage({ type: 'focus-window' });
+        }
+    </script>
+</body>
+</html>`;
+    }
+
+    /**
+     * 获取 iframe 内容的 HTML（用于 panel 和侧边栏）
+     */
+    _getIframeHtmlContent(webview) {
         // 添加时间戳参数强制 iframe 刷新
         const timestamp = Date.now();
         
@@ -334,13 +532,18 @@ class WordDictViewProvider {
   </script>
 </body>
 </html>`;
-  }
+    }
+
+    /**
+     * 获取侧边栏的 HTML（根据窗口状态决定显示什么）
+     */
+    _getHtmlContent(webview) {
+        if (this._isWindowOpen) {
+            return this._getTipHtmlContent();
+        }
+        return this._getIframeHtmlContent(webview);
+    }
 }
-{/* <iframe 
-    src="https://kuangyx.cn/docs/%E5%9C%A8%E7%BA%BF%E5%BA%94%E7%94%A8/%E5%B7%A5%E5%85%B7/%E5%9C%A8%E7%BA%BF%E9%BB%98%E5%86%99%E5%8D%95%E8%AF%8D.html?vscode=true" 
-    sandbox=""
-    width="100%" 
-    height="100%"></iframe> */}
 
 module.exports = {
     activate,
