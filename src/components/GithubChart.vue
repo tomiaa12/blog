@@ -22,7 +22,8 @@ const color = ref(!import.meta.env.SSR ? getPropertyValue('--el-color-primary').
 <style lang="scss" scoped>
 .el-image {
   width: 100%;
-  margin: 24px auto;
+  margin: 0;
+  padding: 0;
   max-width: 1125px;
   display: block;
 }

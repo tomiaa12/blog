@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -30,7 +31,9 @@ declare module '@vue/runtime-core' {
     ElIconDelete: typeof import('@element-plus/icons-vue')['Delete']
     ElIconEditPen: typeof import('@element-plus/icons-vue')['EditPen']
     ElIconIphone: typeof import('@element-plus/icons-vue')['Iphone']
+    ElIconLink: typeof import('@element-plus/icons-vue')['Link']
     ElIconLoading: typeof import('@element-plus/icons-vue')['Loading']
+    ElIconMonitor: typeof import('@element-plus/icons-vue')['Monitor']
     ElIconOperation: typeof import('@element-plus/icons-vue')['Operation']
     ElIconSelect: typeof import('@element-plus/icons-vue')['Select']
     ElIconUploadFilled: typeof import('@element-plus/icons-vue')['UploadFilled']

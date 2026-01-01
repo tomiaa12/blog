@@ -94,7 +94,7 @@ watch(
 )
 </script>
 <style lang="scss">
-.game {
+.nes-games {
   .adsbygoogle{
     min-width: 274px;
     padding: 8px;

@@ -268,7 +268,11 @@ export default defineConfig({
     nav: [
       { text: "导航", link: "/pages/navigation" },
       { text: "软件", link: "/pages/software" },
-      { text: "游戏", link: "/pages/game" },
+      { text: "游戏", items: [
+        { text: "FC 童年小霸王", link: "/pages/game" },
+        { text: "Java 经典游戏", link: "/pages/javaGames" },
+      ] 
+      },
       // { text: "GPT", link: "/pages/chatGPT" },
       { text: "在线应用", items: OnLineApp },
       { text: "资源收集", link: "/docs/资源收集/介绍" },

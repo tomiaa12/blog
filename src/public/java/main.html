@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style/main.css">
+  <link rel="stylesheet" type="text/css" href="style/confirm.css">
+  <link rel="stylesheet" type="text/css" href="style/progress_activity.css">
+  <link rel="stylesheet" type="text/css" href="style/headers.css">
+  <link rel="stylesheet" type="text/css" href="style/drawer.css">
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0">
+
+  <style>
+    html, body, #display-container, #display, #canvas, #gamepad {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+ 
+	<script src="./libs/PicoAudio.js" type="text/javascript"></script> 
+
+   <!-- MID 音频播放依赖 -->
+	<script src="./libs/webaudio.js" type="text/javascript"></script> 
+	<script src="./libs/webaudio-tinysynth.js" type="text/javascript"></script> 
+
+  <!-- AMR 音频解码/播放依赖 -->
+	<script src="./libs/BenzAMRRecorder.js" type="text/javascript"></script> 
+
+   
+  <!-- 非 UTF 编码支持依赖 --> 
+  <script src="libs/encoding.js"></script>
+  <!-- 配置脚本需要单独加载：compiled-method-cache.js 依赖这些配置 -->
+  <script type="text/javascript" src="config/default.js" defer></script>
+  <script type="text/javascript" src="config/runtests.js" defer></script>
+  <script type="text/javascript" src="config/build.js" defer></script>
+  <script type="text/javascript" src="config/urlparams.js" defer></script>
+
+
+  <!--<script type="text/javascript" src="libs/terminal.js" defer></script>-->
+
+  <!-- promise-6.0.0.js 与 IndexedDB-getAll-shim.js 需要单独加载：compiled-method-cache.js 依赖它们 -->
+  <script type="text/javascript" src="libs/promise-6.0.0.js" defer></script>
+  <script type="text/javascript" src="polyfill/IndexedDB-getAll-shim.js" defer></script>
+
+  <!-- compiled-method-cache.js 需要单独加载：j2me.js 依赖它 -->
+  <script type="text/javascript" src="libs/compiled-method-cache.js" defer></script>
+
+  <!-- bld/native.js 需要单独加载：合并进 main-all.js 会触发 “asm.js type error” -->
+  <script type="text/javascript" src="bld/native.js" defer></script>
+
+  <!-- j2me.js 需要单独加载：
+     - classes.jar.js 依赖它（会往 j2me.js 定义的 AOTMD hash 里追加成员）
+     - 也便于调试器加载它的 source map -->
+  <script type="text/javascript" src="bld/j2me.js" defer></script>
+
+  <!-- 运行 `make aot` 可生成以下文件。
+     需要单独加载：将 classes.jar.js 合并进 main-all.js 会在某些情况下静默失败（原因未知）。 -->
+  <!--<script type="text/javascript" src="bld/classes.jar.js" defer></script>-->
+  <!--<script type="text/javascript" src="bld/program.jar.js" defer></script>-->
+  <!--<script type="text/javascript" src="bld/tests.jar.js" defer></script>-->
+
+  <!-- 其余脚本通过合并后的 main-all.js 加载，以提升启动与运行时性能。
+     具体合并列表可查看 Makefile。 -->
+  <script type="text/javascript" src="bld/main-all.js" defer></script>
+  
+  <script type="text/javascript" src="keymap.js"></script>
+
+  <script>
+    // 禁止右键/长按触发的 contextmenu（保留输入框等可编辑区域的默认行为）
+    document.addEventListener('contextmenu', function (e) {
+      var el = e.target;
+      if (!el) return;
+      var tag = (el.tagName || '').toLowerCase();
+      var isEditable =
+        tag === 'input' ||
+        tag === 'textarea' ||
+        el.isContentEditable === true ||
+        (el.closest && el.closest('[contenteditable="true"]'));
+      if (!isEditable) e.preventDefault();
+    }, { capture: true });
+  </script>
+  
+</head>
+
+<body>
+  <input id="File" type="file" style="visibility: hidden;display:none;"/>
+  <div id="pageContainer">
+      <pre id="consoleContainer"></pre>
+    <div id="profilerContainer">
+      <div id="profilerToolbar">
+        <div class="toolbarLabel">Profiler <span id="profilerMessage" class="toolbarMessage">6 Seconds</span></div>
+        <div id="profilerButtons">
+          <div id="profilerStartStop">Start</div>
+          <div id="profilerAdjustHeight">Height</div>
+        </div>
+      </div>
+      <div id="profiler">
+        <div id="profileList">
+        </div>
+        <div id="profilePanel">
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- The raw console is used for unit tests, so it's not visible by default: -->
+    <pre id="raw-console" style="display: none"></pre>
+
+  <div id="display-container">
+    <div id="display">
+      <section id="sidebar" data-type="sidebar" style="display:none">
+        <header>
+          <h1>Menu</h1>
+        </header>
+        <nav>
+          <ul>
+          </ul>
+        </nav>
+      </section>
+      <section id="drawer" role="region">
+        <header style="display:none">
+          <a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+          <a id="header-drawer-button" href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+          <menu id="header-ok-button" type="toolbar" style="display:none"><button>√</button></menu>
+          <h1 id="display_title"></h1>
+        </header>
+        <div id="main" role="main">
+          <canvas id="canvas"></canvas>
+          <input id="password-editor" class="text-editor" type="password">
+          <input id="tel-editor" class="text-editor" type="tel">
+          <input id="number-editor" class="text-editor" type="number">
+          <input id="email-editor" class="text-editor" type="email">
+          <input id="url-editor" class="text-editor" type="url">
+          <div id="textarea-editor" class="text-editor" contenteditable="true"></div>
+          <!-- The hidden textarea editor is used to measure the content height -->
+          <div id="hidden-textarea-editor" class="text-editor"></div>
+          <button id="back-button">Back</button>
+        </div>
+      </section>
+
+      <div id="gamepad" onselectstart ='return false' οnselect='document.selection.empty()'>
+        <div id="padcontent">
+          <button>选择</button>
+          <button>↑</button>
+          <button>返回</button>
+        </div>
+        <div id="padcontent">
+          <button>←</button>
+          <button>确认</button>
+          <button>→</button>
+        </div>
+        <div id="padcontent">
+          <button style="visibility: hidden"></button>
+          <button>↓</button>
+          <button style="visibility: hidden"></button>
+        </div>
+        <div id="padcontent">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+        </div>
+        <div id="padcontent">
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+        </div>
+        <div id="padcontent">
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+        </div>
+        <div id="padcontent" >
+          <button>*</button>
+          <button>0</button>
+          <button>#</button>
+        </div>
+      </div>
+
+      <div id="download-screen" class="screen">
+        <h1 class="title">正在下载应用…</h1>
+        <div class="download-progress-container">
+          <progress class="pack-activity" id="download-bar" value="0" max="100"></progress>
+        </div>
+      </div>
+
+      <div id="splash-screen" class="screen">
+        <h1 class="title">正在启动应用…</h1>
+        <div class="splash-progress-container">
+          <progress></progress>
+        </div>
+      </div>
+
+      <div id="exit-screen" class="screen">
+      </div>
+
+      <div id="background-screen">
+      </div>
+
+      <form role="dialog" data-type="confirm"
+            class="lcdui-alert"
+            id="lcdui-alert" style="display: none">
+        <section>
+          <h1 class="title"></h1>
+          <p class="text"></p>
+          <p style="border-top: 0"><progress style="display: none"></progress></p>
+        </section>
+        <menu>
+          <button class="button0" style="display: none"></button>
+          <button class="button1" style="display: none"></button>
+        </menu>
+      </form>
+
+      <form role="dialog" data-type="confirm"
+            class="sms-listener-prompt"
+            id="sms-listener-prompt" style="display: none">
+        <section>
+          <h1>短信验证</h1>
+          <p class="verificationText"></p>
+            <input type="text" placeholder="请输入短信验证码">
+            <p class="timeLeft"></p>
+            <progress class="timeLeftBar" value="0" max="100"></progress>
+        </section>
+        <menu>
+          <button class="cancel">取消</button>
+          <button class="recommend">完成</button>
+        </menu>
+      </form>
+
+      <form role="dialog" data-type="confirm"
+            class="nokia-fileui-prompt"
+            id="nokia-fileui-prompt" style="display: none">
+        <section>
+          <h1>选择文件</h1>
+          <p><input type="file" name="nokia-fileui-file">
+        </section>
+        <menu>
+          <button class="cancel">取消</button>
+          <button class="recommend">完成</button>
+        </menu>
+      </form>
+
+      <form role="dialog" data-type="confirm"
+            class="download-failure-dialog"
+            id="download-failure-dialog" style="display: none">
+        <section>
+          <h1 class="download-dialog-text">下载失败</h1>
+          <p>应用下载失败，请点击<i>重试</i>重新下载。</p>
+        </section>
+        <menu>
+          <button class="recommend">重试</button>
+        </menu>
+      </form>
+    </div>
+    <div id="settings">
+      <section>
+        <table id="counters">
+          <tr><td>Bytecode:</td><td><span id="bytecodeCount"></span></td></tr>
+          <tr><td>Compiled:</td><td><span id="compiledCount"></span></td></tr>
+          <tr><td>Interpreter:</td><td><span id="interpreterCount"></span></td></tr>
+          <tr><td>OSR:</td><td><span id="onStackReplacementCount"></span></td></tr>
+          <tr><td>Unwind:</td><td><span id="unwindCount"></span></td></tr>
+          <tr><td>Preemption:</td><td><span id="preemptionCount"></span></td></tr>
+        </table>
+      </section>
+      <section>
+        <select id="loglevel">
+          <option value="0">Log Level: Trace
+          <option value="1">Log Level: Log
+          <option value="2">Log Level: Info
+          <option value="3">Log Level: Warn
+          <option value="4">Log Level: Error
+          <option value="5">Log Level: Silent
+        </select>
+          <input id="console-filter-input" type="text" placeholder="Filter Console Output" value="">
+          <button id="console-clear">Clear console</button>
+          <button id="console-save">Save console</button>
+        <label><input type="checkbox" id="perfWriter">Perf</label>
+      </section>
+      <section>
+        <button id="exportstorage">Export File System</button>
+        <div>Import File System:</div>
+        <input type="file" id="importstoragefile">
+        <input type="text" id="importstorageurl" placeholder="URL to FS backup">
+        <button id="importstorage">Import</button>
+        <button id="clearCompiledMethodCache">Clear Compiled Method Cache</button>
+        <button id="deleteDatabases">Delete IDB Databases</button>
+        <button id="printAllExceptions">Print all exceptions: OFF</button>
+        <button id="clearCounters">Clear Counters</button>
+        <button id="dumpCounters">Dump Counters</button>
+        <button id="sampleCounters1">One sample for 1s</button>
+        <button id="sampleCounters2">One sample for 100ms (2s)</button>
+        <select id="canvasSize">
+          <option value="" selected>Display size: 240x320</option>
+          <option value="size-320x240">Display size: 320x240</option>
+          <option value="size-320x480">Display size: 320x480</option>
+          <option value="size-480x320">Display size: 480x320</option>
+        </select>
+        <button id="start">Start</button>
+
+      </section>
+    </div>
+ </div>
+
+</body>
+
+</html>

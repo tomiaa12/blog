@@ -7,6 +7,9 @@
           v-for="category in categories"
           :key="category.name"
           class="category-card-container"
+          :class="{
+            'is-mobile': isMobile
+          }"
         >
           <div class="category-card">
             <div class="card-header">
@@ -35,6 +38,7 @@
 </template>
 
 <script setup lang="ts">
+import { isMobile } from "@/utils"
 import { ref } from "vue"
 
 interface Article {
@@ -53,10 +57,11 @@ const categories = ref<Category[]>([
     name: "在线应用",
     icon: "🧰",
     articles: [
+      { title: "FC 童年小霸王", link: "/pages/game" },
+      { title: "Java 经典游戏", link: "/pages/javaGames" },
+      // { title: "网址导航", link: "/pages/navigation" },
       { title: "在线默写单词", link: "/docs/在线应用/工具/在线默写单词" },
-      { title: "网址导航", link: "/pages/navigation" },
       { title: "软件下载", link: "/pages/software" },
-      { title: "在线游戏", link: "/pages/game" },
       { title: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
     ],
   },
@@ -112,6 +117,7 @@ const categories = ref<Category[]>([
 }
 .category-card-container {
   padding: 8px;
+  width: 100%;
 }
 .category-card {
   background: var(--vp-c-bg-soft);

@@ -1,5 +1,5 @@
 <template>
-  <div class="game" :class="{ 'in-vscode': isVSCode }">
+  <div class="nes-games" :class="{ 'in-vscode': isVSCode, 'in-mobile': isMobile }">
     <template v-if="curRom">
       <el-button
         class="back"
@@ -133,7 +133,7 @@ import GameList from "./game/GameList.vue"
 import PlayGame from "./game/PlayGame.vue"
 import InnerLoading from "./game/InnerLoading.vue"
 import SearchCategory from "./common/SearchCategory.vue"
-import { isVSCode } from "@/utils"
+import { isVSCode, isMobile } from "@/utils"
 
 const curCategory = ref("")
 
@@ -174,10 +174,11 @@ watch(curCategory, () => {
   src: url("/fonts/zpix.woff2");
 }
 
-.game {
+.nes-games {
   font-family: zpix;
   padding: 1rem 3.8rem;
-  &.in-vscode {
+  &.in-vscode,
+  &.in-mobile {
     padding: 0;
   }
   .img-box {
@@ -227,7 +228,6 @@ watch(curCategory, () => {
   }
   main {
     display: flex;
-    flex-wrap: wrap;
     .options {
       width: 25%;
       max-width: 400px;

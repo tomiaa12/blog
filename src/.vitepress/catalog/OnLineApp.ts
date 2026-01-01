@@ -33,6 +33,7 @@ export const OnLineApp = [
       // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
       // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
       { text: "百度地图瓦片下载", link: "/docs/在线应用/工具/百度地图瓦片下载" },
+      { text: "在线 iframe 测试", link: "/docs/在线应用/工具/在线iframe测试" },
     ]
   }
 ]

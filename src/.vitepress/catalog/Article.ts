@@ -41,6 +41,10 @@ export const Article = [
     collapsed: true,
     items: [
       {
+        text: "GTA罪恶都市网页版Nginx伪静态配置",
+        link: "/docs/文章/前端/GTA罪恶都市网页版Nginx伪静态配置",
+      },
+      {
         text: "svg绘制流程图",
         link: "/docs/文章/前端/svg绘制流程图",
       },

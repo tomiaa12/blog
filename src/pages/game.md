@@ -1,5 +1,4 @@
 ---
-class: game
 layout: page
 footer: false
 ---
@@ -27,6 +26,7 @@ const plugins = [
     :plugins="plugins" 
     message="VSCode 和 Cursor 插件版已上线，支持在编辑器中畅玩经典 NES 游戏："
     storageKey="game-plugin-tip-dismissed"
+    style="margin: 0 0 0 3.8rem;"
   />
   <game/>
 </ClientOnly>
