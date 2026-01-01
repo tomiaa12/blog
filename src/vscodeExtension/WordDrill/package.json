@@ -2,7 +2,7 @@
   "name": "word-dictation",
   "displayName": "WordDrill(默写单词)",
   "description": "英语单词默写练习插件，支持CET-4/6、小学、初中、高考等多种词典，集成Google云同步",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "publisher": "tomiaa",
   "repository": {
     "type": "git",
@@ -53,6 +53,14 @@
     },
     "commands": [
       {
+        "command": "wordDictView.openInWindow",
+        "title": "🪟 在窗口中打开"
+      },
+      {
+        "command": "wordDictView.focusWindow",
+        "title": "👁️ 查看窗口"
+      },
+      {
         "command": "wordDictView.refresh",
         "title": "🔄 重新加载"
       }
@@ -60,9 +68,14 @@
     "menus": {
       "view/title": [
         {
-          "command": "wordDictView.refresh",
+          "command": "wordDictView.openInWindow",
           "when": "view == wordDictView",
           "group": "navigation@1"
+        },
+        {
+          "command": "wordDictView.refresh",
+          "when": "view == wordDictView",
+          "group": "navigation@2"
         }
       ]
     }
