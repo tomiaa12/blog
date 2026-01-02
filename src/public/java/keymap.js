@@ -26,10 +26,12 @@ function handleKeydown(e) {
         case 'Backspace':
 
             break;
+        case 'q':
         case 'Q':
         case 'SoftLeft':
             MIDP.sendKeyPress(-6);
             break;
+        case 'e':
         case 'E':
         case 'SoftRight':
             MIDP.sendKeyPress(-7);
@@ -92,10 +94,12 @@ function handleKeyup(e) {
         case 'Backspace':
 
             break;
+        case 'q':
         case 'Q':
         case 'SoftLeft':
             MIDP.sendKeyRelease(-6);
             break;
+        case 'e':
         case 'E':
         case 'SoftRight':
             MIDP.sendKeyRelease(-7);
