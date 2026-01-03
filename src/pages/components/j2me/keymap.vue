@@ -8,10 +8,19 @@
     >
       <el-table-column prop="action" label="功能" min-width="140" />
 
-      <el-table-column label="PC 键盘按键" min-width="220">
+      <el-table-column label="PC 键盘按键" min-width="280">
         <template #default="{ row }">
           <template v-if="row.keysType === 'arrows'">
             <kbd>↑</kbd> / <kbd>↓</kbd> / <kbd>←</kbd> / <kbd>→</kbd>
+          </template>
+          <template v-else-if="row.keysType === 'arrowsWasd'">
+            <kbd>↑</kbd> / <kbd>↓</kbd> / <kbd>←</kbd> / <kbd>→</kbd> 或 <kbd>W</kbd> / <kbd>S</kbd> / <kbd>A</kbd> / <kbd>D</kbd>
+          </template>
+          <template v-else-if="row.keysType === 'multi'">
+            <span v-for="(k, i) in row.keys" :key="i">
+              <kbd>{{ k }}</kbd>
+              <span v-if="i < row.keys.length - 1"> 或 </span>
+            </span>
           </template>
           <template v-else-if="row.keysType === 'kbd'">
             <kbd>{{ row.keys }}</kbd>
@@ -46,6 +55,19 @@ type KeymapRow =
     }
   | {
       action: string
+      keysType: "arrowsWasd"
+      descType?: "text"
+      desc: string
+    }
+  | {
+      action: string
+      keysType: "multi"
+      keys: string[]
+      descType?: "text"
+      desc: string
+    }
+  | {
+      action: string
       keysType: "kbd"
       keys: string
       descType?: "text" | "html"
@@ -61,10 +83,10 @@ type KeymapRow =
     }
 
 const rows: KeymapRow[] = [
-  { action: "上 / 下 / 左 / 右", keysType: "arrows", desc: "方向控制" },
-  { action: "确认（OK）", keysType: "kbd", keys: "Enter", desc: "相当于“确认”键" },
-  { action: "左软键（选择）", keysType: "kbd", keys: "Q", desc: "相当于“选择”" },
-  { action: "右软键（返回）", keysType: "kbd", keys: "E", desc: "相当于“返回”" },
+  { action: "上 / 下 / 左 / 右", keysType: "arrowsWasd", desc: "方向控制" },
+  { action: "确认（OK）", keysType: "multi", keys: ["Enter", "空格"], desc: "相当于确认键" },
+  { action: "左软键（选择）", keysType: "kbd", keys: "Q", desc: "相当于选择" },
+  { action: "右软键（返回）", keysType: "kbd", keys: "E", desc: "相当于返回" },
   { action: "数字键", keysType: "range", keysFrom: "0", keysTo: "9", desc: "主键盘数字行或小键盘" },
   { action: "星号", keysType: "kbd", keys: "*", descType: "html", desc: "" },
   { action: "井号", keysType: "kbd", keys: "#", desc: "常用于游戏内功能键" },

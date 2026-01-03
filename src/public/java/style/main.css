@@ -45,7 +45,9 @@ body {
   margin:0 auto;
   background: white; 
 }
-
+button:focus-visible {
+  outline: none;
+}
 /* Set the display size. */
 
 .size-240x320 #display-container {
@@ -216,6 +218,23 @@ button {
 }
 #padcontent button {
   white-space: nowrap;
+}
+
+/* 虚拟按键：鼠标 hover / 键盘按下 的视觉反馈 */
+#gamepad button {
+  transition: transform 0.05s ease, filter 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
+}
+#gamepad button:hover,
+#gamepad button.kb-hover {
+  opacity: 0.9 !important;
+  filter: brightness(1.15);
+  box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.35);
+}
+#gamepad button:active {
+  opacity: 1 !important;
+  filter: brightness(1.25);
+  transform: scale(0.97);
+  box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.55);
 }
 .gamepad-1 { 
   display: block;

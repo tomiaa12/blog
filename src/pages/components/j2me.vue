@@ -5,12 +5,25 @@
       'is-mobile': isMobile,
     }"
   >
+    <input
+      ref="jarFileInputRef"
+      accept=".jar"
+      type="file"
+      style="display: none"
+      @change="handleUploadFile"
+    />
     <Config />
+
+    <SearchCategory
+      v-model="localSearchKeyword"
+      v-model:cate="localSearchTag"
+      placeholder="搜索已安装游戏"
+      :data="localTagOptions"
+    />
     <GameList
       title="已安装游戏："
-      :items="localGameItems"
+      :items="filteredLocalGameItems"
       :show-delete="true"
-      :show-search="true"
       @run="g => openJar(g.jarName, g.midletClassName || '', g.isLocalJar)"
       @delete="handleDeleteGame"
     >
@@ -81,7 +94,7 @@ import {
   installJarFile,
 } from "./j2me/hooks/utils"
 import { isMobile } from "@/utils"
-import { J2MEArchive1 } from "./j2me/gameList"
+import { J2MEArchive1, J2MEArchive2, J2MEArchive3, J2MEArchive4} from "./j2me/gameList"
 
 type RemoteGameItem = {
   name: string
@@ -92,7 +105,7 @@ type RemoteGameItem = {
 }
 
 // 远程游戏列表（完整URL）
-const remoteGames = ref<RemoteGameItem[]>([...J2MEArchive1])
+const remoteGames = ref<RemoteGameItem[]>([...J2MEArchive1,...J2MEArchive2,...J2MEArchive3,...J2MEArchive4])
 
 // 跟踪每个远程游戏的下载状态
 const downloadingGames = ref<Map<string, number>>(new Map())
@@ -100,19 +113,49 @@ const downloadingGames = ref<Map<string, number>>(new Map())
 const localJars = ref<string[]>([])
 const localJarInfos = ref<LocalJarInfo[]>([])
 
-// 搜索与分类
+function splitTags(tagStr: string | undefined) {
+  if (!tagStr) return []
+  return tagStr
+    .split(",")
+    .map((t: string) => (t || "").trim())
+    .filter(Boolean)
+}
+
+// 在线游戏：搜索与分类
 const searchKeyword = ref("")
 const searchTag = ref("")
 
-// 从远程游戏列表中提取所有唯一标签
+// 从远程游戏列表中提取所有唯一标签（支持逗号分隔的多标签）
 const tagOptions = computed(() => {
   const tags = new Set<string>()
   remoteGames.value.forEach(g => {
-    if (g.tag) tags.add(g.tag)
+    if (g.tag) {
+      // 按逗号分隔，去除空格
+      splitTags(g.tag).forEach((t: string) => tags.add(t))
+    }
   })
   return Array.from(tags)
     .sort()
     .map(tag => ({ label: tag, value: tag }))
+})
+
+// 将“在线游戏(远程)”按 jarName 映射出 tag，供本地已安装游戏反查
+const remoteTagByJarName = computed(() => {
+  const map = new Map<string, string>()
+  remoteGames.value.forEach(g => {
+    const jarName = inferJarNameFromUrl(g.jarUrl)
+    if (!jarName) return
+    if (!g.tag) return
+    // 同一个 jarName 可能来自不同档案，合并去重
+    const prev = map.get(jarName)
+    if (!prev) {
+      map.set(jarName, g.tag)
+      return
+    }
+    const merged = Array.from(new Set([...splitTags(prev), ...splitTags(g.tag)])).join(",")
+    map.set(jarName, merged)
+  })
+  return map
 })
 
 const remoteGameItems = computed<GameListItem[]>(() =>
@@ -141,9 +184,14 @@ const remoteGameItems = computed<GameListItem[]>(() =>
 const filteredRemoteGameItems = computed<GameListItem[]>(() => {
   let items = remoteGameItems.value
 
-  // 按标签过滤
+  // 按标签过滤（支持逗号分隔的多标签）
   if (searchTag.value) {
-    items = items.filter(item => item.tag === searchTag.value)
+    items = items.filter(item => {
+      if (!item.tag) return false
+      // 将游戏的标签按逗号分隔，检查是否包含所选标签
+      const itemTags = splitTags(item.tag)
+      return itemTags.includes(searchTag.value)
+    })
   }
 
   // 按关键词过滤（游戏名称）
@@ -154,6 +202,10 @@ const filteredRemoteGameItems = computed<GameListItem[]>(() => {
 
   return items
 })
+
+// 已安装游戏：搜索与分类
+const localSearchKeyword = ref("")
+const localSearchTag = ref("")
 
 const localGameItems = computed<GameListItem[]>(() =>
   localJarInfos.value
@@ -171,8 +223,32 @@ const localGameItems = computed<GameListItem[]>(() =>
       midletClassName: jar.midletClassName,
       picPath: jar.iconUrl,
       isLocalJar: true,
+      tag: remoteTagByJarName.value.get(jar.jarName) || "",
     }))
 )
+
+const localTagOptions = computed(() => {
+  const tags = new Set<string>()
+  localGameItems.value.forEach(i => splitTags(i.tag).forEach((t: string) => tags.add(t)))
+  return Array.from(tags)
+    .sort()
+    .map(t => ({ label: t, value: t }))
+})
+
+const filteredLocalGameItems = computed<GameListItem[]>(() => {
+  let items = localGameItems.value
+
+  if (localSearchTag.value) {
+    items = items.filter(i => splitTags(i.tag).includes(localSearchTag.value))
+  }
+
+  if (localSearchKeyword.value.trim()) {
+    const kw = localSearchKeyword.value.trim().toLowerCase()
+    items = items.filter(i => i.name.toLowerCase().includes(kw))
+  }
+
+  return items
+})
 
 function openJar(
   jarName: string,
