@@ -271,7 +271,7 @@ export default defineConfig({
       { text: "游戏", items: [
         { text: "FC 童年小霸王", link: "/pages/game" },
         { text: "Java 经典游戏", link: "/pages/javaGames" },
-        { text: "GTA VC 侠盗飞车 罪恶都市", link: "/pages/gtavc" },
+        { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
       ] 
       },
       // { text: "GPT", link: "/pages/chatGPT" },
