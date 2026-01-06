@@ -237,13 +237,6 @@ export const dictTree = [
         label: "其他",
         children: [
           {
-            id: "coca_20000",
-            label: "COCA20000词",
-            description: "COCA20000词",
-            url: "/dicts/coca20000.json",
-            length: 20199,
-          },
-          {
             id: "4000_Essential_English_Words1",
             label: "Essential Words",
             description: "4000 Essential English Words meaning",
