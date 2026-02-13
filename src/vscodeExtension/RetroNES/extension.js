@@ -243,6 +243,7 @@ class NesGamesPanel {
         this._gameUrl = gameUrl;
         this._onDispose = onDispose;
         this._disposables = [];
+        this._isDevelopment = process.env.NODE_ENV === 'development' || false;
 
         const column = vscode.ViewColumn.One;
 
@@ -310,7 +311,9 @@ class NesGamesPanel {
     }
 
     _getHtmlContent(webview) {
-        const gameUrl = this._gameUrl || 'http://localhost:5173/pages/game.html';
+        const gameUrl = this._gameUrl || (this._isDevelopment 
+            ? 'http://localhost:5173/pages/game.html'
+            : 'https://kuangyx.cn/pages/game.html');
         
         return `<!DOCTYPE html>
 <html lang="zh-CN">
