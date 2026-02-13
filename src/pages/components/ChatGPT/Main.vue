@@ -245,7 +245,7 @@ main {
   flex: 1;
 }
 
-.gpt-text{
+.gpt-text {
   margin-left: 1em;
 }
 
@@ -281,7 +281,7 @@ main {
     --el-input-text-color: var(--el-color-black);
     box-shadow: var(--el-box-shadow-light);
     border-radius: var(--el-input-border-radius);
-    :deep().el-textarea__inner {
+    :deep(.el-textarea__inner) {
       min-height: 60px !important;
       padding: 16px 48px 16px 16px;
       line-height: 28px;
@@ -297,7 +297,7 @@ main {
     bottom: 12px;
     padding: 8px;
 
-    :deep()svg:hover {
+    :deep(svg:hover) {
       color: inherit;
     }
 
@@ -316,7 +316,7 @@ main {
   h1 {
     text-align: center;
   }
-  h4{
+  h4 {
     text-align: center;
     color: var(--vp-c-text-3);
   }

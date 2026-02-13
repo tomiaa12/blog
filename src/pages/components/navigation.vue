@@ -405,7 +405,7 @@ const listClick = () => {
       height: 100%;
       word-break: break-all;
 
-      :deep().el-card__header {
+      :deep(.el-card__header) {
         display: flex;
         align-items: center;
         span {

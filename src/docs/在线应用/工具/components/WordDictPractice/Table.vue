@@ -63,15 +63,18 @@
             当前词典生僻词（{{ currentDictRareWordsCount }}个）
           </el-button>
           <span>剩余 {{ tableData.length }} 词</span>
-          <el-tooltip placement="top" v-if="isVSCode || !isMobile">
-              <template #content>
-                <p>Ctrl + ←/→ 切换上一页/下一页</p>
-                <p>Ctrl + ↑/↓ 切换到第一/最后一个输入框</p>
-                <p>↑/↓ 切换到上/下一个输入框</p>
-                <p>Ctrl + B 播放正在输入的单词发音</p>
-                <p>Ctrl + J 加入当前聚焦的单词到熟悉单词</p>
-                <p>Ctrl + Shift + J 将当前页默写正确的单词全部加入熟悉单词</p>
-              </template>
+          <el-tooltip
+            placement="top"
+            v-if="isVSCode || !isMobile"
+          >
+            <template #content>
+              <p>Ctrl + ←/→ 切换上一页/下一页</p>
+              <p>Ctrl + ↑/↓ 切换到第一/最后一个输入框</p>
+              <p>↑/↓ 切换到上/下一个输入框</p>
+              <p>Ctrl + B 播放正在输入的单词发音</p>
+              <p>Ctrl + J 加入当前聚焦的单词到熟悉单词</p>
+              <p>Ctrl + Shift + J 将当前页默写正确的单词全部加入熟悉单词</p>
+            </template>
             <el-button>快捷键</el-button>
           </el-tooltip>
 
@@ -117,7 +120,10 @@
             sortable="custom"
           >
             <template #header="{ column }">
-              <div class="word-column-header" @click.stop>
+              <div
+                class="word-column-header"
+                @click.stop
+              >
                 <span @click.stop>单词</span>
                 <el-switch
                   v-model="wordColumnHidden"
@@ -130,7 +136,10 @@
               <div style="display: flex; align-items: center; gap: 8px">
                 <span
                   style="flex: 1"
-                  :style="{ filter: row.wordHidden ? 'blur(5px)' : 'none', userSelect: row.wordHidden ? 'none' : 'auto' }"
+                  :style="{
+                    filter: row.wordHidden ? 'blur(5px)' : 'none',
+                    userSelect: row.wordHidden ? 'none' : 'auto',
+                  }"
                   >{{ row.word }}</span
                 >
                 <el-icon
@@ -168,7 +177,13 @@
             </template>
             <template #default="{ row }">
               <div style="display: flex; align-items: center; gap: 8px">
-                <div style="flex: 1" :style="{ filter: row.phoneticHidden ? 'blur(5px)' : 'none', userSelect: row.phoneticHidden ? 'none' : 'auto' }">
+                <div
+                  style="flex: 1"
+                  :style="{
+                    filter: row.phoneticHidden ? 'blur(5px)' : 'none',
+                    userSelect: row.phoneticHidden ? 'none' : 'auto',
+                  }"
+                >
                   <p class="phonetic-row">
                     <WordAudioButton
                       :word="row.word"
@@ -236,9 +251,13 @@
                     v-for="item in row.trans"
                     :key="item.pos"
                     :lines="2"
-                    :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }"
+                    :style="{
+                      filter: row.transHidden ? 'blur(5px)' : 'none',
+                      userSelect: row.transHidden ? 'none' : 'auto',
+                    }"
                   >
-                    <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
+                    <PosTag :pos="item.pos">{{ item.pos }}</PosTag>
+                    {{ item.cn }}
                   </ExpandableText>
                 </div>
                 <el-icon
@@ -251,13 +270,24 @@
                 </el-icon>
               </div>
 
-
               <!-- 词源行 -->
               <div style="display: flex; align-items: center; gap: 8px">
                 <div style="flex: 1">
-                  <div v-if="row.etymology && row.etymology.length" class="etymology-section" :style="{ filter: row.etymologyHidden ? 'blur(5px)' : 'none', userSelect: row.etymologyHidden ? 'none' : 'auto' }">
+                  <div
+                    v-if="row.etymology && row.etymology.length"
+                    class="etymology-section"
+                    :style="{
+                      filter: row.etymologyHidden ? 'blur(5px)' : 'none',
+                      userSelect: row.etymologyHidden ? 'none' : 'auto',
+                    }"
+                  >
                     <ExpandableText :lines="2">
-                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
+                      <div
+                        v-if="row.etymology[row.etymology.length - 1].d"
+                        class="etymology-item-desc"
+                      >
+                        {{ row.etymology[row.etymology.length - 1].d }}
+                      </div>
                     </ExpandableText>
                   </div>
                 </div>
@@ -320,11 +350,17 @@
                 style="font-size: 12px; padding: 4px 8px"
                 @click="toggleAllColumns"
               >
-                {{ isAllColumnsVisible ? '全部关闭' : '全部打开' }}
+                {{ isAllColumnsVisible ? "全部关闭" : "全部打开" }}
               </el-button>
-              
-              <div class="mobile-header-controls" v-if="isMobile">
-                <div class="word-column-header" @click.stop>
+
+              <div
+                class="mobile-header-controls"
+                v-if="isMobile"
+              >
+                <div
+                  class="word-column-header"
+                  @click.stop
+                >
                   <span @click.stop>单词</span>
                   <el-switch
                     v-model="wordColumnHidden"
@@ -332,8 +368,7 @@
                     @click.stop
                   />
                 </div>
-                <div
-                >
+                <div>
                   <span>音标</span>
                   <el-switch
                     v-model="phoneticColumnHidden"
@@ -343,11 +378,11 @@
                 </div>
                 <div>
                   <span>释义</span>
-                    <el-switch
-                      v-model="transColumnHidden"
-                      size="small"
-                      @click.stop
-                    />
+                  <el-switch
+                    v-model="transColumnHidden"
+                    size="small"
+                    @click.stop
+                  />
                 </div>
                 <div>
                   <span>词源</span>
@@ -359,14 +394,19 @@
                 </div>
               </div>
             </div>
-
           </template>
           <template #default="{ row, $index }">
             <div v-if="isMobile">
               <div class="mobile-inline-info">
                 <div class="mobile-word">
                   单词：
-                  <span :style="{ filter: row.wordHidden ? 'blur(5px)' : 'none', userSelect: row.wordHidden ? 'none' : 'auto' }">{{ row.word }}</span>
+                  <span
+                    :style="{
+                      filter: row.wordHidden ? 'blur(5px)' : 'none',
+                      userSelect: row.wordHidden ? 'none' : 'auto',
+                    }"
+                    >{{ row.word }}</span
+                  >
                   <el-icon
                     :size="16"
                     style="cursor: pointer; margin-left: 8px"
@@ -380,7 +420,10 @@
                   音标：
                   <div
                     class="flex"
-                    :style="{ filter: row.phoneticHidden ? 'blur(5px)' : 'none', userSelect: row.phoneticHidden ? 'none' : 'auto' }"
+                    :style="{
+                      filter: row.phoneticHidden ? 'blur(5px)' : 'none',
+                      userSelect: row.phoneticHidden ? 'none' : 'auto',
+                    }"
                   >
                     <p class="phonetic-row">
                       <WordAudioButton
@@ -418,9 +461,13 @@
                     v-for="item in row.trans"
                     :key="item.pos"
                     :lines="2"
-                    :style="{ filter: row.transHidden ? 'blur(5px)' : 'none', userSelect: row.transHidden ? 'none' : 'auto' }"
+                    :style="{
+                      filter: row.transHidden ? 'blur(5px)' : 'none',
+                      userSelect: row.transHidden ? 'none' : 'auto',
+                    }"
                   >
-                    <PosTag :pos="item.pos">{{ item.pos }}</PosTag> {{ item.cn }}
+                    <PosTag :pos="item.pos">{{ item.pos }}</PosTag>
+                    {{ item.cn }}
                   </ExpandableText>
                 </div>
                 <el-icon
@@ -433,13 +480,24 @@
                 </el-icon>
               </div>
 
-
               <!-- 词源行 -->
               <div style="display: flex; align-items: center; gap: 8px">
                 <div style="flex: 1">
-                  <div v-if="row.etymology && row.etymology.length" class="etymology-section" :style="{ filter: row.etymologyHidden ? 'blur(5px)' : 'none', userSelect: row.etymologyHidden ? 'none' : 'auto' }">
+                  <div
+                    v-if="row.etymology && row.etymology.length"
+                    class="etymology-section"
+                    :style="{
+                      filter: row.etymologyHidden ? 'blur(5px)' : 'none',
+                      userSelect: row.etymologyHidden ? 'none' : 'auto',
+                    }"
+                  >
                     <ExpandableText :lines="2">
-                      <div v-if="row.etymology[row.etymology.length - 1].d" class="etymology-item-desc">{{ row.etymology[row.etymology.length - 1].d }}</div>
+                      <div
+                        v-if="row.etymology[row.etymology.length - 1].d"
+                        class="etymology-item-desc"
+                      >
+                        {{ row.etymology[row.etymology.length - 1].d }}
+                      </div>
                     </ExpandableText>
                   </div>
                 </div>
@@ -453,8 +511,6 @@
                   <View v-else />
                 </el-icon>
               </div>
-
-
             </div>
             <p class="input-tip-container">
               <WordAudioButton
@@ -482,9 +538,7 @@
                 :disabled="isWordInSimpleList(row)"
                 @click="handleAddSimpleWord(row, dictId)"
               >
-                {{
-                  isWordInSimpleList(row) ? "已加入熟悉词" : "加入熟悉词"
-                }}
+                {{ isWordInSimpleList(row) ? "已加入熟悉词" : "加入熟悉词" }}
               </el-button>
               <el-button
                 :type="isVSCode ? 'default' : 'warning'"
@@ -492,11 +546,9 @@
                 :disabled="isWordInRareList(row)"
                 @click="handleAddRareWord(row, dictId)"
               >
-                {{
-                  isWordInRareList(row) ? "已加入生僻词" : "加入生僻词"
-                }}
+                {{ isWordInRareList(row) ? "已加入生僻词" : "加入生僻词" }}
               </el-button>
-              
+
               <el-button
                 :type="isVSCode ? 'default' : 'primary'"
                 size="small"
@@ -661,9 +713,8 @@ const currentWordData = ref<any>(null)
 // 计算当前词典的已熟悉单词数量
 const currentDictSimpleWordsCount = computed(() => {
   if (!props.dictId) return simpleWords.value.length
-  return simpleWords.value.filter(
-    item => item.sourceDictId === props.dictId
-  ).length
+  return simpleWords.value.filter(item => item.sourceDictId === props.dictId)
+    .length
 })
 
 // 根据状态筛选显示的已熟悉单词
@@ -671,9 +722,7 @@ const displayedSimpleWords = computed(() => {
   if (!showCurrentDictOnly.value || !props.dictId) {
     return simpleWords.value
   }
-  return simpleWords.value.filter(
-    item => item.sourceDictId === props.dictId
-  )
+  return simpleWords.value.filter(item => item.sourceDictId === props.dictId)
 })
 
 // 打开当前词典已熟悉单词抽屉
@@ -683,7 +732,7 @@ function openCurrentDictSimpleWordsDrawer() {
 }
 
 // 监听抽屉关闭，重置筛选状态
-watch(simpleWordsDrawerVisible, (newVal) => {
+watch(simpleWordsDrawerVisible, newVal => {
   if (!newVal) {
     showCurrentDictOnly.value = false
   }
@@ -692,9 +741,8 @@ watch(simpleWordsDrawerVisible, (newVal) => {
 // 计算当前词典的生僻词数量
 const currentDictRareWordsCount = computed(() => {
   if (!props.dictId) return rareWords.value.length
-  return rareWords.value.filter(
-    item => item.sourceDictId === props.dictId
-  ).length
+  return rareWords.value.filter(item => item.sourceDictId === props.dictId)
+    .length
 })
 
 // 根据状态筛选显示的生僻词
@@ -702,9 +750,7 @@ const displayedRareWords = computed(() => {
   if (!showCurrentDictRareOnly.value || !props.dictId) {
     return rareWords.value
   }
-  return rareWords.value.filter(
-    item => item.sourceDictId === props.dictId
-  )
+  return rareWords.value.filter(item => item.sourceDictId === props.dictId)
 })
 
 // 打开当前词典生僻词抽屉
@@ -714,7 +760,7 @@ function openCurrentDictRareWordsDrawer() {
 }
 
 // 监听生僻词抽屉关闭，重置筛选状态
-watch(rareWordsDrawerVisible, (newVal) => {
+watch(rareWordsDrawerVisible, newVal => {
   if (!newVal) {
     showCurrentDictRareOnly.value = false
   }
@@ -957,52 +1003,56 @@ function updateVisibleData(options: { resetPage?: boolean } = {}) {
     // 使用 originalData 作为顺序基准
     const orderMap = new Map<string, number>()
     originalData.value.forEach((row, index) => {
-      const key = (row.word || '').toLowerCase()
+      const key = (row.word || "").toLowerCase()
       orderMap.set(key, index)
     })
-    
+
     // 从 originalData 过滤数据
     const filtered = originalData.value.filter(row => {
       // 过滤掉已熟悉的单词
       if (isWordInSimpleList(row)) return false
-      
+
       // 根据练习模式过滤
       const isRare = isWordInRareList(row)
-      const mode = globalData.value?.practiceMode || 'all'
-      
-      if (mode === 'rareOnly') {
+      const mode = globalData.value?.practiceMode || "all"
+
+      if (mode === "rareOnly") {
         // 仅生僻词模式：只显示标记为生僻词的单词
         return isRare
-      } else if (mode === 'excludeRare') {
+      } else if (mode === "excludeRare") {
         // 排除生僻词模式：隐藏标记为生僻词的单词
         return !isRare
       }
       // 'all' 模式：显示全部单词（包括生僻词）
       return true
     })
-    
+
     // 根据之前的顺序重新排列数据
     const sorted = filtered.sort((a, b) => {
-      const orderA = orderMap.has((a.word||'').toLowerCase()) ? orderMap.get((a.word||'').toLowerCase())! : Infinity
-      const orderB = orderMap.has((b.word||'').toLowerCase()) ? orderMap.get((b.word||'').toLowerCase())! : Infinity
+      const orderA = orderMap.has((a.word || "").toLowerCase())
+        ? orderMap.get((a.word || "").toLowerCase())!
+        : Infinity
+      const orderB = orderMap.has((b.word || "").toLowerCase())
+        ? orderMap.get((b.word || "").toLowerCase())!
+        : Infinity
       return orderA - orderB
     })
-    
+
     tableData.value = sorted
   } else {
     // 重置页面时，直接从 originalData 过滤
     const filtered = originalData.value.filter(row => {
       // 过滤掉已熟悉的单词
       if (isWordInSimpleList(row)) return false
-      
+
       // 根据练习模式过滤
       const isRare = isWordInRareList(row)
-      const mode = globalData.value?.practiceMode || 'all'
-      
-      if (mode === 'rareOnly') {
+      const mode = globalData.value?.practiceMode || "all"
+
+      if (mode === "rareOnly") {
         // 仅生僻词模式：只显示标记为生僻词的单词
         return isRare
-      } else if (mode === 'excludeRare') {
+      } else if (mode === "excludeRare") {
         // 排除生僻词模式：隐藏标记为生僻词的单词
         return !isRare
       }
@@ -1077,7 +1127,10 @@ function handleGlobalKeydown(event: KeyboardEvent) {
     }
   } else if (event.key === "ArrowDown") {
     event.preventDefault()
-    if (focusedIndex.value !== null && focusedIndex.value < pagedData.value.length - 1) {
+    if (
+      focusedIndex.value !== null &&
+      focusedIndex.value < pagedData.value.length - 1
+    ) {
       focusInputByIndex(focusedIndex.value + 1)
     }
   }
@@ -1117,18 +1170,20 @@ function handleGlobalKeydown(event: KeyboardEvent) {
     }
   } else if (event.key === "j" || event.key === "J") {
     event.preventDefault()
-    
+
     // Ctrl+Shift+J: 将当前页默写正确的单词全部加入熟悉单词
     if (event.shiftKey) {
-      const correctWords = pagedData.value.filter(row =>
-        row.modelValue && row.modelValue.trim().toLowerCase() === row.word.toLowerCase()
+      const correctWords = pagedData.value.filter(
+        row =>
+          row.modelValue &&
+          row.modelValue.trim().toLowerCase() === row.word.toLowerCase()
       )
       correctWords.forEach(row => {
         if (!isWordInSimpleList(row)) {
           handleAddSimpleWord(row, props.dictId)
         }
       })
-    } 
+    }
     // Ctrl+J: 只加入当前聚焦的单词
     else {
       if (focusedIndex.value !== null) {
@@ -1142,9 +1197,11 @@ function handleGlobalKeydown(event: KeyboardEvent) {
     // 操作完成后聚焦到离上次最近的输入框
     nextTick(() => {
       if (pagedData.value.length > 0) {
-        const nearestIndex = focusedIndex.value !== null && focusedIndex.value < pagedData.value.length
-          ? focusedIndex.value
-          : 0
+        const nearestIndex =
+          focusedIndex.value !== null &&
+          focusedIndex.value < pagedData.value.length
+            ? focusedIndex.value
+            : 0
         focusInputByIndex(nearestIndex)
       }
     })
@@ -1172,7 +1229,7 @@ const phoneticColumnHidden = ref(true)
 const transColumnHidden = ref(false) // 释义默认显示
 
 // 视图模式：'normal' | 'wordOnly' | 'transOnly'
-const viewMode = ref<'normal' | 'wordOnly' | 'transOnly'>('normal')
+const viewMode = ref<"normal" | "wordOnly" | "transOnly">("normal")
 
 // 切换列显示隐藏
 function toggleColumnHide(key: "word" | "phonetic" | "trans") {
@@ -1192,16 +1249,16 @@ function toggleColumnHide(key: "word" | "phonetic" | "trans") {
       row.transHidden = transColumnHidden.value
     })
   }
-  
+
   // 强制触发 tableData 更新，确保视图能够响应式更新
   tableData.value = [...tableData.value]
 }
 
 // 监听列隐藏状态变化，更新所有行的对应属性
-watch(wordColumnHidden, (newValue) => {
+watch(wordColumnHidden, newValue => {
   // 如果用户手动切换了列显示，退出特殊视图模式
-  if (viewMode.value !== 'normal') {
-    viewMode.value = 'normal'
+  if (viewMode.value !== "normal") {
+    viewMode.value = "normal"
   }
   originalData.value.forEach(row => {
     row.wordHidden = newValue
@@ -1209,10 +1266,10 @@ watch(wordColumnHidden, (newValue) => {
   tableData.value = [...tableData.value]
 })
 
-watch(phoneticColumnHidden, (newValue) => {
+watch(phoneticColumnHidden, newValue => {
   // 如果用户手动切换了列显示，退出特殊视图模式
-  if (viewMode.value !== 'normal') {
-    viewMode.value = 'normal'
+  if (viewMode.value !== "normal") {
+    viewMode.value = "normal"
   }
   originalData.value.forEach(row => {
     row.phoneticHidden = newValue
@@ -1220,10 +1277,10 @@ watch(phoneticColumnHidden, (newValue) => {
   tableData.value = [...tableData.value]
 })
 
-watch(transColumnHidden, (newValue) => {
+watch(transColumnHidden, newValue => {
   // 如果用户手动切换了列显示，退出特殊视图模式
-  if (viewMode.value !== 'normal') {
-    viewMode.value = 'normal'
+  if (viewMode.value !== "normal") {
+    viewMode.value = "normal"
   }
   originalData.value.forEach(row => {
     row.transHidden = newValue
@@ -1231,7 +1288,7 @@ watch(transColumnHidden, (newValue) => {
   tableData.value = [...tableData.value]
 })
 
-watch(etymologyColumnHidden, (newValue) => {
+watch(etymologyColumnHidden, newValue => {
   originalData.value.forEach(row => {
     row.etymologyHidden = newValue
   })
@@ -1240,12 +1297,12 @@ watch(etymologyColumnHidden, (newValue) => {
 
 // 只看单词模式：只显示单词列，隐藏其他列
 function showOnlyWord() {
-  viewMode.value = 'wordOnly'
+  viewMode.value = "wordOnly"
   wordColumnHidden.value = false
   phoneticColumnHidden.value = true
   transColumnHidden.value = true
   etymologyColumnHidden.value = true
-  
+
   // 更新所有行的显示状态
   originalData.value.forEach(row => {
     row.wordHidden = false
@@ -1258,12 +1315,12 @@ function showOnlyWord() {
 
 // 只看释义模式：只显示释义列，隐藏其他列
 function showOnlyTrans() {
-  viewMode.value = 'transOnly'
+  viewMode.value = "transOnly"
   wordColumnHidden.value = true
   phoneticColumnHidden.value = true
   transColumnHidden.value = false
   etymologyColumnHidden.value = true
-  
+
   // 更新所有行的显示状态
   originalData.value.forEach(row => {
     row.wordHidden = true
@@ -1276,22 +1333,24 @@ function showOnlyTrans() {
 
 // 计算是否所有列都可见
 const isAllColumnsVisible = computed(() => {
-  return !wordColumnHidden.value && 
-         !phoneticColumnHidden.value && 
-         !transColumnHidden.value && 
-         !etymologyColumnHidden.value
+  return (
+    !wordColumnHidden.value &&
+    !phoneticColumnHidden.value &&
+    !transColumnHidden.value &&
+    !etymologyColumnHidden.value
+  )
 })
 
 // 全部打开/关闭功能
 function toggleAllColumns() {
   const shouldShowAll = !isAllColumnsVisible.value
-  
-  viewMode.value = 'normal'
+
+  viewMode.value = "normal"
   wordColumnHidden.value = !shouldShowAll
   phoneticColumnHidden.value = !shouldShowAll
   transColumnHidden.value = !shouldShowAll
   etymologyColumnHidden.value = !shouldShowAll
-  
+
   // 更新所有行的显示状态
   originalData.value.forEach(row => {
     row.wordHidden = !shouldShowAll
@@ -1301,7 +1360,6 @@ function toggleAllColumns() {
   })
   tableData.value = [...tableData.value]
 }
-
 
 // 初始化数据
 watch(
@@ -1325,8 +1383,14 @@ watch(
       const existingList = existingRowMap.get(key)
       const existing = existingList?.length ? existingList.shift() : undefined
       if (existing) {
-        const { modelValue, wordHidden, phoneticHidden, transHidden, checked, isCorrect } =
-          existing
+        const {
+          modelValue,
+          wordHidden,
+          phoneticHidden,
+          transHidden,
+          checked,
+          isCorrect,
+        } = existing
         Object.assign(existing, item)
         existing.modelValue = modelValue ?? existing.modelValue ?? ""
         existing.wordHidden =
@@ -1525,7 +1589,7 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
   // Enter 或 Tab: 检查是否正确，不正确则播放错误声音并显示错误图标
   if (keyboardEvent.key === "Enter" || keyboardEvent.key === "Tab") {
     const currentValue = row.modelValue || ""
-    
+
     // Tab 键：无论输入是否正确，都跳转到下一个输入框
     if (keyboardEvent.key === "Tab") {
       event.preventDefault()
@@ -1546,7 +1610,7 @@ function handleInputKeydown(event: KeyboardEvent | Event, row: any) {
       handleEnterKey(pagedData.value.indexOf(row), event)
       return
     }
-    
+
     // Enter 键：只有输入正确或为空时才跳转
     if (keyboardEvent.key === "Enter") {
       if (currentValue.trim()) {
@@ -1638,25 +1702,28 @@ function shuffleData() {
 function shuffleCurrentPageData() {
   // 如果没有数据，直接返回
   if (tableData.value.length === 0) return
-  
+
   // 计算当前页在 tableData 中的起始和结束位置
   const start = (currentPage.value - 1) * pageSize.value
   const end = Math.min(start + pageSize.value, tableData.value.length)
-  
+
   // 保存当前页原始数据的副本
   const currentPageData = tableData.value.slice(start, end)
-  
+
   // 使用 Fisher-Yates 洗牌算法打乱当前页数据
   for (let i = currentPageData.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    ;[currentPageData[i], currentPageData[j]] = [currentPageData[j], currentPageData[i]]
+    ;[currentPageData[i], currentPageData[j]] = [
+      currentPageData[j],
+      currentPageData[i],
+    ]
   }
-  
+
   // 将打乱后的数据放回 tableData（不清空输入框）
   for (let i = 0; i < currentPageData.length; i++) {
     tableData.value[start + i] = currentPageData[i]
   }
-  
+
   // 同时更新 originalData，保持数据一致性
   // 创建一个映射来快速查找 originalData 中的索引
   const wordToOriginalIndex = new Map<string, number>()
@@ -1666,7 +1733,7 @@ function shuffleCurrentPageData() {
       wordToOriginalIndex.set(word, i)
     }
   }
-  
+
   // 更新 originalData 中对应的数据
   currentPageData.forEach((item, idx) => {
     const originalIdx = wordToOriginalIndex.get(item.word)
@@ -1674,7 +1741,7 @@ function shuffleCurrentPageData() {
       originalData.value[originalIdx] = item
     }
   })
-  
+
   // 强制更新视图
   tableData.value = [...tableData.value]
 }
@@ -1711,28 +1778,27 @@ function openTransDetail(row: any) {
 }
 
 function rowClass({ row }: any) {
-  if (row.modelValue.trim().toLowerCase() === row.word.trim().toLowerCase()) return "bg-success"
+  if (row.modelValue.trim().toLowerCase() === row.word.trim().toLowerCase())
+    return "bg-success"
   return ""
 }
 </script>
 <style lang="scss" scoped>
-:deep() {
-  .el-button + .el-button {
-    margin-right: 0 !important;
-  }
+:deep(.el-button + .el-button) {
+  margin-right: 0 !important;
 }
-:deep() .el-drawer__header {
+
+:deep(.el-drawer__header) {
   margin-bottom: 0;
 }
-:deep() .el-button+.el-button {
+
+:deep(.el-button + .el-button) {
   margin-left: 0;
   margin-right: 12px;
 }
 
-:deep() {
-  .el-pagination {
-    flex-wrap: wrap;
-  }
+:deep(.el-pagination) {
+  flex-wrap: wrap;
 }
 
 .simple-word-init {
@@ -1781,7 +1847,7 @@ function rowClass({ row }: any) {
     color: var(--el-text-color-primary);
   }
 }
-.th-buttons :deep() .el-button {
+.th-buttons :deep(.el-button) {
   width: 190px;
   max-width: 48%;
 }
@@ -1811,7 +1877,7 @@ function rowClass({ row }: any) {
   gap: 8px;
   font-weight: 600;
 }
-:deep() .input-tip-container .el-icon {
+:deep(.input-tip-container .el-icon) {
   margin-left: 0 !important;
 }
 
@@ -1863,33 +1929,26 @@ function rowClass({ row }: any) {
     margin-right: 8px;
   }
 }
-:deep() {
-  .bg-success {
-    background-color: var(--el-color-success-light-9);
-  }
+:deep(.bg-success) {
+  background-color: var(--el-color-success-light-9);
+}
 
-  // 去掉 el-table 的 hover 颜色
-  .el-table__body tr:hover > td {
-    background-color: transparent !important;
-  }
-  .el-table__header-wrapper {
-    .el-table__header {
-      th {
-        &.is-leaf {
-          .cell {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+// 去掉 el-table 的 hover 颜色
+:deep(.el-table__body tr:hover > td) {
+  background-color: transparent !important;
+}
 
-            .caret-wrapper {
-              order: 3; // 排序图标放在最后
-              margin-left: auto;
-            }
-          }
-        }
-      }
-    }
-  }
+:deep(.el-table__header-wrapper .el-table__header th.is-leaf .cell) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:deep(
+    .el-table__header-wrapper .el-table__header th.is-leaf .cell .caret-wrapper
+  ) {
+  order: 3; // 排序图标放在最后
+  margin-left: auto;
 }
 
 /* 移动端词源样式 */
@@ -1898,7 +1957,6 @@ function rowClass({ row }: any) {
     margin-top: 8px;
     padding: 6px;
   }
-
 
   .etymology-item-desc {
     font-size: 11px;

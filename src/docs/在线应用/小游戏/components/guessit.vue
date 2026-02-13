@@ -310,7 +310,8 @@ const getData = async () => {
 init()
 
 const path = computed(() => {
-  if(info.value?.audioBase64) return base64ToURL(info.value.audioBase64, "audio/mpeg")
+  if (info.value?.audioBase64)
+    return base64ToURL(info.value.audioBase64, "audio/mpeg")
   const path = info.value?.path
     ? Array.isArray(info.value.path)
       ? info.value.path[randomInteger(0, info.value.path.length - 1)]
@@ -358,7 +359,9 @@ const start = async () => {
       curCountdown.lineThrough = true
       clearInterval(timer1)
       await pushMsg({
-        value: `😜时间到！没猜对。答案是「${info.value!.answer}」${info.value?.singer ? ' -- ' + info.value.singer : ''}。`,
+        value: `😜时间到！没猜对。答案是「${info.value!.answer}」${
+          info.value?.singer ? " -- " + info.value.singer : ""
+        }。`,
       })
       score.value--
       score.value && getData()
@@ -396,7 +399,9 @@ const isAudio = computed(
   () => (/^\//.test(path.value) || isHttpUrl.value) && /\.mp3$/.test(path.value)
 )
 
-const baseURL = computed(() => (isHttpUrl.value || info.value?.audioBase64 ? "" : orginHost))
+const baseURL = computed(() =>
+  isHttpUrl.value || info.value?.audioBase64 ? "" : orginHost
+)
 
 // const randomList = computed(
 //   () => info.value?.options?.sort(() => Math.random() - 0.5) || []
@@ -502,7 +507,7 @@ const enter = async () => {
 .el-input {
   --el-input-border-radius: 0;
   display: block;
-  :deep().el-input__wrapper {
+  :deep(.el-input__wrapper) {
     width: 100%;
     height: 50px;
   }
@@ -520,7 +525,7 @@ const enter = async () => {
   display: block;
   margin: 0 auto 10px auto;
   max-height: 300px;
-  :deep() .el-image__inner {
+  :deep(.el-image__inner) {
     width: unset;
     height: unset;
     margin: auto;
@@ -547,7 +552,7 @@ const enter = async () => {
   margin: auto;
   .input-box {
     position: relative;
-    :deep() .el-input__wrapper {
+    :deep(.el-input__wrapper) {
       padding-right: 6em;
     }
     .el-button {
@@ -588,7 +593,7 @@ const enter = async () => {
         height: 28px;
       }
     }
-    :deep() .gpt-text {
+    :deep(.gpt-text) {
       margin-left: 0;
       margin-right: 0.3em;
       p {

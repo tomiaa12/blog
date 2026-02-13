@@ -17,7 +17,11 @@
         :key="word"
       />
       <div class="content">
-        <slot :data="item" :key="item" v-for="(item, i) of word">
+        <slot
+          :data="item"
+          :key="item"
+          v-for="(item, i) of word"
+        >
           <Text
             v-if="!i || isTypeItEnd[i - 1]"
             class="word"
@@ -55,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, withDefaults,computed, useSlots } from "vue"
+import { ref, withDefaults, computed, useSlots } from "vue"
 import Text from "@/components/Text.vue"
 
 const props = withDefaults(
@@ -75,21 +79,19 @@ const props = withDefaults(
     btnText: "换一句",
   }
 )
-const emits = defineEmits(['getData'])
+const emits = defineEmits(["getData"])
 const slots = useSlots()
-
 
 const loading = ref(false)
 const word = computed(() => {
   const temp = props.format ? props.format(txt.value) : txt.value
   return Array.isArray(temp) ? temp : [temp]
-}
-)
+})
 const isTypeItEnd = ref<boolean[]>([])
 
-const txt = ref('')
+const txt = ref("")
 const getData = async () => {
-  emits('getData')
+  emits("getData")
   loading.value = true
   try {
     const { data } = await props.api()
@@ -110,7 +112,7 @@ getData()
 .text {
   line-height: 1.5;
   width: 100%;
-  :deep() p {
+  :deep(p) {
     line-height: inherit;
   }
   .content {
@@ -130,7 +132,7 @@ getData()
   transform: scale(1.4);
 }
 
-.word{
+.word {
   margin-bottom: 15px;
 }
 </style>

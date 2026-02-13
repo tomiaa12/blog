@@ -71,11 +71,8 @@ onMounted(async () => {
   // clang-format off
   const vertices = new Float32Array([
     // eslint-disable-next-line prettier/prettier
-    -1.0, -1.0, 1.0,
-    1.0, -1.0, 1.0,
-    1.0,1.0, 1.0,
-    1.0,1.0, 1.0,
-    -1.0,1.0, 1.0,
+    -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0,
+    1.0,
     // eslint-disable-next-line prettier/prettier
     -1.0, -1.0, 1.0,
   ])
@@ -144,7 +141,7 @@ canvas {
   position: relative;
 }
 
-:deep().dg.main {
+:deep(.dg.main) {
   position: absolute;
   top: 0;
   right: 0;

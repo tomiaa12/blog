@@ -51,7 +51,7 @@ mdi.renderer.rules.fence = (tokens, idx, options, env, slf) => {
 
 const render = computed(() => {
   const temp = mdi.render(outputText.value) || (props.error ? "出错啦！" : "")
-  return temp || '<span></span>'
+  return temp || "<span></span>"
 })
 
 function highlightBlock(str: string, lang: string, code: string) {
@@ -71,7 +71,9 @@ function highlightBlock(str: string, lang: string, code: string) {
 
 let currentIndex = 0
 let timer: number
-const display = computed(() => props.loading || typeing.value ? 'inline-block' : 'none')
+const display = computed(() =>
+  props.loading || typeing.value ? "inline-block" : "none"
+)
 onUnmounted(() => {
   clearInterval(timer)
 })
@@ -130,35 +132,37 @@ watch(
   }
 }
 
-:deep() {
-  .markdown-body > :not(ol):not(ul):not(pre):last-child::after, .markdown-body > pre:last-child code::after {
-    content: "●";
-    font-family: Circle, system-ui, sans-serif;
-    line-height: 32px;
-    transform: scale(2);
-    display: v-bind(display);
-    margin-left: 0.5em;
-  }
-  .markdown-body > pre:last-child code::after {
-    color: var(--el-color-black);
-  }
-  .markdown-body {
-    &::before {
-      display: none;
-    }
-    > p:first-child {
-      margin-top: 0;
-    }
-    > p:last-of-type {
-      margin-bottom: 0;
-    }
-    div[class*="language-"] {
-      min-width: 300px;
-      min-height: 52px;
-      max-width: 100%;
-      border-radius: 8px;
-    }
-  }
+:deep(.markdown-body > :not(ol):not(ul):not(pre):last-child::after),
+:deep(.markdown-body > pre:last-child code::after) {
+  content: "●";
+  font-family: Circle, system-ui, sans-serif;
+  line-height: 32px;
+  transform: scale(2);
+  display: v-bind(display);
+  margin-left: 0.5em;
+}
+
+:deep(.markdown-body > pre:last-child code::after) {
+  color: var(--el-color-black);
+}
+
+:deep(.markdown-body)::before {
+  display: none;
+}
+
+:deep(.markdown-body > p:first-child) {
+  margin-top: 0;
+}
+
+:deep(.markdown-body > p:last-of-type) {
+  margin-bottom: 0;
+}
+
+:deep(.markdown-body div[class*="language-"]) {
+  min-width: 300px;
+  min-height: 52px;
+  max-width: 100%;
+  border-radius: 8px;
 }
 </style>
 

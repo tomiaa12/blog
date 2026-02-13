@@ -430,7 +430,7 @@ const highlightWordInText = (text: string, word: string): string => {
   align-items: center;
 }
 
-:deep() .highlight-word {
+:deep(.highlight-word) {
   background-color: var(--el-color-warning-light-9);
   color: var(--el-color-danger);
   padding: 2px 4px;

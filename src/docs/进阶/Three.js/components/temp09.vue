@@ -152,7 +152,7 @@ canvas {
   position: relative;
 }
 
-:deep().dg.main {
+:deep(.dg.main) {
   position: absolute;
   top: 0;
   right: 0;

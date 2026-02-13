@@ -24,8 +24,7 @@
           <span
             class="current-dict"
             v-if="currentDictInfo.description"
-            >{{ currentDictInfo.label }} -
-            {{ currentDictInfo.description }} ({{
+            >{{ currentDictInfo.label }} - {{ currentDictInfo.description }} ({{
               currentDictInfo.length
             }}个词)</span
           >
@@ -57,8 +56,12 @@
               v-model="globalData.autoJump"
               size="small"
             >
-              <el-tooltip content="启用后，正确输入单词后会自动跳转到下一个输入框" placement="top" effect="dark">
-               正确后自动跳转
+              <el-tooltip
+                content="启用后，正确输入单词后会自动跳转到下一个输入框"
+                placement="top"
+                effect="dark"
+              >
+                正确后自动跳转
               </el-tooltip>
             </el-checkbox>
           </el-form-item>
@@ -69,18 +72,39 @@
               size="small"
               :style="isMobile ? 'width: 84px;' : 'width: 120px;'"
             >
-              <el-option label="全部单词" value="all">
-                <el-tooltip content="练习所有未熟悉的单词（包括生僻词）" placement="left" effect="dark">
+              <el-option
+                label="全部单词"
+                value="all"
+              >
+                <el-tooltip
+                  content="练习所有未熟悉的单词（包括生僻词）"
+                  placement="left"
+                  effect="dark"
+                >
                   <span>全部单词</span>
                 </el-tooltip>
               </el-option>
-              <el-option label="仅生僻词" value="rareOnly">
-                <el-tooltip content="只练习已标记为生僻词的单词" placement="left" effect="dark">
+              <el-option
+                label="仅生僻词"
+                value="rareOnly"
+              >
+                <el-tooltip
+                  content="只练习已标记为生僻词的单词"
+                  placement="left"
+                  effect="dark"
+                >
                   <span>仅生僻词</span>
                 </el-tooltip>
               </el-option>
-              <el-option label="排除生僻词" value="excludeRare">
-                <el-tooltip content="练习时隐藏已标记的生僻词" placement="left" effect="dark">
+              <el-option
+                label="排除生僻词"
+                value="excludeRare"
+              >
+                <el-tooltip
+                  content="练习时隐藏已标记的生僻词"
+                  placement="left"
+                  effect="dark"
+                >
                   <span>排除生僻词</span>
                 </el-tooltip>
               </el-option>
@@ -91,7 +115,11 @@
               v-model="globalData.autoPlayAudio"
               size="small"
             >
-              <el-tooltip content="启用后，默写时会自动播放单词发音" placement="top" effect="dark">
+              <el-tooltip
+                content="启用后，默写时会自动播放单词发音"
+                placement="top"
+                effect="dark"
+              >
                 默写时自动发音
               </el-tooltip>
             </el-checkbox>
@@ -99,8 +127,10 @@
         </el-form>
         <div
           v-else
-          style="font-size: 12px; color: var(--el-text-color-regular);"
-        >正在加载全局设置...</div>
+          style="font-size: 12px; color: var(--el-text-color-regular)"
+        >
+          正在加载全局设置...
+        </div>
       </el-card>
     </div>
 
@@ -164,7 +194,7 @@ const STORAGE_KEY = "word-dict-practice-selected-dict-id"
 // 页面主体的响应式数据
 const selectedData = ref<any[]>([])
 const currentDictInfo = ref<any>({})
-const currentDictId = ref<string>('')
+const currentDictId = ref<string>("")
 const showDictDialog = ref(false)
 const dictLoading = ref(true)
 const dictStatusMessage = ref<string | null>("正在加载词典数据...")
@@ -434,9 +464,9 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   margin-bottom: 12px;
   padding-top: 8px;
   gap: 12px;
-  :deep() .el-card {
+  :deep(.el-card) {
     flex: 1;
-    :deep() .el-card__body {
+    :deep(.el-card__body) {
       padding: 12px 16px;
     }
   }
@@ -444,10 +474,10 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 8px;
-    :deep() .el-card {
+    :deep(.el-card) {
       flex: none;
       width: 100%;
-      :deep() .el-card__body {
+      :deep(.el-card__body) {
         padding: 10px 12px;
       }
     }
@@ -456,14 +486,14 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   @media (min-width: 768px) and (max-width: 1024px) {
     gap: 10px;
     margin-bottom: 10px;
-    :deep() .el-card {
-      :deep() .el-card__body {
+    :deep(.el-card) {
+      :deep(.el-card__body) {
         padding: 10px 14px;
       }
     }
   }
 }
-:deep() .el-card__body {
+:deep(.el-card__body) {
   --el-card-padding: 10px;
 }
 .header {
@@ -490,7 +520,7 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
 
 .settings-form {
   margin: 0;
-  :deep() .el-form-item {
+  :deep(.el-form-item) {
     margin-bottom: 6px;
     margin-right: 12px;
     .el-form-item__label {
@@ -517,7 +547,7 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   }
   // 移动端优化
   @media (max-width: 768px) {
-    :deep() .el-form-item {
+    :deep(.el-form-item) {
       margin-bottom: 4px;
       margin-right: 8px;
       .el-form-item__label {
@@ -540,7 +570,7 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   }
   // iPad 端优化
   @media (min-width: 768px) and (max-width: 1024px) {
-    :deep() .el-form-item {
+    :deep(.el-form-item) {
       margin-bottom: 5px;
       margin-right: 10px;
       .el-form-item__label {
@@ -592,7 +622,7 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   color: var(--el-color-warning);
 }
 
-::deep() .el-dialog__title {
+:deep(.el-dialog__title) {
   font-size: 25px;
   font-weight: 600;
 }

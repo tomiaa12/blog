@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "vitepress build src",
+    "build": "node --max-old-space-size=4096 ./node_modules/vitepress/bin/vitepress.js build src",
     "serve": "vitepress serve src",
     "preview": "vitepress preview src --port 8080",
     "log": "conventional-changelog -p angular -i ./src/docs/关于/更新日志.md -s -r 0 -n ./changelog.ts",
