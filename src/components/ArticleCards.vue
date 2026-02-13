@@ -73,7 +73,6 @@ const categories = ref<Category[]>([
       { title:"预览 Word 文件",link:"/docs/文章/前端/vue预览word文件docx",},
       { title:"预览 Excel 表格",link:"/docs/文章/前端/vue预览Excel表格",},
       { title:"资源收集",link:"/docs/资源收集/前端资源收集/UI库",},
-      { title:"面试",link:"/docs/关于/面试",},
     ],
   },
   {

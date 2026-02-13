@@ -90,7 +90,13 @@
             </div>
           </div>
           <div class="game-info">
-            <span class="name">{{ g.name }}</span>
+            <el-tooltip
+              :content="g.name"
+              placement="top"
+              :show-after="300"
+            >
+              <span class="name">{{ g.name }}</span>
+            </el-tooltip>
           </div>
         </a>
         <button
@@ -177,12 +183,12 @@ const paginatedItems = computed(() => {
   return filteredItems.value.slice(start, end)
 })
 
-// 当过滤结果改变时，如果当前页超出范围，重置到第一页
+// 当过滤结果改变时，重置到第一页
 watch(
-  () => filteredItems.value.length,
+  [() => filteredItems.value.length, () => props.items.length],
   () => {
-    const maxPage = Math.ceil(filteredItems.value.length / pageSize.value)
-    if (currentPage.value > maxPage && maxPage > 0) {
+    // 列表改变时（切换tag、搜索等），重置到第一页
+    if (currentPage.value !== 1 && filteredItems.value.length > 0) {
       currentPage.value = 1
     }
   }

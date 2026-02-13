@@ -1,6 +1,6 @@
 <template>
   <ul class="site-tool backdrop-filter" :class="isMobile && 'mini'">
-    <li @click="to('/docs/关于/交流群.html')">
+    <!-- <li @click="to('/docs/关于/交流群.html')">
       <el-popover
         placement="left"
         title="交流群"
@@ -18,7 +18,7 @@
         </template>
         <CommunicationGroup />
       </el-popover>
-    </li>
+    </li> -->
     <li @click="to('/docs/关于/支持我.html')">
       <el-popover
         placement="left"
@@ -47,6 +47,14 @@
           <fullScreen />
         </el-icon>
         <span>放大看</span>
+      </div>
+    </li>
+    <li v-if="!isMobile" @click="toggleWebFullScreen">
+      <div class="grounp">
+        <el-icon :size="24">
+          <fullScreen />
+        </el-icon>
+        <span>{{ isWebFullScreen ? "退出网页全屏" : "网页全屏" }}</span>
       </div>
     </li>
     <li v-if="!isMobile">
@@ -106,6 +114,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue"
 import { useRouter } from "vitepress"
+import { useWebFullScreen } from "@/hooks/useWebFullScreen"
 
 import CommunicationGroup from "./CommunicationGroup/index.vue"
 import SupportMe from "./SupportMe/index.vue"
@@ -126,6 +135,7 @@ import { isMobile } from "@/utils"
 const emits = defineEmits([])
 
 const router = useRouter()
+const { isWebFullScreen, toggleWebFullScreen } = useWebFullScreen()
 
 const to = (path: string) => router.go(path)
 

@@ -16,7 +16,14 @@
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/RetroNES"
       ]
+    },
+    {
+      "name": "AI生成commit",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/commitAiPro"
+      ]
     }
   ]
 }
-

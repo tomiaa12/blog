@@ -1,14 +1,14 @@
 import { Theme, inBrowser, useRoute, useData } from "vitepress"
 import DefaultTheme from "vitepress/theme"
-import Layout from "@/layout/index.vue"
+import Layout from "../../layout/index.vue"
 import useElIcon from "@element-plus/icons-vue/global"
-import elementPlus from "element-plus"
-import "@/style/index.scss"
+import ElementPlus from "element-plus"
+import "../../style/index.scss"
 import NProgress from "nprogress"
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 
 import mediumZoom from "medium-zoom"
-import { nextTick, watch, toRefs } from "vue"
+import { nextTick, watch, toRefs, type App } from "vue"
 
 import { createI18n } from "vue-i18n"
 const i18n = createI18n({
@@ -16,24 +16,24 @@ const i18n = createI18n({
 })
 i18n.global.locale.value = "zhCN"
 
-const theme: Theme = {
-  ...DefaultTheme,
+export default {
+  extends: DefaultTheme,
   Layout,
   // NotFound: () => "custom 404",
   enhanceApp(ctx) {
-    DefaultTheme.enhanceApp(ctx)
-    ctx.app.use(i18n)
+    DefaultTheme.enhanceApp?.(ctx)
+    ctx.app.use(i18n as any)
 
     // 全局注册 Element-plus
     useElIcon(ctx.app as any)
-    ctx.app.use(elementPlus)
+    ctx.app.use(ElementPlus as any)
 
-    if (!import.meta.env.SSR) {
+    if (inBrowser) {
       ctx.router.onBeforeRouteChange = () => {
         NProgress.start()
       }
 
-      ctx.router.onAfterRouteChanged = () => {
+      ctx.router.onAfterRouteChange = () => {
         NProgress.done()
       }
     }
@@ -83,6 +83,4 @@ const theme: Theme = {
        true
      );
   },
-}
-
-export default theme
+} satisfies Theme

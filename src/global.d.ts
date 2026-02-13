@@ -23,6 +23,11 @@ declare module "busuanzi.pure.js" {
   export = fetch
 }
 
+declare module "qrcode" {
+  const QRCode: any
+  export default QRCode
+}
+
 declare global {
   namespace JSX {
     interface IntrinsicElements {

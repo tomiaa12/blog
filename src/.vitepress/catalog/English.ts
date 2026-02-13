@@ -42,6 +42,8 @@ export const English = [
       { text: "肯定句转疑问句", link: "/docs/English/肯定句转疑问句" },
       { text: "特殊疑问句", link: "/docs/English/特殊疑问句" },
       { text: "介词", link: "/docs/English/介词" },
+      { text: "从句", link: "/docs/English/从句" },
+      { text: "非谓语", link: "/docs/English/非谓语" },
     ]
   }
 ]

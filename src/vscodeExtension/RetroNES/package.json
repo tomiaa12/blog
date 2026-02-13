@@ -25,9 +25,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onView:nesGamesView"
-  ],
+  "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
     "viewsContainers": {

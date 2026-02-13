@@ -1,0 +1,256 @@
+{
+  "name": "commit-ai-pro",
+  "displayName": "Commit Message Generator(AI生成commit)",
+  "description": "在 Git 提交界面添加 AI 生成 commit message 的按钮",
+  "version": "0.0.1",
+  "publisher": "tomiaa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomiaa12/blog"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "message",
+    "generator"
+  ],
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "commitMsgGenerator.generate",
+        "title": "✨ 生成 Commit Message",
+        "icon": "$(sparkle)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "commitMsgGenerator.generate",
+          "group": "navigation",
+          "when": "scmProvider == git"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "通用设置",
+        "properties": {
+          "commitMsgGenerator.provider": {
+            "type": "string",
+            "enum": ["deepseek", "openai", "qwen", "custom"],
+            "default": "deepseek",
+            "description": "选择当前使用的模型提供商",
+            "markdownDescription": "选择当前使用的模型提供商：`deepseek`、`openai`、`qwen` 或 `custom`。",
+            "order": 1
+          },
+          "commitMsgGenerator.commitTypes": {
+            "type": "array",
+            "default": [
+              {
+                "type": "feat",
+                "description": "新功能"
+              },
+              {
+                "type": "fix",
+                "description": "修复"
+              },
+              {
+                "type": "docs",
+                "description": "文档"
+              },
+              {
+                "type": "style",
+                "description": "格式"
+              },
+              {
+                "type": "refactor",
+                "description": "重构"
+              },
+              {
+                "type": "perf",
+                "description": "性能优化"
+              },
+              {
+                "type": "test",
+                "description": "测试"
+              },
+              {
+                "type": "build",
+                "description": "构建"
+              },
+              {
+                "type": "ci",
+                "description": "配置"
+              },
+              {
+                "type": "chore",
+                "description": "杂项"
+              },
+              {
+                "type": "revert",
+                "description": "回退"
+              }
+            ],
+            "description": "自定义 Commit Type 类型列表",
+            "markdownDescription": "自定义 Commit Type 类型列表\n\n格式：`[{\"type\": \"feat\", \"description\": \"新功能\"}, ...]`",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "类型前缀（如 feat, fix）"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "类型描述"
+                }
+              },
+              "required": ["type", "description"]
+            },
+            "order": 2
+          },
+          "commitMsgGenerator.includeIssueId": {
+            "type": "boolean",
+            "default": true,
+            "description": "是否从分支名提取并包含 Issue ID（如 #123）",
+            "markdownDescription": "是否从分支名提取并包含 Issue ID\n\n如果分支名包含数字（如 `feature/123-new-feature`），会自动提取并生成格式：`feat: #123 描述`",
+            "order": 3
+          },
+          "commitMsgGenerator.showTokenCost": {
+            "type": "boolean",
+            "default": true,
+            "description": "生成后是否展示 Token 费用",
+            "markdownDescription": "是否在生成完成后展示 Token 费用信息（当前仅 DeepSeek 提供费用估算）。",
+            "order": 4
+          }
+        }
+      },
+      {
+        "title": "DeepSeek设置",
+        "properties": {
+          "commitMsgGenerator.deepseekApiKey": {
+            "type": "string",
+            "default": "",
+            "description": "DeepSeek API Key",
+            "markdownDescription": "DeepSeek API Key\n\n获取方式：\n1. 访问 [DeepSeek 平台](https://platform.deepseek.com/)\n2. 注册并登录\n3. 在 API Keys 页面创建新的 Key\n4. 复制 Key 并粘贴到此处",
+            "order": 1
+          },
+          "commitMsgGenerator.deepseekModel": {
+            "type": "string",
+            "default": "deepseek-chat",
+            "description": "DeepSeek 模型名",
+            "markdownDescription": "DeepSeek 使用的模型名，例如：`deepseek-chat`。",
+            "order": 2
+          },
+          "commitMsgGenerator.deepseekApiUrl": {
+            "type": "string",
+            "default": "https://api.deepseek.com/v1/chat/completions",
+            "description": "DeepSeek 接口地址",
+            "markdownDescription": "DeepSeek 的 Chat Completions 接口地址，可按需改为代理地址。",
+            "order": 3
+          }
+        }
+      },
+      {
+        "title": "OpenAI设置",
+        "properties": {
+          "commitMsgGenerator.openaiApiKey": {
+            "type": "string",
+            "default": "",
+            "description": "OpenAI API Key",
+            "markdownDescription": "OpenAI API Key（如使用 OpenAI 或兼容 OpenAI 协议的服务）。",
+            "order": 1
+          },
+          "commitMsgGenerator.openaiModel": {
+            "type": "string",
+            "default": "gpt-4o-mini",
+            "description": "OpenAI 模型名",
+            "markdownDescription": "OpenAI 使用的模型名，例如：`gpt-4o-mini`。",
+            "order": 2
+          },
+          "commitMsgGenerator.openaiApiUrl": {
+            "type": "string",
+            "default": "https://api.openai.com/v1/chat/completions",
+            "description": "OpenAI 接口地址",
+            "markdownDescription": "OpenAI 的 Chat Completions 接口地址，可按需改为代理地址。",
+            "order": 3
+          }
+        }
+      },
+      {
+        "title": "通义千问设置",
+        "properties": {
+          "commitMsgGenerator.qwenApiKey": {
+            "type": "string",
+            "default": "",
+            "description": "Qwen API Key",
+            "markdownDescription": "Qwen（通义千问）API Key（DashScope）。",
+            "order": 1
+          },
+          "commitMsgGenerator.qwenModel": {
+            "type": "string",
+            "default": "qwen-turbo",
+            "description": "Qwen 模型名",
+            "markdownDescription": "Qwen 使用的模型名，默认轻量模型：`qwen-turbo`。",
+            "order": 2
+          },
+          "commitMsgGenerator.qwenApiUrl": {
+            "type": "string",
+            "default": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            "description": "Qwen 接口地址",
+            "markdownDescription": "Qwen 兼容 OpenAI Chat Completions 的接口地址，可按需改为代理地址。",
+            "order": 3
+          }
+        }
+      },
+      {
+        "title": "自定义模型设置",
+        "properties": {
+          "commitMsgGenerator.customApiKey": {
+            "type": "string",
+            "default": "",
+            "description": "自定义模型 API Key",
+            "markdownDescription": "自定义模型提供商的 API Key（需兼容 OpenAI Chat Completions 协议）。",
+            "order": 1
+          },
+          "commitMsgGenerator.customModel": {
+            "type": "string",
+            "default": "",
+            "description": "自定义模型名",
+            "markdownDescription": "自定义模型名（例如 `qwen-plus`、`glm-4-plus` 等）。",
+            "order": 2
+          },
+          "commitMsgGenerator.customApiUrl": {
+            "type": "string",
+            "default": "",
+            "description": "自定义模型接口地址",
+            "markdownDescription": "自定义模型的 Chat Completions 接口地址，例如：`https://xxx/v1/chat/completions`。",
+            "order": 3
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "eslint": "^8.26.0"
+  }
+}

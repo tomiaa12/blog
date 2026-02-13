@@ -14,6 +14,9 @@ export const Server = [
       { text: "初识", link: "/docs/服务端/java/01-初识" },
       { text: "Scanner输入", link: "/docs/服务端/java/02-Scanner输入" },
       { text: "运算符", link: "/docs/服务端/java/03-运算符" },
+      { text: "输入输出流", link: "/docs/服务端/java/04-输入输出流" },
+      { text: "反射机制", link: "/docs/服务端/java/05-反射机制" },
+      { text: "注解", link: "/docs/服务端/java/06-注解" },
     ],
   },
   {
