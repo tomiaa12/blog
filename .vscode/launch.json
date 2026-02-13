@@ -16,7 +16,14 @@
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/RetroNES"
       ]
+    },
+    {
+      "name": "Commit Message Generator",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/CommitMsgGenerator"
+      ]
     }
   ]
 }
-

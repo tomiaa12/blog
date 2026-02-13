@@ -1,22 +1,39 @@
 <template>
-  <el-config-provider :locale="locale" v-if="isVSCode">
-    <VPContent :class="getCurClass">
-    </VPContent>
+  <el-config-provider
+    :locale="locale"
+    v-if="isVSCode"
+  >
+    <VPContent :class="getCurClass"> </VPContent>
   </el-config-provider>
   <template v-else>
-    <ClientOnly>
+    <!-- <ClientOnly>
       <FirstLoading />
-    </ClientOnly>
+    </ClientOnly> -->
     <el-config-provider :locale="locale">
-      <defaultLayout :class="getCurClass">
-        <template #aside-outline-after>
-          <ins class="adsbygoogle" style="display: block; height: 230px" data-ad-client="ca-pub-6209757986574246"
-            data-ad-slot="6047648655" data-ad-format="auto" data-full-width-responsive="true">
+      <defaultLayout :class="layoutClass">
+        <template #aside-outline-after v-if="!isWebFullScreen">
+          <ins
+            class="adsbygoogle"
+            style="display: block; height: 230px"
+            data-ad-client="ca-pub-6209757986574246"
+            data-ad-slot="6047648655"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          >
           </ins>
         </template>
-        <template #doc-before v-if="!isMobile">
-          <ins class="adsbygoogle" style="display: block; margin: 1em auto" data-ad-client="ca-pub-6209757986574246"
-            data-ad-slot="9323844417" data-ad-format="auto" data-full-width-responsive="true">
+        <template
+          #doc-before
+          v-if="!isMobile && !isWebFullScreen"
+        >
+          <ins
+            class="adsbygoogle"
+            style="display: block; margin: 1em auto"
+            data-ad-client="ca-pub-6209757986574246"
+            data-ad-slot="9323844417"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          >
           </ins>
           <div class="page_pv">
             本文总阅读量
@@ -36,7 +53,7 @@
       </defaultLayout>
     </el-config-provider>
 
-    <ClientOnly v-if="!isMobile">
+    <ClientOnly v-if="!isMobile && !isWebFullScreen">
       <SideTool />
     </ClientOnly>
     <!-- <Comment
@@ -44,9 +61,22 @@
       class="home-comment"
     /> -->
 
-    <Live2D v-if="!isMobile && !isTablet" />
+    <!-- <Live2D v-if="!isMobile && !isTablet && !isWebFullScreen" /> -->
 
-    <el-backtop v-if="!isMobile" :right="300" />
+    <!-- <el-backtop
+      v-if="!isMobile && !isWebFullScreen"
+      :right="300"
+    /> -->
+
+    <ClientOnly v-if="isWebFullScreen">
+      <button
+        class="webfullscreen-exit"
+        type="button"
+        @click="exitWebFullScreen"
+      >
+        退出网页全屏
+      </button>
+    </ClientOnly>
   </template>
 </template>
 
@@ -61,10 +91,12 @@ import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
 import { isMobile, isTablet, isVSCode } from "@/utils"
 import FirstLoading from "./FirstLoading.vue"
+import { useWebFullScreen } from "@/hooks/useWebFullScreen"
 
 const route = useRoute()
 const router = useRouter()
 const data = useData()
+const { isWebFullScreen, exitWebFullScreen } = useWebFullScreen()
 
 // VSCode 环境下默认使用深色模式
 if (isVSCode.value && data.isDark) {
@@ -72,6 +104,11 @@ if (isVSCode.value && data.isDark) {
 }
 
 const getCurClass = computed(() => data.frontmatter.value.class)
+
+const layoutClass = computed(() => {
+  const cls = getCurClass.value
+  return [cls, isWebFullScreen.value && "vp-webfullscreen"].filter(Boolean)
+})
 
 const showGlobalComment = computed(() => data.frontmatter.value.layout)
 
@@ -88,8 +125,8 @@ onMounted(async () => {
   script = await import("busuanzi.pure.js")
   script?.fetch()
 
-    // google 文章内嵌广告
-    ; ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
+  // google 文章内嵌广告
+  ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 
   if (import.meta.env.DEV) {
     const v = (await import("vconsole")) as any
@@ -159,6 +196,45 @@ if (inBrowser) {
   display: inline;
   vertical-align: middle;
   animation: loading-rotate 2s linear infinite;
+}
+
+.webfullscreen-exit {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 3000;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+  background: color-mix(in srgb, var(--vp-c-bg) 92%, transparent);
+  color: var(--vp-c-text-1);
+  box-shadow: var(--el-box-shadow-light);
+  cursor: pointer;
+}
+
+.webfullscreen-exit:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+// 网页全屏：保留 defaultLayout，只隐藏外壳
+.vp-webfullscreen {
+  --vp-layout-max-width: 0;
+  --vp-nav-height: 0;
+  .VPNav,
+  .VPNavBar,
+  .VPNavScreen,
+  .VPSidebar,
+  .VPLocalNav,
+  .VPDocAside {
+    display: none !important;
+  }
+
+  // 去掉 nav 占位带来的顶部留白
+  .VPContent {
+    padding-top: 0 !important;
+  }
 }
 
 // VSCode 环境下的样式优化

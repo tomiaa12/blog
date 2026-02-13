@@ -1,23 +1,23 @@
 // 重置 vitepress 覆盖 element-plus 样式
-@import "element-plus/dist/index.css";
+@use "element-plus/dist/index.css";
 
 // element-plus 夜间模式
-@import "element-plus/theme-chalk/dark/css-vars.css";
+@use "element-plus/theme-chalk/dark/css-vars.css";
 
 // element-plus 样式修改
-@import "./element-plus-reset";
+@use "./element-plus-reset";
 
 // 基础样式
-@import "./base.scss";
+@use "./base.scss";
 
 // 变量
-@import "./var.scss";
+@use "./var.scss";
 
 // 图片缩放
-@import "./medui-zoom.scss";
+@use "./medui-zoom.scss";
 
 // 公共样式
-@import "./common.scss";
+@use "./common.scss";
 
 // 加载进度条
-@import "nprogress/nprogress.css";
+@use "nprogress/nprogress.css";
