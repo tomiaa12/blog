@@ -18,11 +18,11 @@
       ]
     },
     {
-      "name": "Commit Message Generator",
+      "name": "AI生成commit",
       "type": "extensionHost",
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/CommitMsgGenerator"
+        "--extensionDevelopmentPath=${workspaceFolder}/src/vscodeExtension/commitAiPro"
       ]
     }
   ]

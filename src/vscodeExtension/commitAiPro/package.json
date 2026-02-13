@@ -1,5 +1,5 @@
 {
-  "name": "commit-msg-generator",
+  "name": "commit-ai-pro",
   "displayName": "Commit Message Generator(AI生成commit)",
   "description": "在 Git 提交界面添加 AI 生成 commit message 的按钮",
   "version": "0.0.1",
