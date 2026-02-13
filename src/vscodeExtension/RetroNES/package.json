@@ -2,7 +2,7 @@
   "name": "RetroNES",
   "displayName": "RetroNES(小霸王)",
   "description": "在 VSCode 上玩经典 NES 小霸王游戏，助你提升开发效率，红白机 FC 游戏 400+（全中文） - Play classic NES games in VSCode",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "tomiaa",
   "repository": {
     "type": "git",
