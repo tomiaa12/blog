@@ -21,5 +21,5 @@
 - **高考 3500**: 高考核心词汇
 - 等等
 
-![预览图 1](src/vscodeExtension/WordDrill/resources/preview1.png)
-![预览图 2](src/vscodeExtension/WordDrill/resources/preview2.png)
+![预览图 1](https://raw.githubusercontent.com/tomiaa12/blog/main/src/vscodeExtension/WordDrill/resources/preview1.png)
+![预览图 2](https://raw.githubusercontent.com/tomiaa12/blog/main/src/vscodeExtension/WordDrill/resources/preview2.png)

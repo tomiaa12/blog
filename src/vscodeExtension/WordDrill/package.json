@@ -2,11 +2,12 @@
   "name": "word-dictation",
   "displayName": "WordDrill(默写单词)",
   "description": "英语单词默写练习插件，支持CET-4/6、小学、初中、高考等多种词典，集成Google云同步",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "tomiaa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomiaa12/blog"
+    "url": "https://github.com/tomiaa12/blog",
+    "directory": "src/vscodeExtension/WordDrill"
   },
   "keywords": [
     "english",
@@ -89,4 +90,3 @@
     "eslint": "^8.26.0"
   }
 }
-

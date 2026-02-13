@@ -24,7 +24,7 @@ const PROVIDER_DEFAULTS = {
  * 获取当前模型配置
  */
 function getModelConfig() {
-    const config = vscode.workspace.getConfiguration('commitMsgGenerator');
+    const config = vscode.workspace.getConfiguration('commitAiPro');
     let provider = config.get('provider', 'deepseek');
     if (!Object.prototype.hasOwnProperty.call(PROVIDER_DEFAULTS, provider)) {
         provider = 'deepseek';
@@ -40,11 +40,11 @@ function getModelConfig() {
     }
 
     if (!model) {
-        throw new Error(`未配置 ${provider} 模型名，请在设置中填写 commitMsgGenerator.${provider}Model`);
+        throw new Error(`未配置 ${provider} 模型名，请在设置中填写 commitAiPro.${provider}Model`);
     }
 
     if (!apiUrl) {
-        throw new Error(`未配置 ${provider} 接口地址，请在设置中填写 commitMsgGenerator.${provider}ApiUrl`);
+        throw new Error(`未配置 ${provider} 接口地址，请在设置中填写 commitAiPro.${provider}ApiUrl`);
     }
 
     return {
@@ -59,7 +59,7 @@ function getModelConfig() {
  * 获取用户配置的 Commit Types
  */
 function getCommitTypes() {
-    const config = vscode.workspace.getConfiguration('commitMsgGenerator');
+    const config = vscode.workspace.getConfiguration('commitAiPro');
     const types = config.get('commitTypes');
     
     if (!types || !Array.isArray(types) || types.length === 0) {
@@ -86,7 +86,7 @@ function getCommitTypes() {
  * 检查是否启用 Issue ID
  */
 function isIncludeIssueId() {
-    const config = vscode.workspace.getConfiguration('commitMsgGenerator');
+    const config = vscode.workspace.getConfiguration('commitAiPro');
     return config.get('includeIssueId', true);
 }
 
@@ -94,7 +94,7 @@ function isIncludeIssueId() {
  * 生成后是否展示 Token 费用
  */
 function shouldShowTokenCost() {
-    const config = vscode.workspace.getConfiguration('commitMsgGenerator');
+    const config = vscode.workspace.getConfiguration('commitAiPro');
     return config.get('showTokenCost', true);
 }
 
@@ -360,7 +360,7 @@ function activate(context) {
     console.log('Commit Message Generator 插件已激活');
 
     // 注册生成 commit message 命令
-    const disposable = vscode.commands.registerCommand('commitMsgGenerator.generate', async () => {
+    const disposable = vscode.commands.registerCommand('commitAiPro.generate', async () => {
         try {
             // 获取 Git 扩展
             const gitExtension = vscode.extensions.getExtension('vscode.git');
@@ -389,7 +389,7 @@ function activate(context) {
                 );
                 
                 if (action === '去配置') {
-                    const settingsQuery = `@ext:${context.extension.id} commitMsgGenerator.`;
+                    const settingsQuery = `@ext:${context.extension.id} commitAiPro.`;
                     vscode.commands.executeCommand('workbench.action.openSettings', settingsQuery);
                 }
                 return;
