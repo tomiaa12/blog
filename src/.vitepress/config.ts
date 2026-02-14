@@ -9,7 +9,6 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 import svgLoader from "vite-svg-loader"
 
 import {
-  HTMLAndCSS,
   JavaScript,
   ES6,
   Server,
@@ -21,22 +20,6 @@ import {
   ResourceCollect,
   English,
 } from "./catalog"
-
-const generateNav = (arr: DefaultTheme.SidebarItem[]) =>
-  arr.map(i => ({
-    ...i,
-    items: i.items?.map(i => ({
-      ...i,
-      link: Array.isArray(i.items) ? i.items[0].link : i.link,
-    })),
-  })) as (DefaultTheme.NavItemChildren | DefaultTheme.NavItemWithLink)[]
-
-const formatterItemFilter = (arr: DefaultTheme.SidebarItem[]) => {
-  return arr.map(i => ({
-    text: i.text,
-    link: Array.isArray(i.items) ? i.items[0].link : i.link,
-  })) as (DefaultTheme.NavItemChildren | DefaultTheme.NavItemWithLink)[]
-}
 
 export default defineConfig({
   title: "web技术学习",
@@ -407,7 +390,6 @@ export default defineConfig({
       {
         text: "前端",
         items: [
-          { text: "HTML&CSS", link: "/docs/HTML/HTML-基础" },
           { text: "JavaScript", link: "/docs/JavaScript/基本概念/变量" },
           { text: "ES6", link: "/docs/ES6/变量声明与解构" },
           { text: "JQuery", link: "/docs/库/JQuery/jQuery初识" },
@@ -482,9 +464,6 @@ export default defineConfig({
 
       "/docs/文章/": Article,
 
-      "/docs/HTML/": HTMLAndCSS,
-
-      "/docs/CSS/": HTMLAndCSS,
 
       "/docs/JavaScript/": JavaScript,
 
@@ -516,7 +495,6 @@ export default defineConfig({
         "ol",
         "@tomiaa/vue3-components",
         "@tomiaa/live2d",
-        "@tomiaa/comment",
         "@tomiaa/hitokoto",
         "@tomiaa/utils",
         "@tomiaa/canvas-graffiti",
@@ -533,7 +511,6 @@ export default defineConfig({
         "ol",
         "@tomiaa/vue3-components",
         "@tomiaa/live2d",
-        "@tomiaa/comment",
         "@tomiaa/hitokoto",
         "@tomiaa/utils",
         "@tomiaa/canvas-graffiti",

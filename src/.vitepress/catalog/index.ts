@@ -1,4 +1,3 @@
-export * from "./HTMLAndCSS"
 export * from "./JavaScript"
 export * from "./ES6"
 export * from "./Serve"

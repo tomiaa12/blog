@@ -153,9 +153,6 @@ importers:
       '@tomiaa/canvas-graffiti':
         specifier: ^0.0.3
         version: 0.0.3(vue@3.5.25(typescript@5.9.3))
-      '@tomiaa/comment':
-        specifier: ^0.0.3
-        version: 0.0.3(vue@3.5.25(typescript@5.9.3))
       '@tomiaa/coordinate-transform':
         specifier: ^0.0.3
         version: 0.0.3
@@ -2431,9 +2428,6 @@ packages:
 
   '@tomiaa/canvas-graffiti@0.0.3':
     resolution: {integrity: sha512-2Q8qrhe3Rgr672hijeo0Zx6Dt3VdvzOi32/784ohR61acQjflNOJIaRLtspqWe451NlE26Pqeq8Bi62ejYK8gw==}
-
-  '@tomiaa/comment@0.0.3':
-    resolution: {integrity: sha512-JNS9amFcn+kw404/ge9cvIk3SWRGgWjWkfNFWb1maIRD44e1l+q4TJ1t2SgOQaZ5o8fh7kkUWbybBaeJKmQjAg==}
 
   '@tomiaa/coordinate-transform@0.0.3':
     resolution: {integrity: sha512-Ym6mtk6yYZ+XdKTLpEb95rjKAjILbnzFXa9PLRaifne3M2SKo8LY5+NQfRDP/iI1LSOda/XPNMFPBb+yQkZGPQ==}
@@ -8626,16 +8620,6 @@ snapshots:
   '@tomiaa/canvas-graffiti@0.0.3(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@tomiaa/utils': 0.1.9(vue@3.5.25(typescript@5.9.3))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - debug
-      - vue
-
-  '@tomiaa/comment@0.0.3(vue@3.5.25(typescript@5.9.3))':
-    dependencies:
-      '@tomiaa/theme-chalk': 0.0.5
-      '@tomiaa/utils': 0.1.9(vue@3.5.25(typescript@5.9.3))
-      axios: 1.13.2
     transitivePeerDependencies:
       - '@vue/composition-api'
       - debug

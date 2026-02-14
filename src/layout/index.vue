@@ -11,7 +11,10 @@
     </ClientOnly> -->
     <el-config-provider :locale="locale">
       <defaultLayout :class="layoutClass">
-        <template #aside-outline-after v-if="!isWebFullScreen">
+        <template
+          #aside-outline-after
+          v-if="!isWebFullScreen"
+        >
           <ins
             class="adsbygoogle"
             style="display: block; height: 230px"
@@ -43,25 +46,14 @@
             次
           </div>
         </template>
-        <template #doc-after>
-          <!-- <Comment v-if="!showGlobalComment" /> -->
-          <!-- <div
-            v-show="!showGlobalComment"
-            class="giscus"
-          ></div> -->
-        </template>
       </defaultLayout>
     </el-config-provider>
 
     <ClientOnly v-if="!isMobile && !isWebFullScreen">
-      <SideTool />
+      <SideTool @toggle-live2d="toggleLive2d" />
     </ClientOnly>
-    <!-- <Comment
-      v-if="showGlobalComment"
-      class="home-comment"
-    /> -->
 
-    <!-- <Live2D v-if="!isMobile && !isTablet && !isWebFullScreen" /> -->
+    <Live2D v-if="!isMobile && !isTablet && !isWebFullScreen && showLive2d" />
 
     <!-- <el-backtop
       v-if="!isMobile && !isWebFullScreen"
@@ -85,8 +77,7 @@ import zhCn from "element-plus/es/locale/lang/zh-cn"
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import VPContent from "vitepress/dist/client/theme-default/components/VPContent.vue"
 import { useRoute, useRouter, useData, inBrowser } from "vitepress"
-import { computed, onMounted, watch, nextTick } from "vue"
-import Comment from "./Comment.vue"
+import { computed, onMounted, watch, nextTick, ref, provide } from "vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
 import { isMobile, isTablet, isVSCode } from "@/utils"
@@ -97,6 +88,54 @@ const route = useRoute()
 const router = useRouter()
 const data = useData()
 const { isWebFullScreen, exitWebFullScreen } = useWebFullScreen()
+const showLive2d = ref(false)
+
+const enableAppearanceTransition = () =>
+  inBrowser &&
+  "startViewTransition" in document &&
+  window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+
+provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
+  if (!data.isDark) return
+
+  if (!enableAppearanceTransition()) {
+    data.isDark.value = !data.isDark.value
+    return
+  }
+
+  const maxRadius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y)
+  )
+  const clipPath = [
+    `circle(0px at ${x}px ${y}px)`,
+    `circle(${maxRadius}px at ${x}px ${y}px)`,
+  ]
+
+  await (document as any).startViewTransition(async () => {
+    data.isDark.value = !data.isDark.value
+    await nextTick()
+  }).ready
+
+  document.documentElement.animate(
+    { clipPath: data.isDark.value ? clipPath.reverse() : clipPath },
+    {
+      duration: 320,
+      easing: "ease-in",
+      fill: "forwards",
+      pseudoElement: `::view-transition-${
+        data.isDark.value ? "old" : "new"
+      }(root)`,
+    }
+  )
+})
+
+const toggleLive2d = () => {
+  // Live2D 组件内部自带收起能力，这里只负责首次展示，避免重复挂载创建新实例
+  if (!showLive2d.value) {
+    showLive2d.value = true
+  }
+}
 
 // VSCode 环境下默认使用深色模式
 if (isVSCode.value && data.isDark) {
@@ -264,5 +303,21 @@ if (inBrowser) {
     max-width: 100% !important;
     padding: 5px !important;
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root),
+.dark::view-transition-old(root) {
+  z-index: 9999;
 }
 </style>

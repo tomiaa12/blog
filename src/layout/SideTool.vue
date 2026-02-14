@@ -100,6 +100,14 @@
         <span>游戏</span>
       </div>
     </li>
+    <li @click="emits('toggle-live2d')">
+      <div class="grounp">
+        <el-icon :size="24">
+          <cat />
+        </el-icon>
+        <span>Live2D</span>
+      </div>
+    </li>
     <!-- <li @click="to('/pages/chatGPT.html')">
       <div class="grounp">
         <el-icon :size="24">
@@ -126,13 +134,15 @@ import docSearch from "@/assets/svg/docSearch.svg"
 import app from "@/assets/svg/app.svg"
 import gamepad from "@/assets/svg/gamepad.svg"
 import chatGPT from "@/assets/svg/chatGPT.svg"
-
+import cat from "@/assets/svg/cat.svg"
 import QRCode from "qrcode"
 
 import { isMobile } from "@/utils"
 
 // const props = defineProps({})
-const emits = defineEmits([])
+const emits = defineEmits<{
+  (e: "toggle-live2d"): void
+}>()
 
 const router = useRouter()
 const { isWebFullScreen, toggleWebFullScreen } = useWebFullScreen()

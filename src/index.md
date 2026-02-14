@@ -4,7 +4,7 @@ class: home
 hero:
   name: web技术学习
   image:
-    src: /logo.png
+    src: /logo.webp
     alt: web技术学习
   text: 
   tagline: 无需踏破铁鞋，在此寻得你想要
