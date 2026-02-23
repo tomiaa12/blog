@@ -6,9 +6,6 @@
     <VPContent :class="getCurClass"> </VPContent>
   </el-config-provider>
   <template v-else>
-    <!-- <ClientOnly>
-      <FirstLoading />
-    </ClientOnly> -->
     <el-config-provider :locale="locale">
       <defaultLayout :class="layoutClass">
         <template
@@ -81,7 +78,6 @@ import { computed, onMounted, watch, nextTick, ref, provide } from "vue"
 import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
 import { isMobile, isTablet, isVSCode } from "@/utils"
-import FirstLoading from "./FirstLoading.vue"
 import { useWebFullScreen } from "@/hooks/useWebFullScreen"
 
 const route = useRoute()
