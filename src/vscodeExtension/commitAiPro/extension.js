@@ -154,6 +154,118 @@ const EXCLUDED_EXTENSIONS = [
 ];
 
 /**
+ * 标准化路径用于比较（兼容大小写不敏感平台）
+ */
+function normalizePathForCompare(filePath) {
+    if (!filePath) {
+        return '';
+    }
+    const normalized = filePath.replace(/\\/g, '/');
+    return process.platform === 'win32' ? normalized.toLowerCase() : normalized;
+}
+
+/**
+ * 根据文件路径匹配所属 Git 仓库（优先最长前缀）
+ */
+function findRepositoryByPath(repositories, targetPath) {
+    if (!targetPath) {
+        return null;
+    }
+
+    const normalizedTarget = normalizePathForCompare(targetPath);
+    let matchedRepo = null;
+    let matchedLength = -1;
+
+    for (const repo of repositories) {
+        const repoPath = repo?.rootUri?.fsPath;
+        if (!repoPath) {
+            continue;
+        }
+        const normalizedRepoPath = normalizePathForCompare(repoPath);
+        const withSlash = normalizedRepoPath.endsWith('/') ? normalizedRepoPath : `${normalizedRepoPath}/`;
+        if (normalizedTarget === normalizedRepoPath || normalizedTarget.startsWith(withSlash)) {
+            if (normalizedRepoPath.length > matchedLength) {
+                matchedRepo = repo;
+                matchedLength = normalizedRepoPath.length;
+            }
+        }
+    }
+
+    return matchedRepo;
+}
+
+/**
+ * 解析命令上下文中的 URI 对象
+ */
+function extractUriFromScmContext(scmContext) {
+    if (!scmContext) {
+        return null;
+    }
+
+    if (scmContext.fsPath) {
+        return scmContext;
+    }
+
+    const candidateKeys = [
+        'rootUri',
+        'resourceUri',
+        'uri',
+        'sourceUri',
+        'originalUri'
+    ];
+
+    for (const key of candidateKeys) {
+        const maybeUri = scmContext[key];
+        if (maybeUri && maybeUri.fsPath) {
+            return maybeUri;
+        }
+    }
+
+    const nestedKeys = ['sourceControl', 'resourceState', 'resourceGroup'];
+    for (const key of nestedKeys) {
+        const nested = scmContext[key];
+        const nestedUri = extractUriFromScmContext(nested);
+        if (nestedUri) {
+            return nestedUri;
+        }
+    }
+
+    return null;
+}
+
+/**
+ * 解析当前命令对应的 Git 仓库（多仓库工作区）
+ */
+function resolveRepository(git, scmContext) {
+    const repositories = git.repositories || [];
+    if (repositories.length === 0) {
+        return null;
+    }
+    if (repositories.length === 1) {
+        return repositories[0];
+    }
+
+    // 1) 优先使用 SCM 菜单命令传入的上下文
+    const contextUri = extractUriFromScmContext(scmContext);
+    if (contextUri?.fsPath) {
+        const repoFromContext = findRepositoryByPath(repositories, contextUri.fsPath);
+        if (repoFromContext) {
+            return repoFromContext;
+        }
+    }
+
+    // 2) 使用当前活动编辑器文件定位仓库
+    const activeFile = vscode.window.activeTextEditor?.document?.uri?.fsPath;
+    const repoFromEditor = findRepositoryByPath(repositories, activeFile);
+    if (repoFromEditor) {
+        return repoFromEditor;
+    }
+
+    // 3) 回退到第一个仓库（保持兼容）
+    return repositories[0];
+}
+
+/**
  * 检查是否为压缩/minified 文件
  */
 function isMinifiedContent(content) {
@@ -184,21 +296,12 @@ function isMinifiedContent(content) {
  */
 function getFilteredGitDiff(repoPath) {
     try {
-        // 获取暂存区的 diff
-        let diff = execSync('git diff --cached', {
+        // 仅获取暂存区的 diff（未 git add 的改动不参与生成）
+        const diff = execSync('git diff --cached', {
             cwd: repoPath,
             encoding: 'utf-8',
             maxBuffer: 10 * 1024 * 1024 // 10MB
         });
-
-        // 如果暂存区为空，获取工作区的 diff
-        if (!diff.trim()) {
-            diff = execSync('git diff', {
-                cwd: repoPath,
-                encoding: 'utf-8',
-                maxBuffer: 10 * 1024 * 1024
-            });
-        }
 
         if (!diff.trim()) {
             return null;
@@ -360,7 +463,7 @@ function activate(context) {
     console.log('Commit Message Generator 插件已激活');
 
     // 注册生成 commit message 命令
-    const disposable = vscode.commands.registerCommand('commitAiPro.generate', async () => {
+    const disposable = vscode.commands.registerCommand('commitAiPro.generate', async (scmContext) => {
         try {
             // 获取 Git 扩展
             const gitExtension = vscode.extensions.getExtension('vscode.git');
@@ -377,8 +480,19 @@ function activate(context) {
                 return;
             }
 
-            const repository = git.repositories[0];
+            const repository = resolveRepository(git, scmContext);
+            if (!repository) {
+                vscode.window.showWarningMessage('未找到可用的 Git 仓库');
+                return;
+            }
             const repoPath = repository.rootUri.fsPath;
+
+            // 先检查已暂存变更，避免先出现“生成中”再提示无变更
+            const diff = getFilteredGitDiff(repoPath);
+            if (!diff || !diff.trim()) {
+                await vscode.window.showInformationMessage('未检测到变更，请先添加文件至暂存区');
+                return;
+            }
 
             // 检查模型配置
             const modelConfig = getModelConfig();
@@ -413,35 +527,26 @@ function activate(context) {
                 cancellable: false
             }, async (progress) => {
                 try {
-                    // 1. 获取并过滤 git diff
-                    progress.report({ message: "获取代码变更..." });
-                    const diff = getFilteredGitDiff(repoPath);
-
-                    if (!diff || !diff.trim()) {
-                        vscode.window.showWarningMessage('没有检测到代码变更');
-                        return;
-                    }
-
-                    // 2. 调用模型生成 commit message
+                    // 1. 调用模型生成 commit message
                     progress.report({ message: `AI 生成中（${modelConfig.provider}/${modelConfig.model}）...` });
                     const result = await generateCommitMessage(diff, modelConfig, commitTypes, issueId);
 
-                    // 3. 填充到 git commit 输入框
+                    // 2. 填充到 git commit 输入框
                     repository.inputBox.value = result.message;
 
-                    // 4. 显示成功提示
+                    // 3. 显示成功提示
                     const usage = result.usage;
                     const cost = modelConfig.provider === 'deepseek'
                         ? (usage.prompt_tokens / 1000000 * 0.07 + usage.completion_tokens / 1000000 * 0.28).toFixed(6)
                         : null;
 
-                    let successMessage = '✨ Commit Message 已生成！';
+                    let successMessage = '✨ Commit 已生成！';
                     if (showTokenCost && cost !== null) {
                         successMessage += `\nToken: ${usage.total_tokens} | 费用: ¥${cost}`;
                     }
                     vscode.window.showInformationMessage(successMessage);
 
-                    // 5. 在输出面板显示详细信息
+                    // 4. 在输出面板显示详细信息
                     const outputChannel = vscode.window.createOutputChannel('Commit Msg Generator');
                     outputChannel.clear();
                     outputChannel.appendLine('========================================');
