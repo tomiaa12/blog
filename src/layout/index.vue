@@ -156,9 +156,7 @@ onMounted(async () => {
     data.isDark.value = true
   }
 
-  // eslint-disable-next-line no-import-assign
   script = await import("busuanzi.pure.js")
-  script?.fetch()
 
   // google 文章内嵌广告
   ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
@@ -175,9 +173,6 @@ watch(
     await nextTick()
     // 访问量统计
     script?.fetch()
-  },
-  {
-    immediate: true,
   }
 )
 if (inBrowser) {

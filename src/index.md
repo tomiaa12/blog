@@ -2,11 +2,11 @@
 layout: home
 class: home
 hero:
-  name: web技术学习
+  name: KYX Box
   image:
     src: /logo.webp
-    alt: web技术学习
-  text: 
+    alt: KYX Box
+  text:
   tagline: 无需踏破铁鞋，在此寻得你想要
   actions:
     # - theme: brand
@@ -23,7 +23,7 @@ features:
     title: 循序渐进
     details: 纸上得来终觉浅，绝知此事要躬行。
   - icon: ✨
-    title: 导航与软件
+    title: 游戏与工具
     details: 游戏的尽头是怀旧，优化的尽头是默认。
   - icon: 🚶‍♂️
     title: 关于我
@@ -41,4 +41,3 @@ import ArticleCards from './components/ArticleCards.vue'
 <GithubChart />
 
 <SitePv />
-
