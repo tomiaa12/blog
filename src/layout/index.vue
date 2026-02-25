@@ -13,11 +13,11 @@
         </template>
         <template #doc-before v-if="!isMobile && !isWebFullScreen">
           <div class="page_pv">
-            本文总阅读量
+            {{ t('pageViewsLabel') }}
             <span id="busuanzi_value_page_pv">
               <el-icon-loading class="loading-icon" />
             </span>
-            次
+            {{ t('pageViewsUnit') }}
           </div>
         </template>
       </defaultLayout>
@@ -36,7 +36,7 @@
 
     <ClientOnly v-if="isWebFullScreen">
       <button class="webfullscreen-exit" type="button" @click="exitWebFullScreen">
-        退出网页全屏
+        {{ t('exitWebFullscreen') }}
       </button>
     </ClientOnly>
   </template>
@@ -71,7 +71,9 @@ import Live2D from "./Live2d.vue"
 import SideTool from "./SideTool.vue"
 import { isMobile, isTablet, isVSCode } from "@/utils"
 import { useWebFullScreen } from "@/hooks/useWebFullScreen"
+import { useI18n } from "vue-i18n"
 
+const { t } = useI18n({ useScope: "local" })
 const route = useRoute()
 const router = useRouter()
 const data = useData()
@@ -327,5 +329,32 @@ if (inBrowser) {
 .dark::view-transition-old(root) {
   z-index: 9999;
 }
+
+.VPFooter .container {
+  max-width: unset;
+}
 </style>
+
+<i18n lang="json">{
+  "zh-CN": { "pageViewsLabel": "本文总阅读量", "pageViewsUnit": "次", "exitWebFullscreen": "退出网页全屏" },
+  "en":    { "pageViewsLabel": "Total views", "pageViewsUnit": "times", "exitWebFullscreen": "Exit Fullscreen" },
+  "zh-TW": { "pageViewsLabel": "本文總閱讀量", "pageViewsUnit": "次", "exitWebFullscreen": "退出網頁全螢幕" },
+  "ja":    { "pageViewsLabel": "本記事の総閲覧数", "pageViewsUnit": "回", "exitWebFullscreen": "全画面を終了" },
+  "ko":    { "pageViewsLabel": "총 조회수", "pageViewsUnit": "회", "exitWebFullscreen": "전체화면 종료" },
+  "fr":    { "pageViewsLabel": "Vues totales", "pageViewsUnit": "fois", "exitWebFullscreen": "Quitter le plein écran" },
+  "de":    { "pageViewsLabel": "Gesamtaufrufe", "pageViewsUnit": "Mal", "exitWebFullscreen": "Vollbild beenden" },
+  "es":    { "pageViewsLabel": "Vistas totales", "pageViewsUnit": "veces", "exitWebFullscreen": "Salir de pantalla completa" },
+  "pt":    { "pageViewsLabel": "Visualizações totais", "pageViewsUnit": "vezes", "exitWebFullscreen": "Sair da tela cheia" },
+  "ru":    { "pageViewsLabel": "Всего просмотров", "pageViewsUnit": "раз", "exitWebFullscreen": "Выйти из полноэкранного режима" },
+  "ar":    { "pageViewsLabel": "إجمالي المشاهدات", "pageViewsUnit": "مرة", "exitWebFullscreen": "الخروج من وضع ملء الشاشة" },
+  "hi":    { "pageViewsLabel": "कुल दृश्य", "pageViewsUnit": "बार", "exitWebFullscreen": "फ़ुलस्क्रीन से बाहर निकलें" },
+  "it":    { "pageViewsLabel": "Visualizzazioni totali", "pageViewsUnit": "volte", "exitWebFullscreen": "Esci dalla schermata intera" },
+  "nl":    { "pageViewsLabel": "Totale weergaven", "pageViewsUnit": "keer", "exitWebFullscreen": "Volledig scherm verlaten" },
+  "tr":    { "pageViewsLabel": "Toplam görüntüleme", "pageViewsUnit": "kez", "exitWebFullscreen": "Tam ekrandan çık" },
+  "vi":    { "pageViewsLabel": "Tổng lượt xem", "pageViewsUnit": "lần", "exitWebFullscreen": "Thoát toàn màn hình" },
+  "th":    { "pageViewsLabel": "ยอดเข้าชมทั้งหมด", "pageViewsUnit": "ครั้ง", "exitWebFullscreen": "ออกจากโหมดเต็มหน้าจอ" },
+  "id":    { "pageViewsLabel": "Total tampilan", "pageViewsUnit": "kali", "exitWebFullscreen": "Keluar layar penuh" },
+  "pl":    { "pageViewsLabel": "Łączne wyświetlenia", "pageViewsUnit": "razy", "exitWebFullscreen": "Wyjdź z pełnego ekranu" },
+  "sv":    { "pageViewsLabel": "Totala visningar", "pageViewsUnit": "gånger", "exitWebFullscreen": "Avsluta helskärm" }
+}</i18n>
 
