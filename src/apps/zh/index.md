@@ -8,7 +8,7 @@ hero:
     alt: KYX Box
   text:
   tagline: 无需踏破铁鞋，在此寻得你想要
-  actions:
+  #actions:
     # - theme: brand
     #   text: 网址导航
     #   link: /pages/navigation
@@ -33,10 +33,10 @@ features:
 <script setup>
 import GithubChart from '@/components/GithubChart.vue'
 import SitePv from '@/components/SitePv.vue'
-import ArticleCards from '@/components/ArticleCards.vue'
+// import ArticleCards from '@/components/ArticleCards.vue'
 </script>
 
-<ArticleCards />
+<!-- <ArticleCards /> -->
 
 <GithubChart /> 
 

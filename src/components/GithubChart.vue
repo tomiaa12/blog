@@ -28,7 +28,7 @@ const color = ref(
 <style lang="scss" scoped>
 .github-chart {
   width: 100%;
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0;
   max-width: 1125px;
 }
