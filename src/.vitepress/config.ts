@@ -1,5 +1,6 @@
 import { defineConfig, type DefaultTheme } from "vitepress"
-import { resolve } from "path"
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
@@ -7,6 +8,8 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 
 import vueJsx from "@vitejs/plugin-vue-jsx"
 import svgLoader from "vite-svg-loader"
+
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 export default defineConfig({
   title: "KYX Box",
@@ -224,6 +227,9 @@ export default defineConfig({
         resolvers: [ElementPlusResolver()],
       }),
       vueJsx(),
+      VueI18nPlugin({
+        include: resolve(dirname(fileURLToPath(import.meta.url)), "../locales/**"),
+      }),
     ],
     server: {
       host: "0.0.0.0",
@@ -427,93 +433,79 @@ export default defineConfig({
           text: "在 GitHub 编辑此页",
         },
         nav: [
-          { text: "导航", link: "/pages/navigation" },
-          { text: "软件", link: "/pages/software" },
           {
-            text: "游戏", items: [
-              { text: "FC 童年小霸王", link: "/pages/game" },
-              { text: "Java 经典游戏", link: "/pages/javaGames" },
-              // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
-            ]
-          },
-          // { text: "GPT", link: "/pages/chatGPT" },
-          {
-            text: "在线应用", items: [
-              // {
-              //   text: "小游戏",
-              //   collapsed: true,
-              //   items: [
-              //     { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
-              //     { text: "猜英雄联盟", link: "/docs/在线应用/小游戏/猜英雄联盟" },
-              //     { text: "猜电影", link: "/docs/在线应用/小游戏/猜电影" },
-              //     { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
-              //     { text: "猜音乐", link: "/docs/在线应用/小游戏/猜音乐" },
-              //     { text: "js问题测验", link: "/docs/在线应用/小游戏/js问题测验" },
-              //     { text: "二次元浓度测试", link: "/docs/在线应用/小游戏/二次元浓度测试" },
-              //     { text: "一言", link: "/docs/在线应用/小游戏/一言" },
-              //     { text: "一句", link: "/docs/在线应用/小游戏/一句" },
-              //     { text: "早报", link: "/docs/在线应用/小游戏/早报" },
-              //     { text: "彩虹屁", link: "/docs/在线应用/小游戏/彩虹屁" },
-              //     { text: "毒鸡汤", link: "/docs/在线应用/小游戏/毒鸡汤" },
-              //     { text: "舔狗日记", link: "/docs/在线应用/小游戏/舔狗日记" },
-              //     { text: "网易云热评", link: "/docs/在线应用/小游戏/网易云热评" },
-              //     { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
-              //     { text: "历史上的今天", link: "/docs/在线应用/小游戏/历史上的今天" },
-              //     { text: "动漫里那些可爱女主", link: "/docs/在线应用/小游戏/动漫里那些可爱女主" },
-              //   ],
-              // },
+            text: "笔记", items: [
+              { text: "导航", link: "/pages/navigation" },
+              { text: "软件", link: "/pages/software" },
               {
-                text: "工具",
-                items: [
-                  { text: "在线默写单词", link: "/docs/在线应用/工具/在线默写单词" },
-                  { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
-                  { text: "坐标转换", link: "/docs/在线应用/工具/坐标转换" },
-                  { text: "Base64 编解码", link: "/docs/在线应用/工具/Base64编解码" },
-                  // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
-                  // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
-                  { text: "百度地图瓦片下载", link: "/docs/在线应用/工具/百度地图瓦片下载" },
-                  { text: "在线 iframe 测试", link: "/docs/在线应用/工具/在线iframe测试" },
+                text: "游戏", items: [
+                  { text: "FC 童年小霸王", link: "/pages/game" },
+                  { text: "Java 经典游戏", link: "/pages/javaGames" },
+                  // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
                 ]
-              }
-            ]
-          },
-          { text: "资源收集", link: "/docs/资源收集/介绍" },
-          {
-            text: "文章",
-            items: [
-              {
-                text: "JS 库",
-                link: "/docs/文章/JS Lib/百度地图，高德地图，腾讯地图，天地图等坐标互转",
               },
-              { text: "Vue3 业务组件", link: "/docs/文章/vue3组件/快速上手" },
-              { text: "前端文章", link: "/docs/文章/前端/音频频谱" },
+              // { text: "GPT", link: "/pages/chatGPT" },
               {
-                text: "技术教程",
-                link: "/docs/文章/技术教程/v2rarN搭配SwitchyOmega自动代理",
+                text: "在线应用", items: [
+                  // {
+                  //   text: "小游戏",
+                  //   collapsed: true,
+                  //   items: [
+                  //     { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
+                  //     { text: "猜英雄联盟", link: "/docs/在线应用/小游戏/猜英雄联盟" },
+                  //     { text: "猜电影", link: "/docs/在线应用/小游戏/猜电影" },
+                  //     { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
+                  //     { text: "猜音乐", link: "/docs/在线应用/小游戏/猜音乐" },
+                  //     { text: "js问题测验", link: "/docs/在线应用/小游戏/js问题测验" },
+                  //     { text: "二次元浓度测试", link: "/docs/在线应用/小游戏/二次元浓度测试" },
+                  //     { text: "一言", link: "/docs/在线应用/小游戏/一言" },
+                  //     { text: "一句", link: "/docs/在线应用/小游戏/一句" },
+                  //     { text: "早报", link: "/docs/在线应用/小游戏/早报" },
+                  //     { text: "彩虹屁", link: "/docs/在线应用/小游戏/彩虹屁" },
+                  //     { text: "毒鸡汤", link: "/docs/在线应用/小游戏/毒鸡汤" },
+                  //     { text: "舔狗日记", link: "/docs/在线应用/小游戏/舔狗日记" },
+                  //     { text: "网易云热评", link: "/docs/在线应用/小游戏/网易云热评" },
+                  //     { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
+                  //     { text: "历史上的今天", link: "/docs/在线应用/小游戏/历史上的今天" },
+                  //     { text: "动漫里那些可爱女主", link: "/docs/在线应用/小游戏/动漫里那些可爱女主" },
+                  //   ],
+                  // },
+                  {
+                    text: "工具",
+                    items: [
+                      { text: "在线默写单词", link: "/docs/在线应用/工具/在线默写单词" },
+                      { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
+                      { text: "坐标转换", link: "/docs/在线应用/工具/坐标转换" },
+                      { text: "Base64 编解码", link: "/docs/在线应用/工具/Base64编解码" },
+                      // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
+                      // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
+                      { text: "百度地图瓦片下载", link: "/docs/在线应用/工具/百度地图瓦片下载" },
+                      { text: "在线 iframe 测试", link: "/docs/在线应用/工具/在线iframe测试" },
+                    ]
+                  }
+                ]
               },
-              { text: "计算机相关", link: "/docs/文章/计算机相关/ASCII码表" },
               {
-                text: "系统软件相关",
-                link: "/docs/文章/系统软件相关/vscode更新功能会被禁用",
-              },
-              { text: "CAD Auto Lisp", link: "/docs/文章/AutoLisp/AutoLisp介绍" },
-            ],
-          },
-          {
-            text: "前端",
-            items: [
-              { text: "JavaScript", link: "/docs/JavaScript/基本概念/变量" },
-              { text: "ES6", link: "/docs/ES6/变量声明与解构" },
-              {
-                text: "框架",
+                text: "推荐文章",
                 items: [
-                  { text: "Pixi.js", link: "/docs/框架/pixi.js/基本图形绘制" },
-                  { text: "Openlayers", link: "/docs/框架/openlayers示例/地图控件/导航控件" },
+                  { text: "资源收集", link: "/docs/资源收集/介绍" },
+                  {
+                    text: "JS 库",
+                    link: "/docs/文章/JS Lib/百度地图，高德地图，腾讯地图，天地图等坐标互转",
+                  },
+                  { text: "Vue3 业务组件", link: "/docs/文章/vue3组件/快速上手" },
+                  { text: "前端文章", link: "/docs/文章/前端/音频频谱" },
+                  {
+                    text: "技术教程",
+                    link: "/docs/文章/技术教程/v2rarN搭配SwitchyOmega自动代理",
+                  },
                 ],
               },
               {
-                text: "进阶",
+                text: "前端",
                 items: [
+                  { text: "Pixi.js", link: "/docs/框架/pixi.js/基本图形绘制" },
+                  { text: "Openlayers", link: "/docs/框架/openlayers示例/地图控件/导航控件" },
                   { text: "Cesium", link: "/docs/进阶/Cesium/基础配置" },
                   { text: "Flutter", link: "/docs/进阶/Flutter/01-Flutter" },
                   {
@@ -526,34 +518,34 @@ export default defineConfig({
                   }
                 ],
               },
-            ],
-          },
-          {
-            text: "服务端",
-            items: [
-              { text: "Python", link: "/docs/服务端/Python/01-初识" },
-              { text: "Java", link: "/docs/服务端/java/01-初识" },
-              { text: "C 语言", link: "/docs/服务端/C语言/概述" },
-              { text: "部署", link: "/docs/服务端/部署/docker" },
-              { text: "Node.js", link: "/docs/服务端/Node.js/模块引入" },
-              { text: "MySql", link: "/docs/服务端/MySql" },
-            ],
-          },
-          {
-            text: "其他",
-            items: [
-              { text: "面试", link: "/docs/关于/面试" },
-              // { text: "我的云盘", link: "/docs/关于/我的云盘" },
-              { text: "英语", link: "/docs/English/主语" },
-            ],
-          },
-          {
-            text: "关于",
-            items: [
-              { text: "更新日志", link: "/docs/关于/更新日志" },
-              { text: "支持我", link: "/docs/关于/支持我" },
-              // { text: "交流群", link: "/docs/关于/交流群" },
-            ],
+              {
+                text: "服务端",
+                items: [
+                  { text: "Python", link: "/docs/服务端/Python/01-初识" },
+                  { text: "Java", link: "/docs/服务端/java/01-初识" },
+                  { text: "C 语言", link: "/docs/服务端/C语言/概述" },
+                  { text: "部署", link: "/docs/服务端/部署/docker" },
+                  { text: "Node.js", link: "/docs/服务端/Node.js/模块引入" },
+                  { text: "MySql", link: "/docs/服务端/MySql" },
+                ],
+              },
+              {
+                text: "其他",
+                items: [
+                  { text: "面试", link: "/docs/关于/面试" },
+                  // { text: "我的云盘", link: "/docs/关于/我的云盘" },
+                  { text: "英语", link: "/docs/English/主语" },
+                ],
+              },
+              {
+                text: "关于",
+                items: [
+                  { text: "更新日志", link: "/docs/关于/更新日志" },
+                  { text: "支持我", link: "/docs/关于/支持我" },
+                  // { text: "交流群", link: "/docs/关于/交流群" },
+                ],
+              },
+            ]
           },
         ],
         sidebar: {
@@ -926,7 +918,6 @@ export default defineConfig({
               ],
             },
           ],
-
 
           "/docs/JavaScript/": [
             {

@@ -1,40 +1,17 @@
 <template>
-  <el-config-provider
-    :locale="locale"
-    v-if="isVSCode"
-  >
+  <el-config-provider :locale="locale" v-if="isVSCode">
     <VPContent :class="getCurClass"> </VPContent>
   </el-config-provider>
   <template v-else>
+
     <el-config-provider :locale="locale">
       <defaultLayout :class="layoutClass">
-        <template
-          #aside-outline-after
-          v-if="!isWebFullScreen"
-        >
-          <ins
-            class="adsbygoogle"
-            style="display: block; height: 230px"
-            data-ad-client="ca-pub-6209757986574246"
-            data-ad-slot="6047648655"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          >
+        <template #aside-outline-after v-if="!isWebFullScreen">
+          <ins class="adsbygoogle" style="display: block; height: 230px" data-ad-client="ca-pub-6209757986574246"
+            data-ad-slot="6047648655" data-ad-format="auto" data-full-width-responsive="true">
           </ins>
         </template>
-        <template
-          #doc-before
-          v-if="!isMobile && !isWebFullScreen"
-        >
-          <ins
-            class="adsbygoogle"
-            style="display: block; margin: 1em auto"
-            data-ad-client="ca-pub-6209757986574246"
-            data-ad-slot="9323844417"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          >
-          </ins>
+        <template #doc-before v-if="!isMobile && !isWebFullScreen">
           <div class="page_pv">
             本文总阅读量
             <span id="busuanzi_value_page_pv">
@@ -58,11 +35,7 @@
     /> -->
 
     <ClientOnly v-if="isWebFullScreen">
-      <button
-        class="webfullscreen-exit"
-        type="button"
-        @click="exitWebFullScreen"
-      >
+      <button class="webfullscreen-exit" type="button" @click="exitWebFullScreen">
         退出网页全屏
       </button>
     </ClientOnly>
@@ -71,6 +44,25 @@
 
 <script setup lang="ts">
 import zhCn from "element-plus/es/locale/lang/zh-cn"
+import en from "element-plus/es/locale/lang/en"
+import zhTw from "element-plus/es/locale/lang/zh-tw"
+import ja from "element-plus/es/locale/lang/ja"
+import ko from "element-plus/es/locale/lang/ko"
+import fr from "element-plus/es/locale/lang/fr"
+import de from "element-plus/es/locale/lang/de"
+import es from "element-plus/es/locale/lang/es"
+import pt from "element-plus/es/locale/lang/pt"
+import ru from "element-plus/es/locale/lang/ru"
+import ar from "element-plus/es/locale/lang/ar"
+import hi from "element-plus/es/locale/lang/hi"
+import it from "element-plus/es/locale/lang/it"
+import nl from "element-plus/es/locale/lang/nl"
+import tr from "element-plus/es/locale/lang/tr"
+import vi from "element-plus/es/locale/lang/vi"
+import th from "element-plus/es/locale/lang/th"
+import id from "element-plus/es/locale/lang/id"
+import pl from "element-plus/es/locale/lang/pl"
+import sv from "element-plus/es/locale/lang/sv"
 import defaultLayout from "vitepress/dist/client/theme-default/Layout.vue"
 import VPContent from "vitepress/dist/client/theme-default/components/VPContent.vue"
 import { useRoute, useRouter, useData, inBrowser } from "vitepress"
@@ -119,9 +111,8 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
       duration: 320,
       easing: "ease-in",
       fill: "forwards",
-      pseudoElement: `::view-transition-${
-        data.isDark.value ? "old" : "new"
-      }(root)`,
+      pseudoElement: `::view-transition-${data.isDark.value ? "old" : "new"
+        }(root)`,
     }
   )
 })
@@ -147,7 +138,30 @@ const layoutClass = computed(() => {
 
 const showGlobalComment = computed(() => data.frontmatter.value.layout)
 
-const locale = zhCn
+const elLocaleMap: Record<string, any> = {
+  "zh-CN": zhCn,
+  "en": en,
+  "zh-TW": zhTw,
+  "ja": ja,
+  "ko": ko,
+  "fr": fr,
+  "de": de,
+  "es": es,
+  "pt": pt,
+  "ru": ru,
+  "ar": ar,
+  "hi": hi,
+  "it": it,
+  "nl": nl,
+  "tr": tr,
+  "vi": vi,
+  "th": th,
+  "id": id,
+  "pl": pl,
+  "sv": sv,
+}
+
+const locale = computed(() => elLocaleMap[data.lang.value] ?? zhCn)
 
 let script: any
 onMounted(async () => {
@@ -158,8 +172,8 @@ onMounted(async () => {
 
   script = await import("busuanzi.pure.js")
 
-  // google 文章内嵌广告
-  ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
+    // google 文章内嵌广告
+    ; ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
 
   if (import.meta.env.DEV) {
     const v = (await import("vconsole")) as any
@@ -252,6 +266,7 @@ if (inBrowser) {
 .vp-webfullscreen {
   --vp-layout-max-width: 0;
   --vp-nav-height: 0;
+
   .VPNav,
   .VPNavBar,
   .VPNavScreen,
@@ -269,6 +284,7 @@ if (inBrowser) {
 
 // VSCode 环境下的样式优化
 .vscode-embedded {
+
   // 隐藏导航栏和侧边栏，只保留内容
   .VPNav,
   .VPSidebar,
@@ -312,3 +328,4 @@ if (inBrowser) {
   z-index: 9999;
 }
 </style>
+
