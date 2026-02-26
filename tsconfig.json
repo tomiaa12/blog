@@ -32,5 +32,5 @@
     "node_modules",
     "dist/**"
   ],
-  "include": ["src/**/*", "src/**/*.vue", "src/**/*.d.ts"]
+  "include": ["src/**/*", "src/**/*.vue", "src/**/*.d.ts", "extension"]
 }

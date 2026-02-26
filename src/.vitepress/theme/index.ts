@@ -1,9 +1,9 @@
 import { Theme, inBrowser, useRoute, useData } from "vitepress"
 import DefaultTheme from "vitepress/theme"
-import Layout from "../../layout/index.vue"
+import Layout from "@/layout/index.vue"
 import useElIcon from "@element-plus/icons-vue/global"
 import ElementPlus from "element-plus"
-import "../../style/index.scss"
+import "@/style/index.scss"
 import NProgress from "nprogress"
 import giscusTalk from "vitepress-plugin-comment-with-giscus"
 
