@@ -2,13 +2,12 @@
   <div class="VPFeatures VPHomeFeatures">
     <div class="container">
       <div class="category-grid">
-
         <div
           v-for="category in categories"
           :key="category.name"
           class="category-card-container"
           :class="{
-            'is-mobile': isMobile
+            'is-mobile': isMobile,
           }"
         >
           <div class="category-card">
@@ -69,10 +68,10 @@ const categories = ref<Category[]>([
     name: "精选文章",
     icon: "📚",
     articles: [
-      { title: "Vue3 组件库", link: "/docs/文章/vue3组件/快速上手" },
-      { title:"预览 Word 文件",link:"/docs/文章/前端/vue预览word文件docx",},
-      { title:"预览 Excel 表格",link:"/docs/文章/前端/vue预览Excel表格",},
-      { title:"资源收集",link:"/docs/资源收集/前端资源收集/UI库",},
+      { title: "Vue3 组件库", link: "/docs/文章/vue3-组件/快速上手" },
+      { title: "预览 Word 文件", link: "/docs/文章/前端/vue预览word文件docx" },
+      { title: "预览 Excel 表格", link: "/docs/文章/前端/vue预览Excel表格" },
+      { title: "资源收集", link: "/docs/资源收集/前端资源收集/UI库" },
     ],
   },
   {
@@ -80,7 +79,10 @@ const categories = ref<Category[]>([
     icon: "🧪",
     articles: [
       { title: "Pixi.js", link: "/docs/框架/pixi.js/谷歌恐龙小游戏" },
-      { title: "OpenLayers", link: "/docs/框架/openlayers示例/地图控件/导航控件" },
+      {
+        title: "OpenLayers",
+        link: "/docs/框架/openlayers-示例/地图控件/导航控件",
+      },
       { title: "Cesium", link: "/docs/进阶/Cesium/基础配置" },
       { title: "Three.js", link: "/docs/进阶/Three.js/07gsap处理动画.html" },
     ],
@@ -128,7 +130,7 @@ const categories = ref<Category[]>([
 }
 @media (min-width: 768px) {
   .category-card-container {
-      width: calc(100% / 3);
+    width: calc(100% / 3);
   }
 }
 .category-card:hover {
@@ -141,7 +143,7 @@ const categories = ref<Category[]>([
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
-  padding: 0 8px 16px ;
+  padding: 0 8px 16px;
   border-bottom: 2px solid var(--vp-c-divider);
 }
 

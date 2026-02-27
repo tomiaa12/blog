@@ -33,7 +33,7 @@ new CanvasGraffiti({
 
 :::details 查看代码
 
-<<< @/apps/zh/docs/文章/JS Lib/components/canvasGraffiti.vue
+<<< @/zh/docs/文章/JS Lib/components/canvasGraffiti.vue
 
 :::
 

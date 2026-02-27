@@ -59,5 +59,5 @@ import scrollBorder from "./components/scrollBorder.vue"
 ## 此页面代码
 
 ::: details 点击查看
-<<< @/apps/zh/docs/文章/前端/components/scrollBorder.vue
+<<< @/zh/docs/文章/前端/components/scrollBorder.vue
 :::

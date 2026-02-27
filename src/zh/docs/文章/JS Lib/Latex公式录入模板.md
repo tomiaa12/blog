@@ -38,6 +38,6 @@ ins.onInput = (latex, detail) => {
 
 :::details 查看代码
 
-<<< @/apps/zh/docs/文章/JS Lib/components/latexTemplate.vue
+<<< @/zh/docs/文章/JS Lib/components/latexTemplate.vue
 
 :::
