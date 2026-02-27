@@ -9,15 +9,15 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElAutoResizer: typeof import('element-plus/es')['ElAutoResizer']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElEmpty: typeof import('element-plus/es')['ElEmpty']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElIconIphone: typeof import('@element-plus/icons-vue')['Iphone']
     ElIconLoading: typeof import('@element-plus/icons-vue')['Loading']
-    ElImage: typeof import('element-plus/es')['ElImage']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElPopover: typeof import('element-plus/es')['ElPopover']
     ElTableV2: typeof import('element-plus/es')['ElTableV2']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
+    ElTag: typeof import('element-plus/es')['ElTag']
   }
 }

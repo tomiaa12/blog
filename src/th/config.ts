@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "แปลงรูปแบบ",
+        items: [
+          { text: "แปลงเสียง", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "เกม",
+        items: [
+          { text: "เกม FC คลาสสิก", link: "/pages/game" },
+          { text: "เกม Java คลาสสิก", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "กลับสู่ด้านบน",
     sidebarMenuLabel: "สารบัญ",
     darkModeSwitchLabel: "สลับโหมด",

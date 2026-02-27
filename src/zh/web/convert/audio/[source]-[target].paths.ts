@@ -16,10 +16,10 @@ export interface AudioFormat {
 }
 
 export const audioFormats: Record<string, AudioFormat> = {
-  mp3: {
-    label: 'MP3',
-    desc: 'MP3（MPEG-1 Audio Layer III）是最流行的有损压缩音频格式，兼容性极强，适合日常音乐播放',
-  },
+  // mp3: {
+  //   label: 'MP3',
+  //   desc: 'MP3（MPEG-1 Audio Layer III）是最流行的有损压缩音频格式，兼容性极强，适合日常音乐播放',
+  // },
   wav: {
     label: 'WAV',
     desc: 'WAV 是微软开发的无损音频格式，音质完美无损，但文件体积较大，适合专业录音与编辑',
@@ -161,6 +161,7 @@ export function generateAudioRoutes(
       return { params }
     })
 }
+
 export default {
   paths: generateAudioRoutes(generateMeta),
 }

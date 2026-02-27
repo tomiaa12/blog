@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "Formatkonvertierung",
+        items: [
+          { text: "Audiokonvertierung", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Spiele",
+        items: [
+          { text: "NES Retro-Spiele", link: "/pages/game" },
+          { text: "Java Klassikspiele", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "Nach oben",
     sidebarMenuLabel: "Inhaltsverzeichnis",
     darkModeSwitchLabel: "Modus wechseln",

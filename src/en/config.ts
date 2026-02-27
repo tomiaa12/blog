@@ -14,11 +14,18 @@ export default defineAdditionalConfig({
   themeConfig: {
     nav: [
       {
-        text: "Games", items: [
+        text: "Format Conversion",
+        items: [
+          { text: "Audio Conversion", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Games",
+        items: [
           { text: "NES Retro Games", link: "/pages/game" },
           { text: "Java Classic Games", link: "/pages/javaGames" },
-        ]
+        ],
       },
-    ]
+    ],
   }
 })

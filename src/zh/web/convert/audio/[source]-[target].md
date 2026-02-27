@@ -12,7 +12,7 @@ pageClass: widescreen page-hero
 
 <script setup>
 import { useData } from 'vitepress'
-import Convert from './Convert/index.vue'
+import Convert from '@/zh/web/convert/audio/Convert/index.vue'
 
 const { params } = useData()
 </script>

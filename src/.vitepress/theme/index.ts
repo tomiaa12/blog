@@ -73,14 +73,28 @@ export default {
         categoryId: "DIC_kwDONlUJA84ClsSx",
         mapping: "pathname", // default: `pathname`
         inputPosition: "top", // default: `top`
-        // lang: 'en', // default: `zh-CN`
-        // i18n setting (Note: This configuration will override the default language set by lang)
-        // Configured as an object with key-value pairs inside:
-        // [your i18n configuration name]: [corresponds to the language pack name in Giscus]
-        // locales: {
-        //     'zh-Hans': 'zh-CN',
-        //     'en-US': 'en'
-        // },
+        locales: {
+          "zh-CN": "zh-CN",
+          "en": "en",
+          "zh-TW": "zh-TW",
+          "ja": "ja",
+          "ko": "ko",
+          "fr": "fr",
+          "de": "de",
+          "es": "es",
+          "pt": "pt",
+          "ru": "ru",
+          "ar": "ar",
+          "hi": "hi",
+          "it": "it",
+          "nl": "nl",
+          "tr": "tr",
+          "vi": "vi",
+          "th": "th",
+          "id": "id",
+          "pl": "pl",
+          "sv": "sv",
+        },
         homePageShowComment: true, // Whether to display the comment area on the homepage, the default is false
         // lightTheme: 'light', // default: `light`
         // darkTheme: 'transparent_dark', // default: `transparent_dark`

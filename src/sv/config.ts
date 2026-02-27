@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "Formatkonvertering",
+        items: [
+          { text: "Ljudkonvertering", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Spel",
+        items: [
+          { text: "FC retro-spel", link: "/pages/game" },
+          { text: "Java klassiska spel", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "Tillbaka till toppen",
     sidebarMenuLabel: "Innehållsförteckning",
     darkModeSwitchLabel: "Byt läge",

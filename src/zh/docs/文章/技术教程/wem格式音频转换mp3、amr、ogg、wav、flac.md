@@ -1,6 +1,6 @@
 # wem 格式音频转换 mp3、amr、ogg、wav、flac
 
-**推荐**：[aaConvert在线转换](https://www.aaconvert.com/)
+**推荐**：[在线转换](/web/convert/audio/wem-wav.html)
 
 如果你从游戏文件解包得到的音频是.wem格式，或.bnk格式，本文解决这种格式播放与转码
 

@@ -182,6 +182,20 @@ export default defineAdditionalConfig({
     },
     nav: [
       {
+        text: "格式转换",
+        items: [
+          { text: "音频转换", link: "/web/convert/audio" },
+        ]
+      },
+      {
+        text: "游戏",
+        items: [
+          { text: "FC 童年小霸王", link: "/pages/game" },
+          { text: "Java 经典游戏", link: "/pages/javaGames" },
+          // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
+        ],
+      },
+      {
         text: "工具",
         items: [
           { text: "在线默写单词", link: "/docs/在线应用/工具/在线默写单词" },
@@ -215,14 +229,7 @@ function getNav() {
       items: [
         { text: "导航", link: "/pages/navigation" },
         { text: "软件", link: "/pages/software" },
-        {
-          text: "游戏",
-          items: [
-            { text: "FC 童年小霸王", link: "/pages/game" },
-            { text: "Java 经典游戏", link: "/pages/javaGames" },
-            // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
-          ],
-        },
+        
         // { text: "GPT", link: "/pages/chatGPT" },
         // {
         //   text: "小游戏",

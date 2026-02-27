@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "फ़ॉर्मेट रूपांतरण",
+        items: [
+          { text: "ऑडियो रूपांतरण", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "गेम्स",
+        items: [
+          { text: "FC रेट्रो गेम्स", link: "/pages/game" },
+          { text: "Java क्लासिक गेम्स", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "शीर्ष पर वापस जाएं",
     sidebarMenuLabel: "विषय सूची",
     darkModeSwitchLabel: "मोड बदलें",

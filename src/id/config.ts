@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "Konversi format",
+        items: [
+          { text: "Konversi audio", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Permainan",
+        items: [
+          { text: "Game retro FC", link: "/pages/game" },
+          { text: "Game klasik Java", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "Kembali ke atas",
     sidebarMenuLabel: "Daftar Isi",
     darkModeSwitchLabel: "Ganti mode",

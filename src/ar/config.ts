@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "تحويل الصيغ",
+        items: [
+          { text: "تحويل الصوت", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "ألعاب",
+        items: [
+          { text: "ألعاب FC الكلاسيكية", link: "/pages/game" },
+          { text: "ألعاب Java الكلاسيكية", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "العودة إلى الأعلى",
     sidebarMenuLabel: "الفهرس",
     darkModeSwitchLabel: "تبديل الوضع",

@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "Format dönüştürme",
+        items: [
+          { text: "Ses dönüştürme", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Oyunlar",
+        items: [
+          { text: "FC retro oyunları", link: "/pages/game" },
+          { text: "Java klasik oyunları", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "Başa dön",
     sidebarMenuLabel: "İçindekiler",
     darkModeSwitchLabel: "Modu değiştir",

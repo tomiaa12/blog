@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "格式轉換",
+        items: [
+          { text: "音訊轉換", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "遊戲",
+        items: [
+          { text: "FC 童年小霸王", link: "/pages/game" },
+          { text: "Java 經典遊戲", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "返回頂部",
     sidebarMenuLabel: "目錄",
     darkModeSwitchLabel: "切換模式",

@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "형식 변환",
+        items: [
+          { text: "오디오 변환", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "게임",
+        items: [
+          { text: "FC 레트로 게임", link: "/pages/game" },
+          { text: "Java 클래식 게임", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "맨 위로",
     sidebarMenuLabel: "목차",
     darkModeSwitchLabel: "모드 전환",

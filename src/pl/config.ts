@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "Konwersja formatów",
+        items: [
+          { text: "Konwersja audio", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Gry",
+        items: [
+          { text: "Retro gry FC", link: "/pages/game" },
+          { text: "Klasyczne gry Java", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "Powrót na górę",
     sidebarMenuLabel: "Spis treści",
     darkModeSwitchLabel: "Zmień tryb",

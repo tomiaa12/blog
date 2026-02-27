@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "フォーマット変換",
+        items: [
+          { text: "音声変換", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "ゲーム",
+        items: [
+          { text: "FC レトロゲーム", link: "/pages/game" },
+          { text: "Java クラシックゲーム", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "トップへ戻る",
     sidebarMenuLabel: "目次",
     darkModeSwitchLabel: "モード切替",

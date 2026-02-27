@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "Chuyển đổi định dạng",
+        items: [
+          { text: "Chuyển đổi âm thanh", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Trò chơi",
+        items: [
+          { text: "Trò chơi FC cổ điển", link: "/pages/game" },
+          { text: "Trò chơi Java cổ điển", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "Lên đầu trang",
     sidebarMenuLabel: "Mục lục",
     darkModeSwitchLabel: "Chuyển đổi chế độ",

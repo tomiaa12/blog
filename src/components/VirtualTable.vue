@@ -54,8 +54,12 @@ export interface ColumnConfig {
   prop: string
   /** 列标题 */
   label: string
-  /** 列宽，默认 150 */
+  /** 列宽，默认取 minWidth，否则 150 */
   width?: number
+  /** 最小列宽 */
+  minWidth?: number
+  /** 最大列宽 */
+  maxWidth?: number
   /** 对齐方式 */
   align?: "left" | "center" | "right"
   /** 固定列，true 等同于 left */
@@ -66,8 +70,9 @@ export interface ColumnConfig {
    * - `progress`：el-progress 进度条，读取 prop 值作为百分比
    * - `tag`：el-tag 标签
    * - `action`：操作列，渲染若干操作按钮
+   * - `preview`：媒体预览，根据文件类型渲染 audio 或 img
    */
-  type?: "default" | "progress" | "tag" | "action"
+  type?: "default" | "progress" | "tag" | "action" | "preview"
 
   // ── progress 专属 ──────────────────────────────────────
   /** 进度条状态 */
@@ -80,6 +85,8 @@ export interface ColumnConfig {
   progressColor?: string | { color: string; percentage: number }[]
 
   // ── tag 专属 ──────────────────────────────────────────
+  /** 将单元格原始值转为显示文字，不传则直接显示原始值 */
+  formatter?: (value: any) => string
   /** 默认 tag 类型 */
   tagType?: TagType
   /** 根据单元格值映射不同 tag 类型 */
@@ -92,6 +99,17 @@ export interface ColumnConfig {
   // ── action 专属 ──────────────────────────────────────
   /** 操作列按钮配置列表 */
   actions?: ActionItem[]
+
+  // ── preview 专属 ─────────────────────────────────────
+  /**
+   * 媒体类型，决定渲染 audio 还是 img。
+   * 可传固定字符串，也可传函数按行动态判断。
+   * 不传时根据常见扩展名自动推断（从 rowData.name 取后缀）。
+   */
+  previewKind?:
+    | "audio"
+    | "image"
+    | ((rowData: Record<string, any>) => "audio" | "image")
 }
 </script>
 
@@ -138,7 +156,7 @@ const internalColumns = computed<Column<any>[]>(() =>
       key: col.prop,
       dataKey: col.prop,
       title: col.label,
-      width: col.width ?? 150,
+      width: col.width ?? col.minWidth ?? 150,
       align: col.align ?? "left",
       fixed:
         col.fixed === true ? true : col.fixed ? fixedMap[col.fixed] : undefined,
@@ -161,6 +179,9 @@ const internalColumns = computed<Column<any>[]>(() =>
     } else if (col.type === "tag") {
       base.cellRenderer = ({ cellData }: { cellData: any }) => {
         const type = col.tagMap?.[cellData] ?? col.tagType ?? undefined
+        const label = col.formatter
+          ? col.formatter(cellData)
+          : String(cellData ?? "")
         return h(
           ElTag,
           {
@@ -168,9 +189,60 @@ const internalColumns = computed<Column<any>[]>(() =>
             effect: col.tagEffect ?? "light",
             round: col.tagRound ?? false,
           },
-          { default: () => String(cellData ?? "") }
+          { default: () => label }
         )
       }
+    } else if (col.type === "preview") {
+      base.cellRenderer = ({
+        cellData,
+        rowData,
+      }: {
+        cellData: any
+        rowData: Record<string, any>
+      }) => {
+        if (!cellData) return h("span", { style: "color:#aaa" }, "—")
+
+        let kind: "audio" | "image"
+        if (typeof col.previewKind === "function") {
+          kind = col.previewKind(rowData)
+        } else if (col.previewKind) {
+          kind = col.previewKind
+        } else {
+          const ext =
+            String(rowData.name ?? "")
+              .split(".")
+              .pop()
+              ?.toLowerCase() ?? ""
+          const imageExts = [
+            "jpg",
+            "jpeg",
+            "png",
+            "gif",
+            "webp",
+            "bmp",
+            "svg",
+            "avif",
+          ]
+          kind = imageExts.includes(ext) ? "image" : "audio"
+        }
+
+        if (kind === "image") {
+          return h("img", {
+            src: cellData,
+            style:
+              "max-height:40px;max-width:100%;object-fit:contain;border-radius:4px",
+          })
+        }
+        return h("audio", {
+          src: cellData,
+          controls: true,
+          preload: "none",
+          style: "height:32px;max-width:100%;vertical-align:middle",
+        })
+      }
+    } else if (col.formatter) {
+      base.cellRenderer = ({ cellData }: { cellData: any }) =>
+        h("span", {}, col.formatter!(cellData))
     } else if (col.type === "action" && col.actions?.length) {
       base.cellRenderer = ({ rowData }: { rowData: Record<string, any> }) => {
         const buttons = col

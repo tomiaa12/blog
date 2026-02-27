@@ -14,6 +14,21 @@ export default defineAdditionalConfig({
     ],
   ],
   themeConfig: {
+    nav: [
+      {
+        text: "Formaatconversie",
+        items: [
+          { text: "Audioconversie", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Spellen",
+        items: [
+          { text: "FC retro spellen", link: "/pages/game" },
+          { text: "Java klassieke spellen", link: "/pages/javaGames" },
+        ],
+      },
+    ],
     returnToTopLabel: "Terug naar boven",
     sidebarMenuLabel: "Inhoudsopgave",
     darkModeSwitchLabel: "Modus wisselen",
