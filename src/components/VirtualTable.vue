@@ -8,6 +8,7 @@
         <el-table-v2
           :columns="internalColumns"
           :data="data"
+          fixed
           :width="w"
           :height="h"
           :row-height="rowHeight"

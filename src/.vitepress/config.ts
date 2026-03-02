@@ -212,6 +212,8 @@ export default defineConfig({
         "three",
         "dat.gui",
       ],
+      // ffmpeg.wasm 依赖内部 worker，预构建会导致 worker.js 路径失效
+      exclude: ["@ffmpeg/ffmpeg"],
     },
     ssr: {
       noExternal: [

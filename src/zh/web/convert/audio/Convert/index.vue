@@ -22,6 +22,7 @@ import VirtualTable from "@/components/VirtualTable.vue"
 import type { ColumnConfig } from "@/components/VirtualTable.vue"
 import { useData } from "vitepress"
 import { convertFile } from "./hooks/index"
+import { isMobile } from "@/utils"
 
 const { t } = useI18n({ useScope: "local" })
 const { params } = useData()
@@ -97,7 +98,7 @@ const columns = computed<ColumnConfig[]>(() => [
   {
     prop: "name",
     label: t("colFileName"),
-    minWidth: 220,
+    minWidth: 150,
   },
   {
     prop: "size",
@@ -136,7 +137,7 @@ const columns = computed<ColumnConfig[]>(() => [
   {
     prop: "_previewUrl",
     label: t("colPreview"),
-    minWidth: 300,
+    minWidth: 280,
     type: "preview",
     previewKind: "audio",
   },
@@ -144,8 +145,8 @@ const columns = computed<ColumnConfig[]>(() => [
     prop: "actions",
     label: t("colActions"),
     align: "left",
-    fixed: "right",
-    minWidth: 300,
+    fixed: isMobile.value ? undefined : "right",
+    minWidth: 200,
     type: "action",
     actions: [
       {

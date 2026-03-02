@@ -1,60 +1,36 @@
 export interface AudioFormat {
-  label: string
   desc: string
 
   /**
-   * 当前格式允许转出的目标格式
-   * 如果存在，则只能转到数组中的格式
+   * 支持哪些解码器解码该格式（输入能力）
    */
-  canConvertTo?: string[]
+  decoders?: Decoder[]
 
   /**
-   * 当前格式允许被哪些格式转入
-   * 如果存在，则只能从数组中的格式转入
+   * 支持哪些编码器编码该格式（输出能力）
    */
-  canConvertFrom?: string[]
+  encoders?: Encoder[]
 }
 
-export const audioFormats: Record<string, AudioFormat> = {
-  // mp3: {
-  //   label: 'MP3',
-  //   desc: 'MP3（MPEG-1 Audio Layer III）是最流行的有损压缩音频格式，兼容性极强，适合日常音乐播放',
-  // },
-  wav: {
-    label: 'WAV',
-    desc: 'WAV 是微软开发的无损音频格式，音质完美无损，但文件体积较大，适合专业录音与编辑',
-  },
-  // ogg: {
-  //   label: 'OGG',
-  //   desc: 'OGG Vorbis 是完全免费开放的有损压缩格式，相同码率下音质优于 MP3，广泛用于游戏音效',
-  // },
-  // flac: {
-  //   label: 'FLAC',
-  //   desc: 'FLAC（Free Lossless Audio Codec）是最流行的无损压缩格式，音质与 WAV 完全一致但体积更小',
-  // },
-  // aac: {
-  //   label: 'AAC',
-  //   desc: 'AAC（Advanced Audio Coding）是 MP3 的继任者，相同码率下音质更优',
-  // },
-  // m4a: {
-  //   label: 'M4A',
-  //   desc: 'M4A 是苹果推出的音频容器格式，通常包含 AAC 编码音频',
-  // },
-  // wma: {
-  //   label: 'WMA',
-  //   desc: 'WMA（Windows Media Audio）是微软开发的专有音频格式',
-  // },
-  // opus: {
-  //   label: 'Opus',
-  //   desc: 'Opus 是新一代开放音频编解码格式，低码率下音质极佳',
-  // },
+export type Decoder = 'ffmpeg' | 'vgmstream'
+export type Encoder = 'ffmpeg'
 
-  // ✅ 特殊单向格式
+export type PipelineType = 'direct-ffmpeg' | 'vgmstream+ffmpeg'
+
+export const audioFormats: Record<string, AudioFormat> = {
+  wav: {
+    desc: 'WAV 是微软开发的无损音频格式，音质完美无损，但文件体积较大，适合专业录音与编辑',
+    decoders: ['ffmpeg'],
+    encoders: ['ffmpeg'],
+  },
+  mp3: {
+    desc: 'MP3（MPEG-1 Audio Layer III）是最流行的有损压缩音频格式，兼容性极强，适合日常音乐播放',
+    decoders: ['ffmpeg'],
+    encoders: ['ffmpeg'],
+  },
   wem: {
-    label: 'WEM',
     desc: 'WEM 是游戏音频格式，常见于 Wwise 引擎',
-    canConvertTo: ['wav'],     // 只能转成 wav
-    canConvertFrom: [],        // 不允许任何格式转入
+    decoders: ['vgmstream'],
   },
 }
 
@@ -70,40 +46,48 @@ export interface RouteParams {
   keywords: string
 }
 
+export interface Pipeline {
+  type: PipelineType
+}
+
 /**
- * 判断是否允许转换
+ * 解析 source -> target 的转换管道
  */
-function canConvert(source: string, target: string): boolean {
-  if (source === target) return false
+export function resolvePipeline(
+  source: string,
+  target: string,
+  formats: Record<string, AudioFormat> = audioFormats,
+): Pipeline | null {
+  if (source === target) return null
 
-  const src = audioFormats[source]
-  const tgt = audioFormats[target]
+  const src = formats[source]
+  const tgt = formats[target]
 
-  if (!src || !tgt) return false
+  if (!src || !tgt) return null
 
-  // source 转出限制
-  if (src.canConvertTo) {
-    if (!src.canConvertTo.includes(target)) return false
+  // 1) ffmpeg 可直接解码 source 且可编码 target
+  if (src.decoders?.includes('ffmpeg') && tgt.encoders?.includes('ffmpeg')) {
+    return { type: 'direct-ffmpeg' }
   }
 
-  // target 转入限制
-  if (tgt.canConvertFrom) {
-    if (!tgt.canConvertFrom.includes(source)) return false
+  // 2) source 只能由 vgmstream 解码，后续经 wav 用 ffmpeg 编码目标格式
+  if (src.decoders?.includes('vgmstream') && tgt.encoders?.includes('ffmpeg')) {
+    return { type: 'vgmstream+ffmpeg' }
   }
 
-  return true
+  return null
 }
 
 /**
  * 生成所有合法的转换组合
  */
-function generatePairs(): [string, string][] {
-  const formats = Object.keys(audioFormats)
+function generatePairs(formatsMap: Record<string, AudioFormat>): [string, string][] {
+  const formats = Object.keys(formatsMap)
   const pairs: [string, string][] = []
 
   for (const source of formats) {
     for (const target of formats) {
-      if (canConvert(source, target)) {
+      if (resolvePipeline(source, target, formatsMap)) {
         pairs.push([source, target])
       }
     }
@@ -111,8 +95,6 @@ function generatePairs(): [string, string][] {
 
   return pairs
 }
-
-const pairs = generatePairs()
 
 /**
  * 生成 SEO 路由数据
@@ -134,25 +116,25 @@ export function generateAudioRoutes(
   customMeta: (source: string, target: string) => { title: string; description: string; keywords: string },
   customAudioFormats?: Record<string, Partial<AudioFormat>>,
 ) {
-  // 将 customAudioFormats 中的字段浅合并到对应格式，未传入的格式保持原样，
-  // 已有字段（如 canConvertTo/canConvertFrom）不会被覆盖，除非显式传入
-  const mergedFormats: Record<string, AudioFormat> = Object.fromEntries(
-    Object.entries(audioFormats).map(([key, format]) => [
-      key,
-      { ...format, ...customAudioFormats?.[key] },
-    ]),
-  )
+  const mergedFormats: Record<string, AudioFormat> = { ...audioFormats }
+
+  // 支持覆盖基础格式，也支持通过 customAudioFormats 新增格式
+  if (customAudioFormats) {
+    for (const [key, format] of Object.entries(customAudioFormats)) {
+      mergedFormats[key] = { ...mergedFormats[key], ...format } as AudioFormat
+    }
+  }
 
   return () =>
-    pairs.map(([source, target]) => {
+    generatePairs(mergedFormats).map(([source, target]) => {
       const src = mergedFormats[source]
       const tgt = mergedFormats[target]
 
       const params: RouteParams = {
         source,
         target,
-        sourceLabel: src.label,
-        targetLabel: tgt.label,
+        sourceLabel: source,
+        targetLabel: target,
         sourceDesc: src.desc,
         targetDesc: tgt.desc,
         ...customMeta(source, target),
