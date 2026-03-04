@@ -38,6 +38,6 @@ import SitePv from '@/components/SitePv.vue'
 
 <!-- <ArticleCards /> -->
 
-<!-- <!-- <GithubChart /> --> -->
+<!-- <!-- <GithubChart /> -->
 
 <SitePv />

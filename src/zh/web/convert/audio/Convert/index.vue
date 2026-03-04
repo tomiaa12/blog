@@ -27,13 +27,27 @@ import { isMobile } from "@/utils"
 const { t } = useI18n({ useScope: "local" })
 const { params } = useData()
 
-const targetFormat = computed(
-  () => (params.value?.targetLabel as string | undefined)?.toLowerCase() ?? ""
+const targetFormat = computed(() =>
+  (
+    (params.value?.target as string | undefined) ??
+    (params.value?.targetLabel as string | undefined) ??
+    ""
+  ).toLowerCase()
 )
 
 const accept = computed(() => {
-  const label = params.value?.sourceLabel as string | undefined
-  return label ? `.${label.toLowerCase()}` : undefined
+  const source =
+    (params.value?.sourceLabel as string | undefined) ??
+    (params.value?.source as string | undefined)
+  if (!source) return undefined
+
+  const exts = source
+    .split(",")
+    .map(item => item.trim().toLowerCase())
+    .filter(Boolean)
+    .map(item => `.${item}`)
+
+  return exts.length ? exts.join(",") : undefined
 })
 
 function formatFileSize(bytes: number) {

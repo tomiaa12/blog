@@ -35,6 +35,7 @@
     "@types/three": "^0.154.0",
     "conventional-changelog-cli": "^2.2.2",
     "inquirer": "^12.9.6",
+    "oxc-minify": "^0.116.0",
     "vite-plugin-pwa": "^1.2.0",
     "vite-svg-loader": "^4.0.0",
     "vitepress": "2.0.0-alpha.16",
@@ -99,5 +100,10 @@
   "bugs": {
     "url": "https://github.com/tomiaa12/kyx/issues"
   },
-  "homepage": "https://kuangyx.cn"
+  "homepage": "https://kuangyx.cn",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@latest"
+    }
+  }
 }

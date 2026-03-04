@@ -21,27 +21,35 @@
       :key="group.source"
       class="crl-group"
     >
-      <div class="crl-group-header">
-        <el-tag
-          type="primary"
-          effect="dark"
-          size="large"
-          class="crl-source-tag"
-        >
-          {{ group.sourceLabel }}
-        </el-tag>
-        <span class="crl-group-desc">{{ group.sourceDesc }}</span>
-      </div>
+      <h2 class="crl-group-header">
+        {{ group.sourceDesc }}
+      </h2>
+
+      <el-tabs
+        v-if="group.sourceTags.length > 1"
+        v-model="activeSourceTag[group.source]"
+        class="crl-tabs"
+      >
+        <el-tab-pane
+          v-for="tag in group.sourceTags"
+          :key="tag"
+          :label="tag"
+          :name="tag"
+        />
+      </el-tabs>
 
       <div class="crl-grid">
         <a
-          v-for="item in group.targets"
-          :key="item.target"
+          v-for="(item, idx) in getVisibleTargets(group)"
+          :key="`${group.source}-${item.target}-${item.sourceTag}-${idx}`"
           :href="
             withBase(
-              `${localePrefix}${basePath}/${group.source}-${item.target}`
+              `${localePrefix}${basePath}/${group.source}-${
+                item.target
+              }?source=${encodeURIComponent(item.sourceTag)}`
             )
           "
+          target="_blank"
           class="crl-card-link"
         >
           <el-card
@@ -53,7 +61,7 @@
                 type="info"
                 effect="plain"
                 size="small"
-                >{{ group.sourceLabel }}</el-tag
+                >{{ item.sourceTag }}</el-tag
               >
               <span class="crl-arrow">→</span>
               <el-tag
@@ -64,9 +72,14 @@
               >
             </div>
             <div class="crl-card-title">
-              {{ group.sourceLabel }} {{ t("to") }} {{ item.targetLabel }}
+              {{ item.sourceTag }} {{ t("to") }}
+              {{ item.targetLabel }}
             </div>
-            <p class="crl-card-desc">{{ item.description }}</p>
+            <p class="crl-card-desc">
+              {{
+                item.description.replaceAll(item.sourceLabel, item.sourceTag)
+              }}
+            </p>
           </el-card>
         </a>
       </div>
@@ -75,7 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue"
+import { ref, computed, watch } from "vue"
 import { withBase, useData } from "vitepress"
 import { useI18n } from "vue-i18n"
 import { Search } from "@element-plus/icons-vue"
@@ -92,6 +105,7 @@ export interface ConvertRouteParams {
   targetLabel: string
   sourceDesc: string
   description: string
+  hidden?: boolean
   [key: string]: unknown
 }
 
@@ -109,39 +123,81 @@ const props = defineProps<{
 const { t } = useI18n({ useScope: "local" })
 
 interface TargetItem {
+  sourceTag: string
   target: string
+  sourceLabel: string
   targetLabel: string
   description: string
 }
 
 interface GroupItem {
   source: string
-  sourceLabel: string
   sourceDesc: string
+  sourceTags: string[]
   targets: TargetItem[]
+}
+
+function splitSourceLabels(sourceLabel: string) {
+  const parts = sourceLabel
+    .split(",")
+    .map(item => item.trim())
+    .filter(Boolean)
+
+  return parts.length ? parts : [sourceLabel]
 }
 
 const groups = computed<GroupItem[]>(() => {
   const map = new Map<string, GroupItem>()
   for (const { params } of props.paths) {
+    if (params.hidden) continue
     if (!map.has(params.source)) {
       map.set(params.source, {
         source: params.source,
-        sourceLabel: params.sourceLabel,
         sourceDesc: params.sourceDesc,
+        sourceTags: [],
         targets: [],
       })
     }
-    map.get(params.source)!.targets.push({
-      target: params.target,
-      targetLabel: params.targetLabel,
-      description: params.description,
-    })
+    const group = map.get(params.source)!
+    const sourceLabels = splitSourceLabels(params.sourceLabel)
+    for (const sourceTag of sourceLabels) {
+      if (!group.sourceTags.includes(sourceTag)) {
+        group.sourceTags.push(sourceTag)
+      }
+      group.targets.push({
+        sourceTag,
+        target: params.target,
+        sourceLabel: params.sourceLabel,
+        targetLabel: params.targetLabel,
+        description: params.description,
+      })
+    }
   }
   return [...map.values()]
 })
 
 const searchQuery = ref("")
+
+// 每个 group 当前选中的 sourceTag，key 为 group.source
+const activeSourceTag = ref<Record<string, string>>({})
+
+watch(
+  groups,
+  val => {
+    for (const group of val) {
+      if (!activeSourceTag.value[group.source] && group.sourceTags.length) {
+        activeSourceTag.value[group.source] = group.sourceTags[0]
+      }
+    }
+  },
+  { immediate: true }
+)
+
+function getVisibleTargets(group: GroupItem) {
+  const active = activeSourceTag.value[group.source]
+  if (!active) return group.targets
+  return group.targets.filter(item => item.sourceTag === active)
+}
 
 const filteredGroups = computed(() => {
   const q = searchQuery.value.trim().toLowerCase()
@@ -149,12 +205,20 @@ const filteredGroups = computed(() => {
   return groups.value.filter(
     g =>
       g.source.toLowerCase().includes(q) ||
-      g.sourceLabel.toLowerCase().includes(q)
+      g.targets.some(item => item.sourceTag.toLowerCase().includes(q))
   )
 })
 </script>
 
 <style lang="scss" scoped>
+h2 {
+  margin: 48px 0 16px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+  letter-spacing: -0.02em;
+  line-height: 32px;
+  font-size: 24px;
+}
 .crl-wrap {
   margin-top: 24px;
 }
@@ -178,7 +242,6 @@ const filteredGroups = computed(() => {
   gap: 12px;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .crl-source-tag {
@@ -186,12 +249,6 @@ const filteredGroups = computed(() => {
   font-weight: 700;
   letter-spacing: 0.5px;
   flex-shrink: 0;
-}
-
-.crl-group-desc {
-  font-size: 13px;
-  color: var(--vp-c-text-2);
-  line-height: 1.5;
 }
 
 .crl-grid {
@@ -206,6 +263,10 @@ const filteredGroups = computed(() => {
 
   &:hover .crl-card {
     border-color: var(--el-color-primary-light-3);
+  }
+
+  &::after {
+    display: none !important;
   }
 }
 
@@ -250,8 +311,8 @@ const filteredGroups = computed(() => {
   line-height: 1.6;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
