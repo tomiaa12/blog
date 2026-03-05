@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -188,6 +188,12 @@ export default defineAdditionalConfig({
         ]
       },
       {
+        text: "加解密",
+        items: [
+          { text: "Base64 编解码", link: "/web/encode-decode/base64" },
+        ]
+      },
+      {
         text: "游戏",
         items: [
           { text: "FC 童年小霸王", link: "/pages/game" },
@@ -201,7 +207,6 @@ export default defineAdditionalConfig({
           { text: "在线默写单词", link: "/docs/在线应用/工具/在线默写单词" },
           { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
           { text: "坐标转换", link: "/docs/在线应用/工具/坐标转换" },
-          { text: "Base64 编解码", link: "/docs/在线应用/工具/Base64编解码" },
           // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
           // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
           {
