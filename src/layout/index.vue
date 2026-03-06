@@ -1,4 +1,5 @@
 <template>
+  <Analytics />
   <el-config-provider :locale="locale" v-if="isVSCode">
     <VPContent :class="getCurClass"> </VPContent>
   </el-config-provider>
@@ -43,6 +44,7 @@
 </template>
 
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/vue'
 import zhCn from "element-plus/es/locale/lang/zh-cn"
 import en from "element-plus/es/locale/lang/en"
 import zhTw from "element-plus/es/locale/lang/zh-tw"
@@ -347,7 +349,7 @@ if (inBrowser) {
   "pt":    { "pageViewsLabel": "Visualizações totais", "pageViewsUnit": "vezes", "exitWebFullscreen": "Sair da tela cheia" },
   "ru":    { "pageViewsLabel": "Всего просмотров", "pageViewsUnit": "раз", "exitWebFullscreen": "Выйти из полноэкранного режима" },
   "ar":    { "pageViewsLabel": "إجمالي المشاهدات", "pageViewsUnit": "مرة", "exitWebFullscreen": "الخروج من وضع ملء الشاشة" },
-  "hi":    { "pageViewsLabel": "कुल दृश्य", "pageViewsUnit": "बार", "exitWebFullscreen": "फ़ुलस्क्रीन से बाहर निकलें" },
+  "hi":    { "pageViewsLabel": "कुल दृश्य", "pageViewsUnit": "बार", "exitWebFullscreen": "फ़ुलस्क्रीन से बाहर निक��ें" },
   "it":    { "pageViewsLabel": "Visualizzazioni totali", "pageViewsUnit": "volte", "exitWebFullscreen": "Esci dalla schermata intera" },
   "nl":    { "pageViewsLabel": "Totale weergaven", "pageViewsUnit": "keer", "exitWebFullscreen": "Volledig scherm verlaten" },
   "tr":    { "pageViewsLabel": "Toplam görüntüleme", "pageViewsUnit": "kez", "exitWebFullscreen": "Tam ekrandan çık" },
