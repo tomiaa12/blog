@@ -280,7 +280,7 @@ if (inBrowser) {
     display: none !important;
   }
 
-  // 去掉 nav 占位带来的顶部留��
+  // 去掉 nav 占位带来的顶部留白
   .VPContent {
     padding-top: 0 !important;
   }
