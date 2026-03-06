@@ -1,5 +1,6 @@
 <template>
   <Analytics />
+  <SpeedInsights />
   <el-config-provider :locale="locale" v-if="isVSCode">
     <VPContent :class="getCurClass"> </VPContent>
   </el-config-provider>
@@ -45,6 +46,7 @@
 
 <script setup lang="ts">
 import { Analytics } from '@vercel/analytics/vue'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 import zhCn from "element-plus/es/locale/lang/zh-cn"
 import en from "element-plus/es/locale/lang/en"
 import zhTw from "element-plus/es/locale/lang/zh-tw"
