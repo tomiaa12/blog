@@ -22,7 +22,7 @@ export default defineConfig({
   },
   transformPageData(pageData) {
     const p = pageData.params
-    if (p?.source && p?.target && p?.title) {
+    if (p?.title) {
       pageData.title = p.title
       pageData.description = p.description
       pageData.frontmatter.head ??= []

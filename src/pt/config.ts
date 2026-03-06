@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -19,6 +19,12 @@ export default defineAdditionalConfig({
         text: "Conversão de formato",
         items: [
           { text: "Conversão de áudio", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Codificação / Decodificação",
+        items: [
+          { text: "Base64 Codificação / Decodificação", link: "/web/encode-decode/base64" },
         ],
       },
       {

@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -19,6 +19,12 @@ export default defineAdditionalConfig({
         text: "Chuyển đổi định dạng",
         items: [
           { text: "Chuyển đổi âm thanh", link: "/web/convert/audio" },
+        ],
+      },
+      {
+        text: "Mã hóa / Giải mã",
+        items: [
+          { text: "Base64 Mã hóa / Giải mã", link: "/web/encode-decode/base64" },
         ],
       },
       {

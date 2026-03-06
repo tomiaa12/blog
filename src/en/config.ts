@@ -20,6 +20,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Encode / Decode",
+        items: [
+          { text: "Base64 Encode / Decode", link: "/web/encode-decode/base64" },
+        ],
+      },
+      {
         text: "Games",
         items: [
           { text: "NES Retro Games", link: "/pages/game" },
