@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from 'vitepress'
 
 export default defineAdditionalConfig({
   description:
-    "Herramientas en línea, herramientas gratuitas, juegos, juegos FC, juegos pequeños, procesamiento de imágenes, compresión de imágenes, conversión de imágenes, recorte de imágenes, procesamiento de PDF, PDF a Word, PDF de fusión, PDF de compresión, procesamiento de video, compresión de video, conversión de video, Base64 de codificación, conversión de coordenadas, descarga de mosaicos de mapa, escritura en línea de palabras, prueba de iframe, conversión de audio WEM a MP3",
+    "Herramientas en línea, herramientas gratuitas, juegos, juegos FC, juegos pequeños, procesamiento de imágenes, compresión de imágenes, conversión de imágenes, recorte de imágenes, procesamiento de PDF, PDF a Word, PDF de fusión, PDF de compresión, procesamiento de video, compresión de video, conversión de video, Base64 de codificación, codificación URL, conversión de coordenadas, descarga de mosaicos de mapa, escritura en línea de palabras, prueba de iframe, conversión de audio WEM a MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Herramientas en línea, herramientas gratuitas, juegos, juegos FC, juegos pequeños, procesamiento de imágenes, compresión de imágenes, conversión de imágenes, recorte de imágenes, procesamiento de PDF, PDF a Word, PDF de fusión, PDF de compresión, procesamiento de video, compresión de video, conversión de video, Base64 de codificación, conversión de coordenadas, descarga de mosaicos de mapa, escritura en línea de palabras, prueba de iframe, conversión de audio WEM a MP3",
+          "Herramientas en línea, herramientas gratuitas, juegos, juegos FC, juegos pequeños, procesamiento de imágenes, compresión de imágenes, conversión de imágenes, recorte de imágenes, procesamiento de PDF, PDF a Word, PDF de fusión, PDF de compresión, procesamiento de video, compresión de video, conversión de video, Base64 de codificación, codificación URL, conversión de coordenadas, descarga de mosaicos de mapa, escritura en línea de palabras, prueba de iframe, conversión de audio WEM a MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Codificación / Decodificación",
         items: [
           { text: "Base64 Codificación / Decodificación", link: "/web/encode-decode/base64" },
+          { text: "URL Codificación / Decodificación", link: "/web/encode-decode/url" },
         ],
       },
       {

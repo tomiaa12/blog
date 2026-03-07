@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Online-Tools, kostenlose Tools, Spiele, FC-Spiele, Kleine Spiele, Bildbearbeitung, Bildkompression, Bildumwandlung, Bildzuschnitt, PDF-Bearbeitung, PDF zu Word, PDF-Zusammenführung, PDF-Kompression, Videobearbeitung, Videokompression, Videoumwandlung, Base64-Encoding, Koordinatentransformation, Kartentile-Download, Online-Wortschreiben, iframe-Test, WEM-Audio-Umwandlung MP3",
+    "Online-Tools, kostenlose Tools, Spiele, FC-Spiele, Kleine Spiele, Bildbearbeitung, Bildkompression, Bildumwandlung, Bildzuschnitt, PDF-Bearbeitung, PDF zu Word, PDF-Zusammenführung, PDF-Kompression, Videobearbeitung, Videokompression, Videoumwandlung, Base64-Encoding, URL-Kodierung, Koordinatentransformation, Kartentile-Download, Online-Wortschreiben, iframe-Test, WEM-Audio-Umwandlung MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Online-Tools, kostenlose Tools, Spiele, FC-Spiele, Kleine Spiele, Bildbearbeitung, Bildkompression, Bildumwandlung, Bildzuschnitt, PDF-Bearbeitung, PDF zu Word, PDF-Zusammenführung, PDF-Kompression, Videobearbeitung, Videokompression, Videoumwandlung, Base64-Encoding, Koordinatentransformation, Kartentile-Download, Online-Wortschreiben, iframe-Test, WEM-Audio-Umwandlung MP3",
+          "Online-Tools, kostenlose Tools, Spiele, FC-Spiele, Kleine Spiele, Bildbearbeitung, Bildkompression, Bildumwandlung, Bildzuschnitt, PDF-Bearbeitung, PDF zu Word, PDF-Zusammenführung, PDF-Kompression, Videobearbeitung, Videokompression, Videoumwandlung, Base64-Encoding, URL-Kodierung, Koordinatentransformation, Kartentile-Download, Online-Wortschreiben, iframe-Test, WEM-Audio-Umwandlung MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Codierung / Decodierung",
         items: [
           { text: "Base64 Codierung / Decodierung", link: "/web/encode-decode/base64" },
+          { text: "URL Codierung / Decodierung", link: "/web/encode-decode/url" },
         ],
       },
       {

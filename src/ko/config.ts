@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "온라인 도구, 무료 도구, 게임, FC 게임, 소게임, 이미지 처리, 이미지 압축, 이미지 변환, 이미지 자르기, PDF 처리, PDF to Word, PDF 병합, PDF 압축, 비디오 처리, 비디오 압축, 비디오 변환, Base64 인코딩, 좌표 변환, 지도 타일 다운로드, 온라인 단어 쓰기, iframe 테스트, WEM 오디오 변환 MP3",
+    "온라인 도구, 무료 도구, 게임, FC 게임, 소게임, 이미지 처리, 이미지 압축, 이미지 변환, 이미지 자르기, PDF 처리, PDF to Word, PDF 병합, PDF 압축, 비디오 처리, 비디오 압축, 비디오 변환, Base64 인코딩, URL 인코딩, 좌표 변환, 지도 타일 다운로드, 온라인 단어 쓰기, iframe 테스트, WEM 오디오 변환 MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "온라인 도구, 무료 도구, 게임, FC 게임, 소게임, 이미지 처리, 이미지 압축, 이미지 변환, 이미지 자르기, PDF 처리, PDF to Word, PDF 병합, PDF 압축, 비디오 처리, 비디오 압축, 비디오 변환, Base64 인코딩, 좌표 변환, 지도 타일 다운로드, 온라인 단어 쓰기, iframe 테스트, WEM 오디오 변환 MP3",
+          "온라인 도구, 무료 도구, 게임, FC 게임, 소게임, 이미지 처리, 이미지 압축, 이미지 변환, 이미지 자르기, PDF 처리, PDF to Word, PDF 병합, PDF 압축, 비디오 처리, 비디오 압축, 비디오 변환, Base64 인코딩, URL 인코딩, 좌표 변환, 지도 타일 다운로드, 온라인 단어 쓰기, iframe 테스트, WEM 오디오 변환 MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "인코딩 / 디코딩",
         items: [
           { text: "Base64 인코딩·디코딩", link: "/web/encode-decode/base64" },
+          { text: "URL 인코딩·디코딩", link: "/web/encode-decode/url" },
         ],
       },
       {

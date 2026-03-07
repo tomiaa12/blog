@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "オンラインツール，無料ツール，ゲーム，FCゲーム，小ゲーム，画像処理，画像圧縮，画像変換，画像裁剪，PDF処理，PDF to Word，PDFマージ，PDF圧縮，ビデオ処理，ビデオ圧縮，ビデオ変換，Base64エンコーディング，座標変換，地図タイルダウンロード，オンライン単語書き，iframeテスト，WEM音声変換MP3",
+    "オンラインツール，無料ツール，ゲーム，FCゲーム，小ゲーム，画像処理，画像圧縮，画像変換，画像裁剪，PDF処理，PDF to Word，PDFマージ，PDF圧縮，ビデオ処理，ビデオ圧縮，ビデオ変換，Base64エンコーディング，URLエンコード，座標変換，地図タイルダウンロード，オンライン単語書き，iframeテスト，WEM音声変換MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "オンラインツール，無料ツール，ゲーム，FCゲーム，小ゲーム，画像処理，画像圧縮，画像変換，画像裁剪，PDF処理，PDF to Word，PDFマージ，PDF圧縮，ビデオ処理，ビデオ圧縮，ビデオ変換，Base64エンコーディング，座標変換，地図タイルダウンロード，オンライン単語書き，iframeテスト，WEM音声変換MP3",
+          "オンラインツール，無料ツール，ゲーム，FCゲーム，小ゲーム，画像処理，画像圧縮，画像変換，画像裁剪，PDF処理，PDF to Word，PDFマージ，PDF圧縮，ビデオ処理，ビデオ圧縮，ビデオ変換，Base64エンコーディング，URLエンコード，座標変換，地図タイルダウンロード，オンライン単語書き，iframeテスト，WEM音声変換MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "エンコード / デコード",
         items: [
           { text: "Base64 エンコード・デコード", link: "/web/encode-decode/base64" },
+          { text: "URL エンコード・デコード", link: "/web/encode-decode/url" },
         ],
       },
       {

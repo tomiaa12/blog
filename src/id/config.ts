@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Alat online, alat gratis, permainan, permainan FC, permainan kecil, pemrosesan gambar, pemampatan gambar, konversi gambar, potongan gambar, pemrosesan PDF, PDF ke Word, PDF penggabungan, PDF pemampatan, pemrosesan video, pemampatan video, konversi video, Base64 pengkodean, konversi koordinat, pengunduhan ubin peta, menulis kata online, tes iframe, konversi audio WEM ke MP3",
+    "Alat online, alat gratis, permainan, permainan FC, permainan kecil, pemrosesan gambar, pemampatan gambar, konversi gambar, potongan gambar, pemrosesan PDF, PDF ke Word, PDF penggabungan, PDF pemampatan, pemrosesan video, pemampatan video, konversi video, Base64 pengkodean, pengkodean URL, konversi koordinat, pengunduhan ubin peta, menulis kata online, tes iframe, konversi audio WEM ke MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Alat online, alat gratis, permainan, permainan FC, permainan kecil, pemrosesan gambar, pemampatan gambar, konversi gambar, potongan gambar, pemrosesan PDF, PDF ke Word, PDF penggabungan, PDF pemampatan, pemrosesan video, pemampatan video, konversi video, Base64 pengkodean, konversi koordinat, pengunduhan ubin peta, menulis kata online, tes iframe, konversi audio WEM ke MP3",
+          "Alat online, alat gratis, permainan, permainan FC, permainan kecil, pemrosesan gambar, pemampatan gambar, konversi gambar, potongan gambar, pemrosesan PDF, PDF ke Word, PDF penggabungan, PDF pemampatan, pemrosesan video, pemampatan video, konversi video, Base64 pengkodean, pengkodean URL, konversi koordinat, pengunduhan ubin peta, menulis kata online, tes iframe, konversi audio WEM ke MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Enkode / Dekode",
         items: [
           { text: "Base64 Enkode / Dekode", link: "/web/encode-decode/base64" },
+          { text: "URL Enkode / Dekode", link: "/web/encode-decode/url" },
         ],
       },
       {

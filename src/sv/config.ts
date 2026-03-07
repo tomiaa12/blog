@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Verktyg online, gratis verktyg, spel, spel FC, små spel, bildbehandling, bildkompression, bildkonvertering, bildklipp, PDF-behandling, PDF till Word, PDF sammanföring, PDF kompression, video-behandling, video-kompression, video-konvertering, Base64-kodning, koordinattransformation, karttäcke-hämtning, online-ordskrivning, iframe-test, WEM-audio-konvertering MP3",
+    "Verktyg online, gratis verktyg, spel, spel FC, små spel, bildbehandling, bildkompression, bildkonvertering, bildklipp, PDF-behandling, PDF till Word, PDF sammanföring, PDF kompression, video-behandling, video-kompression, video-konvertering, Base64-kodning, URL-kodning, koordinattransformation, karttäcke-hämtning, online-ordskrivning, iframe-test, WEM-audio-konvertering MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Verktyg online, gratis verktyg, spel, spel FC, små spel, bildbehandling, bildkompression, bildkonvertering, bildklipp, PDF-behandling, PDF till Word, PDF sammanföring, PDF kompression, video-behandling, video-kompression, video-konvertering, Base64-kodning, koordinattransformation, karttäcke-hämtning, online-ordskrivning, iframe-test, WEM-audio-konvertering MP3",
+          "Verktyg online, gratis verktyg, spel, spel FC, små spel, bildbehandling, bildkompression, bildkonvertering, bildklipp, PDF-behandling, PDF till Word, PDF sammanföring, PDF kompression, video-behandling, video-kompression, video-konvertering, Base64-kodning, URL-kodning, koordinattransformation, karttäcke-hämtning, online-ordskrivning, iframe-test, WEM-audio-konvertering MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Kodning / Avkodning",
         items: [
           { text: "Base64 Kodning / Avkodning", link: "/web/encode-decode/base64" },
+          { text: "URL Kodning / Avkodning", link: "/web/encode-decode/url" },
         ],
       },
       {

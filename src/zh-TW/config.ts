@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "線上工具，免費工具，遊戲，FC遊戲，小遊戲，圖片處理，圖片壓縮，圖片轉換，圖片裁剪，PDF處理，PDF轉Word，PDF合併，PDF壓縮，視頻處理，視頻壓縮，視頻轉換，Base64編碼，坐標轉換，地圖瓦片下載，線上默寫單詞，iframe測試，WEM音頻轉換MP3",
+    "線上工具，免費工具，遊戲，FC遊戲，小遊戲，圖片處理，圖片壓縮，圖片轉換，圖片裁剪，PDF處理，PDF轉Word，PDF合併，PDF壓縮，視頻處理，視頻壓縮，視頻轉換，Base64編碼，URL編解碼，坐標轉換，地圖瓦片下載，線上默寫單詞，iframe測試，WEM音頻轉換MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "線上工具，免費工具，遊戲，FC遊戲，小遊戲，圖片處理，圖片壓縮，圖片轉換，圖片裁剪，PDF處理，PDF轉Word，PDF合併，PDF壓縮，視頻處理，視頻壓縮，視頻轉換，Base64編碼，坐標轉換，地圖瓦片下載，線上默寫單詞，iframe測試，WEM音頻轉換MP3",
+          "線上工具，免費工具，遊戲，FC遊戲，小遊戲，圖片處理，圖片壓縮，圖片轉換，圖片裁剪，PDF處理，PDF轉Word，PDF合併，PDF壓縮，視頻處理，視頻壓縮，視頻轉換，Base64編碼，URL編解碼，坐標轉換，地圖瓦片下載，線上默寫單詞，iframe測試，WEM音頻轉換MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "編碼 / 解碼",
         items: [
           { text: "Base64 編解碼", link: "/web/encode-decode/base64" },
+          { text: "URL 編解碼", link: "/web/encode-decode/url" },
         ],
       },
       {

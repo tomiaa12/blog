@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Outils en ligne, outils gratuits, jeux, jeux FC, petits jeux, traitement d'images, compression d'images, conversion d'images, recadrage d'images, traitement PDF, PDF en Word, fusion PDF, compression PDF, traitement vidéo, compression vidéo, conversion vidéo, encodage Base64, conversion de coordonnées, téléchargement de tuiles de carte, écriture de mots en ligne, test iframe, conversion audio WEM en MP3",
+    "Outils en ligne, outils gratuits, jeux, jeux FC, petits jeux, traitement d'images, compression d'images, conversion d'images, recadrage d'images, traitement PDF, PDF en Word, fusion PDF, compression PDF, traitement vidéo, compression vidéo, conversion vidéo, encodage Base64, encodage URL, conversion de coordonnées, téléchargement de tuiles de carte, écriture de mots en ligne, test iframe, conversion audio WEM en MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Outils en ligne, outils gratuits, jeux, jeux FC, petits jeux, traitement d'images, compression d'images, conversion d'images, recadrage d'images, traitement PDF, PDF en Word, fusion PDF, compression PDF, traitement vidéo, compression vidéo, conversion vidéo, encodage Base64, conversion de coordonnées, téléchargement de tuiles de carte, écriture de mots en ligne, test iframe, conversion audio WEM en MP3",
+          "Outils en ligne, outils gratuits, jeux, jeux FC, petits jeux, traitement d'images, compression d'images, conversion d'images, recadrage d'images, traitement PDF, PDF en Word, fusion PDF, compression PDF, traitement vidéo, compression vidéo, conversion vidéo, encodage Base64, encodage URL, conversion de coordonnées, téléchargement de tuiles de carte, écriture de mots en ligne, test iframe, conversion audio WEM en MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Encodage / Décodage",
         items: [
           { text: "Base64 Encodage / Décodage", link: "/web/encode-decode/base64" },
+          { text: "URL Encodage / Décodage", link: "/web/encode-decode/url" },
         ],
       },
       {

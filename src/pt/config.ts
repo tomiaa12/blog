@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Ferramentas online, ferramentas gratuitas, jogos, jogos FC, jogos pequenos, processamento de imagens, compressão de imagens, conversão de imagens, recorte de imagens, processamento de PDF, PDF para Word, PDF de fusão, PDF de compressão, processamento de vídeo, compressão de vídeo, conversão de vídeo, Base64 de codificação, conversão de coordenadas, download de mosaicos de mapa, escrita online de palavras, teste de iframe, conversão de áudio WEM para MP3",
+    "Ferramentas online, ferramentas gratuitas, jogos, jogos FC, jogos pequenos, processamento de imagens, compressão de imagens, conversão de imagens, recorte de imagens, processamento de PDF, PDF para Word, PDF de fusão, PDF de compressão, processamento de vídeo, compressão de vídeo, conversão de vídeo, Base64 de codificação, codificação de URL, conversão de coordenadas, download de mosaicos de mapa, escrita online de palavras, teste de iframe, conversão de áudio WEM para MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Ferramentas online, ferramentas gratuitas, jogos, jogos FC, jogos pequenos, processamento de imagens, compressão de imagens, conversão de imagens, recorte de imagens, processamento de PDF, PDF para Word, PDF de fusão, PDF de compressão, processamento de vídeo, compressão de vídeo, conversão de vídeo, Base64 de codificação, conversão de coordenadas, download de mosaicos de mapa, escrita online de palavras, teste de iframe, conversão de áudio WEM para MP3",
+          "Ferramentas online, ferramentas gratuitas, jogos, jogos FC, jogos pequenos, processamento de imagens, compressão de imagens, conversão de imagens, recorte de imagens, processamento de PDF, PDF para Word, PDF de fusão, PDF de compressão, processamento de vídeo, compressão de vídeo, conversão de vídeo, Base64 de codificação, codificação de URL, conversão de coordenadas, download de mosaicos de mapa, escrita online de palavras, teste de iframe, conversão de áudio WEM para MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Codificação / Decodificação",
         items: [
           { text: "Base64 Codificação / Decodificação", link: "/web/encode-decode/base64" },
+          { text: "URL Codificação / Decodificação", link: "/web/encode-decode/url" },
         ],
       },
       {

@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Narzędzia online, narzędzia darmowe, gry, gry FC, gry małe, przetwarzanie obrazu, kompresja obrazu, konwersja obrazu, przycinanie obrazu, przetwarzanie PDF, PDF do Word, PDF łączenie, PDF kompresja, przetwarzanie wideo, kompresja wideo, konwersja wideo, Base64 kodowanie, konwersja współrzędnych, pobieranie kafelków mapy, pisanie słów online, test iframe, konwersja audio WEM do MP3",
+    "Narzędzia online, narzędzia darmowe, gry, gry FC, gry małe, przetwarzanie obrazu, kompresja obrazu, konwersja obrazu, przycinanie obrazu, przetwarzanie PDF, PDF do Word, PDF łączenie, PDF kompresja, przetwarzanie wideo, kompresja wideo, konwersja wideo, Base64 kodowanie, kodowanie URL, konwersja współrzędnych, pobieranie kafelków mapy, pisanie słów online, test iframe, konwersja audio WEM do MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Narzędzia online, narzędzia darmowe, gry, gry FC, gry małe, przetwarzanie obrazu, kompresja obrazu, konwersja obrazu, przycinanie obrazu, przetwarzanie PDF, PDF do Word, PDF łączenie, PDF kompresja, przetwarzanie wideo, kompresja wideo, konwersja wideo, Base64 kodowanie, konwersja współrzędnych, pobieranie kafelków mapy, pisanie słów online, test iframe, konwersja audio WEM do MP3",
+          "Narzędzia online, narzędzia darmowe, gry, gry FC, gry małe, przetwarzanie obrazu, kompresja obrazu, konwersja obrazu, przycinanie obrazu, przetwarzanie PDF, PDF do Word, PDF łączenie, PDF kompresja, przetwarzanie wideo, kompresja wideo, konwersja wideo, Base64 kodowanie, kodowanie URL, konwersja współrzędnych, pobieranie kafelków mapy, pisanie słów online, test iframe, konwersja audio WEM do MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Kodowanie / Dekodowanie",
         items: [
           { text: "Base64 Kodowanie / Dekodowanie", link: "/web/encode-decode/base64" },
+          { text: "URL Kodowanie / Dekodowanie", link: "/web/encode-decode/url" },
         ],
       },
       {

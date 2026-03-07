@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Çevrimiçi araçlar, ücretsiz araçlar, oyunlar, FC oyunları, küçük oyunlar, görüntü işleme, görüntü sıkıştırma, görüntü dönüştürme, görüntü kırpma, PDF işleme, PDF to Word, PDF birleştirme, PDF sıkıştırma, video işleme, video sıkıştırma, video dönüştürme, Base64 kodlama, koordinat dönüştürme, harita parça indirme, çevrimiçi kelime yazma, iframe testi, WEM audio dönüştürme MP3",
+    "Çevrimiçi araçlar, ücretsiz araçlar, oyunlar, FC oyunları, küçük oyunlar, görüntü işleme, görüntü sıkıştırma, görüntü dönüştürme, görüntü kırpma, PDF işleme, PDF to Word, PDF birleştirme, PDF sıkıştırma, video işleme, video sıkıştırma, video dönüştürme, Base64 kodlama, URL kodlama, koordinat dönüştürme, harita parça indirme, çevrimiçi kelime yazma, iframe testi, WEM audio dönüştürme MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Çevrimiçi araçlar, ücretsiz araçlar, oyunlar, FC oyunları, küçük oyunlar, görüntü işleme, görüntü sıkıştırma, görüntü dönüştürme, görüntü kırpma, PDF işleme, PDF to Word, PDF birleştirme, PDF sıkıştırma, video işleme, video sıkıştırma, video dönüştürme, Base64 kodlama, koordinat dönüştürme, harita parça indirme, çevrimiçi kelime yazma, iframe testi, WEM audio dönüştürme MP3",
+          "Çevrimiçi araçlar, ücretsiz araçlar, oyunlar, FC oyunları, küçük oyunlar, görüntü işleme, görüntü sıkıştırma, görüntü dönüştürme, görüntü kırpma, PDF işleme, PDF to Word, PDF birleştirme, PDF sıkıştırma, video işleme, video sıkıştırma, video dönüştürme, Base64 kodlama, URL kodlama, koordinat dönüştürme, harita parça indirme, çevrimiçi kelime yazma, iframe testi, WEM audio dönüştürme MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Kodlama / Kod Çözme",
         items: [
           { text: "Base64 Kodlama / Kod Çözme", link: "/web/encode-decode/base64" },
+          { text: "URL Kodlama / Kod Çözme", link: "/web/encode-decode/url" },
         ],
       },
       {

@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Online-tools, gratis tools, spellen, spellen FC, kleine spellen, beeldverwerking, beeldcompressie, beeldconversie, beeldknip, PDF-verwerking, PDF naar Word, PDF fusie, PDF compressie, video-verwerking, video-compressie, video-conversie, Base64-codering, coordinatentransformatie, kaarttegeltje-download, online-woordschrijven, iframe-test, WEM-audio-conversie MP3",
+    "Online-tools, gratis tools, spellen, spellen FC, kleine spellen, beeldverwerking, beeldcompressie, beeldconversie, beeldknip, PDF-verwerking, PDF naar Word, PDF fusie, PDF compressie, video-verwerking, video-compressie, video-conversie, Base64-codering, URL-codering, coordinatentransformatie, kaarttegeltje-download, online-woordschrijven, iframe-test, WEM-audio-conversie MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Online-tools, gratis tools, spellen, spellen FC, kleine spellen, beeldverwerking, beeldcompressie, beeldconversie, beeldknip, PDF-verwerking, PDF naar Word, PDF fusie, PDF compressie, video-verwerking, video-compressie, video-conversie, Base64-codering, coordinatentransformatie, kaarttegeltje-download, online-woordschrijven, iframe-test, WEM-audio-conversie MP3",
+          "Online-tools, gratis tools, spellen, spellen FC, kleine spellen, beeldverwerking, beeldcompressie, beeldconversie, beeldknip, PDF-verwerking, PDF naar Word, PDF fusie, PDF compressie, video-verwerking, video-compressie, video-conversie, Base64-codering, URL-codering, coordinatentransformatie, kaarttegeltje-download, online-woordschrijven, iframe-test, WEM-audio-conversie MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Codering / Decodering",
         items: [
           { text: "Base64 Codering / Decodering", link: "/web/encode-decode/base64" },
+          { text: "URL Codering / Decodering", link: "/web/encode-decode/url" },
         ],
       },
       {

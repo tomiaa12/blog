@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Công cụ trực tuyến, công cụ miễn phí, trò chơi, trò chơi FC, trò chơi nhỏ, xử lý ảnh, nén ảnh, chuyển đổi ảnh, cắt ảnh, xử lý PDF, PDF to Word, PDF hợp nhất, PDF nén, xử lý video, nén video, chuyển đổi video, Base64 mã hóa, chuyển đổi tọa độ, tải xuống khối ảnh bản đồ, viết từ trực tuyến, kiểm tra iframe, chuyển đổi âm thanh WEM thành MP3",
+    "Công cụ trực tuyến, công cụ miễn phí, trò chơi, trò chơi FC, trò chơi nhỏ, xử lý ảnh, nén ảnh, chuyển đổi ảnh, cắt ảnh, xử lý PDF, PDF to Word, PDF hợp nhất, PDF nén, xử lý video, nén video, chuyển đổi video, Base64 mã hóa, mã hóa URL, chuyển đổi tọa độ, tải xuống khối ảnh bản đồ, viết từ trực tuyến, kiểm tra iframe, chuyển đổi âm thanh WEM thành MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Công cụ trực tuyến, công cụ miễn phí, trò chơi, trò chơi FC, trò chơi nhỏ, xử lý ảnh, nén ảnh, chuyển đổi ảnh, cắt ảnh, xử lý PDF, PDF to Word, PDF hợp nhất, PDF nén, xử lý video, nén video, chuyển đổi video, Base64 mã hóa, chuyển đổi tọa độ, tải xuống khối ảnh bản đồ, viết từ trực tuyến, kiểm tra iframe, chuyển đổi âm thanh WEM thành MP3",
+          "Công cụ trực tuyến, công cụ miễn phí, trò chơi, trò chơi FC, trò chơi nhỏ, xử lý ảnh, nén ảnh, chuyển đổi ảnh, cắt ảnh, xử lý PDF, PDF to Word, PDF hợp nhất, PDF nén, xử lý video, nén video, chuyển đổi video, Base64 mã hóa, mã hóa URL, chuyển đổi tọa độ, tải xuống khối ảnh bản đồ, viết từ trực tuyến, kiểm tra iframe, chuyển đổi âm thanh WEM thành MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Mã hóa / Giải mã",
         items: [
           { text: "Base64 Mã hóa / Giải mã", link: "/web/encode-decode/base64" },
+          { text: "URL Mã hóa / Giải mã", link: "/web/encode-decode/url" },
         ],
       },
       {

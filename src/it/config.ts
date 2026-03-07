@@ -2,14 +2,14 @@ import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
-    "Strumenti online, strumenti gratuiti, giochi, giochi FC, giochi piccoli, elaborazione immagini, compressione immagini, conversione immagini, taglio immagini, elaborazione PDF, PDF a Word, PDF di fusione, PDF di compressione, elaborazione video, compressione video, conversione video, Base64 di codifica, conversione coordinate, download di tessere di mappa, scrittura online di parole, test iframe, conversione audio WEM in MP3",
+    "Strumenti online, strumenti gratuiti, giochi, giochi FC, giochi piccoli, elaborazione immagini, compressione immagini, conversione immagini, taglio immagini, elaborazione PDF, PDF a Word, PDF di fusione, PDF di compressione, elaborazione video, compressione video, conversione video, Base64 di codifica, codifica URL, conversione coordinate, download di tessere di mappa, scrittura online di parole, test iframe, conversione audio WEM in MP3",
   head: [
     [
       "meta",
       {
         name: "keywords",
         content:
-          "Strumenti online, strumenti gratuiti, giochi, giochi FC, giochi piccoli, elaborazione immagini, compressione immagini, conversione immagini, taglio immagini, elaborazione PDF, PDF a Word, PDF di fusione, PDF di compressione, elaborazione video, compressione video, conversione video, Base64 di codifica, conversione coordinate, download di tessere di mappa, scrittura online di parole, test iframe, conversione audio WEM in MP3",
+          "Strumenti online, strumenti gratuiti, giochi, giochi FC, giochi piccoli, elaborazione immagini, compressione immagini, conversione immagini, taglio immagini, elaborazione PDF, PDF a Word, PDF di fusione, PDF di compressione, elaborazione video, compressione video, conversione video, Base64 di codifica, codifica URL, conversione coordinate, download di tessere di mappa, scrittura online di parole, test iframe, conversione audio WEM in MP3",
       },
     ],
   ],
@@ -25,6 +25,7 @@ export default defineAdditionalConfig({
         text: "Codifica / Decodifica",
         items: [
           { text: "Base64 Codifica / Decodifica", link: "/web/encode-decode/base64" },
+          { text: "URL Codifica / Decodifica", link: "/web/encode-decode/url" },
         ],
       },
       {
