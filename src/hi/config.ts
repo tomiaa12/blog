@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "डेवलपर टूल्स",
+        items: [
+          { text: "मैप कोऑर्डिनेट कन्वर्ज़न", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "गेम्स",
         items: [
           { text: "FC रेट्रो गेम्स", link: "/pages/game" },

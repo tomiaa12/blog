@@ -1,4 +1,14 @@
-﻿---
+---
+title: Online Base64-tool - Gratis voor tekst, afbeelding en bestand
+description: Gratis online Base64-tool voor het coderen en decoderen van tekst, afbeeldingen en bestanden. Geen serverupload, directe verwerking, veilig en prive.
+keywords: base64 encode decode,base64 encoder,base64 decoder,text to base64,image to base64,file to base64,online base64 tool
+head:
+  - - meta
+    - name: description
+      content: Gratis online Base64-tool voor het coderen en decoderen van tekst, afbeeldingen en bestanden. Geen serverupload, directe verwerking, veilig en prive.
+  - - meta
+    - name: keywords
+      content: base64 encode decode,base64 encoder,base64 decoder,text to base64,image to base64,file to base64,online base64 tool
 footer: false
 editLink: false
 aside: false

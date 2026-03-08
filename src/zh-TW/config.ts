@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "開發工具",
+        items: [
+          { text: "地圖座標轉換", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "遊戲",
         items: [
           { text: "FC 童年小霸王", link: "/pages/game" },

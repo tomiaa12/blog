@@ -11,16 +11,7 @@ description: 为 kyx 博客项目创建新的 Cursor Skill。所有 skill 必须
 - **SKILL.md 中的 name 字段**：与目录名相同，即 `kyx-<功能名>`
 - **存放位置**：`.cursor/skills/kyx-<功能名>/SKILL.md`
 
-示例：`kyx-create-skill`、`kyx-i18n-translation`、`kyx-translate-code-i18n`
-
-## 已有 Skill 一览
-
-| Skill 名称 | 功能 |
-|------------|------|
-| `kyx-i18n-translation` | 更新 config.ts 中所有语言的 description/keywords |
-| `kyx-translate-code-i18n` | 将代码中的中文翻译为 19 种语言的多版本代码块 |
-| `kyx-vue-i18n` | 对 Vue SFC 做 i18n 改造：提取中文、替换 t()、生成 \<i18n\> 块 |
-| `kyx-create-skill` | 创建新的项目 Skill（本文件） |
+示例：`kyx-create-skill`、`kyx-i18n-translation`
 
 ## 创建流程
 

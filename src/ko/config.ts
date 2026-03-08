@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "개발 도구",
+        items: [
+          { text: "지도 좌표 변환", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "게임",
         items: [
           { text: "FC 레트로 게임", link: "/pages/game" },

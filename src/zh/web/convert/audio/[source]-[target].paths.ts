@@ -1,5 +1,4 @@
-export type LangCode = 'zh' | 'en' | 'fr' | 'es' | 'de' | 'ja' | 'ko' | 'zh-TW' | 'ar' | 'ru' | 'pt' | 'it' | 'nl' | 'pl' | 'sv' | 'tr' | 'vi' | 'id' | 'hi' | 'th'
-type I18nString = Record<LangCode, string>
+import type { I18nString, LangCode } from '../../../../types/i18n'
 
 export interface AudioFormat {
   desc: I18nString

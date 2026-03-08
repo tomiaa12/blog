@@ -1,20 +1,20 @@
+import type { LangCode } from '../../../../types/i18n'
+
 export type InputType = 'text' | 'image' | 'file'
 export type Operation = 'encode' | 'decode'
 
-export interface Base64RouteParams {
-  type: InputType
-  operation: Operation
+interface SeoTemplate {
   title: string
   description: string
   keywords: string
+}
+
+export interface Base64RouteParams extends SeoTemplate {
+  type: InputType
+  operation: Operation
   h1: string
   moreTools: string
 }
-
-type LangCode =
-  | 'zh' | 'en' | 'ar' | 'de' | 'es' | 'fr' | 'hi' | 'id'
-  | 'it' | 'ja' | 'ko' | 'nl' | 'pl' | 'pt' | 'ru' | 'sv'
-  | 'th' | 'tr' | 'vi' | 'zh-TW'
 
 type ParamsItem = { params: Base64RouteParams }
 

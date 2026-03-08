@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Инструменты разработчика",
+        items: [
+          { text: "Преобразование координат карты", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "Игры",
         items: [
           { text: "Ретро-игры FC", link: "/pages/game" },

@@ -1,3 +1,5 @@
+import type { LangCode } from '../../../../types/i18n'
+
 export interface Base64CardItem {
   title: string
   desc: string
@@ -10,11 +12,6 @@ export interface Base64CardGroup {
   title: string
   children: Base64CardItem[]
 }
-
-type LangCode =
-  | 'zh' | 'en' | 'ar' | 'de' | 'es' | 'fr' | 'hi' | 'id'
-  | 'it' | 'ja' | 'ko' | 'nl' | 'pl' | 'pt' | 'ru' | 'sv'
-  | 'th' | 'tr' | 'vi' | 'zh-TW'
 
 const allLangCards: Record<LangCode, Base64CardGroup[]> = {
   zh: [

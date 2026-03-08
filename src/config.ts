@@ -196,6 +196,12 @@ export default defineAdditionalConfig({
         ]
       },
       {
+        text: "开发工具",
+        items: [
+          { text: "地图坐标转换", link: "/web/dev-tools/map-coordinate-conversion" },
+        ]
+      },
+      {
         text: "游戏",
         items: [
           { text: "FC 童年小霸王", link: "/pages/game" },
@@ -208,7 +214,6 @@ export default defineAdditionalConfig({
         items: [
           { text: "在线默写单词", link: "/docs/在线应用/工具/在线默写单词" },
           { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
-          { text: "坐标转换", link: "/docs/在线应用/工具/坐标转换" },
           // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
           // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
           {
@@ -397,11 +402,6 @@ function getSidebar() {
             link: "/docs/在线应用/工具/在线默写单词",
           },
           { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
-          { text: "坐标转换", link: "/docs/在线应用/工具/坐标转换" },
-          {
-            text: "Base64 编解码",
-            link: "/docs/在线应用/工具/Base64编解码",
-          },
           // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
           // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
           {

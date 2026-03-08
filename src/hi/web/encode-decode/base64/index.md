@@ -1,4 +1,14 @@
-﻿---
+---
+title: ऑनलाइन Base64 टूल - मुफ्त टेक्स्ट, इमेज और फाइल Base64 कन्वर्टर
+description: टेक्स्ट, इमेज और फाइल के लिए मुफ्त ऑनलाइन Base64 एन्कोड/डीकोड टूल। सर्वर पर अपलोड नहीं, तुरंत प्रोसेसिंग, सुरक्षित और निजी।
+keywords: base64 encode decode,base64 encoder,base64 decoder,text to base64,image to base64,file to base64,online base64 tool
+head:
+  - - meta
+    - name: description
+      content: टेक्स्ट, इमेज और फाइल के लिए मुफ्त ऑनलाइन Base64 एन्कोड/डीकोड टूल। सर्वर पर अपलोड नहीं, तुरंत प्रोसेसिंग, सुरक्षित और निजी।
+  - - meta
+    - name: keywords
+      content: base64 encode decode,base64 encoder,base64 decoder,text to base64,image to base64,file to base64,online base64 tool
 footer: false
 editLink: false
 aside: false

@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Alat pengembang",
+        items: [
+          { text: "Konversi koordinat peta", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "Permainan",
         items: [
           { text: "Game retro FC", link: "/pages/game" },

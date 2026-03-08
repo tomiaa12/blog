@@ -1,4 +1,14 @@
-﻿---
+---
+title: Online Base64 Encode Decode Tool - Free Text, Image and File Base64 Converter
+description: Free online Base64 encode/decode tool for text, images, and files. No server upload required, instant processing, secure and private.
+keywords: base64 encode decode,base64 encoder,base64 decoder,text to base64,image to base64,file to base64,online base64 tool
+head:
+  - - meta
+    - name: description
+      content: Free online Base64 encode/decode tool for text, images, and files. No server upload required, instant processing, secure and private.
+  - - meta
+    - name: keywords
+      content: base64 encode decode,base64 encoder,base64 decoder,text to base64,image to base64,file to base64,online base64 tool
 footer: false
 editLink: false
 aside: false

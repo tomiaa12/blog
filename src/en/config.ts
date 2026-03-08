@@ -27,6 +27,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Developer Tools",
+        items: [
+          { text: "Map Coordinate Conversion", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "Games",
         items: [
           { text: "NES Retro Games", link: "/pages/game" },

@@ -1,20 +1,21 @@
+import type { LangCode } from '../../../../types/i18n'
+export type { LangCode } from '../../../../types/i18n'
+
 export type InputType = 'component' | 'query'
 export type Operation = 'encode' | 'decode' | 'parse' | 'build'
 
-export interface UrlRouteParams {
-  type: InputType
-  operation: Operation
+interface SeoTemplate {
   title: string
   description: string
   keywords: string
+}
+
+export interface UrlRouteParams extends SeoTemplate {
+  type: InputType
+  operation: Operation
   h1: string
   moreTools: string
 }
-
-export type LangCode =
-  | 'zh' | 'en' | 'ar' | 'de' | 'es' | 'fr' | 'hi' | 'id'
-  | 'it' | 'ja' | 'ko' | 'nl' | 'pl' | 'pt' | 'ru' | 'sv'
-  | 'th' | 'tr' | 'vi' | 'zh-TW'
 
 type PageCopy = Omit<UrlRouteParams, 'type' | 'operation' | 'moreTools'>
 

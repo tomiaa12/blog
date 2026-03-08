@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Ontwikkelaarstools",
+        items: [
+          { text: "Kaartcoordinaten converteren", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "Spellen",
         items: [
           { text: "FC retro spellen", link: "/pages/game" },

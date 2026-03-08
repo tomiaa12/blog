@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Công cụ phát triển",
+        items: [
+          { text: "Chuyển đổi tọa độ bản đồ", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "Trò chơi",
         items: [
           { text: "Trò chơi FC cổ điển", link: "/pages/game" },

@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "أدوات المطور",
+        items: [
+          { text: "تحويل إحداثيات الخريطة", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "ألعاب",
         items: [
           { text: "ألعاب FC الكلاسيكية", link: "/pages/game" },

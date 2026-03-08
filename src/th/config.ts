@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "เครื่องมือนักพัฒนา",
+        items: [
+          { text: "แปลงพิกัดแผนที่", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "เกม",
         items: [
           { text: "เกม FC คลาสสิก", link: "/pages/game" },

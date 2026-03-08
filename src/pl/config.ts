@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Narzędzia deweloperskie",
+        items: [
+          { text: "Konwersja współrzędnych mapy", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "Gry",
         items: [
           { text: "Retro gry FC", link: "/pages/game" },

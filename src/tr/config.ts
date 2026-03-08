@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Geliştirici araçları",
+        items: [
+          { text: "Harita koordinat dönüşümü", link: "/web/dev-tools/map-coordinate-conversion" },
+        ],
+      },
+      {
         text: "Oyunlar",
         items: [
           { text: "FC retro oyunları", link: "/pages/game" },
