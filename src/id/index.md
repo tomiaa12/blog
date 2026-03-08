@@ -1,4 +1,5 @@
 ---
+title: Alat online gratis, situs sumber daya
 layout: home
 class: home
 hero:

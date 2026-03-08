@@ -1,4 +1,5 @@
 ---
+title: Darmowe narzędzia online, serwis z zasobami
 layout: home
 class: home
 hero:

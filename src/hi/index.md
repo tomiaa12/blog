@@ -1,4 +1,5 @@
 ---
+title: मुफ्त ऑनलाइन टूल, संसाधन साइट
 layout: home
 class: home
 hero:

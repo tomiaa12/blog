@@ -1,6 +1,7 @@
 import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
+  title: "KYX Box",
   description:
     "在线工具，免费工具，游戏，FC游戏，小游戏，图片处理，图片压缩，图片转换，图片裁剪，PDF处理，PDF转Word，PDF合并，PDF压缩，视频处理，视频压缩，视频转换，Base64编解码，URL编解码，坐标转换，地图瓦片下载，在线默写单词，iframe测试，WEM音频转换MP3",
   head: [

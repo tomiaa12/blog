@@ -12,7 +12,6 @@ import svgLoader from "vite-svg-loader"
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 
 export default defineConfig({
-  title: "KYX Box",
   lastUpdated: true,
   outDir: "../kuangyx",
   // srcDir: "apps",

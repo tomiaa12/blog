@@ -1,4 +1,5 @@
 ---
+title: أدوات مجانية عبر الإنترنت، موقع موارد
 layout: home
 class: home
 hero:

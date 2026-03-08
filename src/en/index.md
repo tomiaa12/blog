@@ -1,4 +1,5 @@
 ---
+title: Free Online Tools and Resources
 layout: home
 class: home
 hero:

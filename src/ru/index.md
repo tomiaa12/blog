@@ -1,4 +1,5 @@
 ---
+title: Бесплатные онлайн-инструменты, сайт ресурсов
 layout: home
 class: home
 hero:

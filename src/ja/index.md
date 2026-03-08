@@ -1,4 +1,5 @@
 ---
+title: 無料オンラインツール、リソースサイト
 layout: home
 class: home
 hero:

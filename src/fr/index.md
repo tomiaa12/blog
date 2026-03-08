@@ -1,4 +1,5 @@
 ---
+title: Outils en ligne gratuits, site de ressources
 layout: home
 class: home
 hero:
