@@ -2,7 +2,7 @@
 
 AI 驱动的 Git Commit Message 自动生成工具。
 
-![预览图](https://raw.githubusercontent.com/tomiaa12/blog/main/src/vscodeExtension/commitAiPro/resources/preview.gif)
+![预览图](https://raw.githubusercontent.com/tomiaa12/blog/main/extension/commitAiPro/resources/preview.gif)
 
 ## 功能特点
 
