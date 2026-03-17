@@ -242,30 +242,11 @@ function getNav() {
         { text: "导航", link: "/pages/navigation" },
         { text: "软件", link: "/pages/software" },
         
-        // { text: "GPT", link: "/pages/chatGPT" },
-        // {
-        //   text: "小游戏",
-        //   collapsed: true,
-        //   items: [
-        //     { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
-        //     { text: "猜英雄联盟", link: "/docs/在线应用/小游戏/猜英雄联盟" },
-        //     { text: "猜电影", link: "/docs/在线应用/小游戏/猜电影" },
-        //     { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
-        //     { text: "猜音乐", link: "/docs/在线应用/小游戏/猜音乐" },
-        //     { text: "js问题测验", link: "/docs/在线应用/小游戏/js问题测验" },
-        //     { text: "二次元浓度测试", link: "/docs/在线应用/小游戏/二次元浓度测试" },
-        //     { text: "一言", link: "/docs/在线应用/小游戏/一言" },
-        //     { text: "一句", link: "/docs/在线应用/小游戏/一句" },
-        //     { text: "早报", link: "/docs/在线应用/小游戏/早报" },
-        //     { text: "彩虹屁", link: "/docs/在线应用/小游戏/彩虹屁" },
-        //     { text: "毒鸡汤", link: "/docs/在线应用/小游戏/毒鸡汤" },
-        //     { text: "舔狗日记", link: "/docs/在线应用/小游戏/舔狗日记" },
-        //     { text: "网易云热评", link: "/docs/在线应用/小游戏/网易云热评" },
-        //     { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
-        //     { text: "历史上的今天", link: "/docs/在线应用/小游戏/历史上的今天" },
-        //     { text: "动漫里那些可爱女主", link: "/docs/在线应用/小游戏/动漫里那些可爱女主" },
-        //   ],
-        // },
+        { text: "GPT", link: "/pages/chatGPT" },
+        {
+          text: "小游戏",
+          link: "/docs/在线应用/小游戏/猜英雄联盟"
+        },
         {
           text: "推荐文章",
           items: [
@@ -285,6 +266,7 @@ function getNav() {
         {
           text: "前端",
           items: [
+            { text: "JavaScript", link: "/docs/JavaScript/基本概念/变量" },
             { text: "Pixi.js", link: "/docs/框架/pixi.js/基本图形绘制" },
             {
               text: "Openlayers",
@@ -316,8 +298,9 @@ function getNav() {
         {
           text: "其他",
           items: [
+            { text: "前端资源收集", link: "/docs/资源收集/介绍" },
+            { text: "我的云盘", link: "/docs/关于/我的云盘" },
             { text: "面试", link: "/docs/关于/面试" },
-            // { text: "我的云盘", link: "/docs/关于/我的云盘" },
             { text: "英语", link: "/docs/English/主语" },
           ],
         },
@@ -326,7 +309,7 @@ function getNav() {
           items: [
             { text: "更新日志", link: "/docs/关于/更新日志" },
             { text: "支持我", link: "/docs/关于/支持我" },
-            // { text: "交流群", link: "/docs/关于/交流群" },
+            { text: "交流群", link: "/docs/关于/交流群" },
           ],
         },
       ],
@@ -370,29 +353,28 @@ function getSidebar() {
     ],
 
     "/docs/在线应用/": [
-      // {
-      //   text: "小游戏",
-      //   collapsed: true,
-      //   items: [
-      //     { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
-      //     { text: "猜英雄联盟", link: "/docs/在线应用/小游戏/猜英雄联盟" },
-      //     { text: "猜电影", link: "/docs/在线应用/小游戏/猜电影" },
-      //     { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
-      //     { text: "猜音乐", link: "/docs/在线应用/小游戏/猜音乐" },
-      //     { text: "js问题测验", link: "/docs/在线应用/小游戏/js问题测验" },
-      //     { text: "二次元浓度测试", link: "/docs/在线应用/小游戏/二次元浓度测试" },
-      //     { text: "一言", link: "/docs/在线应用/小游戏/一言" },
-      //     { text: "一句", link: "/docs/在线应用/小游戏/一句" },
-      //     { text: "早报", link: "/docs/在线应用/小游戏/早报" },
-      //     { text: "彩虹屁", link: "/docs/在线应用/小游戏/彩虹屁" },
-      //     { text: "毒鸡汤", link: "/docs/在线应用/小游戏/毒鸡汤" },
-      //     { text: "舔狗日记", link: "/docs/在线应用/小游戏/舔狗日记" },
-      //     { text: "网易云热评", link: "/docs/在线应用/小游戏/网易云热评" },
-      //     { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
-      //     { text: "历史上的今天", link: "/docs/在线应用/小游戏/历史上的今天" },
-      //     { text: "动漫里那些可爱女主", link: "/docs/在线应用/小游戏/动漫里那些可爱女主" },
-      //   ],
-      // },
+      {
+        text: "小游戏",
+        collapsed: true,
+        items: [
+          { text: "猜英雄联盟", link: "/docs/在线应用/小游戏/猜英雄联盟" },
+          { text: "猜电影", link: "/docs/在线应用/小游戏/猜电影" },
+          { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
+          { text: "猜音乐", link: "/docs/在线应用/小游戏/猜音乐" },
+          { text: "js问题测验", link: "/docs/在线应用/小游戏/js问题测验" },
+          { text: "二次元浓度测试", link: "/docs/在线应用/小游戏/二次元浓度测试" },
+          { text: "一言", link: "/docs/在线应用/小游戏/一言" },
+          { text: "一句", link: "/docs/在线应用/小游戏/一句" },
+          { text: "早报", link: "/docs/在线应用/小游戏/早报" },
+          { text: "彩虹屁", link: "/docs/在线应用/小游戏/彩虹屁" },
+          { text: "毒鸡汤", link: "/docs/在线应用/小游戏/毒鸡汤" },
+          { text: "舔狗日记", link: "/docs/在线应用/小游戏/舔狗日记" },
+          { text: "网易云热评", link: "/docs/在线应用/小游戏/网易云热评" },
+          { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
+          { text: "历史上的今天", link: "/docs/在线应用/小游戏/历史上的今天" },
+          { text: "动漫里那些可爱女主", link: "/docs/在线应用/小游戏/动漫里那些可爱女主" },
+        ],
+      },
       {
         text: "工具",
         collapsed: true,
@@ -901,9 +883,6 @@ function getSidebar() {
           { text: "audio", link: "/docs/JavaScript/多媒体API/audio" },
         ],
       },
-    ],
-
-    "/docs/ES6/": [
       {
         text: "ECMAScript 6+",
         collapsed: true,
