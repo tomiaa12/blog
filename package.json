@@ -1,6 +1,6 @@
 {
   "name": "Tomiaa",
-  "version": "0.0.0",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "type": "module",
@@ -10,7 +10,7 @@
     "postbuild": "node build/indexnow.js",
     "serve": "vitepress serve src",
     "preview": "vitepress preview src --port 8080",
-    "log": "conventional-changelog -p angular -i ./src/docs/关于/更新日志.md -s -r 0 -n ./changelog.ts",
+    "log": "conventional-changelog -p angular -i ./src/zh/docs/关于/更新日志.md -s -r 0 -n ./changelog.cjs && node build/trim-changelog.js",
     "dep": "node build/deploy.js"
   },
   "keywords": [],
