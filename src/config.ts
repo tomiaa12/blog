@@ -184,22 +184,23 @@ export default defineAdditionalConfig({
     nav: [
       {
         text: "格式转换",
-        items: [
-          { text: "音频转换", link: "/web/convert/audio" },
-        ]
+        items: [{ text: "音频转换", link: "/web/convert/audio" }],
       },
       {
         text: "加解密",
         items: [
           { text: "Base64 编解码", link: "/web/encode-decode/base64" },
           { text: "URL 编解码", link: "/web/encode-decode/url" },
-        ]
+        ],
       },
       {
         text: "开发工具",
         items: [
-          { text: "地图坐标转换", link: "/web/dev-tools/map-coordinate-conversion" },
-        ]
+          {
+            text: "地图坐标转换",
+            link: "/web/dev-tools/map-coordinate-conversion",
+          },
+        ],
       },
       {
         text: "游戏",
@@ -230,7 +231,7 @@ export default defineAdditionalConfig({
     ],
     sidebar: {
       ...getSidebar(),
-    }
+    },
   },
 })
 
@@ -241,11 +242,11 @@ function getNav() {
       items: [
         { text: "导航", link: "/pages/navigation" },
         { text: "软件", link: "/pages/software" },
-        
+
         { text: "GPT", link: "/pages/chatGPT" },
         {
           text: "小游戏",
-          link: "/docs/在线应用/小游戏/猜英雄联盟"
+          link: "/docs/在线应用/小游戏/猜英雄联盟",
         },
         {
           text: "推荐文章",
@@ -300,8 +301,8 @@ function getNav() {
           items: [
             { text: "前端资源收集", link: "/docs/资源收集/介绍" },
             { text: "我的云盘", link: "/docs/关于/我的云盘" },
-            { text: "面试", link: "/docs/关于/面试" },
-            { text: "英语", link: "/docs/English/主语" },
+            // { text: "面试", link: "/docs/关于/面试" },
+            // { text: "英语", link: "/docs/English/主语" },
           ],
         },
         {
@@ -362,7 +363,10 @@ function getSidebar() {
           { text: "猜奥特曼", link: "/docs/在线应用/小游戏/猜奥特曼" },
           { text: "猜音乐", link: "/docs/在线应用/小游戏/猜音乐" },
           { text: "js问题测验", link: "/docs/在线应用/小游戏/js问题测验" },
-          { text: "二次元浓度测试", link: "/docs/在线应用/小游戏/二次元浓度测试" },
+          {
+            text: "二次元浓度测试",
+            link: "/docs/在线应用/小游戏/二次元浓度测试",
+          },
           { text: "一言", link: "/docs/在线应用/小游戏/一言" },
           { text: "一句", link: "/docs/在线应用/小游戏/一句" },
           { text: "早报", link: "/docs/在线应用/小游戏/早报" },
@@ -372,7 +376,10 @@ function getSidebar() {
           { text: "网易云热评", link: "/docs/在线应用/小游戏/网易云热评" },
           { text: "人生倒计时", link: "/docs/在线应用/小游戏/人生倒计时" },
           { text: "历史上的今天", link: "/docs/在线应用/小游戏/历史上的今天" },
-          { text: "动漫里那些可爱女主", link: "/docs/在线应用/小游戏/动漫里那些可爱女主" },
+          {
+            text: "动漫里那些可爱女主",
+            link: "/docs/在线应用/小游戏/动漫里那些可爱女主",
+          },
         ],
       },
       {
