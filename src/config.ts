@@ -194,6 +194,23 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "文本工具",
+        items: [
+          { text: "多行合并拆分", link: "/web/text-tools/multi-line-merge-split" },
+          // { text: "转图片", link: "/web/text-tools/text-to-image" },
+          { text: "拼音转换", link: "/web/text-tools/pinyin-conversion" },
+          { text: "简繁转换", link: "/web/text-tools/simplified-traditional-conversion" },
+          // { text: "大小写转换", link: "/web/text-tools/case-conversion" },
+          // { text: "去重", link: "/web/text-tools/duplicate-removal" },
+          // { text: "罗马数字转换/大写金额转换", link: "/web/text-tools/roman-numeral-conversion" },
+          // { text: "阅读时间估算", link: "/web/text-tools/reading-time-estimation" },
+          // { text: "emoji大全", link: "/web/text-tools/emoji-all" },
+          // { text: "全角 半角转换", link: "/web/text-tools/full-width-half-width-conversion" },
+          // { text: "关键词统计", link: "/web/text-tools/keyword-statistics" },
+          // { text: "字数统计", link: "/web/text-tools/word-count" },
+        ],
+      },
+      {
         text: "开发工具",
         items: [
           {
@@ -211,7 +228,7 @@ export default defineAdditionalConfig({
         ],
       },
       {
-        text: "工具",
+        text: "在线应用",
         items: [
           { text: "在线默写单词", link: "/docs/在线应用/工具/在线默写单词" },
           { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },

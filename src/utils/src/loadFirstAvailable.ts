@@ -8,7 +8,7 @@
  *
  * @param candidates 候选地址列表（通常是多个 CDN）。
  * @param loader 实际加载函数，传入 url，返回加载结果（如 toBlobURL/fetch/json 等）。
- * @param fallback 候选全部失败后的兜底地址（如 public 静态资源路径）。
+ * @param fallback 候选全部失败后的兜底：可以是 URL 字符串（走 loader），也可以是返回模块的函数（如 `() => import('pinyin-pro')`）。
  *
  * @example
  * const coreURL = await loadFirstAvailable(
@@ -26,11 +26,22 @@
  *   async url => (await fetch(url)).json(),
  *   "/config.json",
  * )
+ *
+ * @example
+ * // CDN 优先，失败后回退到本地 node_modules
+ * const { pinyin } = await loadFirstAvailable(
+ *   [
+ *     "https://cdn.jsdelivr.net/npm/pinyin-pro/dist/index.js",
+ *     "https://unpkg.com/pinyin-pro/dist/index.js",
+ *   ],
+ *   loadScript,
+ *   () => import('pinyin-pro'),
+ * )
  */
 export async function loadFirstAvailable<T>(
   candidates: string[],
   loader: (url: string) => Promise<T>,
-  fallback?: string,
+  fallback?: string | (() => Promise<T>),
 ): Promise<T> {
   const errors: Error[] = []
 
@@ -70,9 +81,38 @@ export async function loadFirstAvailable<T>(
   }
 
   if (fallback) {
+    if (typeof fallback === "function") {
+      return fallback()
+    }
     return tryLoad(fallback)
   }
 
   const detail = errors.map(item => item.message).join(" | ")
   throw new Error(`资源加载失败: ${detail}`)
+}
+
+/**
+ * 动态注入 `<script>` 标签并等待加载完成，加载后返回 `window` 对象（用于获取全局变量）。
+ *
+ * 常配合 `loadFirstAvailable` 使用，作为 CDN 脚本加载器。
+ *
+ * @example
+ * const win = await loadScript("https://cdn.jsdelivr.net/npm/pinyin-pro/dist/index.js")
+ * const { pinyin } = win.pinyinPro
+ */
+export function loadScript(url: string): Promise<typeof window> {
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>(
+      `script[src="${url}"]`,
+    )
+    if (existing) {
+      resolve(window)
+      return
+    }
+    const script = document.createElement("script")
+    script.src = url
+    script.onload = () => resolve(window)
+    script.onerror = () => reject(new Error(`脚本加载失败: ${url}`))
+    document.head.appendChild(script)
+  })
 }

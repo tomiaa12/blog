@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Textwerkzeuge",
+        items: [
+          { text: "Mehrere Zeilen zusammenführen / aufteilen", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "Entwicklerwerkzeuge",
         items: [
           { text: "Kartenkoordinaten umrechnen", link: "/web/dev-tools/map-coordinate-conversion" },

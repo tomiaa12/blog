@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Narzędzia tekstowe",
+        items: [
+          { text: "Scalanie / dzielenie wielu wierszy", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "Narzędzia deweloperskie",
         items: [
           { text: "Konwersja współrzędnych mapy", link: "/web/dev-tools/map-coordinate-conversion" },

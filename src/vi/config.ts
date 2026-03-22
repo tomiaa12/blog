@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Công cụ văn bản",
+        items: [
+          { text: "Ghép / tách nhiều dòng", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "Công cụ phát triển",
         items: [
           { text: "Chuyển đổi tọa độ bản đồ", link: "/web/dev-tools/map-coordinate-conversion" },

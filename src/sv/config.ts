@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Textverktyg",
+        items: [
+          { text: "Sammanfoga / dela upp flera rader", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "Utvecklarverktyg",
         items: [
           { text: "Kartkoordinatkonvertering", link: "/web/dev-tools/map-coordinate-conversion" },

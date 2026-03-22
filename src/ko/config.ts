@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "텍스트 도구",
+        items: [
+          { text: "여러 줄 합치기 / 나누기", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "개발 도구",
         items: [
           { text: "지도 좌표 변환", link: "/web/dev-tools/map-coordinate-conversion" },

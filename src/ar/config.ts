@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "أدوات النص",
+        items: [
+          { text: "دمج / تقسيم الأسطر المتعددة", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "أدوات المطور",
         items: [
           { text: "تحويل إحداثيات الخريطة", link: "/web/dev-tools/map-coordinate-conversion" },

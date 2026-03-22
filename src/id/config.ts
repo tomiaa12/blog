@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Alat teks",
+        items: [
+          { text: "Gabungkan / pisahkan beberapa baris", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "Alat pengembang",
         items: [
           { text: "Konversi koordinat peta", link: "/web/dev-tools/map-coordinate-conversion" },

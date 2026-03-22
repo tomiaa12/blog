@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "文字工具",
+        items: [
+          { text: "多行合併拆分", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "開發工具",
         items: [
           { text: "地圖座標轉換", link: "/web/dev-tools/map-coordinate-conversion" },

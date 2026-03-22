@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Metin araçları",
+        items: [
+          { text: "Çok satırlı birleştir / böl", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "Geliştirici araçları",
         items: [
           { text: "Harita koordinat dönüşümü", link: "/web/dev-tools/map-coordinate-conversion" },

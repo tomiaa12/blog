@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "เครื่องมือข้อความ",
+        items: [
+          { text: "รวม / แยกหลายบรรทัด", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "เครื่องมือนักพัฒนา",
         items: [
           { text: "แปลงพิกัดแผนที่", link: "/web/dev-tools/map-coordinate-conversion" },

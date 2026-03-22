@@ -29,6 +29,12 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Текстовые инструменты",
+        items: [
+          { text: "Объединить / разделить строки", link: "/web/text-tools/multi-line-merge-split" },
+        ],
+      },
+      {
         text: "Инструменты разработчика",
         items: [
           { text: "Преобразование координат карты", link: "/web/dev-tools/map-coordinate-conversion" },
