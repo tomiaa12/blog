@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Конвертация форматов",
         items: [
-          { text: "Конвертация аудио", link: "/web/convert/audio" },
+          { text: "Конвертация аудио", link: "/ru/web/convert/audio" },
         ],
       },
       {
         text: "Кодирование / Декодирование",
         items: [
-          { text: "Base64 Кодирование / Декодирование", link: "/web/encode-decode/base64" },
-          { text: "URL Кодирование / Декодирование", link: "/web/encode-decode/url" },
+          { text: "Base64 Кодирование / Декодирование", link: "/ru/web/encode-decode/base64" },
+          { text: "URL Кодирование / Декодирование", link: "/ru/web/encode-decode/url" },
         ],
       },
       {
         text: "Текстовые инструменты",
         items: [
-          { text: "Объединить / разделить строки", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Объединить / разделить строки", link: "/ru/web/text-tools/multi-line-merge-split" },
+          { text: "Конвертер пиньинь", link: "/ru/web/text-tools/pinyin-conversion" },
+          { text: "Конвертер упрощённого-традиционного", link: "/ru/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Инструменты разработчика",
         items: [
-          { text: "Преобразование координат карты", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Преобразование координат карты", link: "/ru/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Conversione formato",
         items: [
-          { text: "Conversione audio", link: "/web/convert/audio" },
+          { text: "Conversione audio", link: "/it/web/convert/audio" },
         ],
       },
       {
         text: "Codifica / Decodifica",
         items: [
-          { text: "Base64 Codifica / Decodifica", link: "/web/encode-decode/base64" },
-          { text: "URL Codifica / Decodifica", link: "/web/encode-decode/url" },
+          { text: "Base64 Codifica / Decodifica", link: "/it/web/encode-decode/base64" },
+          { text: "URL Codifica / Decodifica", link: "/it/web/encode-decode/url" },
         ],
       },
       {
         text: "Strumenti testo",
         items: [
-          { text: "Unire / dividere più righe", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Unire / dividere più righe", link: "/it/web/text-tools/multi-line-merge-split" },
+          { text: "Convertitore Pinyin", link: "/it/web/text-tools/pinyin-conversion" },
+          { text: "Convertitore semplificato-tradizionale", link: "/it/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Strumenti per sviluppatori",
         items: [
-          { text: "Conversione coordinate mappa", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Conversione coordinate mappa", link: "/it/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

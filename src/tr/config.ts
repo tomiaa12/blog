@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Format dönüştürme",
         items: [
-          { text: "Ses dönüştürme", link: "/web/convert/audio" },
+          { text: "Ses dönüştürme", link: "/tr/web/convert/audio" },
         ],
       },
       {
         text: "Kodlama / Kod Çözme",
         items: [
-          { text: "Base64 Kodlama / Kod Çözme", link: "/web/encode-decode/base64" },
-          { text: "URL Kodlama / Kod Çözme", link: "/web/encode-decode/url" },
+          { text: "Base64 Kodlama / Kod Çözme", link: "/tr/web/encode-decode/base64" },
+          { text: "URL Kodlama / Kod Çözme", link: "/tr/web/encode-decode/url" },
         ],
       },
       {
         text: "Metin araçları",
         items: [
-          { text: "Çok satırlı birleştir / böl", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Çok satırlı birleştir / böl", link: "/tr/web/text-tools/multi-line-merge-split" },
+          { text: "Pinyin Dönüştürücü", link: "/tr/web/text-tools/pinyin-conversion" },
+          { text: "Basitleştirilmiş-Geleneksel Dönüştürücü", link: "/tr/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Geliştirici araçları",
         items: [
-          { text: "Harita koordinat dönüşümü", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Harita koordinat dönüşümü", link: "/tr/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

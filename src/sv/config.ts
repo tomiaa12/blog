@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Formatkonvertering",
         items: [
-          { text: "Ljudkonvertering", link: "/web/convert/audio" },
+          { text: "Ljudkonvertering", link: "/sv/web/convert/audio" },
         ],
       },
       {
         text: "Kodning / Avkodning",
         items: [
-          { text: "Base64 Kodning / Avkodning", link: "/web/encode-decode/base64" },
-          { text: "URL Kodning / Avkodning", link: "/web/encode-decode/url" },
+          { text: "Base64 Kodning / Avkodning", link: "/sv/web/encode-decode/base64" },
+          { text: "URL Kodning / Avkodning", link: "/sv/web/encode-decode/url" },
         ],
       },
       {
         text: "Textverktyg",
         items: [
-          { text: "Sammanfoga / dela upp flera rader", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Sammanfoga / dela upp flera rader", link: "/sv/web/text-tools/multi-line-merge-split" },
+          { text: "Pinyin-omvandlare", link: "/sv/web/text-tools/pinyin-conversion" },
+          { text: "Förenklad-traditionell omvandlare", link: "/sv/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Utvecklarverktyg",
         items: [
-          { text: "Kartkoordinatkonvertering", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Kartkoordinatkonvertering", link: "/sv/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

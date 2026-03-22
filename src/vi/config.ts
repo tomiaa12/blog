@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Chuyển đổi định dạng",
         items: [
-          { text: "Chuyển đổi âm thanh", link: "/web/convert/audio" },
+          { text: "Chuyển đổi âm thanh", link: "/vi/web/convert/audio" },
         ],
       },
       {
         text: "Mã hóa / Giải mã",
         items: [
-          { text: "Base64 Mã hóa / Giải mã", link: "/web/encode-decode/base64" },
-          { text: "URL Mã hóa / Giải mã", link: "/web/encode-decode/url" },
+          { text: "Base64 Mã hóa / Giải mã", link: "/vi/web/encode-decode/base64" },
+          { text: "URL Mã hóa / Giải mã", link: "/vi/web/encode-decode/url" },
         ],
       },
       {
         text: "Công cụ văn bản",
         items: [
-          { text: "Ghép / tách nhiều dòng", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Ghép / tách nhiều dòng", link: "/vi/web/text-tools/multi-line-merge-split" },
+          { text: "Chuyển đổi Pinyin", link: "/vi/web/text-tools/pinyin-conversion" },
+          { text: "Chuyển đổi Giản thể-Phồn thể", link: "/vi/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Công cụ phát triển",
         items: [
-          { text: "Chuyển đổi tọa độ bản đồ", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Chuyển đổi tọa độ bản đồ", link: "/vi/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

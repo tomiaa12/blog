@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "फ़ॉर्मेट रूपांतरण",
         items: [
-          { text: "ऑडियो रूपांतरण", link: "/web/convert/audio" },
+          { text: "ऑडियो रूपांतरण", link: "/hi/web/convert/audio" },
         ],
       },
       {
         text: "एन्कोडिंग / डीकोडिंग",
         items: [
-          { text: "Base64 एन्कोडिंग / डीकोडिंग", link: "/web/encode-decode/base64" },
-          { text: "URL एन्कोडिंग / डीकोडिंग", link: "/web/encode-decode/url" },
+          { text: "Base64 एन्कोडिंग / डीकोडिंग", link: "/hi/web/encode-decode/base64" },
+          { text: "URL एन्कोडिंग / डीकोडिंग", link: "/hi/web/encode-decode/url" },
         ],
       },
       {
         text: "पाठ उपकरण",
         items: [
-          { text: "बहु-पंक्ति मर्ज / विभाजन", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "बहु-पंक्ति मर्ज / विभाजन", link: "/hi/web/text-tools/multi-line-merge-split" },
+          { text: "पिनयिन कनवर्टर", link: "/hi/web/text-tools/pinyin-conversion" },
+          { text: "सरलीकृत-पारंपरिक कनवर्टर", link: "/hi/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "डेवलपर टूल्स",
         items: [
-          { text: "मैप कोऑर्डिनेट कन्वर्ज़न", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "मैप कोऑर्डिनेट कन्वर्ज़न", link: "/hi/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

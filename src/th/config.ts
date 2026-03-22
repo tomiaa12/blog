@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "แปลงรูปแบบ",
         items: [
-          { text: "แปลงเสียง", link: "/web/convert/audio" },
+          { text: "แปลงเสียง", link: "/th/web/convert/audio" },
         ],
       },
       {
         text: "เข้ารหัส / ถอดรหัส",
         items: [
-          { text: "Base64 เข้ารหัส / ถอดรหัส", link: "/web/encode-decode/base64" },
-          { text: "URL เข้ารหัส / ถอดรหัส", link: "/web/encode-decode/url" },
+          { text: "Base64 เข้ารหัส / ถอดรหัส", link: "/th/web/encode-decode/base64" },
+          { text: "URL เข้ารหัส / ถอดรหัส", link: "/th/web/encode-decode/url" },
         ],
       },
       {
         text: "เครื่องมือข้อความ",
         items: [
-          { text: "รวม / แยกหลายบรรทัด", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "รวม / แยกหลายบรรทัด", link: "/th/web/text-tools/multi-line-merge-split" },
+          { text: "แปลงพินอิน", link: "/th/web/text-tools/pinyin-conversion" },
+          { text: "แปลงอักษรจีนตัวย่อ-ตัวเต็ม", link: "/th/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "เครื่องมือนักพัฒนา",
         items: [
-          { text: "แปลงพิกัดแผนที่", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "แปลงพิกัดแผนที่", link: "/th/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

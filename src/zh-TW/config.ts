@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "格式轉換",
         items: [
-          { text: "音訊轉換", link: "/web/convert/audio" },
+          { text: "音訊轉換", link: "/zh-TW/web/convert/audio" },
         ],
       },
       {
         text: "編碼 / 解碼",
         items: [
-          { text: "Base64 編解碼", link: "/web/encode-decode/base64" },
-          { text: "URL 編解碼", link: "/web/encode-decode/url" },
+          { text: "Base64 編解碼", link: "/zh-TW/web/encode-decode/base64" },
+          { text: "URL 編解碼", link: "/zh-TW/web/encode-decode/url" },
         ],
       },
       {
         text: "文字工具",
         items: [
-          { text: "多行合併拆分", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "多行合併拆分", link: "/zh-TW/web/text-tools/multi-line-merge-split" },
+          { text: "拼音轉換", link: "/zh-TW/web/text-tools/pinyin-conversion" },
+          { text: "簡繁轉換", link: "/zh-TW/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "開發工具",
         items: [
-          { text: "地圖座標轉換", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "地圖座標轉換", link: "/zh-TW/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

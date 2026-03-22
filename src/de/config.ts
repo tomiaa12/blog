@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Formatkonvertierung",
         items: [
-          { text: "Audiokonvertierung", link: "/web/convert/audio" },
+          { text: "Audiokonvertierung", link: "/de/web/convert/audio" },
         ],
       },
       {
         text: "Codierung / Decodierung",
         items: [
-          { text: "Base64 Codierung / Decodierung", link: "/web/encode-decode/base64" },
-          { text: "URL Codierung / Decodierung", link: "/web/encode-decode/url" },
+          { text: "Base64 Codierung / Decodierung", link: "/de/web/encode-decode/base64" },
+          { text: "URL Codierung / Decodierung", link: "/de/web/encode-decode/url" },
         ],
       },
       {
         text: "Textwerkzeuge",
         items: [
-          { text: "Mehrere Zeilen zusammenführen / aufteilen", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Mehrere Zeilen zusammenführen / aufteilen", link: "/de/web/text-tools/multi-line-merge-split" },
+          { text: "Pinyin-Konverter", link: "/de/web/text-tools/pinyin-conversion" },
+          { text: "Vereinfacht-Traditionell-Konverter", link: "/de/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Entwicklerwerkzeuge",
         items: [
-          { text: "Kartenkoordinaten umrechnen", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Kartenkoordinaten umrechnen", link: "/de/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

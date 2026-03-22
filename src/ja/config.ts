@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "フォーマット変換",
         items: [
-          { text: "音声変換", link: "/web/convert/audio" },
+          { text: "音声変換", link: "/ja/web/convert/audio" },
         ],
       },
       {
         text: "エンコード / デコード",
         items: [
-          { text: "Base64 エンコード・デコード", link: "/web/encode-decode/base64" },
-          { text: "URL エンコード・デコード", link: "/web/encode-decode/url" },
+          { text: "Base64 エンコード・デコード", link: "/ja/web/encode-decode/base64" },
+          { text: "URL エンコード・デコード", link: "/ja/web/encode-decode/url" },
         ],
       },
       {
         text: "テキストツール",
         items: [
-          { text: "複数行の結合 / 分割", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "複数行の結合 / 分割", link: "/ja/web/text-tools/multi-line-merge-split" },
+          { text: "ピンイン変換", link: "/ja/web/text-tools/pinyin-conversion" },
+          { text: "簡体字・繁体字変換", link: "/ja/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "開発ツール",
         items: [
-          { text: "地図座標変換", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "地図座標変換", link: "/ja/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

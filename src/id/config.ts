@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Konversi format",
         items: [
-          { text: "Konversi audio", link: "/web/convert/audio" },
+          { text: "Konversi audio", link: "/id/web/convert/audio" },
         ],
       },
       {
         text: "Enkode / Dekode",
         items: [
-          { text: "Base64 Enkode / Dekode", link: "/web/encode-decode/base64" },
-          { text: "URL Enkode / Dekode", link: "/web/encode-decode/url" },
+          { text: "Base64 Enkode / Dekode", link: "/id/web/encode-decode/base64" },
+          { text: "URL Enkode / Dekode", link: "/id/web/encode-decode/url" },
         ],
       },
       {
         text: "Alat teks",
         items: [
-          { text: "Gabungkan / pisahkan beberapa baris", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Gabungkan / pisahkan beberapa baris", link: "/id/web/text-tools/multi-line-merge-split" },
+          { text: "Konverter Pinyin", link: "/id/web/text-tools/pinyin-conversion" },
+          { text: "Konverter Sederhana-Tradisional", link: "/id/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Alat pengembang",
         items: [
-          { text: "Konversi koordinat peta", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Konversi koordinat peta", link: "/id/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

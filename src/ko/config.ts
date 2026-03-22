@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "형식 변환",
         items: [
-          { text: "오디오 변환", link: "/web/convert/audio" },
+          { text: "오디오 변환", link: "/ko/web/convert/audio" },
         ],
       },
       {
         text: "인코딩 / 디코딩",
         items: [
-          { text: "Base64 인코딩·디코딩", link: "/web/encode-decode/base64" },
-          { text: "URL 인코딩·디코딩", link: "/web/encode-decode/url" },
+          { text: "Base64 인코딩·디코딩", link: "/ko/web/encode-decode/base64" },
+          { text: "URL 인코딩·디코딩", link: "/ko/web/encode-decode/url" },
         ],
       },
       {
         text: "텍스트 도구",
         items: [
-          { text: "여러 줄 합치기 / 나누기", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "여러 줄 합치기 / 나누기", link: "/ko/web/text-tools/multi-line-merge-split" },
+          { text: "병음 변환", link: "/ko/web/text-tools/pinyin-conversion" },
+          { text: "간체-번체 변환", link: "/ko/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "개발 도구",
         items: [
-          { text: "지도 좌표 변환", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "지도 좌표 변환", link: "/ko/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

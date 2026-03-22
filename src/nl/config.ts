@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "Formaatconversie",
         items: [
-          { text: "Audioconversie", link: "/web/convert/audio" },
+          { text: "Audioconversie", link: "/nl/web/convert/audio" },
         ],
       },
       {
         text: "Codering / Decodering",
         items: [
-          { text: "Base64 Codering / Decodering", link: "/web/encode-decode/base64" },
-          { text: "URL Codering / Decodering", link: "/web/encode-decode/url" },
+          { text: "Base64 Codering / Decodering", link: "/nl/web/encode-decode/base64" },
+          { text: "URL Codering / Decodering", link: "/nl/web/encode-decode/url" },
         ],
       },
       {
         text: "Teksttools",
         items: [
-          { text: "Meerdere regels samenvoegen / splitsen", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Meerdere regels samenvoegen / splitsen", link: "/nl/web/text-tools/multi-line-merge-split" },
+          { text: "Pinyin Converter", link: "/nl/web/text-tools/pinyin-conversion" },
+          { text: "Vereenvoudigd-traditioneel converter", link: "/nl/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "Ontwikkelaarstools",
         items: [
-          { text: "Kaartcoordinaten converteren", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "Kaartcoordinaten converteren", link: "/nl/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {

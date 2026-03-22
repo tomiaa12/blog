@@ -1,4 +1,4 @@
-import { defineAdditionalConfig } from "vitepress"
+﻿import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -18,26 +18,28 @@ export default defineAdditionalConfig({
       {
         text: "تحويل الصيغ",
         items: [
-          { text: "تحويل الصوت", link: "/web/convert/audio" },
+          { text: "تحويل الصوت", link: "/ar/web/convert/audio" },
         ],
       },
       {
         text: "تشفير / فك التشفير",
         items: [
-          { text: "Base64 تشفير / فك التشفير", link: "/web/encode-decode/base64" },
-          { text: "URL ترميز / فك ترميز", link: "/web/encode-decode/url" },
+          { text: "Base64 تشفير / فك التشفير", link: "/ar/web/encode-decode/base64" },
+          { text: "URL ترميز / فك ترميز", link: "/ar/web/encode-decode/url" },
         ],
       },
       {
         text: "أدوات النص",
         items: [
-          { text: "دمج / تقسيم الأسطر المتعددة", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "دمج / تقسيم الأسطر المتعددة", link: "/ar/web/text-tools/multi-line-merge-split" },
+          { text: "محوّل البينيين", link: "/ar/web/text-tools/pinyin-conversion" },
+          { text: "محوّل المبسّط-التقليدي", link: "/ar/web/text-tools/simplified-traditional-conversion" },
         ],
       },
       {
         text: "أدوات المطور",
         items: [
-          { text: "تحويل إحداثيات الخريطة", link: "/web/dev-tools/map-coordinate-conversion" },
+          { text: "تحويل إحداثيات الخريطة", link: "/ar/web/dev-tools/map-coordinate-conversion" },
         ],
       },
       {
