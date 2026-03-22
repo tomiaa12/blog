@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "羅馬數字轉換", link: "/zh-TW/web/text-tools/roman-numeral-conversion" },
           { text: "大寫金額轉換", link: "/zh-TW/web/text-tools/uppercase-amount-conversion" },
           { text: "閱讀時間估算", link: "/zh-TW/web/text-tools/reading-time-estimation" },
+          { text: "全形半形轉換", link: "/zh-TW/web/text-tools/full-width-half-width-conversion" },
+          { text: "字數統計", link: "/zh-TW/web/text-tools/word-count" },
         ],
       },
       {

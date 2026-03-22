@@ -206,9 +206,9 @@ export default defineAdditionalConfig({
           { text: "大写金额转换", link: "/web/text-tools/uppercase-amount-conversion" },
           { text: "阅读时间估算", link: "/web/text-tools/reading-time-estimation" },
           // { text: "emoji大全", link: "/web/text-tools/emoji-all" },
-          // { text: "全角 半角转换", link: "/web/text-tools/full-width-half-width-conversion" },
+          { text: "全角半角转换", link: "/web/text-tools/full-width-half-width-conversion" },
           // { text: "关键词统计", link: "/web/text-tools/keyword-statistics" },
-          // { text: "字数统计", link: "/web/text-tools/word-count" },
+          { text: "字数统计", link: "/web/text-tools/word-count" },
         ],
       },
       {

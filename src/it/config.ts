@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "Convertitore di numeri romani", link: "/it/web/text-tools/roman-numeral-conversion" },
           { text: "Convertitore importo in cinese", link: "/it/web/text-tools/uppercase-amount-conversion" },
           { text: "Stimatore di tempo di lettura", link: "/it/web/text-tools/reading-time-estimation" },
+          { text: "Convertitore larghezza piena/media", link: "/it/web/text-tools/full-width-half-width-conversion" },
+          { text: "Contatore di parole", link: "/it/web/text-tools/word-count" },
         ],
       },
       {

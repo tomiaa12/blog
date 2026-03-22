@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "Romerska siffror konverterare", link: "/sv/web/text-tools/roman-numeral-conversion" },
           { text: "Kinesisk beloppskonverterare", link: "/sv/web/text-tools/uppercase-amount-conversion" },
           { text: "Lästidsuppskattare", link: "/sv/web/text-tools/reading-time-estimation" },
+          { text: "Helbredd/halvbredd konverterare", link: "/sv/web/text-tools/full-width-half-width-conversion" },
+          { text: "Ordräknare", link: "/sv/web/text-tools/word-count" },
         ],
       },
       {

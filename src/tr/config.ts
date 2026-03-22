@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "Roma Rakamı Dönüştürücü", link: "/tr/web/text-tools/roman-numeral-conversion" },
           { text: "Çince Tutar Dönüştürücü", link: "/tr/web/text-tools/uppercase-amount-conversion" },
           { text: "Okuma Süresi Tahmincisi", link: "/tr/web/text-tools/reading-time-estimation" },
+          { text: "Tam Genişlik/Yarı Genişlik Dönüştürücü", link: "/tr/web/text-tools/full-width-half-width-conversion" },
+          { text: "Kelime Sayacı", link: "/tr/web/text-tools/word-count" },
         ],
       },
       {

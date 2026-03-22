@@ -37,6 +37,8 @@ export default defineAdditionalConfig({
           { text: "Roman Numeral Converter", link: "/en/web/text-tools/roman-numeral-conversion" },
           { text: "Chinese Financial Amount Converter", link: "/en/web/text-tools/uppercase-amount-conversion" },
           { text: "Reading Time Estimator", link: "/en/web/text-tools/reading-time-estimation" },
+          { text: "Full-Width / Half-Width Converter", link: "/en/web/text-tools/full-width-half-width-conversion" },
+          { text: "Word Count", link: "/en/web/text-tools/word-count" },
         ],
       },
       {

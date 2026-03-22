@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "Konverter Angka Romawi", link: "/id/web/text-tools/roman-numeral-conversion" },
           { text: "Konverter Jumlah ke Bahasa China", link: "/id/web/text-tools/uppercase-amount-conversion" },
           { text: "Estimasi Waktu Baca", link: "/id/web/text-tools/reading-time-estimation" },
+          { text: "Konverter Lebar Penuh/Setengah", link: "/id/web/text-tools/full-width-half-width-conversion" },
+          { text: "Penghitung Kata", link: "/id/web/text-tools/word-count" },
         ],
       },
       {

@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "محوّل الأرقام الرومانية", link: "/ar/web/text-tools/roman-numeral-conversion" },
           { text: "محوّل المبلغ إلى الصينية", link: "/ar/web/text-tools/uppercase-amount-conversion" },
           { text: "تقدير وقت القراءة", link: "/ar/web/text-tools/reading-time-estimation" },
+          { text: "محوّل العرض الكامل/النصفي", link: "/ar/web/text-tools/full-width-half-width-conversion" },
+          { text: "عداد الكلمات", link: "/ar/web/text-tools/word-count" },
         ],
       },
       {

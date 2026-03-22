@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "Romeinse cijfer converter", link: "/nl/web/text-tools/roman-numeral-conversion" },
           { text: "Bedrag naar Chinees converteren", link: "/nl/web/text-tools/uppercase-amount-conversion" },
           { text: "Leestijd schatter", link: "/nl/web/text-tools/reading-time-estimation" },
+          { text: "Volbreedte/halfbreedte converter", link: "/nl/web/text-tools/full-width-half-width-conversion" },
+          { text: "Woordteller", link: "/nl/web/text-tools/word-count" },
         ],
       },
       {

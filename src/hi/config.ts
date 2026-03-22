@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "रोमन अंक परिवर्तक", link: "/hi/web/text-tools/roman-numeral-conversion" },
           { text: "चीनी वित्तीय राशि परिवर्तक", link: "/hi/web/text-tools/uppercase-amount-conversion" },
           { text: "पढ़ने का समय अनुमान", link: "/hi/web/text-tools/reading-time-estimation" },
+          { text: "पूर्ण-चौड़ाई/अर्ध-चौड़ाई परिवर्तक", link: "/hi/web/text-tools/full-width-half-width-conversion" },
+          { text: "शब्द गणना", link: "/hi/web/text-tools/word-count" },
         ],
       },
       {

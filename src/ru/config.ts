@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "Конвертер римских цифр", link: "/ru/web/text-tools/roman-numeral-conversion" },
           { text: "Конвертер суммы на китайский", link: "/ru/web/text-tools/uppercase-amount-conversion" },
           { text: "Оценщик времени чтения", link: "/ru/web/text-tools/reading-time-estimation" },
+          { text: "Конвертер полной/полуширины", link: "/ru/web/text-tools/full-width-half-width-conversion" },
+          { text: "Подсчёт слов", link: "/ru/web/text-tools/word-count" },
         ],
       },
       {

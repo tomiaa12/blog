@@ -39,6 +39,8 @@ export default defineAdditionalConfig({
           { text: "로마 숫자 변환", link: "/ko/web/text-tools/roman-numeral-conversion" },
           { text: "중국어 금액 대문자 변환", link: "/ko/web/text-tools/uppercase-amount-conversion" },
           { text: "읽기 시간 추정", link: "/ko/web/text-tools/reading-time-estimation" },
+          { text: "전각·반각 변환", link: "/ko/web/text-tools/full-width-half-width-conversion" },
+          { text: "글자 수 세기", link: "/ko/web/text-tools/word-count" },
         ],
       },
       {
