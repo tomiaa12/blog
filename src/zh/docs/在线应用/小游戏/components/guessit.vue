@@ -171,7 +171,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, withDefaults, nextTick, computed, watch } from "vue"
+import { ref, nextTick, computed, watch } from "vue"
 import { randomInteger } from "@tomiaa/utils"
 import { orginHost } from "@/utils"
 import mediumZoom from "medium-zoom"

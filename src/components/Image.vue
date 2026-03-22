@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import mediumZoom from "medium-zoom"
-import { nextTick, ref, withDefaults } from "vue"
+import { nextTick, ref } from "vue"
 
 const props = withDefaults(
   defineProps<{

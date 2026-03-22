@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, withDefaults, computed, useSlots } from "vue"
+import { ref, computed, useSlots } from "vue"
 import Text from "@/components/Text.vue"
 
 const props = withDefaults(
