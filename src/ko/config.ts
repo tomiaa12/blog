@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "중국어 금액 대문자 변환", link: "/ko/web/text-tools/uppercase-amount-conversion" },
           { text: "읽기 시간 추정", link: "/ko/web/text-tools/reading-time-estimation" },
           { text: "전각·반각 변환", link: "/ko/web/text-tools/full-width-half-width-conversion" },
+          { text: "키워드 통계", link: "/ko/web/text-tools/keyword-statistics" },
+          { text: "이모지 모음", link: "/ko/web/text-tools/emoji-all" },
           { text: "글자 수 세기", link: "/ko/web/text-tools/word-count" },
         ],
       },

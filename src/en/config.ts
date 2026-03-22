@@ -38,6 +38,8 @@ export default defineAdditionalConfig({
           { text: "Chinese Financial Amount Converter", link: "/en/web/text-tools/uppercase-amount-conversion" },
           { text: "Reading Time Estimator", link: "/en/web/text-tools/reading-time-estimation" },
           { text: "Full-Width / Half-Width Converter", link: "/en/web/text-tools/full-width-half-width-conversion" },
+          { text: "Keyword Statistics", link: "/en/web/text-tools/keyword-statistics" },
+          { text: "Emoji Collection", link: "/en/web/text-tools/emoji-all" },
           { text: "Word Count", link: "/en/web/text-tools/word-count" },
         ],
       },

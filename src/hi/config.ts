@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "चीनी वित्तीय राशि परिवर्तक", link: "/hi/web/text-tools/uppercase-amount-conversion" },
           { text: "पढ़ने का समय अनुमान", link: "/hi/web/text-tools/reading-time-estimation" },
           { text: "पूर्ण-चौड़ाई/अर्ध-चौड़ाई परिवर्तक", link: "/hi/web/text-tools/full-width-half-width-conversion" },
+          { text: "कीवर्ड आँकड़े", link: "/hi/web/text-tools/keyword-statistics" },
+          { text: "इमोजी संग्रह", link: "/hi/web/text-tools/emoji-all" },
           { text: "शब्द गणना", link: "/hi/web/text-tools/word-count" },
         ],
       },

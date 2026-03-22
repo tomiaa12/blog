@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "Chinesischer Betrag-Konverter", link: "/de/web/text-tools/uppercase-amount-conversion" },
           { text: "Lesezeit-Schätzer", link: "/de/web/text-tools/reading-time-estimation" },
           { text: "Vollbreite/Halbbreite Konverter", link: "/de/web/text-tools/full-width-half-width-conversion" },
+          { text: "Schlüsselwortstatistik", link: "/de/web/text-tools/keyword-statistics" },
+          { text: "Emoji-Sammlung", link: "/de/web/text-tools/emoji-all" },
           { text: "Wörter zählen", link: "/de/web/text-tools/word-count" },
         ],
       },

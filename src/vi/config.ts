@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "Chuyển đổi số tiền sang chữ Hán", link: "/vi/web/text-tools/uppercase-amount-conversion" },
           { text: "Ước tính thời gian đọc", link: "/vi/web/text-tools/reading-time-estimation" },
           { text: "Chuyển đổi độ rộng đầy đủ/nửa", link: "/vi/web/text-tools/full-width-half-width-conversion" },
+          { text: "Thống kê từ khóa", link: "/vi/web/text-tools/keyword-statistics" },
+          { text: "Bộ sưu tập Emoji", link: "/vi/web/text-tools/emoji-all" },
           { text: "Đếm từ", link: "/vi/web/text-tools/word-count" },
         ],
       },

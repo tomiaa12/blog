@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "แปลงจำนวนเงินเป็นภาษาจีน", link: "/th/web/text-tools/uppercase-amount-conversion" },
           { text: "ประมาณเวลาในการอ่าน", link: "/th/web/text-tools/reading-time-estimation" },
           { text: "แปลงความกว้างเต็ม/ครึ่ง", link: "/th/web/text-tools/full-width-half-width-conversion" },
+          { text: "สถิติคำสำคัญ", link: "/th/web/text-tools/keyword-statistics" },
+          { text: "คอลเล็กชัน Emoji", link: "/th/web/text-tools/emoji-all" },
           { text: "นับจำนวนคำ", link: "/th/web/text-tools/word-count" },
         ],
       },

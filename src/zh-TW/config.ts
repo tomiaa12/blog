@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "大寫金額轉換", link: "/zh-TW/web/text-tools/uppercase-amount-conversion" },
           { text: "閱讀時間估算", link: "/zh-TW/web/text-tools/reading-time-estimation" },
           { text: "全形半形轉換", link: "/zh-TW/web/text-tools/full-width-half-width-conversion" },
+          { text: "關鍵字統計", link: "/zh-TW/web/text-tools/keyword-statistics" },
+          { text: "Emoji 大全", link: "/zh-TW/web/text-tools/emoji-all" },
           { text: "字數統計", link: "/zh-TW/web/text-tools/word-count" },
         ],
       },

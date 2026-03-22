@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "Bedrag naar Chinees converteren", link: "/nl/web/text-tools/uppercase-amount-conversion" },
           { text: "Leestijd schatter", link: "/nl/web/text-tools/reading-time-estimation" },
           { text: "Volbreedte/halfbreedte converter", link: "/nl/web/text-tools/full-width-half-width-conversion" },
+          { text: "Trefwoordstatistieken", link: "/nl/web/text-tools/keyword-statistics" },
+          { text: "Emoji-verzameling", link: "/nl/web/text-tools/emoji-all" },
           { text: "Woordteller", link: "/nl/web/text-tools/word-count" },
         ],
       },

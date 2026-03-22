@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "محوّل المبلغ إلى الصينية", link: "/ar/web/text-tools/uppercase-amount-conversion" },
           { text: "تقدير وقت القراءة", link: "/ar/web/text-tools/reading-time-estimation" },
           { text: "محوّل العرض الكامل/النصفي", link: "/ar/web/text-tools/full-width-half-width-conversion" },
+          { text: "إحصائيات الكلمات الرئيسية", link: "/ar/web/text-tools/keyword-statistics" },
+          { text: "مجموعة الإيموجي", link: "/ar/web/text-tools/emoji-all" },
           { text: "عداد الكلمات", link: "/ar/web/text-tools/word-count" },
         ],
       },

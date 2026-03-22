@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "Конвертер суммы на китайский", link: "/ru/web/text-tools/uppercase-amount-conversion" },
           { text: "Оценщик времени чтения", link: "/ru/web/text-tools/reading-time-estimation" },
           { text: "Конвертер полной/полуширины", link: "/ru/web/text-tools/full-width-half-width-conversion" },
+          { text: "Статистика ключевых слов", link: "/ru/web/text-tools/keyword-statistics" },
+          { text: "Коллекция emoji", link: "/ru/web/text-tools/emoji-all" },
           { text: "Подсчёт слов", link: "/ru/web/text-tools/word-count" },
         ],
       },

@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "Kinesisk beloppskonverterare", link: "/sv/web/text-tools/uppercase-amount-conversion" },
           { text: "Lästidsuppskattare", link: "/sv/web/text-tools/reading-time-estimation" },
           { text: "Helbredd/halvbredd konverterare", link: "/sv/web/text-tools/full-width-half-width-conversion" },
+          { text: "Nyckelordsstatistik", link: "/sv/web/text-tools/keyword-statistics" },
+          { text: "Emoji-samling", link: "/sv/web/text-tools/emoji-all" },
           { text: "Ordräknare", link: "/sv/web/text-tools/word-count" },
         ],
       },

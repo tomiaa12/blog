@@ -40,6 +40,8 @@ export default defineAdditionalConfig({
           { text: "中国語大文字金額変換", link: "/ja/web/text-tools/uppercase-amount-conversion" },
           { text: "読了時間の見積もり", link: "/ja/web/text-tools/reading-time-estimation" },
           { text: "全角・半角変換", link: "/ja/web/text-tools/full-width-half-width-conversion" },
+          { text: "キーワード統計", link: "/ja/web/text-tools/keyword-statistics" },
+          { text: "絵文字一覧", link: "/ja/web/text-tools/emoji-all" },
           { text: "文字数カウント", link: "/ja/web/text-tools/word-count" },
         ],
       },
