@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "Meerdere regels samenvoegen / splitsen", link: "/nl/web/text-tools/multi-line-merge-split" },
           { text: "Pinyin Converter", link: "/nl/web/text-tools/pinyin-conversion" },
           { text: "Vereenvoudigd-traditioneel converter", link: "/nl/web/text-tools/simplified-traditional-conversion" },
+          { text: "Hoofdletter converter", link: "/nl/web/text-tools/case-conversion" },
         ],
       },
       {

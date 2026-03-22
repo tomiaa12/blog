@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "बहु-पंक्ति मर्ज / विभाजन", link: "/hi/web/text-tools/multi-line-merge-split" },
           { text: "पिनयिन कनवर्टर", link: "/hi/web/text-tools/pinyin-conversion" },
           { text: "सरलीकृत-पारंपरिक कनवर्टर", link: "/hi/web/text-tools/simplified-traditional-conversion" },
+          { text: "केस कनवर्टर", link: "/hi/web/text-tools/case-conversion" },
         ],
       },
       {

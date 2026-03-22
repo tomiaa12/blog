@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "多行合併拆分", link: "/zh-TW/web/text-tools/multi-line-merge-split" },
           { text: "拼音轉換", link: "/zh-TW/web/text-tools/pinyin-conversion" },
           { text: "簡繁轉換", link: "/zh-TW/web/text-tools/simplified-traditional-conversion" },
+          { text: "大小寫轉換", link: "/zh-TW/web/text-tools/case-conversion" },
         ],
       },
       {

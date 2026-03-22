@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "Sammanfoga / dela upp flera rader", link: "/sv/web/text-tools/multi-line-merge-split" },
           { text: "Pinyin-omvandlare", link: "/sv/web/text-tools/pinyin-conversion" },
           { text: "Förenklad-traditionell omvandlare", link: "/sv/web/text-tools/simplified-traditional-conversion" },
+          { text: "Skiftlägesomvandlare", link: "/sv/web/text-tools/case-conversion" },
         ],
       },
       {

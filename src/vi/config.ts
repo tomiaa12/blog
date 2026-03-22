@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "Ghép / tách nhiều dòng", link: "/vi/web/text-tools/multi-line-merge-split" },
           { text: "Chuyển đổi Pinyin", link: "/vi/web/text-tools/pinyin-conversion" },
           { text: "Chuyển đổi Giản thể-Phồn thể", link: "/vi/web/text-tools/simplified-traditional-conversion" },
+          { text: "Chuyển đổi chữ hoa/thường", link: "/vi/web/text-tools/case-conversion" },
         ],
       },
       {

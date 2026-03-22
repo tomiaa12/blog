@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "รวม / แยกหลายบรรทัด", link: "/th/web/text-tools/multi-line-merge-split" },
           { text: "แปลงพินอิน", link: "/th/web/text-tools/pinyin-conversion" },
           { text: "แปลงอักษรจีนตัวย่อ-ตัวเต็ม", link: "/th/web/text-tools/simplified-traditional-conversion" },
+          { text: "แปลงตัวพิมพ์ใหญ่/เล็ก", link: "/th/web/text-tools/case-conversion" },
         ],
       },
       {

@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "دمج / تقسيم الأسطر المتعددة", link: "/ar/web/text-tools/multi-line-merge-split" },
           { text: "محوّل البينيين", link: "/ar/web/text-tools/pinyin-conversion" },
           { text: "محوّل المبسّط-التقليدي", link: "/ar/web/text-tools/simplified-traditional-conversion" },
+          { text: "محوّل حالة الأحرف", link: "/ar/web/text-tools/case-conversion" },
         ],
       },
       {

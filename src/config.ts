@@ -200,7 +200,7 @@ export default defineAdditionalConfig({
           // { text: "转图片", link: "/web/text-tools/text-to-image" },
           { text: "拼音转换", link: "/web/text-tools/pinyin-conversion" },
           { text: "简繁转换", link: "/web/text-tools/simplified-traditional-conversion" },
-          // { text: "大小写转换", link: "/web/text-tools/case-conversion" },
+          { text: "大小写转换", link: "/web/text-tools/case-conversion" },
           // { text: "去重", link: "/web/text-tools/duplicate-removal" },
           // { text: "罗马数字转换", link: "/web/text-tools/roman-numeral-conversion" },
           // { text: "大写金额转换", link: "/web/text-tools/uppercase-amount-conversion" },

@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "Объединить / разделить строки", link: "/ru/web/text-tools/multi-line-merge-split" },
           { text: "Конвертер пиньинь", link: "/ru/web/text-tools/pinyin-conversion" },
           { text: "Конвертер упрощённого-традиционного", link: "/ru/web/text-tools/simplified-traditional-conversion" },
+          { text: "Конвертер регистра", link: "/ru/web/text-tools/case-conversion" },
         ],
       },
       {

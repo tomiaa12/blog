@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from 'vitepress'
+import { defineAdditionalConfig } from 'vitepress'
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "Combinar / dividir múltiples líneas", link: "/es/web/text-tools/multi-line-merge-split" },
           { text: "Conversor de Pinyin", link: "/es/web/text-tools/pinyin-conversion" },
           { text: "Conversor simplificado-tradicional", link: "/es/web/text-tools/simplified-traditional-conversion" },
+          { text: "Convertidor de mayúsculas/minúsculas", link: "/es/web/text-tools/case-conversion" },
         ],
       },
       {

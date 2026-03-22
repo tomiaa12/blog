@@ -1,4 +1,4 @@
-﻿import { defineAdditionalConfig } from "vitepress"
+import { defineAdditionalConfig } from "vitepress"
 
 export default defineAdditionalConfig({
   description:
@@ -34,6 +34,7 @@ export default defineAdditionalConfig({
           { text: "여러 줄 합치기 / 나누기", link: "/ko/web/text-tools/multi-line-merge-split" },
           { text: "병음 변환", link: "/ko/web/text-tools/pinyin-conversion" },
           { text: "간체-번체 변환", link: "/ko/web/text-tools/simplified-traditional-conversion" },
+          { text: "대소문자 변환", link: "/ko/web/text-tools/case-conversion" },
         ],
       },
       {
