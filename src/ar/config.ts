@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "محوّل البينيين", link: "/ar/web/text-tools/pinyin-conversion" },
           { text: "محوّل المبسّط-التقليدي", link: "/ar/web/text-tools/simplified-traditional-conversion" },
           { text: "محوّل حالة الأحرف", link: "/ar/web/text-tools/case-conversion" },
+          { text: "إزالة التكرارات", link: "/ar/web/text-tools/duplicate-removal" },
+          { text: "محوّل الأرقام الرومانية", link: "/ar/web/text-tools/roman-numeral-conversion" },
+          { text: "محوّل المبلغ إلى الصينية", link: "/ar/web/text-tools/uppercase-amount-conversion" },
+          { text: "تقدير وقت القراءة", link: "/ar/web/text-tools/reading-time-estimation" },
         ],
       },
       {

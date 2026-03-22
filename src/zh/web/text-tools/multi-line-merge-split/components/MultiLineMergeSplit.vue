@@ -142,21 +142,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue"
+import { ref, computed, onMounted } from "vue"
 import { useI18n } from "vue-i18n"
 import { ElMessage } from "element-plus"
 
 const { t } = useI18n()
 
 const mode = ref<"merge" | "split">("merge")
-const inputText = ref("")
+const inputText = ref(`今人不见古时月 
+今月曾经照古人`)
 const outputText = ref("")
 const separatorType = ref("comma")
 const customSeparator = ref("")
 const ignoreEmpty = ref(true)
 const trimLines = ref(true)
 const copyLabel = ref(t("copyBtn"))
-
+onMounted(() => {
+  handleTransform()
+})
 const currentSeparator = computed(() => {
   switch (separatorType.value) {
     case "comma":

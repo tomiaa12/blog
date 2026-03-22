@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "병음 변환", link: "/ko/web/text-tools/pinyin-conversion" },
           { text: "간체-번체 변환", link: "/ko/web/text-tools/simplified-traditional-conversion" },
           { text: "대소문자 변환", link: "/ko/web/text-tools/case-conversion" },
+          { text: "중복 줄 제거", link: "/ko/web/text-tools/duplicate-removal" },
+          { text: "로마 숫자 변환", link: "/ko/web/text-tools/roman-numeral-conversion" },
+          { text: "중국어 금액 대문자 변환", link: "/ko/web/text-tools/uppercase-amount-conversion" },
+          { text: "읽기 시간 추정", link: "/ko/web/text-tools/reading-time-estimation" },
         ],
       },
       {

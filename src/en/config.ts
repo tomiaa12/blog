@@ -33,6 +33,10 @@ export default defineAdditionalConfig({
           { text: "Pinyin Converter", link: "/en/web/text-tools/pinyin-conversion" },
           { text: "Simplified-Traditional Converter", link: "/en/web/text-tools/simplified-traditional-conversion" },
           { text: "Case Converter", link: "/en/web/text-tools/case-conversion" },
+          { text: "Duplicate Line Remover", link: "/en/web/text-tools/duplicate-removal" },
+          { text: "Roman Numeral Converter", link: "/en/web/text-tools/roman-numeral-conversion" },
+          { text: "Chinese Financial Amount Converter", link: "/en/web/text-tools/uppercase-amount-conversion" },
+          { text: "Reading Time Estimator", link: "/en/web/text-tools/reading-time-estimation" },
         ],
       },
       {

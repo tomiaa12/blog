@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "Конвертер пиньинь", link: "/ru/web/text-tools/pinyin-conversion" },
           { text: "Конвертер упрощённого-традиционного", link: "/ru/web/text-tools/simplified-traditional-conversion" },
           { text: "Конвертер регистра", link: "/ru/web/text-tools/case-conversion" },
+          { text: "Удаление дублей", link: "/ru/web/text-tools/duplicate-removal" },
+          { text: "Конвертер римских цифр", link: "/ru/web/text-tools/roman-numeral-conversion" },
+          { text: "Конвертер суммы на китайский", link: "/ru/web/text-tools/uppercase-amount-conversion" },
+          { text: "Оценщик времени чтения", link: "/ru/web/text-tools/reading-time-estimation" },
         ],
       },
       {

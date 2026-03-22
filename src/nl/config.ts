@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "Pinyin Converter", link: "/nl/web/text-tools/pinyin-conversion" },
           { text: "Vereenvoudigd-traditioneel converter", link: "/nl/web/text-tools/simplified-traditional-conversion" },
           { text: "Hoofdletter converter", link: "/nl/web/text-tools/case-conversion" },
+          { text: "Duplicaten verwijderen", link: "/nl/web/text-tools/duplicate-removal" },
+          { text: "Romeinse cijfer converter", link: "/nl/web/text-tools/roman-numeral-conversion" },
+          { text: "Bedrag naar Chinees converteren", link: "/nl/web/text-tools/uppercase-amount-conversion" },
+          { text: "Leestijd schatter", link: "/nl/web/text-tools/reading-time-estimation" },
         ],
       },
       {

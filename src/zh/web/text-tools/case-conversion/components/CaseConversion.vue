@@ -5,7 +5,7 @@ import { ElMessage } from "element-plus"
 
 const { t } = useI18n()
 
-const inputText = ref("")
+const inputText = ref("user name")
 
 function toWords(text: string): string[] {
   return text

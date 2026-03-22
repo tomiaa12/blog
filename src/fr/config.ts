@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "Convertisseur Pinyin", link: "/fr/web/text-tools/pinyin-conversion" },
           { text: "Convertisseur simplifié-traditionnel", link: "/fr/web/text-tools/simplified-traditional-conversion" },
           { text: "Convertisseur de casse", link: "/fr/web/text-tools/case-conversion" },
+          { text: "Suppression de doublons", link: "/fr/web/text-tools/duplicate-removal" },
+          { text: "Convertisseur de chiffres romains", link: "/fr/web/text-tools/roman-numeral-conversion" },
+          { text: "Convertisseur de montant en chinois", link: "/fr/web/text-tools/uppercase-amount-conversion" },
+          { text: "Estimateur de temps de lecture", link: "/fr/web/text-tools/reading-time-estimation" },
         ],
       },
       {

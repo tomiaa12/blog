@@ -71,20 +71,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import { useI18n } from "vue-i18n"
 import { Loading } from "@element-plus/icons-vue"
 import { loadFirstAvailable, loadScript } from "@/utils"
 
 const { t } = useI18n()
 
-const inputText = ref("")
+const inputText = ref("今人不见古时月，今月曾经照古人。")
 const outputText = ref("")
 const direction = ref<"cn2tw" | "cn2hk" | "tw2cn" | "hk2cn">("cn2tw")
 const loading = ref(false)
 const error = ref("")
 const copied = ref(false)
-
+onMounted(() => {
+  handleConvert()
+})
 type OpenCCModule = {
   Converter: (opts: { from: string; to: string }) => (text: string) => string
 }

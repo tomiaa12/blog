@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "拼音轉換", link: "/zh-TW/web/text-tools/pinyin-conversion" },
           { text: "簡繁轉換", link: "/zh-TW/web/text-tools/simplified-traditional-conversion" },
           { text: "大小寫轉換", link: "/zh-TW/web/text-tools/case-conversion" },
+          { text: "文字去重", link: "/zh-TW/web/text-tools/duplicate-removal" },
+          { text: "羅馬數字轉換", link: "/zh-TW/web/text-tools/roman-numeral-conversion" },
+          { text: "大寫金額轉換", link: "/zh-TW/web/text-tools/uppercase-amount-conversion" },
+          { text: "閱讀時間估算", link: "/zh-TW/web/text-tools/reading-time-estimation" },
         ],
       },
       {

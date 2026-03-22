@@ -95,14 +95,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import { useI18n } from "vue-i18n"
 import { Loading } from "@element-plus/icons-vue"
 import { loadFirstAvailable, loadScript } from "@/utils"
 
 const { t } = useI18n()
 
-const inputText = ref("")
+const inputText = ref("今人不见古时月，今月曾经照古人。")
 const outputText = ref("")
 const outputHtml = ref("")
 const toneType = ref<"symbol" | "num" | "none">("symbol")
@@ -110,7 +110,9 @@ const outputMode = ref<"pinyin" | "above" | "bopomofo">("pinyin")
 const loading = ref(false)
 const error = ref("")
 const copied = ref(false)
-
+onMounted(() => {
+  handleConvert()
+})
 type PinyinProModule = {
   pinyin: (text: string, options?: Record<string, unknown>) => string
 }

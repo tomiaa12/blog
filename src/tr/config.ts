@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "Pinyin Dönüştürücü", link: "/tr/web/text-tools/pinyin-conversion" },
           { text: "Basitleştirilmiş-Geleneksel Dönüştürücü", link: "/tr/web/text-tools/simplified-traditional-conversion" },
           { text: "Büyük/Küçük Harf Dönüştürücü", link: "/tr/web/text-tools/case-conversion" },
+          { text: "Yinelenen Satır Kaldırıcı", link: "/tr/web/text-tools/duplicate-removal" },
+          { text: "Roma Rakamı Dönüştürücü", link: "/tr/web/text-tools/roman-numeral-conversion" },
+          { text: "Çince Tutar Dönüştürücü", link: "/tr/web/text-tools/uppercase-amount-conversion" },
+          { text: "Okuma Süresi Tahmincisi", link: "/tr/web/text-tools/reading-time-estimation" },
         ],
       },
       {

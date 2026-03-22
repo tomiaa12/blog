@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "Pinyin-omvandlare", link: "/sv/web/text-tools/pinyin-conversion" },
           { text: "Förenklad-traditionell omvandlare", link: "/sv/web/text-tools/simplified-traditional-conversion" },
           { text: "Skiftlägesomvandlare", link: "/sv/web/text-tools/case-conversion" },
+          { text: "Ta bort dubbletter", link: "/sv/web/text-tools/duplicate-removal" },
+          { text: "Romerska siffror konverterare", link: "/sv/web/text-tools/roman-numeral-conversion" },
+          { text: "Kinesisk beloppskonverterare", link: "/sv/web/text-tools/uppercase-amount-conversion" },
+          { text: "Lästidsuppskattare", link: "/sv/web/text-tools/reading-time-estimation" },
         ],
       },
       {

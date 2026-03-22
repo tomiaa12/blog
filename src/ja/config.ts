@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "ピンイン変換", link: "/ja/web/text-tools/pinyin-conversion" },
           { text: "簡体字・繁体字変換", link: "/ja/web/text-tools/simplified-traditional-conversion" },
           { text: "大文字・小文字変換", link: "/ja/web/text-tools/case-conversion" },
+          { text: "重複行削除", link: "/ja/web/text-tools/duplicate-removal" },
+          { text: "ローマ数字変換", link: "/ja/web/text-tools/roman-numeral-conversion" },
+          { text: "中国語大文字金額変換", link: "/ja/web/text-tools/uppercase-amount-conversion" },
+          { text: "読了時間の見積もり", link: "/ja/web/text-tools/reading-time-estimation" },
         ],
       },
       {

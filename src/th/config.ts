@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "แปลงพินอิน", link: "/th/web/text-tools/pinyin-conversion" },
           { text: "แปลงอักษรจีนตัวย่อ-ตัวเต็ม", link: "/th/web/text-tools/simplified-traditional-conversion" },
           { text: "แปลงตัวพิมพ์ใหญ่/เล็ก", link: "/th/web/text-tools/case-conversion" },
+          { text: "ลบรายการซ้ำ", link: "/th/web/text-tools/duplicate-removal" },
+          { text: "แปลงเลขโรมัน", link: "/th/web/text-tools/roman-numeral-conversion" },
+          { text: "แปลงจำนวนเงินเป็นภาษาจีน", link: "/th/web/text-tools/uppercase-amount-conversion" },
+          { text: "ประมาณเวลาในการอ่าน", link: "/th/web/text-tools/reading-time-estimation" },
         ],
       },
       {

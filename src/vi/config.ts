@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "Chuyển đổi Pinyin", link: "/vi/web/text-tools/pinyin-conversion" },
           { text: "Chuyển đổi Giản thể-Phồn thể", link: "/vi/web/text-tools/simplified-traditional-conversion" },
           { text: "Chuyển đổi chữ hoa/thường", link: "/vi/web/text-tools/case-conversion" },
+          { text: "Xóa dòng trùng lặp", link: "/vi/web/text-tools/duplicate-removal" },
+          { text: "Chuyển đổi số La Mã", link: "/vi/web/text-tools/roman-numeral-conversion" },
+          { text: "Chuyển đổi số tiền sang chữ Hán", link: "/vi/web/text-tools/uppercase-amount-conversion" },
+          { text: "Ước tính thời gian đọc", link: "/vi/web/text-tools/reading-time-estimation" },
         ],
       },
       {

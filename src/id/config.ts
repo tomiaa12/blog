@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "Konverter Pinyin", link: "/id/web/text-tools/pinyin-conversion" },
           { text: "Konverter Sederhana-Tradisional", link: "/id/web/text-tools/simplified-traditional-conversion" },
           { text: "Konverter Huruf Besar/Kecil", link: "/id/web/text-tools/case-conversion" },
+          { text: "Penghapus Baris Duplikat", link: "/id/web/text-tools/duplicate-removal" },
+          { text: "Konverter Angka Romawi", link: "/id/web/text-tools/roman-numeral-conversion" },
+          { text: "Konverter Jumlah ke Bahasa China", link: "/id/web/text-tools/uppercase-amount-conversion" },
+          { text: "Estimasi Waktu Baca", link: "/id/web/text-tools/reading-time-estimation" },
         ],
       },
       {

@@ -35,6 +35,10 @@ export default defineAdditionalConfig({
           { text: "पिनयिन कनवर्टर", link: "/hi/web/text-tools/pinyin-conversion" },
           { text: "सरलीकृत-पारंपरिक कनवर्टर", link: "/hi/web/text-tools/simplified-traditional-conversion" },
           { text: "केस कनवर्टर", link: "/hi/web/text-tools/case-conversion" },
+          { text: "डुप्लीकेट हटाएं", link: "/hi/web/text-tools/duplicate-removal" },
+          { text: "रोमन अंक परिवर्तक", link: "/hi/web/text-tools/roman-numeral-conversion" },
+          { text: "चीनी वित्तीय राशि परिवर्तक", link: "/hi/web/text-tools/uppercase-amount-conversion" },
+          { text: "पढ़ने का समय अनुमान", link: "/hi/web/text-tools/reading-time-estimation" },
         ],
       },
       {
