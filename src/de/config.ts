@@ -32,6 +32,10 @@ export default defineAdditionalConfig({
         text: "Textwerkzeuge",
         items: [
           { text: "Mehrere Zeilen zusammenführen / aufteilen", link: "/de/web/text-tools/multi-line-merge-split" },
+          { text: "Text zu Bild", link: "/de/web/text-tools/text-to-image" },
+          { text: "Text zu Bild", link: "/de/web/text-tools/text-to-image" },
+          { text: "Text zu Bild", link: "/de/web/text-tools/text-to-image" },
+          { text: "Text zu Bild", link: "/de/web/text-tools/text-to-image" },
           { text: "Pinyin-Konverter", link: "/de/web/text-tools/pinyin-conversion" },
           { text: "Vereinfacht-Traditionell-Konverter", link: "/de/web/text-tools/simplified-traditional-conversion" },
           { text: "Groß-/Kleinschreibung", link: "/de/web/text-tools/case-conversion" },

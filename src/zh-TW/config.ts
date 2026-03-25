@@ -32,6 +32,8 @@ export default defineAdditionalConfig({
         text: "文字工具",
         items: [
           { text: "多行合併拆分", link: "/zh-TW/web/text-tools/multi-line-merge-split" },
+          { text: "文字轉圖片", link: "/zh-TW/web/text-tools/text-to-image" },
+          { text: "文字轉圖片", link: "/zh-TW/web/text-tools/text-to-image" },
           { text: "拼音轉換", link: "/zh-TW/web/text-tools/pinyin-conversion" },
           { text: "簡繁轉換", link: "/zh-TW/web/text-tools/simplified-traditional-conversion" },
           { text: "大小寫轉換", link: "/zh-TW/web/text-tools/case-conversion" },

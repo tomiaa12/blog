@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "Textverktyg",
         items: [
           { text: "Sammanfoga / dela upp flera rader", link: "/sv/web/text-tools/multi-line-merge-split" },
+          { text: "Text till bild", link: "/sv/web/text-tools/text-to-image" },
+          { text: "Text till bild", link: "/sv/web/text-tools/text-to-image" },
+          { text: "Text till bild", link: "/sv/web/text-tools/text-to-image" },
           { text: "Pinyin-omvandlare", link: "/sv/web/text-tools/pinyin-conversion" },
           { text: "Förenklad-traditionell omvandlare", link: "/sv/web/text-tools/simplified-traditional-conversion" },
           { text: "Skiftlägesomvandlare", link: "/sv/web/text-tools/case-conversion" },

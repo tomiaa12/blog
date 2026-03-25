@@ -30,6 +30,10 @@ export default defineAdditionalConfig({
         text: "Text Tools",
         items: [
           { text: "Multi-line Merge / Split", link: "/en/web/text-tools/multi-line-merge-split" },
+          { text: "Text to Image", link: "/en/web/text-tools/text-to-image" },
+          { text: "Text to Image", link: "/en/web/text-tools/text-to-image" },
+          { text: "Text to Image", link: "/en/web/text-tools/text-to-image" },
+          { text: "Text to Image", link: "/en/web/text-tools/text-to-image" },
           { text: "Pinyin Converter", link: "/en/web/text-tools/pinyin-conversion" },
           { text: "Simplified-Traditional Converter", link: "/en/web/text-tools/simplified-traditional-conversion" },
           { text: "Case Converter", link: "/en/web/text-tools/case-conversion" },

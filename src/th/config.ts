@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "เครื่องมือข้อความ",
         items: [
           { text: "รวม / แยกหลายบรรทัด", link: "/th/web/text-tools/multi-line-merge-split" },
+          { text: "แปลงข้อความเป็นรูปภาพ", link: "/th/web/text-tools/text-to-image" },
+          { text: "แปลงข้อความเป็นรูปภาพ", link: "/th/web/text-tools/text-to-image" },
+          { text: "แปลงข้อความเป็นรูปภาพ", link: "/th/web/text-tools/text-to-image" },
           { text: "แปลงพินอิน", link: "/th/web/text-tools/pinyin-conversion" },
           { text: "แปลงอักษรจีนตัวย่อ-ตัวเต็ม", link: "/th/web/text-tools/simplified-traditional-conversion" },
           { text: "แปลงตัวพิมพ์ใหญ่/เล็ก", link: "/th/web/text-tools/case-conversion" },

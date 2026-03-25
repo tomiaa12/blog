@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "पाठ उपकरण",
         items: [
           { text: "बहु-पंक्ति मर्ज / विभाजन", link: "/hi/web/text-tools/multi-line-merge-split" },
+          { text: "टेक्स्ट से इमेज", link: "/hi/web/text-tools/text-to-image" },
+          { text: "टेक्स्ट से इमेज", link: "/hi/web/text-tools/text-to-image" },
+          { text: "टेक्स्ट से इमेज", link: "/hi/web/text-tools/text-to-image" },
           { text: "पिनयिन कनवर्टर", link: "/hi/web/text-tools/pinyin-conversion" },
           { text: "सरलीकृत-पारंपरिक कनवर्टर", link: "/hi/web/text-tools/simplified-traditional-conversion" },
           { text: "केस कनवर्टर", link: "/hi/web/text-tools/case-conversion" },

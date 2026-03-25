@@ -32,6 +32,10 @@ export default defineAdditionalConfig({
         text: "أدوات النص",
         items: [
           { text: "دمج / تقسيم الأسطر المتعددة", link: "/ar/web/text-tools/multi-line-merge-split" },
+          { text: "النص إلى صورة", link: "/ar/web/text-tools/text-to-image" },
+          { text: "النص إلى صورة", link: "/ar/web/text-tools/text-to-image" },
+          { text: "النص إلى صورة", link: "/ar/web/text-tools/text-to-image" },
+          { text: "النص إلى صورة", link: "/ar/web/text-tools/text-to-image" },
           { text: "محوّل البينيين", link: "/ar/web/text-tools/pinyin-conversion" },
           { text: "محوّل المبسّط-التقليدي", link: "/ar/web/text-tools/simplified-traditional-conversion" },
           { text: "محوّل حالة الأحرف", link: "/ar/web/text-tools/case-conversion" },

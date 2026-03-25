@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "Ferramentas de texto",
         items: [
           { text: "Mesclar / dividir múltiplas linhas", link: "/pt/web/text-tools/multi-line-merge-split" },
+          { text: "Texto para imagem", link: "/pt/web/text-tools/text-to-image" },
+          { text: "Texto para imagem", link: "/pt/web/text-tools/text-to-image" },
+          { text: "Texto para imagem", link: "/pt/web/text-tools/text-to-image" },
           { text: "Conversor de Pinyin", link: "/pt/web/text-tools/pinyin-conversion" },
           { text: "Conversor simplificado-tradicional", link: "/pt/web/text-tools/simplified-traditional-conversion" },
           { text: "Conversor de maiúsculas/minúsculas", link: "/pt/web/text-tools/case-conversion" },

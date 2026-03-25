@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "Teksttools",
         items: [
           { text: "Meerdere regels samenvoegen / splitsen", link: "/nl/web/text-tools/multi-line-merge-split" },
+          { text: "Tekst naar afbeelding", link: "/nl/web/text-tools/text-to-image" },
+          { text: "Tekst naar afbeelding", link: "/nl/web/text-tools/text-to-image" },
+          { text: "Tekst naar afbeelding", link: "/nl/web/text-tools/text-to-image" },
           { text: "Pinyin Converter", link: "/nl/web/text-tools/pinyin-conversion" },
           { text: "Vereenvoudigd-traditioneel converter", link: "/nl/web/text-tools/simplified-traditional-conversion" },
           { text: "Hoofdletter converter", link: "/nl/web/text-tools/case-conversion" },

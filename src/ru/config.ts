@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "Текстовые инструменты",
         items: [
           { text: "Объединить / разделить строки", link: "/ru/web/text-tools/multi-line-merge-split" },
+          { text: "Текст в изображение", link: "/ru/web/text-tools/text-to-image" },
+          { text: "Текст в изображение", link: "/ru/web/text-tools/text-to-image" },
+          { text: "Текст в изображение", link: "/ru/web/text-tools/text-to-image" },
           { text: "Конвертер пиньинь", link: "/ru/web/text-tools/pinyin-conversion" },
           { text: "Конвертер упрощённого-традиционного", link: "/ru/web/text-tools/simplified-traditional-conversion" },
           { text: "Конвертер регистра", link: "/ru/web/text-tools/case-conversion" },

@@ -197,7 +197,7 @@ export default defineAdditionalConfig({
         text: "文本工具",
         items: [
           { text: "多行合并拆分", link: "/web/text-tools/multi-line-merge-split" },
-          // { text: "转图片", link: "/web/text-tools/text-to-image" },
+          { text: "文字转图片", link: "/web/text-tools/text-to-image" },
           { text: "拼音转换", link: "/web/text-tools/pinyin-conversion" },
           { text: "简繁转换", link: "/web/text-tools/simplified-traditional-conversion" },
           { text: "大小写转换", link: "/web/text-tools/case-conversion" },

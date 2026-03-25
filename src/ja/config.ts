@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "テキストツール",
         items: [
           { text: "複数行の結合 / 分割", link: "/ja/web/text-tools/multi-line-merge-split" },
+          { text: "テキストを画像に変換", link: "/ja/web/text-tools/text-to-image" },
+          { text: "テキストを画像に変換", link: "/ja/web/text-tools/text-to-image" },
+          { text: "テキストを画像に変換", link: "/ja/web/text-tools/text-to-image" },
           { text: "ピンイン変換", link: "/ja/web/text-tools/pinyin-conversion" },
           { text: "簡体字・繁体字変換", link: "/ja/web/text-tools/simplified-traditional-conversion" },
           { text: "大文字・小文字変換", link: "/ja/web/text-tools/case-conversion" },

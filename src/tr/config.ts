@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "Metin araçları",
         items: [
           { text: "Çok satırlı birleştir / böl", link: "/tr/web/text-tools/multi-line-merge-split" },
+          { text: "Metni görüntüye dönüştür", link: "/tr/web/text-tools/text-to-image" },
+          { text: "Metni görüntüye dönüştür", link: "/tr/web/text-tools/text-to-image" },
+          { text: "Metni görüntüye dönüştür", link: "/tr/web/text-tools/text-to-image" },
           { text: "Pinyin Dönüştürücü", link: "/tr/web/text-tools/pinyin-conversion" },
           { text: "Basitleştirilmiş-Geleneksel Dönüştürücü", link: "/tr/web/text-tools/simplified-traditional-conversion" },
           { text: "Büyük/Küçük Harf Dönüştürücü", link: "/tr/web/text-tools/case-conversion" },

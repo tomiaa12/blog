@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "Alat teks",
         items: [
           { text: "Gabungkan / pisahkan beberapa baris", link: "/id/web/text-tools/multi-line-merge-split" },
+          { text: "Teks ke gambar", link: "/id/web/text-tools/text-to-image" },
+          { text: "Teks ke gambar", link: "/id/web/text-tools/text-to-image" },
+          { text: "Teks ke gambar", link: "/id/web/text-tools/text-to-image" },
           { text: "Konverter Pinyin", link: "/id/web/text-tools/pinyin-conversion" },
           { text: "Konverter Sederhana-Tradisional", link: "/id/web/text-tools/simplified-traditional-conversion" },
           { text: "Konverter Huruf Besar/Kecil", link: "/id/web/text-tools/case-conversion" },

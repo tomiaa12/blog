@@ -32,6 +32,9 @@ export default defineAdditionalConfig({
         text: "Công cụ văn bản",
         items: [
           { text: "Ghép / tách nhiều dòng", link: "/vi/web/text-tools/multi-line-merge-split" },
+          { text: "Chuyển văn bản thành ảnh", link: "/vi/web/text-tools/text-to-image" },
+          { text: "Chuyển văn bản thành ảnh", link: "/vi/web/text-tools/text-to-image" },
+          { text: "Chuyển văn bản thành ảnh", link: "/vi/web/text-tools/text-to-image" },
           { text: "Chuyển đổi Pinyin", link: "/vi/web/text-tools/pinyin-conversion" },
           { text: "Chuyển đổi Giản thể-Phồn thể", link: "/vi/web/text-tools/simplified-traditional-conversion" },
           { text: "Chuyển đổi chữ hoa/thường", link: "/vi/web/text-tools/case-conversion" },
