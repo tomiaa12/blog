@@ -218,6 +218,10 @@ export default defineAdditionalConfig({
             text: "地图坐标转换",
             link: "/web/dev-tools/map-coordinate-conversion",
           },
+          {
+            text: "百度地图瓦片下载",
+            link: "/web/dev-tools/baidu-map-tiles-download",
+          },
         ],
       },
       {
@@ -235,10 +239,6 @@ export default defineAdditionalConfig({
           { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
           // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
           // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
-          {
-            text: "百度地图瓦片下载",
-            link: "/docs/在线应用/工具/百度地图瓦片下载",
-          },
           {
             text: "在线 iframe 测试",
             link: "/docs/在线应用/工具/在线iframe测试",
@@ -320,7 +320,7 @@ function getNav() {
             { text: "前端资源收集", link: "/docs/资源收集/介绍" },
             { text: "我的云盘", link: "/docs/关于/我的云盘" },
             // { text: "面试", link: "/docs/关于/面试" },
-            // { text: "英语", link: "/docs/English/主语" },
+            { text: "英语", link: "/docs/English/主语" },
           ],
         },
         {
@@ -411,10 +411,6 @@ function getSidebar() {
           { text: "鸡乐盒", link: "/docs/在线应用/小游戏/鸡乐盒" },
           // { text: "steam 喜加一", link: "/docs/在线应用/工具/steam喜加一" },
           // { text: "IP 归属地", link: "/docs/在线应用/工具/IP归属地" },
-          {
-            text: "百度地图瓦片下载",
-            link: "/docs/在线应用/工具/百度地图瓦片下载",
-          },
           {
             text: "在线 iframe 测试",
             link: "/docs/在线应用/工具/在线iframe测试",
@@ -1536,6 +1532,7 @@ function getSidebar() {
           { text: "介词", link: "/docs/English/介词" },
           { text: "从句", link: "/docs/English/从句" },
           { text: "非谓语", link: "/docs/English/非谓语" },
+          { text: "介词短语", link: "/docs/English/介词短语" },
         ],
       },
     ],
