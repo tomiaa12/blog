@@ -211,6 +211,23 @@ export default defineAdditionalConfig({
           { text: "字数统计", link: "/web/text-tools/word-count" },
         ],
       },
+      
+      {
+        text: "硬件测试",
+        items: [
+          { text: "麦克风测试", link: "/web/hardware-test/microphone-test" },
+          { text: "摄像头测试", link: "/web/hardware-test/camera-test" },
+          { text: "声音测试", link: "/web/hardware-test/sound-test" },
+          { text: "键盘测试", link: "/web/hardware-test/keyboard-test" },
+          { text: "音频播放测试", link: "/web/hardware-test/audio-playback-test" },
+          { text: "手柄测试", link: "/web/hardware-test/gamepad-test" },
+          { text: "鼠标测试", link: "/web/hardware-test/mouse-test" },
+          { text: "触摸屏测试", link: "/web/hardware-test/touch-screen-test" },
+          { text: "fps测试", link: "/web/hardware-test/fps-test" },
+          { text: "屏幕坏点测试", link: "/web/hardware-test/screen-bad-point-test" },
+          { text: "屏幕分辨率测试", link: "/web/hardware-test/screen-resolution-test" },
+        ],
+      },
       {
         text: "开发工具",
         items: [
