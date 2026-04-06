@@ -338,6 +338,7 @@ function getNav() {
             { text: "我的云盘", link: "/docs/关于/我的云盘" },
             // { text: "面试", link: "/docs/关于/面试" },
             { text: "英语", link: "/docs/English/主语" },
+            { text: "英语习题", link: "/docs/English/exercises/" },
           ],
         },
         {
@@ -1552,6 +1553,134 @@ function getSidebar() {
           { text: "介词短语", link: "/docs/English/介词短语" },
         ],
       },
+      {
+        text: "英语习题",
+        collapsed: true,
+        items: [
+          { text: "目录", link: "/docs/English/exercises/" },
+          { text: "第1期 · 你、我、他", link: "/docs/English/exercises/issue-01" },
+          {
+            text: "第2期 · 形容词性物主",
+            link: "/docs/English/exercises/issue-02",
+          },
+          { text: "第3期 · be 动词", link: "/docs/English/exercises/issue-03" },
+          {
+            text: "第3.5期 · 名词性物主",
+            link: "/docs/English/exercises/issue-3-5",
+          },
+          { text: "第4期 · 一般疑问句", link: "/docs/English/exercises/issue-04" },
+          {
+            text: "第5期 · 特殊疑问句",
+            link: "/docs/English/exercises/issue-05",
+          },
+          { text: "第6期 · 一般过去时", link: "/docs/English/exercises/issue-06" },
+          {
+            text: "第8期 · 一般将来时",
+            link: "/docs/English/exercises/issue-08",
+          },
+          {
+            text: "第9期 · 进行时",
+            link: "/docs/English/exercises/issue-09",
+          },
+          { text: "第10期 · 完成时", link: "/docs/English/exercises/issue-10" },
+          {
+            text: "第10.5期 · 否定句",
+            link: "/docs/English/exercises/issue-10-5",
+          },
+          {
+            text: "第11–12期 · 定语从句",
+            link: "/docs/English/exercises/issue-11-12",
+          },
+          {
+            text: "第13期 · 非限定从",
+            link: "/docs/English/exercises/issue-13",
+          },
+          {
+            text: "第14期 · 非谓语定语",
+            link: "/docs/English/exercises/issue-14",
+          },
+          {
+            text: "第15期 · 非谓语状语",
+            link: "/docs/English/exercises/issue-15",
+          },
+          {
+            text: "第17期 · 非谓语词性",
+            link: "/docs/English/exercises/issue-17",
+          },
+          {
+            text: "第18期 · -ing/-ed 形容词",
+            link: "/docs/English/exercises/issue-18",
+          },
+          {
+            text: "第19期 · 宾语从句",
+            link: "/docs/English/exercises/issue-19",
+          },
+          {
+            text: "第20期 · 主语从句",
+            link: "/docs/English/exercises/issue-20",
+          },
+          {
+            text: "第21–22期 · 名词性综合",
+            link: "/docs/English/exercises/issue-21-22",
+          },
+          {
+            text: "第23–24期 · 表语从句",
+            link: "/docs/English/exercises/issue-23-24",
+          },
+          {
+            text: "第25–26期 · 状语从句",
+            link: "/docs/English/exercises/issue-25-26",
+          },
+          {
+            text: "第27期 · so/such that",
+            link: "/docs/English/exercises/issue-27",
+          },
+          {
+            text: "第28期 · 同位语从句",
+            link: "/docs/English/exercises/issue-28",
+          },
+          {
+            text: "第29–31期 · 介词",
+            link: "/docs/English/exercises/issue-29-31",
+          },
+          {
+            text: "第32–34期 · 介短定语",
+            link: "/docs/English/exercises/issue-32-34",
+          },
+          {
+            text: "第35–36期 · 形容词",
+            link: "/docs/English/exercises/issue-35-36",
+          },
+          {
+            text: "第37–38期 · 复合形容词",
+            link: "/docs/English/exercises/issue-37-38",
+          },
+          {
+            text: "第39期 · 名词定语",
+            link: "/docs/English/exercises/issue-39",
+          },
+          {
+            text: "第40期 · 副词状语",
+            link: "/docs/English/exercises/issue-40",
+          },
+          {
+            text: "第41–42期 · 倒装",
+            link: "/docs/English/exercises/issue-41-42",
+          },
+          {
+            text: "第43–45期 · 祈使感叹强调",
+            link: "/docs/English/exercises/issue-43-45",
+          },
+          {
+            text: "第46–47期 · be 进阶",
+            link: "/docs/English/exercises/issue-46-47",
+          },
+          {
+            text: "第48–50期 · 虚拟语气",
+            link: "/docs/English/exercises/issue-48-50",
+          },
+        ],
+      }
     ],
   }
 }
