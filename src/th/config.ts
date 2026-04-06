@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "ทดสอบฮาร์ดแวร์",
+        items: [
+          { text: "ทดสอบไมโครโฟน", link: "/th/web/hardware-test/microphone-test" },
+          { text: "ทดสอบกล้อง", link: "/th/web/hardware-test/camera-test" },
+          { text: "ทดสอบเสียง", link: "/th/web/hardware-test/sound-test" },
+          { text: "ทดสอบคีย์บอร์ด", link: "/th/web/hardware-test/keyboard-test" },
+          { text: "ทดสอบเล่นเสียง", link: "/th/web/hardware-test/audio-playback-test" },
+          { text: "ทดสอบจอย", link: "/th/web/hardware-test/gamepad-test" },
+          { text: "ทดสอบเมาส์", link: "/th/web/hardware-test/mouse-test" },
+          { text: "ทดสอบหน้าจอสัมผัส", link: "/th/web/hardware-test/touch-screen-test" },
+          { text: "ทดสอบ FPS", link: "/th/web/hardware-test/fps-test" },
+          { text: "ทดสอบพิกเซลเสีย", link: "/th/web/hardware-test/screen-bad-point-test" },
+          { text: "ทดสอบความละเอียด", link: "/th/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "เครื่องมือนักพัฒนา",
         items: [
           { text: "แปลงพิกัดแผนที่", link: "/th/web/dev-tools/map-coordinate-conversion" },

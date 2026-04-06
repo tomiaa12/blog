@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Тесты оборудования",
+        items: [
+          { text: "Тест микрофона", link: "/ru/web/hardware-test/microphone-test" },
+          { text: "Тест камеры", link: "/ru/web/hardware-test/camera-test" },
+          { text: "Тест звука", link: "/ru/web/hardware-test/sound-test" },
+          { text: "Тест клавиатуры", link: "/ru/web/hardware-test/keyboard-test" },
+          { text: "Тест воспроизведения звука", link: "/ru/web/hardware-test/audio-playback-test" },
+          { text: "Тест геймпада", link: "/ru/web/hardware-test/gamepad-test" },
+          { text: "Тест мыши", link: "/ru/web/hardware-test/mouse-test" },
+          { text: "Тест сенсорного экрана", link: "/ru/web/hardware-test/touch-screen-test" },
+          { text: "Тест FPS", link: "/ru/web/hardware-test/fps-test" },
+          { text: "Тест битых пикселей", link: "/ru/web/hardware-test/screen-bad-point-test" },
+          { text: "Тест разрешения экрана", link: "/ru/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Инструменты разработчика",
         items: [
           { text: "Преобразование координат карты", link: "/ru/web/dev-tools/map-coordinate-conversion" },

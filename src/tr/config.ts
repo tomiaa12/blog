@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Donanım testleri",
+        items: [
+          { text: "Mikrofon testi", link: "/tr/web/hardware-test/microphone-test" },
+          { text: "Kamera testi", link: "/tr/web/hardware-test/camera-test" },
+          { text: "Ses testi", link: "/tr/web/hardware-test/sound-test" },
+          { text: "Klavye testi", link: "/tr/web/hardware-test/keyboard-test" },
+          { text: "Ses oynatma testi", link: "/tr/web/hardware-test/audio-playback-test" },
+          { text: "Oyun kolu testi", link: "/tr/web/hardware-test/gamepad-test" },
+          { text: "Fare testi", link: "/tr/web/hardware-test/mouse-test" },
+          { text: "Dokunmatik ekran testi", link: "/tr/web/hardware-test/touch-screen-test" },
+          { text: "FPS testi", link: "/tr/web/hardware-test/fps-test" },
+          { text: "Ölü piksel testi", link: "/tr/web/hardware-test/screen-bad-point-test" },
+          { text: "Çözünürlük testi", link: "/tr/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Geliştirici araçları",
         items: [
           { text: "Harita koordinat dönüşümü", link: "/tr/web/dev-tools/map-coordinate-conversion" },

@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "ハードウェアテスト",
+        items: [
+          { text: "マイクテスト", link: "/ja/web/hardware-test/microphone-test" },
+          { text: "カメラテスト", link: "/ja/web/hardware-test/camera-test" },
+          { text: "サウンドテスト", link: "/ja/web/hardware-test/sound-test" },
+          { text: "キーボードテスト", link: "/ja/web/hardware-test/keyboard-test" },
+          { text: "音声再生テスト", link: "/ja/web/hardware-test/audio-playback-test" },
+          { text: "ゲームパッドテスト", link: "/ja/web/hardware-test/gamepad-test" },
+          { text: "マウステスト", link: "/ja/web/hardware-test/mouse-test" },
+          { text: "タッチスクリーンテスト", link: "/ja/web/hardware-test/touch-screen-test" },
+          { text: "FPSテスト", link: "/ja/web/hardware-test/fps-test" },
+          { text: "ドット欠けテスト", link: "/ja/web/hardware-test/screen-bad-point-test" },
+          { text: "解像度テスト", link: "/ja/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "開発ツール",
         items: [
           { text: "地図座標変換", link: "/ja/web/dev-tools/map-coordinate-conversion" },

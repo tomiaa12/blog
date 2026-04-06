@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Testy sprzętu",
+        items: [
+          { text: "Test mikrofonu", link: "/pl/web/hardware-test/microphone-test" },
+          { text: "Test aparatu", link: "/pl/web/hardware-test/camera-test" },
+          { text: "Test dźwięku", link: "/pl/web/hardware-test/sound-test" },
+          { text: "Test klawiatury", link: "/pl/web/hardware-test/keyboard-test" },
+          { text: "Test odtwarzania audio", link: "/pl/web/hardware-test/audio-playback-test" },
+          { text: "Test pada", link: "/pl/web/hardware-test/gamepad-test" },
+          { text: "Test myszy", link: "/pl/web/hardware-test/mouse-test" },
+          { text: "Test ekranu dotykowego", link: "/pl/web/hardware-test/touch-screen-test" },
+          { text: "Test FPS", link: "/pl/web/hardware-test/fps-test" },
+          { text: "Test martwych pikseli", link: "/pl/web/hardware-test/screen-bad-point-test" },
+          { text: "Test rozdzielczości", link: "/pl/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Narzędzia deweloperskie",
         items: [
           { text: "Konwersja współrzędnych mapy", link: "/pl/web/dev-tools/map-coordinate-conversion" },

@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "हार्डवेयर टेस्ट",
+        items: [
+          { text: "माइक्रोफोन टेस्ट", link: "/hi/web/hardware-test/microphone-test" },
+          { text: "कैमरा टेस्ट", link: "/hi/web/hardware-test/camera-test" },
+          { text: "साउंड टेस्ट", link: "/hi/web/hardware-test/sound-test" },
+          { text: "कीबोर्ड टेस्ट", link: "/hi/web/hardware-test/keyboard-test" },
+          { text: "ऑडियो प्लेबैक टेस्ट", link: "/hi/web/hardware-test/audio-playback-test" },
+          { text: "गेमपैड टेस्ट", link: "/hi/web/hardware-test/gamepad-test" },
+          { text: "माउस टेस्ट", link: "/hi/web/hardware-test/mouse-test" },
+          { text: "टच स्क्रीन टेस्ट", link: "/hi/web/hardware-test/touch-screen-test" },
+          { text: "FPS टेस्ट", link: "/hi/web/hardware-test/fps-test" },
+          { text: "डेड पिक्सेल टेस्ट", link: "/hi/web/hardware-test/screen-bad-point-test" },
+          { text: "स्क्रीन रिज़ॉल्यूशन टेस्ट", link: "/hi/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "डेवलपर टूल्स",
         items: [
           { text: "मैप कोऑर्डिनेट कन्वर्ज़न", link: "/hi/web/dev-tools/map-coordinate-conversion" },

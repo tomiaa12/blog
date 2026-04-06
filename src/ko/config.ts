@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "하드웨어 테스트",
+        items: [
+          { text: "마이크 테스트", link: "/ko/web/hardware-test/microphone-test" },
+          { text: "카메라 테스트", link: "/ko/web/hardware-test/camera-test" },
+          { text: "사운드 테스트", link: "/ko/web/hardware-test/sound-test" },
+          { text: "키보드 테스트", link: "/ko/web/hardware-test/keyboard-test" },
+          { text: "오디오 재생 테스트", link: "/ko/web/hardware-test/audio-playback-test" },
+          { text: "게임패드 테스트", link: "/ko/web/hardware-test/gamepad-test" },
+          { text: "마우스 테스트", link: "/ko/web/hardware-test/mouse-test" },
+          { text: "터치 스크린 테스트", link: "/ko/web/hardware-test/touch-screen-test" },
+          { text: "FPS 테스트", link: "/ko/web/hardware-test/fps-test" },
+          { text: "불량 화소 테스트", link: "/ko/web/hardware-test/screen-bad-point-test" },
+          { text: "해상도 테스트", link: "/ko/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "개발 도구",
         items: [
           { text: "지도 좌표 변환", link: "/ko/web/dev-tools/map-coordinate-conversion" },

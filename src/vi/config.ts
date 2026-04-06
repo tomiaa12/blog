@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Kiểm tra phần cứng",
+        items: [
+          { text: "Kiểm tra mic", link: "/vi/web/hardware-test/microphone-test" },
+          { text: "Kiểm tra camera", link: "/vi/web/hardware-test/camera-test" },
+          { text: "Kiểm tra âm thanh", link: "/vi/web/hardware-test/sound-test" },
+          { text: "Kiểm tra bàn phím", link: "/vi/web/hardware-test/keyboard-test" },
+          { text: "Kiểm tra phát âm thanh", link: "/vi/web/hardware-test/audio-playback-test" },
+          { text: "Kiểm tra tay cầm", link: "/vi/web/hardware-test/gamepad-test" },
+          { text: "Kiểm tra chuột", link: "/vi/web/hardware-test/mouse-test" },
+          { text: "Kiểm tra cảm ứng", link: "/vi/web/hardware-test/touch-screen-test" },
+          { text: "Kiểm tra FPS", link: "/vi/web/hardware-test/fps-test" },
+          { text: "Kiểm tra điểm ảnh chết", link: "/vi/web/hardware-test/screen-bad-point-test" },
+          { text: "Kiểm tra độ phân giải", link: "/vi/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Công cụ phát triển",
         items: [
           { text: "Chuyển đổi tọa độ bản đồ", link: "/vi/web/dev-tools/map-coordinate-conversion" },

@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Hårdvarutester",
+        items: [
+          { text: "Mikrofontest", link: "/sv/web/hardware-test/microphone-test" },
+          { text: "Kameratest", link: "/sv/web/hardware-test/camera-test" },
+          { text: "Ljudtest", link: "/sv/web/hardware-test/sound-test" },
+          { text: "Tangentbordstest", link: "/sv/web/hardware-test/keyboard-test" },
+          { text: "Ljuduppspelningstest", link: "/sv/web/hardware-test/audio-playback-test" },
+          { text: "Gamepad-test", link: "/sv/web/hardware-test/gamepad-test" },
+          { text: "Mustest", link: "/sv/web/hardware-test/mouse-test" },
+          { text: "Pekskärmstest", link: "/sv/web/hardware-test/touch-screen-test" },
+          { text: "FPS-test", link: "/sv/web/hardware-test/fps-test" },
+          { text: "Död pixel-test", link: "/sv/web/hardware-test/screen-bad-point-test" },
+          { text: "Upplösningstest", link: "/sv/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Utvecklarverktyg",
         items: [
           { text: "Kartkoordinatkonvertering", link: "/sv/web/dev-tools/map-coordinate-conversion" },

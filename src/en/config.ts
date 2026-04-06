@@ -48,6 +48,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Hardware Tests",
+        items: [
+          { text: "Microphone Test", link: "/en/web/hardware-test/microphone-test" },
+          { text: "Camera Test", link: "/en/web/hardware-test/camera-test" },
+          { text: "Sound Test", link: "/en/web/hardware-test/sound-test" },
+          { text: "Keyboard Test", link: "/en/web/hardware-test/keyboard-test" },
+          { text: "Audio Playback Test", link: "/en/web/hardware-test/audio-playback-test" },
+          { text: "Gamepad Test", link: "/en/web/hardware-test/gamepad-test" },
+          { text: "Mouse Test", link: "/en/web/hardware-test/mouse-test" },
+          { text: "Touch Screen Test", link: "/en/web/hardware-test/touch-screen-test" },
+          { text: "FPS Test", link: "/en/web/hardware-test/fps-test" },
+          { text: "Dead Pixel Test", link: "/en/web/hardware-test/screen-bad-point-test" },
+          { text: "Screen Resolution Test", link: "/en/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Developer Tools",
         items: [
           { text: "Map Coordinate Conversion", link: "/en/web/dev-tools/map-coordinate-conversion" },

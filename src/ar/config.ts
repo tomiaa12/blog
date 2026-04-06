@@ -50,6 +50,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "اختبارات العتاد",
+        items: [
+          { text: "اختبار الميكروفون", link: "/ar/web/hardware-test/microphone-test" },
+          { text: "اختبار الكاميرا", link: "/ar/web/hardware-test/camera-test" },
+          { text: "اختبار الصوت", link: "/ar/web/hardware-test/sound-test" },
+          { text: "اختبار لوحة المفاتيح", link: "/ar/web/hardware-test/keyboard-test" },
+          { text: "اختبار تشغيل الصوت", link: "/ar/web/hardware-test/audio-playback-test" },
+          { text: "اختبار يد التحكم", link: "/ar/web/hardware-test/gamepad-test" },
+          { text: "اختبار الفأرة", link: "/ar/web/hardware-test/mouse-test" },
+          { text: "اختبار الشاشة اللمسية", link: "/ar/web/hardware-test/touch-screen-test" },
+          { text: "اختبار FPS", link: "/ar/web/hardware-test/fps-test" },
+          { text: "اختبار البكسل المعطلة", link: "/ar/web/hardware-test/screen-bad-point-test" },
+          { text: "اختبار دقة الشاشة", link: "/ar/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "أدوات المطور",
         items: [
           { text: "تحويل إحداثيات الخريطة", link: "/ar/web/dev-tools/map-coordinate-conversion" },

@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Testes de hardware",
+        items: [
+          { text: "Teste de microfone", link: "/pt/web/hardware-test/microphone-test" },
+          { text: "Teste de câmera", link: "/pt/web/hardware-test/camera-test" },
+          { text: "Teste de som", link: "/pt/web/hardware-test/sound-test" },
+          { text: "Teste de teclado", link: "/pt/web/hardware-test/keyboard-test" },
+          { text: "Teste de reprodução de áudio", link: "/pt/web/hardware-test/audio-playback-test" },
+          { text: "Teste de controle", link: "/pt/web/hardware-test/gamepad-test" },
+          { text: "Teste de mouse", link: "/pt/web/hardware-test/mouse-test" },
+          { text: "Teste de tela sensível ao toque", link: "/pt/web/hardware-test/touch-screen-test" },
+          { text: "Teste FPS", link: "/pt/web/hardware-test/fps-test" },
+          { text: "Teste de pixels mortos", link: "/pt/web/hardware-test/screen-bad-point-test" },
+          { text: "Teste de resolução", link: "/pt/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Ferramentas de desenvolvedor",
         items: [
           { text: "Conversão de coordenadas do mapa", link: "/pt/web/dev-tools/map-coordinate-conversion" },

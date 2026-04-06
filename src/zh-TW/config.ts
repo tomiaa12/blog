@@ -48,6 +48,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "硬體測試",
+        items: [
+          { text: "麥克風測試", link: "/zh-TW/web/hardware-test/microphone-test" },
+          { text: "攝像頭測試", link: "/zh-TW/web/hardware-test/camera-test" },
+          { text: "聲音測試", link: "/zh-TW/web/hardware-test/sound-test" },
+          { text: "鍵盤測試", link: "/zh-TW/web/hardware-test/keyboard-test" },
+          { text: "音訊播放測試", link: "/zh-TW/web/hardware-test/audio-playback-test" },
+          { text: "手柄測試", link: "/zh-TW/web/hardware-test/gamepad-test" },
+          { text: "滑鼠測試", link: "/zh-TW/web/hardware-test/mouse-test" },
+          { text: "觸控螢幕測試", link: "/zh-TW/web/hardware-test/touch-screen-test" },
+          { text: "fps測試", link: "/zh-TW/web/hardware-test/fps-test" },
+          { text: "螢幕壞點測試", link: "/zh-TW/web/hardware-test/screen-bad-point-test" },
+          { text: "螢幕解析度測試", link: "/zh-TW/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "開發工具",
         items: [
           { text: "地圖座標轉換", link: "/zh-TW/web/dev-tools/map-coordinate-conversion" },

@@ -49,6 +49,22 @@ export default defineAdditionalConfig({
         ],
       },
       {
+        text: "Tes perangkat keras",
+        items: [
+          { text: "Tes mikrofon", link: "/id/web/hardware-test/microphone-test" },
+          { text: "Tes kamera", link: "/id/web/hardware-test/camera-test" },
+          { text: "Tes suara", link: "/id/web/hardware-test/sound-test" },
+          { text: "Tes keyboard", link: "/id/web/hardware-test/keyboard-test" },
+          { text: "Tes pemutaran audio", link: "/id/web/hardware-test/audio-playback-test" },
+          { text: "Tes gamepad", link: "/id/web/hardware-test/gamepad-test" },
+          { text: "Tes mouse", link: "/id/web/hardware-test/mouse-test" },
+          { text: "Tes layar sentuh", link: "/id/web/hardware-test/touch-screen-test" },
+          { text: "Tes FPS", link: "/id/web/hardware-test/fps-test" },
+          { text: "Tes piksel mati", link: "/id/web/hardware-test/screen-bad-point-test" },
+          { text: "Tes resolusi", link: "/id/web/hardware-test/screen-resolution-test" },
+        ],
+      },
+      {
         text: "Alat pengembang",
         items: [
           { text: "Konversi koordinat peta", link: "/id/web/dev-tools/map-coordinate-conversion" },
