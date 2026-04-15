@@ -5519,4 +5519,18 @@ export const roms = [
     publisher: "Natsume",
     url: "特救指令 (简)",
   },
+  {
+    id: "1158",
+    title: "香蕉王子大冒险 (简)",
+    cover: "1158a.png",
+    image: "1158b.png",
+    language: "4",
+    type: "ACT",
+    source: "香蕉王子汉化组",
+    comment: "Banana Prince (Japan) [CHS]",
+    location: "7",
+    size: "286736",
+    publisher: "Takara",
+    url: "香蕉王子大冒险-汉化v1.0",
+  },
 ]
