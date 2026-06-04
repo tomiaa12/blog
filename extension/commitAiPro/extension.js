@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const PROVIDER_DEFAULTS = {
     deepseek: {
-        model: 'deepseek-chat',
+        model: 'deepseek-v4-flash',
         apiUrl: 'https://api.deepseek.com/v1/chat/completions'
     },
     openai: {
@@ -19,6 +19,23 @@ const PROVIDER_DEFAULTS = {
         apiUrl: ''
     }
 };
+
+// 无缓存标准价：输入 1 元/百万 tokens，输出 2 元/百万 tokens
+const TOKEN_COST_RATES = {
+    inputPerMillion: 1.00,
+    outputPerMillion: 2.00
+};
+
+function calculateTokenCost(usage) {
+    const inputCost = usage.prompt_tokens / 1000000 * TOKEN_COST_RATES.inputPerMillion;
+    const outputCost = usage.completion_tokens / 1000000 * TOKEN_COST_RATES.outputPerMillion;
+
+    return {
+        input: inputCost.toFixed(6),
+        output: outputCost.toFixed(6),
+        total: (inputCost + outputCost).toFixed(6)
+    };
+}
 
 /**
  * 获取当前模型配置
@@ -423,10 +440,11 @@ ${examples}`
     const usage = data.usage;
     console.log('Token 使用情况:', usage);
     if (modelConfig.provider === 'deepseek') {
+        const cost = calculateTokenCost(usage);
         console.log('预估费用:', {
-            input: `¥${(usage.prompt_tokens / 1000000 * 0.07).toFixed(6)}`,
-            output: `¥${(usage.completion_tokens / 1000000 * 0.28).toFixed(6)}`,
-            total: `¥${(usage.prompt_tokens / 1000000 * 0.07 + usage.completion_tokens / 1000000 * 0.28).toFixed(6)}`
+            input: `¥${cost.input}`,
+            output: `¥${cost.output}`,
+            total: `¥${cost.total}`
         });
     }
     
@@ -537,12 +555,12 @@ function activate(context) {
                     // 3. 显示成功提示
                     const usage = result.usage;
                     const cost = modelConfig.provider === 'deepseek'
-                        ? (usage.prompt_tokens / 1000000 * 0.07 + usage.completion_tokens / 1000000 * 0.28).toFixed(6)
+                        ? calculateTokenCost(usage)
                         : null;
 
                     let successMessage = '✨ Commit 已生成！';
                     if (showTokenCost && cost !== null) {
-                        successMessage += `\nToken: ${usage.total_tokens} | 费用: ¥${cost}`;
+                        successMessage += `\nToken: ${usage.total_tokens} | 费用: ¥${cost.total}`;
                     }
                     vscode.window.showInformationMessage(successMessage);
 
@@ -569,9 +587,9 @@ function activate(context) {
                     outputChannel.appendLine('');
                     if (showTokenCost && modelConfig.provider === 'deepseek') {
                         outputChannel.appendLine('费用统计:');
-                        outputChannel.appendLine(`  输入费用: ¥${(usage.prompt_tokens / 1000000 * 0.07).toFixed(6)}`);
-                        outputChannel.appendLine(`  输出费用: ¥${(usage.completion_tokens / 1000000 * 0.28).toFixed(6)}`);
-                        outputChannel.appendLine(`  总费用: ¥${cost}`);
+                        outputChannel.appendLine(`  输入费用: ¥${cost.input}`);
+                        outputChannel.appendLine(`  输出费用: ¥${cost.output}`);
+                        outputChannel.appendLine(`  总费用: ¥${cost.total}`);
                         outputChannel.appendLine('========================================');
                     }
 

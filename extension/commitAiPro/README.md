@@ -87,8 +87,6 @@ AI 驱动的 Git Commit Message 自动生成工具。
 - `123-new-feature` -> `#123`
 - `fix-789-bug` -> `#789`
 
-更多配置见 [CONFIGURATION.md](./CONFIGURATION.md)。
-
 ## Commit Message 格式
 
 基础格式：

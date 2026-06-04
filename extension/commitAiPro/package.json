@@ -2,12 +2,12 @@
   "name": "commit-ai-pro",
   "displayName": "Commit Message Generator(AI生成commit)",
   "description": "在 Git 提交界面添加 AI 生成 commit message 的按钮",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "tomiaa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomiaa12/blog",
-    "directory": "src/vscodeExtension/commitAiPro"
+    "url": "https://github.com/tomiaa12",
+    "directory": "blog/extension/commitAiPro"
   },
   "keywords": [
     "git",

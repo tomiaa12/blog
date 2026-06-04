@@ -1551,6 +1551,7 @@ function getSidebar() {
           { text: "从句", link: "/docs/English/从句" },
           { text: "非谓语", link: "/docs/English/非谓语" },
           { text: "介词短语", link: "/docs/English/介词短语" },
+          { text: "形容词", link: "/docs/English/形容词" },
         ],
       },
       {
