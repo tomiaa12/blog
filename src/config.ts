@@ -325,6 +325,7 @@ function getNav() {
           items: [
             { text: "Python", link: "/docs/服务端/Python/01-初识" },
             { text: "Java", link: "/docs/服务端/java/01-初识" },
+            { text: "Golang", link: "/docs/服务端/golang/01-环境安装" },
             { text: "C 语言", link: "/docs/服务端/C语言/概述" },
             { text: "部署", link: "/docs/服务端/部署/docker" },
             { text: "Node.js", link: "/docs/服务端/Node.js/模块引入" },
@@ -964,6 +965,29 @@ function getSidebar() {
           { text: "输入输出流", link: "/docs/服务端/java/04-输入输出流" },
           { text: "反射机制", link: "/docs/服务端/java/05-反射机制" },
           { text: "注解", link: "/docs/服务端/java/06-注解" },
+        ],
+      },
+      {
+        text: "Golang",
+        collapsed: true,
+        items: [
+          { text: "环境安装", link: "/docs/服务端/golang/01-环境安装" },
+          { text: "并发", link: "/docs/服务端/golang/02-并发" },
+          { text: "基本语法", link: "/docs/服务端/golang/03-基本语法" },
+          { text: "指针", link: "/docs/服务端/golang/04-指针" },
+          { text: "defer", link: "/docs/服务端/golang/05-defer" },
+          { text: "数组", link: "/docs/服务端/golang/06-数组" },
+          { text: "map", link: "/docs/服务端/golang/07-map" },
+          { text: "面向对象", link: "/docs/服务端/golang/08-面向对象" },
+          { text: "反射", link: "/docs/服务端/golang/09-反射" },
+          { text: "结构体", link: "/docs/服务端/golang/10-结构体" },
+          { text: "goroutine", link: "/docs/服务端/golang/11-goroutine" },
+          { text: "channel", link: "/docs/服务端/golang/12-channel" },
+          { text: "modules", link: "/docs/服务端/golang/13-modules" },
+          {
+            text: "TS 与 Go 语法对比",
+            link: "/docs/服务端/golang/14-TS-Go语法对比",
+          },
         ],
       },
       {
