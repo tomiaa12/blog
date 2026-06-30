@@ -1135,6 +1135,13 @@ export const dictTree = [
         label: "通用",
         children: [
           {
+            id: "beginners-word-book-1",
+            label: "初阶单词书(上)",
+            description: "初阶单词书",
+            url: "/dicts/beginners-word-book-1.json",
+            length: 1015,
+          },
+          {
             id: "gaokao3500",
             label: "高考 3500 词",
             description: "高考常见词 3500",
