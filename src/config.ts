@@ -988,6 +988,7 @@ function getSidebar() {
             text: "TS 与 Go 语法对比",
             link: "/docs/服务端/golang/14-TS-Go语法对比",
           },
+          { text: "Go 标准库", link: "/docs/服务端/golang/15-Go标准库" },
         ],
       },
       {
