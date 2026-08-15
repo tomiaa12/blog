@@ -67,12 +67,12 @@ export default {
     // Obtain configuration from: https://giscus.app/
     giscusTalk(
       {
-        repo: "tomiaa12/blogComments",
-        repoId: "R_kgDONlUJAw",
-        category: "BlogComments", // default: `General`
-        categoryId: "DIC_kwDONlUJA84ClsSx",
-        mapping: "pathname", // default: `pathname`
-        inputPosition: "top", // default: `top`
+        repo: "tomiaa12/blog",
+        repoId: "R_kgDOIm0p7w",
+        category: "Announcements",
+        categoryId: "DIC_kwDOIm0p784DDbB3",
+        mapping: "pathname",
+        inputPosition: "bottom",
         locales: {
           "zh-CN": "zh-CN",
           "en": "en",
