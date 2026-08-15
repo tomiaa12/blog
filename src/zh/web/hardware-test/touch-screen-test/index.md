@@ -1,14 +1,14 @@
 ---
-title: 触摸屏测试 - 在线检测触控点
-description: 免费在线触摸屏测试，显示当前触摸点标识符与坐标，支持多点触控检测。
-keywords: 触摸屏测试,触控,多点触控,硬件测试
+title: 触摸屏测试 - 在线多点触控与死区检测
+description: 免费在线触摸屏测试，支持多点触控轨迹、触点坐标与压力、网格死区检测，可全屏检查整块屏幕是否灵敏。
+keywords: 触摸屏测试,多点触控,触控死区,屏幕触摸,硬件测试
 head:
   - - meta
     - name: description
-      content: 免费在线触摸屏测试，显示当前触摸点标识符与坐标，支持多点触控检测。
+      content: 免费在线触摸屏测试，支持多点触控轨迹、触点坐标与压力、网格死区检测，可全屏检查整块屏幕是否灵敏。
   - - meta
     - name: keywords
-      content: 触摸屏测试,触控,多点触控,硬件测试
+      content: 触摸屏测试,多点触控,触控死区,屏幕触摸,硬件测试
 footer: false
 editLink: false
 aside: false
