@@ -55,6 +55,9 @@
           readonly
         />
       </el-form-item>
+      <el-form-item label="说明">
+        <span class="hint">低级别（约 3 级以下）部分坐标没有瓦片会 404，下载时会自动跳过，不影响其他级别。</span>
+      </el-form-item>
     </el-form>
     <el-table
       v-if="rect && tableData.length"
@@ -146,6 +149,7 @@ const initMap = () => {
           tileGrid: baiduTileGrid,
           tileUrlFunction(tileCoord) {
             if (!tileCoord) return ""
+            if (tileCoord[0] < 3) return ""
             return baiduTileUrl(tileCoord as [number, number, number])
           },
         }),
@@ -349,6 +353,7 @@ async function downloadTiles(list: [number, number, number][]) {
   process.value = "0"
   const total = list.length
   let count = 0
+  let skipped = 0
   const zip = new JSZip()
   const batch = 6
 
@@ -362,16 +367,26 @@ async function downloadTiles(list: [number, number, number][]) {
       await Promise.all(
         chunk.map(async tileCoord => {
           const blob = await downloadTile(tileCoord)
-          const z = tileCoord[0]
-          const x = tileCoord[1]
-          const y = -tileCoord[2] - 1
-          zip.file(`${z}/${x}/${y}.png`, blob)
           count++
+          if (blob) {
+            const z = tileCoord[0]
+            const x = tileCoord[1]
+            const y = -tileCoord[2] - 1
+            zip.file(`${z}/${x}/${y}.png`, blob)
+          } else {
+            skipped++
+          }
           const pct = ((count / total) * 100).toFixed(1)
           process.value = pct
-          setLoadingText(`正在下载瓦片 ${count} / ${total}（${pct}%）`)
+          setLoadingText(
+            `正在下载瓦片 ${count} / ${total}（${pct}%）${skipped ? `，已跳过 ${skipped} 张空图` : ""}`
+          )
         })
       )
+    }
+
+    if (count === skipped) {
+      throw new Error("所选范围内没有可下载的瓦片（多为低级别空图）")
     }
 
     setLoadingText("正在打包 ZIP（文件多时可能较慢）…")
@@ -384,9 +399,16 @@ async function downloadTiles(list: [number, number, number][]) {
     const a = document.createElement("a")
     a.href = url
     a.download = "baidu-tiles.zip"
+    a.rel = "noopener"
+    document.body.appendChild(a)
     a.click()
+    a.remove()
     URL.revokeObjectURL(url)
-    ElMessage.success("已开始保存 baidu-tiles.zip")
+    ElMessage.success(
+      skipped
+        ? `已开始保存 baidu-tiles.zip（跳过 ${skipped} 张不存在的瓦片）`
+        : "已开始保存 baidu-tiles.zip"
+    )
   } catch (e) {
     console.error(e)
     ElMessage.error(e instanceof Error ? e.message : "下载失败")
@@ -397,14 +419,23 @@ async function downloadTiles(list: [number, number, number][]) {
   }
 }
 
-function downloadTile(tileCoord: [number, number, number]): Promise<Blob> {
-  return fetch(baiduTileUrl(tileCoord), {
-    mode: "cors",
-    referrerPolicy: "no-referrer",
-  }).then(res => {
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    return res.blob()
-  })
+async function downloadTile(tileCoord: [number, number, number]): Promise<Blob | null> {
+  try {
+    const res = await fetch(baiduTileUrl(tileCoord), {
+      mode: "cors",
+      referrerPolicy: "no-referrer",
+    })
+    if (!res.ok) return null
+    const blob = await res.blob()
+    if (blob.size < 32) return null
+    if (blob.type && !blob.type.startsWith("image/") && blob.type !== "application/octet-stream") {
+      return null
+    }
+    return blob
+  } catch {
+    // 404 等错误响应常无 CORS 头，浏览器会报 Failed to fetch，按空图跳过
+    return null
+  }
 }
 </script>
 
@@ -426,5 +457,11 @@ function downloadTile(tileCoord: [number, number, number]): Promise<Blob> {
   top: -50px;
   right: 0;
   white-space: nowrap;
+}
+
+.hint {
+  color: var(--el-text-color-secondary);
+  font-size: 13px;
+  line-height: 1.5;
 }
 </style>

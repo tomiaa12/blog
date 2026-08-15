@@ -46,6 +46,7 @@ onMounted(() => {
           }),
           tileUrlFunction(tileCoord) {
             if (!tileCoord) return ""
+            if (tileCoord[0] < 3) return ""
 
             let z: string | number = tileCoord[0]
             let x: string | number = tileCoord[1]
