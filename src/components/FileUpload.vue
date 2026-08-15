@@ -19,13 +19,14 @@
   <input
     ref="fileInputRef"
     type="file"
-    multiple
+    :multiple="multiple"
     :accept="props.accept"
     class="file-upload__hidden-input"
     @change="onFileChange"
   />
   <!-- 隐藏的文件夹 input（webkitdirectory 在 onMounted 中设置） -->
   <input
+    v-if="folder"
     ref="folderInputRef"
     type="file"
     multiple
@@ -58,6 +59,7 @@
           &nbsp;{{ t("selectFiles") }}
         </el-button>
         <el-button
+          v-if="folder"
           type="primary"
           @click="triggerFolderSelect"
         >
@@ -81,6 +83,7 @@
       &nbsp;{{ t("selectFiles") }}
     </el-button>
     <el-button
+      v-if="folder"
       type="primary"
       @click="triggerFolderSelect"
     >
@@ -107,8 +110,12 @@ const props = withDefaults(
      * 不传则不限制。
      */
     accept?: string
+    /** 是否允许多选文件，默认 true */
+    multiple?: boolean
+    /** 是否显示「选择文件夹」，默认 true */
+    folder?: boolean
   }>(),
-  { type: "area" }
+  { type: "area", multiple: true, folder: true }
 )
 
 const emit = defineEmits<{

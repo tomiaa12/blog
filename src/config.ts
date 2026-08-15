@@ -211,7 +211,13 @@ export default defineAdditionalConfig({
           { text: "字数统计", link: "/web/text-tools/word-count" },
         ],
       },
-      
+      {
+        text: "图片工具",
+        items: [
+          { text: "图片转 ICO", link: "/web/image-tools/image-to-ico" },
+          { text: "图片裁切图标", link: "/web/image-tools/image-crop-icon" },
+        ],
+      },
       {
         text: "硬件测试",
         items: [
