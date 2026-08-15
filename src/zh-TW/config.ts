@@ -78,6 +78,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "FC 童年小霸王", link: "/pages/game" },
           { text: "Java 經典遊戲", link: "/pages/javaGames" },
+          { text: "街機遊戲", link: "/pages/arcade" },
         ],
       },
     ],

@@ -79,6 +79,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "FC レトロゲーム", link: "/pages/game" },
           { text: "Java クラシックゲーム", link: "/pages/javaGames" },
+          { text: "アーケードゲーム", link: "/pages/arcade" },
         ],
       },
     ],

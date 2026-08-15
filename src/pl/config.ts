@@ -79,6 +79,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "Retro gry FC", link: "/pages/game" },
           { text: "Klasyczne gry Java", link: "/pages/javaGames" },
+          { text: "Gry zręcznościowe", link: "/pages/arcade" },
         ],
       },
     ],

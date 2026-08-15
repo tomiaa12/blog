@@ -79,6 +79,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "Trò chơi FC cổ điển", link: "/pages/game" },
           { text: "Trò chơi Java cổ điển", link: "/pages/javaGames" },
+          { text: "Trò chơi arcade", link: "/pages/arcade" },
         ],
       },
     ],

@@ -282,6 +282,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "FC 童年小霸王", link: "/pages/game" },
           { text: "Java 经典游戏", link: "/pages/javaGames" },
+          { text: "街机游戏", link: "/pages/arcade" },
           { text: "PUBG 地图", link: "/pages/pubg-map" },
           // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
         ],

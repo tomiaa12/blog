@@ -79,6 +79,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "FC retro spellen", link: "/pages/game" },
           { text: "Java klassieke spellen", link: "/pages/javaGames" },
+          { text: "Arcade spellen", link: "/pages/arcade" },
         ],
       },
     ],

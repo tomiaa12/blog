@@ -80,6 +80,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "ألعاب FC الكلاسيكية", link: "/pages/game" },
           { text: "ألعاب Java الكلاسيكية", link: "/pages/javaGames" },
+          { text: "ألعاب الأركيد", link: "/pages/arcade" },
         ],
       },
     ],

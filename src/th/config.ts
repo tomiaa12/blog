@@ -79,6 +79,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "เกม FC คลาสสิก", link: "/pages/game" },
           { text: "เกม Java คลาสสิก", link: "/pages/javaGames" },
+          { text: "เกมอาร์เคด", link: "/pages/arcade" },
         ],
       },
     ],

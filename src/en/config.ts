@@ -78,6 +78,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "NES Retro Games", link: "/pages/game" },
           { text: "Java Classic Games", link: "/pages/javaGames" },
+          { text: "Arcade Games", link: "/pages/arcade" },
         ],
       },
     ],
