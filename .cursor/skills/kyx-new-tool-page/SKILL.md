@@ -1,6 +1,6 @@
 ---
 name: kyx-new-tool-page
-description: 为 kyx 博客项目创建新的在线工具页面（zh 简体中文版本）：生成目录结构、index.md（SEO frontmatter）、Vue 组件（含 20 种语言 i18n）并在 src/config.ts 添加导航菜单。当用户说"实现这个功能"、"新建工具页"、"创建工具"、"添加页面"、"做这个工具"时使用此技能。
+description: 为 kyx 博客项目创建新的在线工具页面（zh 简体中文版本）：生成目录结构、index.md（SEO frontmatter）、Vue 组件（含 20 种语言 i18n）并在 src/config.ts 添加导航菜单。用到的第三方 JS 库必须从 CDN 引入，禁止 pnpm add 打进产物。当用户说"实现这个功能"、"新建工具页"、"创建工具"、"添加页面"、"做这个工具"时使用此技能。
 ---
 
 # 新建 kyx 工具页（zh 版本）
@@ -11,7 +11,8 @@ description: 为 kyx 博客项目创建新的在线工具页面（zh 简体中�
 
 1. `index.md` — 页面入口 + SEO frontmatter
 2. `components/<ComponentName>.vue` — 功能组件（含 20 种语言 i18n）
-3. 在 `src/config.ts` 的对应分类菜单中添加导航项
+3. 若用到第三方 JS 库：`components/loadXxx.ts`（CDN 加载，见下方）
+4. 在 `src/config.ts` 的对应分类菜单中添加导航项
 
 ## 目录结构规范
 
@@ -67,6 +68,47 @@ import <ComponentName> from './components/<ComponentName>.vue'
 - 样式用 `<style lang="scss" scoped>`，颜色变量使用 `var(--vp-c-*)` 系列
 - i18n 语言列表固定 20 种（见下方）
 
+## 第三方 JS 库必须从 CDN 引入
+
+工具页用到的第三方 JS 库（压缩、抠图、编解码、WASM 等）**禁止** `pnpm add` 后 `import "库名"` 打进 Vite 产物。必须运行时从 CDN 加载。
+
+加载方式遵循 `kyx-cdn-first-load`：
+
+- 用 `loadFirstAvailable` / `loadScript`，从 `@/utils` 导入
+- CDN 优先 **jsdelivr**，备用 **unpkg**，**锁定版本号**
+- UMD：`loadScript` 后取 `window.xxx`；ESM：`import(/* @vite-ignore */ url)`
+- 加载逻辑单独放 `components/loadXxx.ts`，模块级缓存；失败时清空缓存以便重试
+- 默认纯 CDN，不装 npm 包；用户明确要求本地兜底时才 `pnpm add` 并传 `() => import("库名")`
+- 项目里已有的 Vue / Element Plus / vue-i18n / jszip 等基础设施可直接 import，不必再走 CDN
+
+```ts
+import { loadFirstAvailable, loadScript } from "@/utils"
+
+let lib: any = null
+
+export async function ensureLib() {
+  if (lib) return lib
+  try {
+    lib = await loadFirstAvailable(
+      [
+        "https://cdn.jsdelivr.net/npm/库名@版本/dist/xxx.js",
+        "https://unpkg.com/库名@版本/dist/xxx.js",
+      ],
+      async url => {
+        const win = await loadScript(url)
+        const fn = (win as any).全局变量名
+        if (typeof fn !== "function" && !fn) throw new Error("库无效")
+        return fn
+      }
+    )
+    return lib
+  } catch (err) {
+    lib = null
+    throw err
+  }
+}
+```
+
 ### i18n 块格式
 
 ```html
@@ -119,4 +161,5 @@ import <ComponentName> from './components/<ComponentName>.vue'
 
 1. 创建 `src/zh/web/text-tools/multi-line-merge-split/index.md`
 2. 创建 `src/zh/web/text-tools/multi-line-merge-split/components/MultiLineMergeSplit.vue`
-3. 在 `src/config.ts` 的「文本工具」items 中追加菜单项
+3. 若功能依赖第三方 JS 库，再创建 `components/loadXxx.ts` 从 CDN 加载（禁止 pnpm add 打进产物）
+4. 在 `src/config.ts` 的「文本工具」items 中追加菜单项

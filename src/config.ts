@@ -194,9 +194,10 @@ export default defineAdditionalConfig({
         ],
       },
       {
-        text: "文本工具",
+        text: "文本",
         items: [
           { text: "多行合并拆分", link: "/web/text-tools/multi-line-merge-split" },
+          { text: "Markdown 编辑", link: "/web/text-tools/markdown-editor" },
           { text: "文字转图片", link: "/web/text-tools/text-to-image" },
           { text: "拼音转换", link: "/web/text-tools/pinyin-conversion" },
           { text: "简繁转换", link: "/web/text-tools/simplified-traditional-conversion" },
@@ -212,10 +213,23 @@ export default defineAdditionalConfig({
         ],
       },
       {
-        text: "图片工具",
+        text: "图片",
         items: [
           { text: "图片转 ICO", link: "/web/image-tools/image-to-ico" },
           { text: "图片裁切图标", link: "/web/image-tools/image-crop-icon" },
+          { text: "图片裁剪", link: "/web/image-tools/image-crop" },
+          { text: "图片加水印", link: "/web/image-tools/image-watermark" },
+          { text: "图片尺寸调整", link: "/web/image-tools/image-resize" },
+          { text: "图片宽高比", link: "/web/image-tools/image-aspect-ratio" },
+          { text: "图片拼图", link: "/web/image-tools/image-collage" },
+          { text: "图片宫格", link: "/web/image-tools/image-grid" },
+          { text: "证件照", link: "/web/image-tools/id-photo" },
+          { text: "图片抠图", link: "/web/image-tools/image-matting" },
+          { text: "SVG 编辑优化", link: "/web/image-tools/svg-optimize" },
+          { text: "图片格式转换", link: "/web/image-tools/image-format-convert" },
+          { text: "图片压缩", link: "/web/image-tools/image-compress" },
+          { text: "图片主色调", link: "/web/image-tools/image-color-extract" },
+          { text: "颜色转换", link: "/web/image-tools/color-convert" },
         ],
       },
       {
@@ -249,6 +263,13 @@ export default defineAdditionalConfig({
             text: "百度地图瓦片下载",
             link: "/web/dev-tools/baidu-map-tiles-download",
           },
+          { text: "SQL 美化", link: "/web/dev-tools/sql-format" },
+          { text: "JSON 美化", link: "/web/dev-tools/json-format" },
+          { text: "配置文件转换", link: "/web/dev-tools/config-convert" },
+          { text: "在线代码编辑", link: "/web/dev-tools/code-editor" },
+          { text: "代码混淆 / 反混淆", link: "/web/dev-tools/code-obfuscate" },
+          { text: "代码格式化 / 压缩", link: "/web/dev-tools/code-format" },
+          { text: "UUID / ULID / Token", link: "/web/dev-tools/id-generator" },
         ],
       },
       {
@@ -256,6 +277,7 @@ export default defineAdditionalConfig({
         items: [
           { text: "FC 童年小霸王", link: "/pages/game" },
           { text: "Java 经典游戏", link: "/pages/javaGames" },
+          { text: "PUBG 地图", link: "/pages/pubg-map" },
           // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
         ],
       },
