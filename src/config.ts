@@ -191,6 +191,11 @@ export default defineAdditionalConfig({
         items: [
           { text: "Base64 编解码", link: "/web/encode-decode/base64" },
           { text: "URL 编解码", link: "/web/encode-decode/url" },
+          { text: "摩斯电码", link: "/web/encode-decode/morse" },
+          { text: "HMAC 生成器", link: "/web/encode-decode/hmac" },
+          { text: "JWT 解析验证", link: "/web/encode-decode/jwt" },
+          { text: "AES 加解密", link: "/web/encode-decode/aes" },
+          { text: "文本哈希", link: "/web/encode-decode/hash" },
         ],
       },
       {

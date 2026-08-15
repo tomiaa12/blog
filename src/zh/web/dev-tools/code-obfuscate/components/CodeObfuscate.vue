@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue"
+import { useData } from "vitepress"
 import { useI18n } from "vue-i18n"
 import { ElMessage } from "element-plus"
 import { copyToClipboard } from "@/utils"
 import { ensureObfuscator, type ObfuscatorOptions } from "./loadObfuscator"
 import { ensureBeautify } from "./loadBeautify"
+import { highlightCode } from "../../sql-format/components/loadHighlight"
 
 const { t } = useI18n()
+const { isDark } = useData()
 
 type Mode = "obfuscate" | "deobfuscate"
 type Preset = "low" | "medium" | "high"
@@ -24,6 +27,7 @@ greet("world")
 
 const input = ref(SAMPLE)
 const output = ref("")
+const highlighted = ref("")
 const mode = ref<Mode>("obfuscate")
 const preset = ref<Preset>("low")
 const indent = ref<"2" | "4">("2")
@@ -97,6 +101,18 @@ function applyPreset(p: Preset) {
 }
 
 watch(preset, applyPreset, { immediate: true })
+
+watch([output, isDark], async () => {
+  if (!output.value) {
+    highlighted.value = ""
+    return
+  }
+  try {
+    highlighted.value = await highlightCode(output.value, "javascript", isDark.value)
+  } catch {
+    highlighted.value = ""
+  }
+})
 
 function needText() {
   if (input.value.trim()) return true
@@ -333,14 +349,16 @@ async function onFile(ev: Event) {
       </div>
       <div class="pane">
         <div class="pane-label">{{ t("outputLabel") }}</div>
-        <el-input
-          v-model="output"
-          type="textarea"
-          :rows="16"
-          :placeholder="t('outputHint')"
-          resize="vertical"
-          class="code-area"
-        />
+        <pre
+          v-if="highlighted"
+          class="code-out hljs"
+        ><code v-html="highlighted" /></pre>
+        <div
+          v-else
+          class="code-out code-out-empty"
+        >
+          {{ t("outputHint") }}
+        </div>
       </div>
     </div>
   </div>
@@ -349,8 +367,11 @@ async function onFile(ev: Event) {
 <style lang="scss" scoped>
 .obf-page {
   max-width: 1100px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
   padding: 24px 16px 48px;
+  box-sizing: border-box;
 }
 
 .page-title {
@@ -391,14 +412,19 @@ async function onFile(ev: Event) {
 
 .panes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
+  min-width: 0;
 }
 
 @media (max-width: 800px) {
   .panes {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
+}
+
+.pane {
+  min-width: 0;
 }
 
 .pane-label {
@@ -413,7 +439,42 @@ async function onFile(ev: Event) {
     font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
     font-size: 0.88rem;
     line-height: 1.55;
+    min-height: 360px;
   }
+}
+
+.code-out {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 360px;
+  max-height: 640px;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding: 11px 15px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  background: var(--vp-c-bg-soft);
+  font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  white-space: pre;
+  word-break: normal;
+
+  code {
+    display: block;
+    width: max-content;
+    min-width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    background: transparent;
+    padding: 0;
+  }
+}
+
+.code-out-empty {
+  color: var(--vp-c-text-3);
+  white-space: normal;
 }
 </style>
 

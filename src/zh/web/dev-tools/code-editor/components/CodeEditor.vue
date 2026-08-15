@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue"
+import { useData } from "vitepress"
 import { useI18n } from "vue-i18n"
 import { ElMessage } from "element-plus"
 import { copyToClipboard } from "@/utils"
 import { ensureMonaco, type MonacoApi, type MonacoEditor } from "./loadMonaco"
 
 const { t } = useI18n()
+const { isDark } = useData()
 
 type ThemeMode = "auto" | "light" | "dark"
 
@@ -172,12 +174,11 @@ const charCount = ref(0)
 let api: MonacoApi | null = null
 let editor: MonacoEditor | null = null
 let contentSub: { dispose: () => void } | null = null
-let themeObs: MutationObserver | null = null
 
 const monacoTheme = computed(() => {
   if (themeMode.value === "light") return "vs"
   if (themeMode.value === "dark") return "vs-dark"
-  return document.documentElement.classList.contains("dark") ? "vs-dark" : "vs"
+  return isDark.value ? "vs-dark" : "vs"
 })
 
 function sampleOf(lang: Lang) {
@@ -312,16 +313,13 @@ watch(language, lang => {
 })
 
 watch([fontSize, wordWrap, minimap], applyOptions)
-watch(themeMode, applyTheme)
+watch(monacoTheme, applyTheme)
 
 onMounted(() => {
-  themeObs = new MutationObserver(applyTheme)
-  themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
   void boot()
 })
 
 onBeforeUnmount(() => {
-  themeObs?.disconnect()
   contentSub?.dispose()
   editor?.dispose()
   editor = null
@@ -439,8 +437,11 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .code-page {
   max-width: 1100px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
   padding: 24px 16px 48px;
+  box-sizing: border-box;
 }
 
 .page-title {
@@ -489,6 +490,8 @@ onBeforeUnmount(() => {
 
 .editor-wrap {
   position: relative;
+  width: 100%;
+  min-width: 0;
   height: 560px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;

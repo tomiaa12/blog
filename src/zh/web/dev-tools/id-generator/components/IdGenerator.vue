@@ -263,8 +263,11 @@ void generate()
 <style lang="scss" scoped>
 .id-page {
   max-width: 960px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
   padding: 24px 16px 48px;
+  box-sizing: border-box;
 }
 
 .page-title {
@@ -307,6 +310,9 @@ void generate()
 }
 
 .code-area {
+  max-width: 100%;
+  min-width: 0;
+
   :deep(textarea) {
     font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
     font-size: 0.88rem;
