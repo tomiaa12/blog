@@ -1,0 +1,222 @@
+{
+  "game": "black-myth-wukong",
+  "source": "https://mapgenie.io/black-myth-wukong/maps/chapter-1",
+  "maps": [
+    {
+      "id": 684,
+      "slug": "chapter-1",
+      "title": "Chapter 1: Black Cloud, Red Fire",
+      "start_lat": 0.66816431519381,
+      "start_lng": -0.86286815421926,
+      "initial_zoom": 12,
+      "tile_sets": [
+        {
+          "id": 851,
+          "map_id": 684,
+          "name": "Chart",
+          "path": "black-myth-wukong/chapter-1/chart-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-1/chart-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 8,
+          "max_zoom": 13,
+          "order": 0,
+          "bounds": null
+        },
+        {
+          "id": 700,
+          "map_id": 684,
+          "name": "Legacy",
+          "path": "black-myth-wukong/chapter-1/paper-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-1/paper-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 9,
+          "max_zoom": 14,
+          "order": 1,
+          "bounds": null
+        }
+      ],
+      "locations_count": 217,
+      "regions_count": 4
+    },
+    {
+      "id": 685,
+      "slug": "chapter-2",
+      "title": "Chapter 2: Yellow Sand, Desolate Dusk",
+      "start_lat": 0.83925513022936,
+      "start_lng": -0.63421194725589,
+      "initial_zoom": 12,
+      "tile_sets": [
+        {
+          "id": 852,
+          "map_id": 685,
+          "name": "Chart",
+          "path": "black-myth-wukong/chapter-2/chart-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-2/chart-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 8,
+          "max_zoom": 13,
+          "order": 0,
+          "bounds": null
+        },
+        {
+          "id": 701,
+          "map_id": 685,
+          "name": "Legacy",
+          "path": "black-myth-wukong/chapter-2/paper-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-2/paper-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 9,
+          "max_zoom": 14,
+          "order": 1,
+          "bounds": null
+        }
+      ],
+      "locations_count": 344,
+      "regions_count": 5
+    },
+    {
+      "id": 686,
+      "slug": "chapter-3",
+      "title": "Chapter 3: White Snow, Ice Cold",
+      "start_lat": 0.64212299601114,
+      "start_lng": -0.86717698022252,
+      "initial_zoom": 13,
+      "tile_sets": [
+        {
+          "id": 853,
+          "map_id": 686,
+          "name": "Chart",
+          "path": "black-myth-wukong/chapter-3/chart-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-3/chart-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 8,
+          "max_zoom": 15,
+          "order": 0,
+          "bounds": null
+        },
+        {
+          "id": 703,
+          "map_id": 686,
+          "name": "Legacy",
+          "path": "black-myth-wukong/chapter-3/paper-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-3/paper-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 9,
+          "max_zoom": 16,
+          "order": 1,
+          "bounds": null
+        }
+      ],
+      "locations_count": 577,
+      "regions_count": 5
+    },
+    {
+      "id": 687,
+      "slug": "chapter-4",
+      "title": "Chapter 4: Rosy Cheeks, Gray Hair",
+      "start_lat": 1.0246905452874,
+      "start_lng": -0.988725705522,
+      "initial_zoom": 13,
+      "tile_sets": [
+        {
+          "id": 855,
+          "map_id": 687,
+          "name": "Chart",
+          "path": "black-myth-wukong/chapter-4/chart-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-4/chart-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 8,
+          "max_zoom": 15,
+          "order": 0,
+          "bounds": null
+        },
+        {
+          "id": 705,
+          "map_id": 687,
+          "name": "Legacy",
+          "path": "black-myth-wukong/chapter-4/paper-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-4/paper-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 9,
+          "max_zoom": 15,
+          "order": 1,
+          "bounds": null
+        }
+      ],
+      "locations_count": 502,
+      "regions_count": 6
+    },
+    {
+      "id": 688,
+      "slug": "chapter-5",
+      "title": "Chapter 5: Golden Child, Crimson Blood",
+      "start_lat": 1.0128486671844,
+      "start_lng": -0.4542672185554,
+      "initial_zoom": 13,
+      "tile_sets": [
+        {
+          "id": 856,
+          "map_id": 688,
+          "name": "Chart",
+          "path": "black-myth-wukong/chapter-5/chart-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-5/chart-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 8,
+          "max_zoom": 15,
+          "order": 0,
+          "bounds": null
+        },
+        {
+          "id": 707,
+          "map_id": 688,
+          "name": "Legacy",
+          "path": "black-myth-wukong/chapter-5/paper-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-5/paper-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 9,
+          "max_zoom": 14,
+          "order": 1,
+          "bounds": null
+        }
+      ],
+      "locations_count": 212,
+      "regions_count": 4
+    },
+    {
+      "id": 689,
+      "slug": "chapter-6",
+      "title": "Chapter 6",
+      "start_lat": 0.72401192550002,
+      "start_lng": -0.63721314519222,
+      "initial_zoom": 12,
+      "tile_sets": [
+        {
+          "id": 804,
+          "map_id": 689,
+          "name": "Chart",
+          "path": "black-myth-wukong/chapter-6/chart-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-6/chart-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 9,
+          "max_zoom": 13,
+          "order": 0,
+          "bounds": null
+        },
+        {
+          "id": 709,
+          "map_id": 689,
+          "name": "Legacy",
+          "path": "black-myth-wukong/chapter-6/paper-v1",
+          "extension": "jpg",
+          "pattern": "black-myth-wukong/chapter-6/paper-v1/{z}/{y}/{x}.jpg",
+          "min_zoom": 9,
+          "max_zoom": 13,
+          "order": 1,
+          "bounds": null
+        }
+      ],
+      "locations_count": 53,
+      "regions_count": 3
+    }
+  ]
+}

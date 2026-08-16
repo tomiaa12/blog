@@ -287,6 +287,8 @@ export default defineAdditionalConfig({
           { text: "荒野大镖客2地图收藏家", link: "/pages/rdr2-map" },
           { text: "塞尔达：旷野之息地图全收集", link: "/pages/botw-map" },
           // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
+          { text: "GTA：罪恶都市地图全收集", link: "/pages/gta-vc-map" },
+          { text: "黑神话：悟空地图全收集", link: "/pages/wukong-map" },
         ],
       },
       {

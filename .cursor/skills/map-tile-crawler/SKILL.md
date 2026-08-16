@@ -54,8 +54,9 @@ Required layout:
 ```text
 {slug}-map-tile/
 ├── README.md
-├── crawl_tiles.py
-├── extract_locations.py
+├── crawl_tiles.py          # local only, never git add
+├── extract_locations.py    # local only, never git add
+├── add_zh_names.py         # local only, never git add
 ├── data/
 │   ├── source.json
 │   ├── index.json
@@ -69,11 +70,106 @@ Required layout:
         └── {z}/{x}/{y}.<ext>
 ```
 
+### Git policy
+
+**Hard rule: never commit download/extract scripts to the dataset git repo.**
+
+Scripts that must stay local / gitignored:
+
+```text
+crawl_tiles.py
+extract_locations.py
+add_zh_names.py
+any other crawler/downloader/extractor .py created in the dataset project
+```
+
+Canonical copies live only in the skill:
+
+```text
+.cursor/skills/map-tile-crawler/scripts/
+```
+
+Copy them into `{slug}-map-tile/` for local use, but they must be in `.gitignore`.
+
+When initializing or pushing `{slug}-map-tile`, always write/update `.gitignore` first, then `git add` only `README.md`, `data/`, and `tiles/`. Never `git add *.py` in the dataset project.
+
+If scripts were already committed, `git rm --cached` them and keep the working copies on disk.
+
+### Announce the repo name before download
+
+As soon as `{slug}` is known — **before** starting the tile download — tell the user the exact GitHub repo to create:
+
+```text
+仓库名：{slug}-map-tile
+远程：git@github.com:tomiaa12/{slug}-map-tile.git
+新建空仓库：https://github.com/new?name={slug}-map-tile
+要求：公开、不要勾选 README / .gitignore / license
+```
+
+Do not wait for tiles to finish before saying this. The user can create the empty public repo by hand while the crawler runs.
+
+### Write the blog map page during download
+
+Do not sit idle while tiles download. After discovery (template, layers, zoom, bounds, start lat/lng, category titles) is enough:
+
+1. Start `crawl_tiles.py` in the background.
+2. In parallel, add the blog page the same way as existing maps (`botw-map` / `gta-vc-map` / `wukong-map`):
+   - `src/zh/pages/{slug}-map.md`
+   - `src/zh/pages/components/{slug}Map.vue`
+   - local `names_zh` / `bounds` JSON under `src/zh/pages/components/map/`
+   - nav item in `src/config.ts` 游戏 menu
+3. Point tiles at jsDelivr `@master` with raw.githubusercontent.com fallback.
+4. Finish extract / `title_zh` / README in the dataset project while the crawler is still running when possible.
+
+Push the dataset repo as soon as the remote exists and the download has produced a valid first commit (or after download completes). Do not block page coding on `git push`.
+
+### Publish with GitHub MCP
+
+Use the GitHub MCP server `plugin-github-github` to create the repo when the user asks to publish. Do this **as early as possible** (right after announcing the name), not only after the download finishes.
+
+1. Call `get_me` to confirm the account. This project uses `tomiaa12`.
+2. Call `create_repository`:
+   - `name`: `{slug}-map-tile`
+   - `private`: `false` (jsDelivr / raw.githubusercontent.com need a public repo)
+   - `autoInit`: `false` (empty repo so the first local commit can be pushed)
+   - `description`: short dataset summary
+3. If `create_repository` returns 401/403, call `mcp_auth` on the same server, then retry once.
+4. If MCP is missing, still 403, or `mcp_auth` does not help: **do not stop the crawl**. Tell the user MCP 不可用，请手动创建上面的空公开仓库，建好后把 SSH 地址发回来。Keep downloading and writing the blog page.
+5. Locally initialize and push. Do **not** use `push_files` for tiles (thousands of binaries). `push_files` is only for a handful of text files.
+
+```text
+git init -b master
+git remote add origin git@github.com:{login}/{slug}-map-tile.git
+git add .gitignore README.md data/ tiles/
+git commit
+git push -u origin HEAD
+```
+
+Never `git add *.py` in the dataset project.
+
+Required `.gitignore` for every `{slug}-map-tile` repo:
+
+```gitignore
+# download / extract scripts — keep local, never commit
+crawl_tiles.py
+extract_locations.py
+add_zh_names.py
+*.py
+
+__pycache__/
+*.pyc
+data/failures.jsonl
+data/page.html
+```
+
+Listing the known script names plus `*.py` is the safe default. If a non-crawler Python file is truly needed in the repo, un-ignore it explicitly (for example `!serve.py`).
+
 Copy and adapt the reference scripts from this skill:
 
 ```text
 .cursor/skills/map-tile-crawler/scripts/crawl_tiles.py
 .cursor/skills/map-tile-crawler/scripts/extract_locations.py
+.cursor/skills/map-tile-crawler/scripts/add_zh_names.py
 ```
 
 `crawl_tiles.py` is the preferred downloader: stdlib only, resume, JPEG/PNG magic check, 429 backoff, sliding-window futures (`max_in_flight = workers * 4`). Fill in `TEMPLATE`, `REFERER`, `BOUNDS`, and `TILE_DIR` after discovery.
@@ -821,8 +917,9 @@ Use a project named `{slug}-map-tile`:
 
 ```text
 {slug}-map-tile/
-├── crawl_tiles.py
-├── extract_locations.py
+├── crawl_tiles.py          # local only, never git add
+├── extract_locations.py    # local only, never git add
+├── add_zh_names.py         # local only, never git add
 ├── data/
 └── tiles/
     └── <layer>/
@@ -833,6 +930,8 @@ Use a project named `{slug}-map-tile`:
             ├── 10_4.jpg
             └── ...
 ```
+
+Python download/extract scripts are local-only. They belong in `.gitignore` and must never be committed. Canonical copies live in `.cursor/skills/map-tile-crawler/scripts/`.
 
 For standard XYZ:
 
@@ -1421,6 +1520,8 @@ example-hyrule-map-tile/
 └── README.md
 ```
 
+Do not list or commit crawler/download/extract scripts (`crawl_tiles.py`, `extract_locations.py`, `add_zh_names.py`, `crawler.py`, or any other `.py`). Scripts stay local and gitignored. Canonical copies live only in the skill.
+
 `metadata.json`:
 
 ```json
@@ -1962,6 +2063,10 @@ Consider the task complete only when:
 * [ ] Output directory is documented.
 * [ ] Optional local serving instructions are provided when requested.
 * [ ] Optional stitching/export is completed when requested.
+* [ ] Download/extract scripts are gitignored and not committed.
+* [ ] Repo name `{slug}-map-tile` was announced before download started.
+* [ ] Blog map page was started during download when the user asked to接入 / 做页面.
+* [ ] If GitHub MCP could not create the repo, the user was given the empty-repo URL to create it manually.
 
 ---
 
@@ -1984,6 +2089,8 @@ Tile: 256x256 JPEG
 ```
 
 If the estimated download is large, stop before downloading and request confirmation.
+
+Before starting any download, always print the repo name and the GitHub “create empty public repo” URL. If GitHub MCP is unavailable, the user can create it manually while tiles download and the blog page is written.
 
 If the user explicitly says:
 
