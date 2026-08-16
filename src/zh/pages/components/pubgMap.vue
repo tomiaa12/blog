@@ -1,56 +1,34 @@
 <template>
-  <div class="pubg-map-wrap">
+  <div
+    class="pubg-map-wrap"
+    :class="{ 'is-web-fullscreen': isWebFullScreen }"
+  >
     <div
       ref="elMap"
       class="pubg-map-canvas"
     ></div>
 
-    <div class="map-switcher">
-      <button
-        v-for="item in maps"
-        :key="item.id"
-        type="button"
-        class="map-item"
-        :class="{ active: currentMap === item.id }"
-        :title="item.name"
-        @click="switchMap(item.id)"
-      >
-        <img
-          :src="tileUrl(item.id, 0, 0, 0)"
-          :alt="item.name"
-        />
-        <span>{{ item.name }}</span>
-      </button>
-    </div>
+    <MapSwitcher
+      :model-value="currentMap"
+      :items="switcherItems"
+      @update:model-value="switchMap"
+    />
 
-    <div
-      v-if="markerTypes.length"
-      class="marker-filter"
-    >
-      <el-checkbox-group
-        v-model="enabledTypeIds"
-        @change="onFilterChange"
-      >
-        <el-checkbox
-          v-for="item in markerTypes"
-          :key="item.id"
-          class="filter-item"
-          :label="item.id"
-          :value="item.id"
-        >
-          <img
-            :src="markerIconUrl(item.icon_url)"
-            :alt="item.name_zh"
-          />
-          <span>{{ item.name_zh }} {{ item.count }}</span>
-        </el-checkbox>
-      </el-checkbox-group>
-    </div>
+    <MarkerFilter
+      v-model="enabledTypeIds"
+      :items="filterItems"
+      class="pubg-filter"
+      @change="onFilterChange"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref } from "vue"
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue"
+import { useWebFullScreen } from "@/hooks/useWebFullScreen"
+import MapSwitcher from "./map/MapSwitcher.vue"
+import MarkerFilter from "./map/MarkerFilter.vue"
+import type { MarkerFilterItem } from "./map/MarkerFilter.vue"
 import "ol/ol.css"
 import { Feature, Map as OlMap, View } from "ol"
 import TileLayer from "ol/layer/Tile"
@@ -105,9 +83,27 @@ type MarkerItem = {
 }
 
 const elMap = ref<HTMLElement>()
+const { isWebFullScreen } = useWebFullScreen()
 const currentMap = ref<MapId>("Erangel")
 const markerTypes = ref<MarkerType[]>([])
 const enabledTypeIds = ref<string[]>([])
+
+const switcherItems = computed(() =>
+  maps.map(item => ({
+    id: item.id,
+    name: item.name,
+    preview: tileUrl(item.id, 0, 0, 0),
+  }))
+)
+
+const filterItems = computed<MarkerFilterItem[]>(() =>
+  markerTypes.value.map(item => ({
+    id: item.id,
+    name: item.name_zh,
+    icon: markerIconUrl(item.icon_url),
+    count: item.count,
+  }))
+)
 
 const projection = new Projection({
   code: "PUBG-MAP",
@@ -258,17 +254,24 @@ function onFilterChange() {
   markerLayer?.changed()
 }
 
-function switchMap(id: MapId) {
-  currentMap.value = id
-  tileLayer?.setSource(createSource(id))
-  overviewLayer?.setSource(createSource(id))
+function switchMap(id: string) {
+  const mapId = id as MapId
+  currentMap.value = mapId
+  tileLayer?.setSource(createSource(mapId))
+  overviewLayer?.setSource(createSource(mapId))
   nextTick(fitMap)
-  loadMarkers(id)
+  loadMarkers(mapId)
 }
 
 function onResize() {
   olMap?.updateSize()
 }
+
+let resizeObserver: ResizeObserver | undefined
+
+watch(isWebFullScreen, () => {
+  nextTick(onResize)
+})
 
 onMounted(() => {
   tileLayer = new TileLayer({
@@ -316,9 +319,15 @@ onMounted(() => {
   nextTick(fitMap)
   loadMarkers(currentMap.value)
   window.addEventListener("resize", onResize)
+  if (elMap.value) {
+    resizeObserver = new ResizeObserver(onResize)
+    resizeObserver.observe(elMap.value)
+  }
 })
 
 onUnmounted(() => {
+  resizeObserver?.disconnect()
+  resizeObserver = undefined
   window.removeEventListener("resize", onResize)
   olMap?.setTarget(undefined)
   olMap = null
@@ -345,8 +354,20 @@ onUnmounted(() => {
     margin: 0 !important;
   }
 
-  .VPDoc {
+  .VPDoc,
+  .VPPage {
     padding: 0 !important;
+  }
+
+  &.vp-webfullscreen {
+    height: 100vh;
+    overflow: hidden;
+
+    .VPContent,
+    .VPPage {
+      height: 100%;
+      padding: 0 !important;
+    }
   }
 }
 </style>
@@ -358,6 +379,14 @@ onUnmounted(() => {
   height: calc(var(--vh, 100vh) - var(--vp-nav-height, 64px));
   overflow: hidden;
   background: #0b1220;
+
+  &.is-web-fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .pubg-map-canvas {
@@ -365,96 +394,11 @@ onUnmounted(() => {
   height: 100%;
 }
 
-.map-switcher {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  max-width: min(720px, calc(100% - 72px));
-}
-
-.map-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  width: 88px;
-  padding: 6px;
-  border: 1px solid color-mix(in srgb, var(--vp-c-divider) 70%, transparent);
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--vp-c-bg) 86%, transparent);
-  color: var(--vp-c-text-1);
-  box-shadow: var(--el-box-shadow-light);
-  cursor: pointer;
-
-  img {
-    width: 76px;
-    height: 76px;
-    object-fit: cover;
-    border-radius: 6px;
-  }
-
-  span {
-    font-size: 12px;
-    line-height: 1.2;
-  }
-
-  &:hover,
-  &.active {
-    border-color: var(--vp-c-brand-1);
-    color: var(--vp-c-brand-1);
-  }
-}
-
-.marker-filter {
+.pubg-filter {
   position: absolute;
   top: 132px;
   left: 12px;
   z-index: 1;
-  min-width: 168px;
-  padding: 8px;
-  border: 1px solid color-mix(in srgb, var(--vp-c-divider) 70%, transparent);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--vp-c-bg) 88%, transparent);
-  box-shadow: var(--el-box-shadow-light);
-}
-
-.filter-item {
-  display: flex;
-  align-items: center;
-  height: auto;
-  margin: 0;
-  padding: 4px 6px;
-  border-radius: 8px;
-
-  :deep(.el-checkbox__label) {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-left: 8px;
-    color: var(--vp-c-text-1);
-    font-size: 12px;
-  }
-
-  img {
-    width: 22px;
-    height: 22px;
-  }
-
-  &.is-checked :deep(.el-checkbox__label) {
-    color: var(--vp-c-text-1);
-  }
-
-  &:not(.is-checked) {
-    opacity: 0.45;
-
-    :deep(.el-checkbox__label) {
-      color: var(--vp-c-text-2);
-    }
-  }
 }
 
 :deep(.ol-zoom) {
@@ -497,17 +441,7 @@ onUnmounted(() => {
 }
 
 @media screen and (max-width: 768px) {
-  .map-item {
-    width: 68px;
-    padding: 4px;
-
-    img {
-      width: 58px;
-      height: 58px;
-    }
-  }
-
-  .marker-filter {
+  .pubg-filter {
     top: 112px;
   }
 }

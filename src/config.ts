@@ -284,6 +284,7 @@ export default defineAdditionalConfig({
           { text: "Java 经典游戏", link: "/pages/javaGames" },
           { text: "街机游戏", link: "/pages/arcade" },
           { text: "PUBG 地图", link: "/pages/pubg-map" },
+          { text: "荒野大镖客地图", link: "/pages/rdr2-map" },
           // { text: "GTA VC 侠盗飞车 罪恶都市", link: "https://gtavc.kuangyx.cn" },
         ],
       },

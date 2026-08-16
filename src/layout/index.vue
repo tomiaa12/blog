@@ -269,9 +269,10 @@ if (inBrowser) {
 }
 
 // 网页全屏：保留 defaultLayout，只隐藏外壳
+// max-width 用 100%：VitePress 按 (100% - max-width) / 2 算左右留白，设 0 会把内容挤没
 .vp-webfullscreen {
-  --vp-layout-max-width: 0;
-  --vp-nav-height: 0;
+  --vp-layout-max-width: 100%;
+  --vp-nav-height: 0px;
 
   .VPNav,
   .VPNavBar,
@@ -283,8 +284,11 @@ if (inBrowser) {
   }
 
   // 去掉 nav 占位带来的顶部留白
-  .VPContent {
-    padding-top: 0 !important;
+  .VPContent,
+  .VPPage {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
   }
 }
 
