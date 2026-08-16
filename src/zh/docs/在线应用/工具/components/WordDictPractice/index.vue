@@ -466,9 +466,9 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
   gap: 12px;
   :deep(.el-card) {
     flex: 1;
-    :deep(.el-card__body) {
-      padding: 12px 16px;
-    }
+  }
+  :deep(.el-card .el-card__body) {
+    padding: 12px 16px;
   }
   &.is-mobile {
     flex-wrap: wrap;
@@ -477,19 +477,17 @@ function handleDictSelected(payload: { words: any[]; dictInfo: any }) {
     :deep(.el-card) {
       flex: none;
       width: 100%;
-      :deep(.el-card__body) {
-        padding: 10px 12px;
-      }
+    }
+    :deep(.el-card .el-card__body) {
+      padding: 10px 12px;
     }
   }
   // iPad 端优化（768px - 1024px）
   @media (min-width: 768px) and (max-width: 1024px) {
     gap: 10px;
     margin-bottom: 10px;
-    :deep(.el-card) {
-      :deep(.el-card__body) {
-        padding: 10px 14px;
-      }
+    :deep(.el-card .el-card__body) {
+      padding: 10px 14px;
     }
   }
 }

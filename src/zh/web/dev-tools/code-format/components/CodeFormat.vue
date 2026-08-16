@@ -90,7 +90,7 @@ const SAMPLES: Record<Lang, string> = {
   typescript: `type User={id:number;name:string};function greet(user:User):string{return \`Hi, \${user.name}\`}greet({id:1,name:"Ada"})`,
   json: `{"name":"kyx","tools":["format","minify"],"ok":true}`,
   html: `<!DOCTYPE html><html><body><h1 class="title">Hello</h1><p>Format me</p></body></html>`,
-  vue: `<template><div class="box"><h1>{{title}}</h1></div></template><script setup>const title="Hello"</script>`,
+  vue: `<template><div class="box"><h1>{{title}}</h1></div></template><script setup>const title="Hello"<\/script>`,
   css: `.hero{color:#3b82f6;font-size:24px;margin:0 auto} .hero h1{font-weight:700}`,
   scss: `$brand:#3b82f6;.hero{color:$brand;& h1{font-weight:700}}`,
   less: `@brand:#3b82f6;.hero{color:@brand;h1{font-weight:700}}`,
