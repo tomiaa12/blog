@@ -8,7 +8,7 @@
       alt="tomiaa12 的 Github 贡献图表"
     >
       <template #placeholder>
-        <emptyChat class="github-chart__placeholder" />
+        <emptyChat class="github-chart__placeholder" width="1125" />
       </template>
     </el-image>
   </div>
