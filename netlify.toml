@@ -1,0 +1,7 @@
+[build]
+  # VitePress outDir is "../kuangyx" relative to src (see src/.vitepress/config.ts)
+  publish = "kuangyx"
+
+[build.environment]
+  # VitePress page rendering exceeds Node's default ~2GB heap on this site
+  NODE_OPTIONS = "--max-old-space-size=6144"
